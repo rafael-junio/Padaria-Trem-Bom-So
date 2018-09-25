@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.3.0">
-  <zoom_level>8</zoom_level>
+  <zoom_level>7</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>368</x>
-      <y>544</y>
-      <w>224</w>
-      <h>184</h>
+      <x>364</x>
+      <y>490</y>
+      <w>196</w>
+      <h>161</h>
     </coordinates>
     <panel_attributes>Pessoa Fisica
 --
@@ -30,10 +30,10 @@ group=5</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>872</x>
-      <y>392</y>
-      <w>224</w>
-      <h>144</h>
+      <x>805</x>
+      <y>357</y>
+      <w>196</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>Pessoa Juridica
 --
@@ -54,10 +54,10 @@ group=1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1000</x>
-      <y>680</y>
-      <w>312</w>
-      <h>72</h>
+      <x>917</x>
+      <y>609</y>
+      <w>273</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>FornecedorRecorrente
 --
@@ -71,10 +71,10 @@ group=1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>320</x>
-      <y>776</y>
-      <w>328</w>
-      <h>104</h>
+      <x>322</x>
+      <y>693</y>
+      <w>287</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes>Funcionario
 --
@@ -91,10 +91,10 @@ group=5</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>824</x>
-      <y>680</y>
-      <w>160</w>
-      <h>56</h>
+      <x>763</x>
+      <y>609</y>
+      <w>140</w>
+      <h>49</h>
     </coordinates>
     <panel_attributes>FornecedorNaoRecorrente
 --
@@ -106,10 +106,10 @@ group=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>976</x>
-      <y>528</y>
-      <w>24</w>
-      <h>72</h>
+      <x>896</x>
+      <y>476</y>
+      <w>21</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 group=1</panel_attributes>
@@ -118,10 +118,10 @@ group=1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>936</x>
-      <y>584</y>
-      <w>104</w>
-      <h>64</h>
+      <x>861</x>
+      <y>525</y>
+      <w>91</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Abstract&gt;&gt;
 Fornecedor
@@ -134,10 +134,10 @@ group=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1032</x>
-      <y>640</y>
-      <w>48</w>
-      <h>56</h>
+      <x>945</x>
+      <y>574</y>
+      <w>42</w>
+      <h>49</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 group=1</panel_attributes>
@@ -146,10 +146,10 @@ group=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>912</x>
-      <y>640</y>
-      <w>40</w>
-      <h>56</h>
+      <x>840</x>
+      <y>574</y>
+      <w>35</w>
+      <h>49</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 group=1</panel_attributes>
@@ -158,10 +158,10 @@ group=1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>264</x>
-      <y>200</y>
-      <w>384</w>
-      <h>72</h>
+      <x>357</x>
+      <y>133</y>
+      <w>336</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 CompraPrazo
@@ -175,10 +175,10 @@ group=4</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>776</x>
-      <y>800</y>
-      <w>104</w>
-      <h>64</h>
+      <x>721</x>
+      <y>714</y>
+      <w>91</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>CartaoFidelidade
 --
@@ -191,30 +191,32 @@ group=5</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>328</x>
-      <y>312</y>
-      <w>256</w>
-      <h>96</h>
+      <x>413</x>
+      <y>231</y>
+      <w>301</w>
+      <h>119</h>
     </coordinates>
     <panel_attributes>Vendas
 --
 -produtos: Produto[20]
 -dataCompra: Data
 -vendedor: Vendedor
+-pagamento: String
 --
 +realizarCompra(novoProduto: Produto)
 +cancelarCompra(cancelaProduto: Produto)
-
++formaPagamento(pagamento: String): float
++formaPagamento(pagamento: String, parcelas: int): float
 group=4</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>680</x>
-      <y>800</y>
-      <w>72</w>
-      <h>56</h>
+      <x>637</x>
+      <y>714</y>
+      <w>63</w>
+      <h>49</h>
     </coordinates>
     <panel_attributes>Cliente
 --
@@ -226,10 +228,10 @@ group=5</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>288</x>
-      <y>48</y>
-      <w>360</w>
-      <h>112</h>
+      <x>378</x>
+      <y>0</y>
+      <w>315</w>
+      <h>98</h>
     </coordinates>
     <panel_attributes>Estoque
 --
@@ -246,10 +248,10 @@ group=4</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>944</y>
-      <w>296</w>
-      <h>104</h>
+      <x>42</x>
+      <y>840</y>
+      <w>259</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes>Vendedor
 --
@@ -266,10 +268,10 @@ group=5</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>624</x>
-      <y>944</y>
-      <w>280</w>
-      <h>104</h>
+      <x>588</x>
+      <y>840</y>
+      <w>245</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes>Padeiro
 --
@@ -286,10 +288,10 @@ group=5</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>312</x>
-      <y>944</y>
-      <w>296</w>
-      <h>104</h>
+      <x>315</x>
+      <y>840</y>
+      <w>259</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes>Gerentes
 --
@@ -306,10 +308,10 @@ group=5</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>256</x>
-      <y>872</y>
-      <w>96</w>
-      <h>88</h>
+      <x>266</x>
+      <y>777</y>
+      <w>84</w>
+      <h>77</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 group=5</panel_attributes>
@@ -318,10 +320,10 @@ group=5</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>640</x>
-      <y>872</y>
-      <w>72</w>
-      <h>88</h>
+      <x>602</x>
+      <y>777</y>
+      <w>63</w>
+      <h>77</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 group=5</panel_attributes>
@@ -330,10 +332,10 @@ group=5</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>456</x>
-      <y>872</y>
-      <w>24</w>
-      <h>88</h>
+      <x>441</x>
+      <y>777</y>
+      <w>21</w>
+      <h>77</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 group=5</panel_attributes>
@@ -342,10 +344,10 @@ group=5</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>464</x>
-      <y>720</y>
-      <w>24</w>
-      <h>72</h>
+      <x>448</x>
+      <y>644</y>
+      <w>21</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 group=5</panel_attributes>
@@ -354,10 +356,10 @@ group=5</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>584</x>
-      <y>712</y>
-      <w>144</w>
-      <h>104</h>
+      <x>553</x>
+      <y>637</y>
+      <w>126</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 group=5</panel_attributes>
@@ -366,10 +368,10 @@ group=5</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>440</x>
-      <y>264</y>
-      <w>24</w>
-      <h>64</h>
+      <x>511</x>
+      <y>189</y>
+      <w>21</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.
 group=4</panel_attributes>
@@ -378,10 +380,10 @@ group=4</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>80</x>
-      <y>288</y>
-      <w>192</w>
-      <h>64</h>
+      <x>112</x>
+      <y>266</y>
+      <w>168</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>Tipo
 --
@@ -396,10 +398,10 @@ group=6</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>40</x>
-      <y>384</y>
-      <w>272</w>
-      <h>184</h>
+      <x>77</x>
+      <y>350</y>
+      <w>238</w>
+      <h>161</h>
     </coordinates>
     <panel_attributes>Produto
 --
@@ -407,6 +409,7 @@ group=6</panel_attributes>
 -fornecedor: Fornecedor
 -preco: float
 -tipo: Tipo
+-quantidade: int
 --
 +getNome(): String
 +setNome(nome: String): void
@@ -416,19 +419,50 @@ group=6</panel_attributes>
 +setPreco(preco: float): void
 +getTipo(): Tipo
 +setTipo(tipo: Tipo): void
++getQuantidade(): int
++setQuantidade(quantidade: int): void
 group=6</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>168</x>
-      <y>344</y>
-      <w>24</w>
-      <h>56</h>
+      <x>189</x>
+      <y>315</y>
+      <w>21</w>
+      <h>49</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 group=6</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>728</x>
+      <y>133</y>
+      <w>336</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+AlertaEstoque
+--
+
+--
+&lt;&lt;abstract&gt;&gt;+verificarAuantidade(produto: Produto): void
+
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>700</x>
+      <y>189</y>
+      <w>42</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>40.0;10.0;10.0;60.0</additional_attributes>
   </element>
 </diagram>
