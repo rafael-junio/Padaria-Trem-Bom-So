@@ -4,12 +4,12 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>456</x>
-      <y>536</y>
+      <x>440</x>
+      <y>488</y>
       <w>224</w>
       <h>112</h>
     </coordinates>
-    <panel_attributes>Pessoa Fisica
+    <panel_attributes>&lt;&lt;abstract&gt;&gt;Pessoa Fisica
 --
 #telefone: String
 #cpf: String
@@ -17,33 +17,31 @@
 +getTelefone(): String
 +setTelefone(telefone: String): void
 +getCpf(): String
-+setCpf(cpf: String): void
-group=5</panel_attributes>
++setCpf(cpf: String): void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>960</x>
-      <y>384</y>
+      <x>928</x>
+      <y>432</y>
       <w>224</w>
       <h>80</h>
     </coordinates>
-    <panel_attributes>Pessoa Juridica
+    <panel_attributes>&lt;&lt;abstract&gt;&gt;Fornecedor
 --
 #cnpj: String
 --
 +getCnpj(): String
 +setCnpj(cnpj: String): void
-
-group=1</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1088</x>
-      <y>672</y>
+      <x>1064</x>
+      <y>608</y>
       <w>312</w>
       <h>72</h>
     </coordinates>
@@ -52,15 +50,14 @@ group=1</panel_attributes>
 -descontoProdutos: float
 --
 +getDescontoProdutos(): float
-+setDescontoProdutos(descontoProdutos: float): void
-group=1</panel_attributes>
++setDescontoProdutos(descontoProdutos: float): void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>408</x>
-      <y>768</y>
+      <x>392</x>
+      <y>720</y>
       <w>328</w>
       <h>104</h>
     </coordinates>
@@ -72,82 +69,50 @@ group=1</panel_attributes>
 +getSalarioBase(): float
 +setSalarioBase(salarioBase: float): void
 +getCodigoFuncionario(): String
-+setCodigoFuncionario(codigoFuncionario: String): void
-group=5</panel_attributes>
++setCodigoFuncionario(codigoFuncionario: String): void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>912</x>
-      <y>672</y>
+      <x>848</x>
+      <y>600</y>
       <w>160</w>
       <h>56</h>
     </coordinates>
     <panel_attributes>FornecedorNaoRecorrente
 --
 
---
-group=1</panel_attributes>
+--</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1064</x>
-      <y>456</y>
-      <w>24</w>
-      <h>136</h>
+      <x>1080</x>
+      <y>504</y>
+      <w>64</w>
+      <h>120</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;-
-group=1</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>1024</x>
-      <y>576</y>
-      <w>104</w>
-      <h>64</h>
-    </coordinates>
-    <panel_attributes>&lt;&lt;Abstract&gt;&gt;
-Fornecedor
---
-
---
-group=1</panel_attributes>
-    <additional_attributes/>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;130.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1120</x>
-      <y>632</y>
-      <w>48</w>
-      <h>56</h>
+      <x>936</x>
+      <y>504</y>
+      <w>72</w>
+      <h>112</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;-
-group=1</panel_attributes>
-    <additional_attributes>10.0;10.0;40.0;50.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1000</x>
-      <y>632</y>
-      <w>40</w>
-      <h>56</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-
-group=1</panel_attributes>
-    <additional_attributes>30.0;10.0;10.0;50.0</additional_attributes>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>70.0;10.0;10.0;120.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>352</x>
-      <y>152</y>
+      <x>440</x>
+      <y>8</y>
       <w>384</w>
       <h>72</h>
     </coordinates>
@@ -156,15 +121,14 @@ CompraPrazo
 --
 
 --
-&lt;&lt;abstract&gt;&gt;+parcelarCompra(valorCompra: float, numParcelas: int)
-group=4</panel_attributes>
+&lt;&lt;abstract&gt;&gt;+parcelarCompra(valorCompra: float, numParcelas: int)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>864</x>
-      <y>792</y>
+      <x>848</x>
+      <y>744</y>
       <w>104</w>
       <h>64</h>
     </coordinates>
@@ -172,15 +136,14 @@ group=4</panel_attributes>
 --
 -cartaoGold
 -cartaoPlatinum
---
-group=5</panel_attributes>
+--</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>416</x>
-      <y>264</y>
+      <x>504</x>
+      <y>120</y>
       <w>256</w>
       <h>96</h>
     </coordinates>
@@ -192,50 +155,46 @@ group=5</panel_attributes>
 --
 +realizarCompra(novoProduto: Produto)
 +cancelarCompra(cancelaProduto: Produto)
-
-group=4</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>768</x>
-      <y>792</y>
+      <x>744</x>
+      <y>664</y>
       <w>72</w>
       <h>56</h>
     </coordinates>
     <panel_attributes>Cliente
 --
 
---
-group=5</panel_attributes>
+--</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>376</x>
+      <x>40</x>
       <y>0</y>
       <w>360</w>
       <h>112</h>
     </coordinates>
     <panel_attributes>Estoque
 --
--tipos: Tipo[50]
--produtos: Produto[30]
+-produtos: Produto[50]
 --
 +cadastrarProduto(tipo: Tipo, produto: Produto): boolean
 +descadastrarProduto(tipo: Tipo, produto: Produto): boolean
 +alertaProduto
-+procurarProduto(tipo: Tipo, produto: Produto): boolean
-group=4</panel_attributes>
++procurarProduto(tipo: Tipo, produto: Produto): boolean</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>88</x>
-      <y>936</y>
+      <x>72</x>
+      <y>888</y>
       <w>296</w>
       <h>104</h>
     </coordinates>
@@ -247,15 +206,14 @@ group=4</panel_attributes>
 +getMontanteVendas(): float
 +setMontantesVendas(montantes: float): void
 +getBonificacaoVendedor(): float
-+setBonificacaoVendedor(salarioBase: float): float
-group=5</panel_attributes>
++setBonificacaoVendedor(salarioBase: float): float</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>712</x>
-      <y>936</y>
+      <x>696</x>
+      <y>888</y>
       <w>280</w>
       <h>104</h>
     </coordinates>
@@ -267,15 +225,14 @@ group=5</panel_attributes>
 +getHoraExcedente(): int
 +setHoraExecedente(horaExcedente: int): void
 +getGratificacao(): float
-+setGratificacao(gratificacao: float): void
-group=5</panel_attributes>
++setGratificacao(gratificacao: float): void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>400</x>
-      <y>936</y>
+      <x>384</x>
+      <y>888</y>
       <w>296</w>
       <h>104</h>
     </coordinates>
@@ -287,98 +244,91 @@ group=5</panel_attributes>
 +getMontanteVendas(): float
 +setMontantesVendas(montantes: float): void
 +getBonificacaoVendedor(): float
-+setBonificacaoVendedor(salarioBase: float): float
-group=5</panel_attributes>
++setBonificacaoVendedor(salarioBase: float): float</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>344</x>
-      <y>864</y>
+      <x>328</x>
+      <y>816</y>
       <w>96</w>
       <h>88</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;-
-group=5</panel_attributes>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>100.0;10.0;10.0;90.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>728</x>
-      <y>864</y>
+      <x>712</x>
+      <y>816</y>
       <w>72</w>
       <h>88</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;-
-group=5</panel_attributes>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;70.0;90.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>544</x>
-      <y>864</y>
+      <x>528</x>
+      <y>816</y>
       <w>24</w>
       <h>88</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;-
-group=5</panel_attributes>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>552</x>
-      <y>640</y>
+      <x>536</x>
+      <y>592</y>
       <w>24</w>
       <h>144</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;-
-group=5</panel_attributes>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;160.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>672</x>
-      <y>640</y>
-      <w>144</w>
-      <h>168</h>
+      <x>656</x>
+      <y>592</y>
+      <w>136</w>
+      <h>88</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;-
-group=5</panel_attributes>
-    <additional_attributes>10.0;10.0;160.0;190.0</additional_attributes>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;150.0;90.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>528</x>
-      <y>216</y>
+      <x>616</x>
+      <y>72</y>
       <w>24</w>
       <h>64</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;.
-group=4</panel_attributes>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>400</x>
-      <y>352</y>
-      <w>128</w>
-      <h>48</h>
+      <x>384</x>
+      <y>208</y>
+      <w>232</w>
+      <h>168</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;40.0;140.0;10.0</additional_attributes>
+    <additional_attributes>10.0;190.0;270.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>648</y>
+      <x>8</x>
+      <y>616</y>
       <w>168</w>
       <h>120</h>
     </coordinates>
@@ -397,10 +347,10 @@ group=4</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>136</x>
-      <y>288</y>
+      <x>120</x>
+      <y>216</y>
       <w>272</w>
-      <h>280</h>
+      <h>336</h>
     </coordinates>
     <panel_attributes>&lt;&lt;abstract&gt;&gt; Produto
 --
@@ -410,6 +360,7 @@ group=4</panel_attributes>
 -precoFinal: float
 -apelido[5]: String
 -codigo: int
+-quantidadeProduto: int
 --
 +getNome(): String
 +setNome(nome: String): void
@@ -424,36 +375,38 @@ group=4</panel_attributes>
 +setApelido(apelido: String): void
 +getApelido(): String
 +temApelido(): boolean
++getQuantidade(): int
++setQuantidade(quantidade: int): void
 +imprimeInformacoesProduto(): void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>88</x>
-      <y>560</y>
-      <w>152</w>
-      <h>104</h>
+      <x>96</x>
+      <y>544</y>
+      <w>128</w>
+      <h>88</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>170.0;10.0;10.0;110.0</additional_attributes>
+    <additional_attributes>140.0;10.0;10.0;90.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>400</x>
-      <y>392</y>
-      <w>640</w>
-      <h>224</h>
+      <x>384</x>
+      <y>384</y>
+      <w>560</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>780.0;260.0;10.0;10.0</additional_attributes>
+    <additional_attributes>680.0;130.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>224</x>
-      <y>648</y>
+      <x>240</x>
+      <y>616</y>
       <w>168</w>
       <h>56</h>
     </coordinates>
@@ -467,19 +420,19 @@ group=4</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>264</x>
-      <y>560</y>
-      <w>72</w>
-      <h>104</h>
+      <x>248</x>
+      <y>544</y>
+      <w>104</w>
+      <h>88</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;70.0;110.0</additional_attributes>
+    <additional_attributes>10.0;10.0;110.0;90.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>712</x>
-      <y>304</y>
+      <x>696</x>
+      <y>256</y>
       <w>168</w>
       <h>80</h>
     </coordinates>
@@ -495,8 +448,8 @@ setNome(): void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>616</x>
-      <y>376</y>
+      <x>600</x>
+      <y>328</y>
       <w>176</w>
       <h>176</h>
     </coordinates>
@@ -506,12 +459,34 @@ setNome(): void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>800</x>
-      <y>376</y>
-      <w>176</w>
-      <h>64</h>
+      <x>784</x>
+      <y>328</y>
+      <w>160</w>
+      <h>160</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;200.0;60.0</additional_attributes>
+    <additional_attributes>10.0;10.0;180.0;180.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>200</x>
+      <y>104</y>
+      <w>64</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>60.0;140.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>776</x>
+      <y>712</y>
+      <w>88</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;90.0;90.0</additional_attributes>
   </element>
 </diagram>
