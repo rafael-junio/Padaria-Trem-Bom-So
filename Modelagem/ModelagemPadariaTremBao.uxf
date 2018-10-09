@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>368</x>
+      <y>544</y>
+      <w>224</w>
+      <h>184</h>
+    </coordinates>
+    <panel_attributes>Pessoa Fisica
+--
+#nome: String
+#endereco: String
+#telefone: String
+#cpf: String
+--
++getNome(): String
++setNome(nome: String): void
++getEndereco(): String
++setEndereco(endereco: String): void
++getTelefone(): String
++setTelefone(telefone: String): void
++getCpf(): String
++setCpf(cpf: String): void
+group=5</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>872</x>
+      <y>392</y>
+      <w>224</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>Pessoa Juridica
+--
+#nome: String
+#endereco: String
+#cnpj: String
+--
++getNome(): String
++setNome(nome: String): void
++getEndereco(): String
++setEndereco(endereco: String): void
++getCnpj(): String
++setCnpj(cnpj: String): void
+
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1000</x>
+      <y>680</y>
+      <w>312</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>FornecedorRecorrente
+--
+-descontoProdutos: float
+--
++getDescontoProdutos(): float
++setDescontoProdutos(descontoProdutos: float): void
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>320</x>
+      <y>776</y>
+      <w>328</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>Funcionario
+--
+#salarioBase: float
+#codigoFuncionario: String
+--
++getSalarioBase(): float
++setSalarioBase(salarioBase: float): void
++getCodigoFuncionario(): String
++setCodigoFuncionario(codigoFuncionario: String): void
+group=5</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>824</x>
+      <y>680</y>
+      <w>160</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>FornecedorNaoRecorrente
+--
+
+--
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>976</x>
+      <y>528</y>
+      <w>24</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+group=1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>936</x>
+      <y>584</y>
+      <w>104</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Abstract&gt;&gt;
+Fornecedor
+--
+
+--
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1032</x>
+      <y>640</y>
+      <w>48</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+group=1</panel_attributes>
+    <additional_attributes>10.0;10.0;40.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>912</x>
+      <y>640</y>
+      <w>40</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+group=1</panel_attributes>
+    <additional_attributes>30.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>264</x>
+      <y>200</y>
+      <w>384</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+CompraPrazo
+--
+
+--
+&lt;&lt;abstract&gt;&gt;+parcelarCompra(valorCompra: float, numParcelas: int)
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>776</x>
+      <y>800</y>
+      <w>104</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>CartaoFidelidade
+--
+-cartaoGold
+-cartaoPlatinum
+--
+group=5</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>328</x>
+      <y>312</y>
+      <w>256</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>Vendas
+--
+-produtos: Produto[20]
+-dataCompra: Data
+-vendedor: Vendedor
+--
++realizarCompra(novoProduto: Produto)
++cancelarCompra(cancelaProduto: Produto)
+
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>680</x>
+      <y>800</y>
+      <w>72</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>Cliente
+--
+
+--
+group=5</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>288</x>
+      <y>48</y>
+      <w>360</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>Estoque
+--
+-tipos: Tipo[50]
+-produtos: Produto[30]
+--
++cadastrarProduto(tipo: Tipo, produto: Produto): boolean
++descadastrarProduto(tipo: Tipo, produto: Produto): boolean
++alertaProduto
++procurarProduto(tipo: Tipo, produto: Produto): boolean
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>944</y>
+      <w>296</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>Vendedor
+--
+-montanteVendas: float
+-bonificacaoVendedor: float
+--
++getMontanteVendas(): float
++setMontantesVendas(montantes: float): void
++getBonificacaoVendedor(): float
++setBonificacaoVendedor(salarioBase: float): float
+group=5</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>624</x>
+      <y>944</y>
+      <w>280</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>Padeiro
+--
+-horaExcedente: int
+-gratificacao: float
+--
++getHoraExcedente(): int
++setHoraExecedente(horaExcedente: int): void
++getGratificacao(): float
++setGratificacao(gratificacao: float): void
+group=5</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>312</x>
+      <y>944</y>
+      <w>296</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>Gerentes
+--
+-montanteVendas: float
+-bonificacaoVendedor: float
+--
++getMontanteVendas(): float
++setMontantesVendas(montantes: float): void
++getBonificacaoVendedor(): float
++setBonificacaoVendedor(salarioBase: float): float
+group=5</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>256</x>
+      <y>872</y>
+      <w>96</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+group=5</panel_attributes>
+    <additional_attributes>100.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>640</x>
+      <y>872</y>
+      <w>72</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+group=5</panel_attributes>
+    <additional_attributes>10.0;10.0;70.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>456</x>
+      <y>872</y>
+      <w>24</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+group=5</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>464</x>
+      <y>720</y>
+      <w>24</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+group=5</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>584</x>
+      <y>712</y>
+      <w>144</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+group=5</panel_attributes>
+    <additional_attributes>10.0;10.0;160.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>440</x>
+      <y>264</y>
+      <w>24</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+group=4</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>80</x>
+      <y>288</y>
+      <w>192</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>Tipo
+--
+#codigo: String
+--
++getCodigo(): String
++setCodigo(codigo: String): void
+
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>40</x>
+      <y>384</y>
+      <w>272</w>
+      <h>184</h>
+    </coordinates>
+    <panel_attributes>Produto
+--
+-nome: String
+-fornecedor: Fornecedor
+-preco: float
+-tipo: Tipo
+--
++getNome(): String
++setNome(nome: String): void
++getFornecedor(): Fornecedor
++setFornecedor(fornecedor: Fornecedor): void
++getPreco(): float
++setPreco(preco: float): void
++getTipo(): Tipo
++setTipo(tipo: Tipo): void
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>168</x>
+      <y>344</y>
+      <w>24</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+group=6</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+</diagram>
