@@ -1,4 +1,4 @@
-package br.com.trabalhoProgooII;
+package trabalhoProgooII;
 
 public class Pessoas {
 
