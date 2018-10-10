@@ -1,30 +1,31 @@
 package trabalhoProgooII;
 
-public final class Padeiro extends Funcionario {
+public class Padeiro extends Funcionario {
 	
 	protected int horaExcedente;
-	protected float gratificacao;
+	protected final float gratificacao = 0.25f;
 	
-	public Padeiro(String nome, String endereco, float salarioBase, String codigoFuncionario, int horaExcedente, float gratificacao) {
+	public Padeiro(String nome, String endereco, float salarioBase, String codigoFuncionario) {
 		super(nome, endereco, salarioBase, codigoFuncionario);
-		this.horaExcedente = horaExcedente;
-		this.gratificacao = gratificacao;
 	}
 
 	public int getHoraExcedente() {
 		return horaExcedente;
 	}
-
+	
 	public void setHoraExcedente(int horaExcedente) {
 		this.horaExcedente = horaExcedente;
 	}
 
-	public float getGratificacao() {
-		return gratificacao;
+	public float calculaSalario(int horaExtra) {
+		 setHoraExcedente(horaExtra);
+		 if(horaExtra > 0) {
+			return super.salarioBase + super.salarioBase * (this.gratificacao * horaExtra);
+		 }
+		 else
+			 return this.salarioBase;
 	}
-
-	public void setGratificacao(float gratificacao) {
-		this.gratificacao = gratificacao;
-	}
+	
+	
 
 }

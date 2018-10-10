@@ -1,12 +1,14 @@
 package trabalhoProgooII;
 
-public class Vendedor extends Vendedores {
-	
-	public Vendedor(String nome, String endereco, float salarioBase, String codigoFuncionario, float montanteVendas,
+public class Gerente extends Vendedores {
+
+	public Gerente(String nome, String endereco, float salarioBase, String codigoFuncionario, float montanteVendas,
 			float metaVendas) {
 		super(nome, endereco, salarioBase, codigoFuncionario, montanteVendas, metaVendas);
-		super.bonificacaoVendedor = 0.1f;
+		super.bonificacaoVendedor = 0.2f;
 	}
+	
+		
 
 	@Override
 	public float calculaSalario(float montante, float meta) {
@@ -15,6 +17,8 @@ public class Vendedor extends Vendedores {
 		}
 		else
 			return super.salarioBase;
-	}
+		}
 
 }
+	
+	
