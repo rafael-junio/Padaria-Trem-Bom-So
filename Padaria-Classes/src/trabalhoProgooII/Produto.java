@@ -8,8 +8,11 @@ public abstract class Produto {
 	protected float precoFinal;
 	protected String[] apelido;
 	protected int codigo;
+	protected int diaVenda, mesVenda, anoVenda;
+	protected Vendedor vendedor;
 	
-	public Produto(String nome, Fornecedor fornecedor, float precoCusto, float precoFinal, String[] apelido, int codigo) {
+	public Produto(String nome, Fornecedor fornecedor, float precoCusto, float precoFinal, 
+			String[] apelido, int codigo) {
 		this.nome = nome;
 		this.fornecedor = fornecedor;
 		this.precoCusto = precoCusto;
@@ -17,6 +20,19 @@ public abstract class Produto {
 		this.apelido = apelido;
 		this.codigo = codigo;
 	}
+	
+
+	public Produto(String nome, float precoFinal, int codigo, int diaVenda, int mesVenda, int anoVenda, 
+			Vendedor vendedor) {
+		this.nome = nome;
+		this.precoFinal = precoFinal;
+		this.codigo = codigo;
+		this.diaVenda = diaVenda;
+		this.mesVenda = mesVenda;
+		this.anoVenda = anoVenda;
+		this.vendedor = vendedor;
+	}
+
 
 	public String getNome() {
 		return nome;
