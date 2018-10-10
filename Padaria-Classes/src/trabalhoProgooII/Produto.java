@@ -66,6 +66,7 @@ public abstract class Produto {
 			else
 				return false;
 		}
+		return false;
 	}
 
 	public int getCodigo() {
@@ -76,12 +77,12 @@ public abstract class Produto {
 		this.codigo = codigo;
 	}
 	
-	void imprimeInformacoesProduto() {
+	public void imprimeInformacoesProduto() {
 		System.out.println("Produto: " + getNome());
 		System.out.println("Fornecedor: " + "Aqui falta fazer a parte do Fornecedor");
-		System.out.println("Preço de custo: " + getPrecoCusto());
-		System.out.println("Preço final: " + getPrecoFinal());
-		System.out.println("Código: " + getCodigo());
+		System.out.println("PreÃ§o de custo: " + getPrecoCusto());
+		System.out.println("PreÃ§o final: " + getPrecoFinal());
+		System.out.println("CÃ³digo: " + getCodigo());
 		if(hasApelido()) {
 			for (int i = 0; i < apelido.length; i++) {
 				if(apelido[i] != null)
@@ -90,5 +91,4 @@ public abstract class Produto {
 		}
 			
 	}
-	
 }

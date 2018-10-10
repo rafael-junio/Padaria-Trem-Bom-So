@@ -1,14 +1,12 @@
 package trabalhoProgooII;
 
-public class PessoaJuridica {
+public abstract class Pessoa {
 	protected String nome;
 	protected String endereco;
-	protected String cnpj;
 	
-	public PessoaJuridica(String nome, String endereco, String cnpj) {
+	public Pessoa(String nome, String endereco) {
 		this.nome = nome;
 		this.endereco = endereco;
-		this.cnpj = cnpj;
 	}
 
 	public String getNome() {
@@ -26,14 +24,5 @@ public class PessoaJuridica {
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
-
-	public String getCnpj() {
-		return cnpj;
-	}
-
-	public void setCnpj(String cnpj) {
-		this.cnpj = cnpj;
-	}
-	
 	
 }
