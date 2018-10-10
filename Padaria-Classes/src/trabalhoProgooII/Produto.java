@@ -58,6 +58,7 @@ public abstract class Produto {
 		this.apelido = apelido;
 	}
 	
+	@SuppressWarnings("unused")
 	public boolean hasApelido() {
 		for (int i = 0; i < apelido.length; i++) {
 			if(apelido[i] != null) {
