@@ -10,7 +10,7 @@ import java.awt.event.ActionEvent;
 
 public class TesteJanela {
 
-	private JFrame frame;
+	private JFrame frmPadariaTrmBom;
 
 	/**
 	 * Launch the application.
@@ -21,7 +21,7 @@ public class TesteJanela {
 			public void run() {
 				try {
 					TesteJanela window = new TesteJanela();
-					window.frame.setVisible(true);
+					window.frmPadariaTrmBom.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -52,10 +52,11 @@ public class TesteJanela {
 		
 		String[] apelido = new String[] {"Colherzão", "Colherzinha", "Colherão", "Colherzim", "Colherzom"};
 		
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmPadariaTrmBom = new JFrame();
+		frmPadariaTrmBom.setTitle("Padaria Tr\u00EAm Bom S\u00F4");
+		frmPadariaTrmBom.setBounds(100, 100, 450, 300);
+		frmPadariaTrmBom.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmPadariaTrmBom.getContentPane().setLayout(null);
 		
 		JButton btnEstoque = new JButton("Gest\u00E3o de Estoque");
 		btnEstoque.addActionListener(new ActionListener() {
@@ -88,18 +89,20 @@ public class TesteJanela {
 					}
 				}
 				if (continuarPerguntas) {
-					JOptionPane.showConfirmDialog(null, "Deseja informações");
-					estoque.imprimeInformacoesProdutosVendidos();
+					opProduto = JOptionPane.showConfirmDialog(null, "Deseja informações");
+					if (opProduto == 0) {
+						estoque.imprimeInformacoesProdutosVendidos();
+					}
 				}
 				
 			}
 		});
 		btnEstoque.setBounds(104, 11, 230, 23);
-		frame.getContentPane().add(btnEstoque);
+		frmPadariaTrmBom.getContentPane().add(btnEstoque);
 		
 		JButton btnInformacoes = new JButton("Gest\u00E3o de informa\u00E7\u00F5es");
 		btnInformacoes.setBounds(104, 45, 230, 23);
-		frame.getContentPane().add(btnInformacoes);
+		frmPadariaTrmBom.getContentPane().add(btnInformacoes);
 		
 		JButton btnImprimeInformaes = new JButton("Imprime informa\u00E7\u00F5es");
 		btnImprimeInformaes.addActionListener(new ActionListener() {
@@ -112,7 +115,7 @@ public class TesteJanela {
 			}
 		});
 		btnImprimeInformaes.setBounds(104, 139, 203, 23);
-		frame.getContentPane().add(btnImprimeInformaes);
+		frmPadariaTrmBom.getContentPane().add(btnImprimeInformaes);
 	}
 
 }
