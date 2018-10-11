@@ -6,8 +6,8 @@ public final class ProdutoPerecivel extends Produto {
 	protected int mesValidade;
 	protected int anoValidade;
 	
-	public ProdutoPerecivel(String nome, Fornecedor fornecedor, float precoCusto, float precoFinal, String[] apelido, int codigo, int diaValidade, int mesValidade, int anoValidade) {
-		super(nome, fornecedor, precoCusto, precoFinal, apelido, codigo);
+	public ProdutoPerecivel(String nome, Fornecedor fornecedor, float precoCusto, float precoFinal, String[] apelido, int codigo, int diaValidade, int mesValidade, int anoValidade, int quantidadeEstoque) {
+		super(nome, fornecedor, precoCusto, precoFinal, apelido, codigo, quantidadeEstoque);
 		this.diaValidade = diaValidade;
 		this.mesValidade = mesValidade;
 		this.anoValidade = anoValidade;
