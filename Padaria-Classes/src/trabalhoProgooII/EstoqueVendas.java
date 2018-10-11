@@ -32,11 +32,11 @@ public class EstoqueVendas {
 		for (int i = 0; i < produtos.length; i++) {
 			if(produtos[i] == null) {
 				produtos[i] = new ProdutoNaoPerecivel(nome, fornecedor, precoCusto, precoFinal, apelido, codigo, quantidadeEstoque);
-				System.out.println("Produto cadastrado com sucesso");
+				// System.out.println("Produto cadastrado com sucesso");
 				return true;
 			}
 		}
-		System.out.println("Não foi possível cadastrar o produto");
+		// System.out.println("Não foi possível cadastrar o produto");
 		return false;
 	}
 	
@@ -63,11 +63,11 @@ public class EstoqueVendas {
 			
 				procurarProduto(codigo).setQuantidadeEstoque(procurarProduto(codigo).getQuantidadeEstoque() - 1);
 				
-				System.out.println("Produto " + procurarProduto(codigo).getNome() + " Vendido com sucesso");
+				// System.out.println("Produto " + procurarProduto(codigo).getNome() + " Vendido com sucesso");
 				return true;
 			}
 		}
-			System.out.println("Produto não disponível no estoque");
+			// System.out.println("Produto não disponível no estoque");
 			return false;
 		
 	}
@@ -86,6 +86,18 @@ public class EstoqueVendas {
 	}
 	
 	void imprimeInformacoesProdutosEstoque() {
+		System.out.println("--Produtos no Estoque--");
+		for (int i = 0; i < produtos.length && produtos[i] != null; i++) {
+			System.out.println("----");
+			System.out.println("Produto: " + produtos[i].getNome());
+			System.out.println("Fornecedor: " + produtos[i].getFornecedor().getNome());
+			System.out.println("Código: " + produtos[i].getCodigo());
+			System.out.println("Preço de custo: " + produtos[i].getPrecoCusto());
+			System.out.println("Preço de venda: " + produtos[i].getPrecoFinal());
+			System.out.println("Apelidos: "); //FALTA IMPLEMENTAR
+			System.out.println("Quantidade no estoque: " + produtos[i].getQuantidadeEstoque());			
+			System.out.println("----");
+		}
 		
 	}
 }
