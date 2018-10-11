@@ -18,6 +18,10 @@ public class Teste {
 		
 		System.out.println(estoque.produtos[0].getQuantidadeEstoque());
 		
+		System.out.println(estoque.venderProduto(5466, 12, 12, 2018, v1));
+		
+		estoque.imprimeInformacoesProdutosVendidos();
+		
 
 	}
 
