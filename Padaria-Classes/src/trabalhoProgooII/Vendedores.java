@@ -5,11 +5,8 @@ public abstract class Vendedores extends Funcionario{
 	protected float metaVendas;
 	protected float bonificacaoVendedor;
 	
-	public Vendedores(String nome, String endereco, float salarioBase, String codigoFuncionario, float montanteVendas,
-			float metaVendas) {
+	public Vendedores(String nome, String endereco, float salarioBase, String codigoFuncionario) {
 		super(nome, endereco, salarioBase, codigoFuncionario);
-		this.montanteVendas = montanteVendas;
-		this.metaVendas = metaVendas;
 	}
 
 	public float getMontanteVendas() {
@@ -36,6 +33,13 @@ public abstract class Vendedores extends Funcionario{
 		this.bonificacaoVendedor = bonificacaoVendedor;
 	}
 	
-	public abstract float calculaSalario(float montante, float meta);
+	public float calculaSalario(float montante, float meta) {
+		this.montanteVendas = montante;
+		this.metaVendas = meta;
+		if (getMontanteVendas() > getMetaVendas()) {
+		    return this.salarioBase + this.salarioBase * this.bonificacaoVendedor;
+		} else
+		    return super.salarioBase;
+	    }
 	
 }

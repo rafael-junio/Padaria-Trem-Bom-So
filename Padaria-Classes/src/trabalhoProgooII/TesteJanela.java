@@ -42,15 +42,15 @@ public class TesteJanela {
 	 */
 	private void initialize() {
 		
-		//AQUI TEMOS QUE INICIAR OS 5 FUNCIONÁRIOS E OS 20 PRODUTOS INICIAIS
+		//AQUI TEMOS QUE INICIAR OS 5 FUNCIONï¿½RIOS E OS 20 PRODUTOS INICIAIS
 		
 		EstoqueVendas estoque = new EstoqueVendas();
 		
-		Vendedor v1 = new Vendedor("Rafael", "Rua Recife", 5642.50f, "25462", 23f, 154f);
+		Vendedor v1 = new Vendedor("Rafael", "Rua Recife", 5642.50f, "25462");
 		
 		FornecedorRecorrente fornecedor = new FornecedorRecorrente("Rede Globo", "Av. Projac", "3458468745/42", 1f);
 		
-		String[] apelido = new String[] {"Colherzão", "Colherzinha", "Colherão", "Colherzim", "Colherzom"};
+		String[] apelido = new String[] {"Colherzï¿½o", "Colherzinha", "Colherï¿½o", "Colherzim", "Colherzom"};
 		
 		frmPadariaTrmBom = new JFrame();
 		frmPadariaTrmBom.setTitle("Padaria Tr\u00EAm Bom S\u00F4");
@@ -75,14 +75,14 @@ public class TesteJanela {
 					
 					while(!continuarCadastro) {
 						try {
-							precoCompra = Float.parseFloat(JOptionPane.showInputDialog("Digite o preço de compra: "));
+							precoCompra = Float.parseFloat(JOptionPane.showInputDialog("Digite o preï¿½o de compra: "));
 							continuarCadastro = true;
 						}
 						catch (Exception NumberFormatException) {
-							JOptionPane.showMessageDialog(null, "Número inválido, tente novamente.");
+							JOptionPane.showMessageDialog(null, "Nï¿½mero invï¿½lido, tente novamente.");
 						}
 					}
-					precoVenda = Float.parseFloat(JOptionPane.showInputDialog("Digite o preço de venda: "));
+					precoVenda = Float.parseFloat(JOptionPane.showInputDialog("Digite o preï¿½o de venda: "));
 					int codigo = Integer.parseInt(JOptionPane.showInputDialog("Digite o codigo do produto: "));
 					int quantidadeEstoque = Integer.parseInt(JOptionPane.showInputDialog("Digite a quantidade inicial do estoque: "));
 					
@@ -96,17 +96,17 @@ public class TesteJanela {
 				if (continuarPerguntas) {
 					opProduto = JOptionPane.showConfirmDialog(null, "Deseja vender um produto");
 					if(opProduto == 0) {
-						String codigo = JOptionPane.showInputDialog("Qual o código do produto que você quer vender: ");
+						String codigo = JOptionPane.showInputDialog("Qual o cï¿½digo do produto que vocï¿½ quer vender: ");
 						if(estoque.venderProduto(Integer.parseInt(codigo), 11, 10, 2018, v1))
 							JOptionPane.showMessageDialog(null, "Produto vendido!");
 						else
-							JOptionPane.showMessageDialog(null, "Produto não diponível no estoque!");
+							JOptionPane.showMessageDialog(null, "Produto nï¿½o diponï¿½vel no estoque!");
 						continuarPerguntas = false;
 						
 					}
 				}
 				if (continuarPerguntas) {
-					opProduto = JOptionPane.showConfirmDialog(null, "Deseja informações");
+					opProduto = JOptionPane.showConfirmDialog(null, "Deseja informaï¿½ï¿½es");
 					if (opProduto == 0) {
 						estoque.imprimeInformacoesProdutosVendidos();
 					}

@@ -8,11 +8,11 @@ public class Teste {
 		
 		FornecedorRecorrente fornecedor = new FornecedorRecorrente("Rede Globo", "Av. Projac", "3458468745/42", 1f);
 		
-		String[] apelido = new String[] {"Colherzão", "Colherzinha", "Colherão", "Colherzim", "Colherzom"};
+		String[] apelido = new String[] {"Colherzï¿½o", "Colherzinha", "Colherï¿½o", "Colherzim", "Colherzom"};
 		
 		estoque.cadastrarProduto("Colher", fornecedor, 12.54f, 15.55f, apelido, 2546, 20);
 		
-		Vendedor v1 = new Vendedor("Rafael", "Rua Recife", 5642.50f, "25462", 23f, 154f);
+		Vendedor v1 = new Vendedor("Rafael", "Rua Recife", 5642.50f, "25462");
 		
 		System.out.println(estoque.venderProduto(2546, 10, 12, 2018, v1));
 		
