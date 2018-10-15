@@ -3,7 +3,7 @@ package produtos;
 import fornecedores.Fornecedor;
 import funcionalidades.Data;
 
-public class ProdutoPerecivel extends Produto {
+public final class ProdutoPerecivel extends Produto {
 
 	private Data dataValidade;
 	private int dia;

@@ -47,10 +47,10 @@ public abstract class Funcionario extends PessoaFisica {
 	}
 
 	public void imprimeInformacoesFuncionario() {
-		System.out.printf("Endereço: %s.\n", getEndereco());
-		System.out.printf("Telefone: %s.\n", getTelefone());
-		System.out.printf("CPF: %s.\n", getCpf());
-		System.out.printf("Código do funcionário: %s.\n", getCodigo());
-		System.out.printf("Salário base: %.2fR$.\n", getSalarioBase());
+		System.out.printf("Endereço: %s.\n", this.endereco);
+		System.out.printf("Telefone: %s.\n", this.telefone);
+		System.out.printf("CPF: %s.\n", this.cpf);
+		System.out.printf("Código do funcionário: %s.\n", this.codigo);
+		System.out.printf("Salário base: %.2fR$.\n", this.salarioBase);
 	}
 }

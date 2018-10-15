@@ -33,11 +33,11 @@ public abstract class Cliente extends PessoaFisica {
 	}
 	
 	public void imprimeInformacoesCliente() {
-		System.out.printf("Nome do Cliente: %s.\n", getNome());
-		System.out.printf("Endereço: %s.\n", getEndereco());
-		System.out.printf("Telefone: %s.\n", getTelefone());
-		System.out.printf("CPF: %s.\n", getCpf());
-		System.out.printf("Valor total de compras realizadas: %.2f.\n", getValorCompras());
+		System.out.printf("Nome do Cliente: %s.\n", this.nome);
+		System.out.printf("Endereço: %s.\n", this.endereco);
+		System.out.printf("Telefone: %s.\n", this.telefone);
+		System.out.printf("CPF: %s.\n", this.getCpf());
+		System.out.printf("Valor total de compras realizadas: %.2f.\n", this.valorCompras);
 		if (getDesconto() != 0f)
 			System.out.printf("Desconto: %.1%%.\n", (getDesconto() * 100f));
 	}

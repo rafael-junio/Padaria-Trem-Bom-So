@@ -1,6 +1,6 @@
 package funcionarios;
 
-public class Padeiro extends Funcionario {
+public final class Padeiro extends Funcionario {
 
 	protected int horaExcedente;
 	protected final float gratificacao = 0.25f;
@@ -27,9 +27,9 @@ public class Padeiro extends Funcionario {
 	}
 	
 	public void imprimeInformacoesFuncionario() {
-		System.out.printf("Nome Padeiro: %s.\n", getNome());
+		System.out.printf("Nome Padeiro: %s.\n", this.nome);
 		super.imprimeInformacoesFuncionario();
-		System.out.printf("Horas excedente de trabalho noturno: %02d hora(s).\n", getHoraExcedente());
-		System.out.printf("Salário final: %.2f.\n", getSalarioFinal());
+		System.out.printf("Horas excedente de trabalho noturno: %02d hora(s).\n", this.horaExcedente);
+		System.out.printf("Salário final: %.2f.\n", this.salarioFinal);
 	}
 }

@@ -128,11 +128,11 @@ public abstract class Produto {
 	}
 
 	public void imprimeInformacoesProduto() {
-		System.out.println("Produto: " + getNome() + ".");
-		System.out.println("Código: " + getCodigo() + ".");
+		System.out.println("Produto: " + this.nome + ".");
+		System.out.println("Código: " + this.codigo + ".");
 		fornecedor.imprimeInformacoesFornecedor();
-		System.out.printf("Preçoo de custo: %.2f. ", getPrecoCusto());
-		System.out.printf("\nPreço de final: %.2f.\n", getPrecoFinal());
+		System.out.printf("Preçoo de custo: %.2f. ", this.precoCusto);
+		System.out.printf("\nPreço de final: %.2f.\n", this.precoFinal);
 
 		if (hasApelido()) {
 			System.out.println("Apelido(s): ");

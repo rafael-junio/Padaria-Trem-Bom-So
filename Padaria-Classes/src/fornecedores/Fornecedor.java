@@ -38,7 +38,7 @@ public abstract class Fornecedor extends Pessoa {
 	public void imprimeInformacoesFornecedor() {
 		System.out.printf("Nome do Fornecedor: %s.\n", this.nome);
 		System.out.printf("Endereço: %s.\n", this.endereco);
-		System.out.printf("Código do fornecedor: %s.\n", this.endereco);
+		System.out.printf("Código do fornecedor: %s.\n", this.codigo);
 		System.out.printf("CNPJ: %s.\n", this.getCnpj());
 		
 	}

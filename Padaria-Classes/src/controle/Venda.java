@@ -5,11 +5,9 @@ import funcionalidades.Data;
 import funcionarios.Vendedores;
 import produtos.Produto;
 
-public final class Venda extends Estoque {
+public final class Venda{
 
 	private final float JUROSPRAZO = 0.02f;
-
-	private static int cont = 0;
 
 	private Produto[] produtosVendidos;
 	private Cliente cliente;
@@ -48,11 +46,11 @@ public final class Venda extends Estoque {
 		this.cliente = cliente;
 	}
 
-	public Vendedores getVendedores() {
+	public Vendedores getVendedor() {
 		return vendedor;
 	}
 
-	public void setVendedores(Vendedores vendedor) {
+	public void setVendedor(Vendedores vendedor) {
 		this.vendedor = vendedor;
 	}
 
@@ -112,51 +110,47 @@ public final class Venda extends Estoque {
 		this.ano = ano;
 	}
 
-	public boolean realizarVenda(String codigo, int quantidade) {
-		for (int i = 0; i < super.produtos.length; i++) {
-			if (super.produtos[i] != null && super.produtos[i].getCodigo().equals(codigo)
-					&& super.produtos[i].getQuantidade() - quantidade > 0) {
-				super.produtos[i].setQuantidade(produtos[i].getQuantidade() - quantidade);
-				this.produtosVendidos[cont] = super.produtos[i];
-				this.valorFinalCompra = calcularvalorFinalCompra();
-				alertaEstoque(produtos[i]);
-				cont++;
-				System.out.println("Venda Realizada com Sucesso!");
+	public float calcularValorCompra(float precoProduto) {
+		this.valorFinalCompra += precoProduto;
+		return this.valorFinalCompra;
+	}
+	
+	public float calcularValorFinalCompra(int numParcelas) {
+		if (this.numParcelas > 1)
+			this.valorFinalCompra += (1f * JUROSPRAZO);
+		
+		return this.cliente.atualizarValorCompras(this.valorFinalCompra);
+	}
+	
+	public boolean adicionarProduto(Produto p) {
+		for(Produto i : produtosVendidos)
+			if(i == null) {
+				i = p;
 				return true;
 			}
-		}
-		System.out.println("Venda não foi realizada com sucesso!");
 		return false;
-	}
-
-	private float calcularvalorFinalCompra() {
-		float totalCompra = 0f;
-
-		totalCompra += produtosVendidos[cont].getPrecoFinal();
-
-		if (this.numParcelas > 1)
-			totalCompra += (1f * JUROSPRAZO);
-
-		return totalCompra;
+			
 	}
 	
 	public void imprimeProdutosVendidos() {
-		for(Produto i : produtos)
+		for(Produto i : produtosVendidos)
 			if(i != null)
 				i.imprimeInformacoesProduto();
+			else
+				System.out.printf("%d\n", +1);
 	}
 	
 	public void imprimeInformacoesVenda() {
-		System.out.printf("Data da venda: %s.", this.dataVenda.getDataFormatada());
-		System.out.println("Cliente");
+		System.out.printf("Data da venda: %s.\n", this.dataVenda.getDataFormatada());
+		System.out.println("\nCliente");
 		this.cliente.imprimeInformacoesCliente();
-		System.out.printf("Forma de pagamento: %s.\n", getFormaPagamento());
-		System.out.printf("Número de parcelas: %d.\n", getNumParcelas());
-		System.out.println("Vendedores");
+		System.out.printf("Forma de pagamento: %s.\n", this.formaPagamento);
+		System.out.printf("Número de parcelas: %d.\n", this.numParcelas);
+		System.out.println("\nVendedor");
 		this.vendedor.imprimeInformacoesFuncionario();
-		System.out.println("Produtos Vendidos");
+		System.out.println("\nProdutos Vendidos");
 		imprimeProdutosVendidos();
-		System.out.printf("Valor total compra: %.2f.\n", getValorFinalCompra());
+		System.out.printf("\nValor total compra: %.2f.\n", this.valorFinalCompra);
 	}
 
 }

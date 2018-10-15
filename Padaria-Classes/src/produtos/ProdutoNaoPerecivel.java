@@ -2,7 +2,7 @@ package produtos;
 
 import fornecedores.Fornecedor;
 
-public class ProdutoNaoPerecivel extends Produto {
+public final class ProdutoNaoPerecivel extends Produto {
 
 	public ProdutoNaoPerecivel(String nome, String codigo, Fornecedor fornecedorProduto, float precoCusto,
 			float precoFinal, boolean temApelido) {

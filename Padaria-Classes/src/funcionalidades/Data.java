@@ -4,6 +4,7 @@ public class Data {
 	private static final int[] DIASMESSES = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
 	private int dia, mes, ano;
+	private String data;
 
 	public Data(int dia, int mes, int ano) {
 		boolean dataValida = true;
@@ -57,7 +58,7 @@ public class Data {
 	}
 
 	public String getDataFormatada() {
-		String data = String.format("%02d/%02d/%04d", dia, mes, ano);
+		this.data = String.format("%02d/%02d/%04d", dia, mes, ano);
 		return data;
 	}
 
@@ -82,5 +83,12 @@ public class Data {
 			return true;
 		else
 			return false;
+	}
+	
+	public boolean equalsData(Object data) {
+	     if (this.data == ((Data) data).getDataFormatada()){
+	          return true;
+	     }
+	     return false;
 	}
 }

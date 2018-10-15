@@ -1,6 +1,6 @@
 package funcionarios;
 
-public class Gerente extends Vendedores {
+public final class Gerente extends Vendedores {
 
 	public Gerente(String nome, String endereco, String cpf, String telefone, String codigo,
 			float salarioBase) {
@@ -8,8 +8,12 @@ public class Gerente extends Vendedores {
 		super.bonificacaoVendedor = 0.2f;
 	}
 
+	public void atualizarMontanteVendas(float valor) {
+		this.montanteVendas += valor;
+	}
+	
 	public void imprimeInformacoesFuncionario() {
-		System.out.printf("Nome Gerente: %s.\n", getNome());
+		System.out.printf("Nome Gerente: %s.\n", this.nome);
 		super.imprimeInformacoesFuncionario();
 	}
 }

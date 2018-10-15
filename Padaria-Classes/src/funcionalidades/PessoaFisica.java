@@ -1,8 +1,8 @@
 package funcionalidades;
 
 public class PessoaFisica extends Pessoa{
-    private String cpf;
-    private String telefone;
+    protected String cpf;
+    protected String telefone;
     
     public PessoaFisica(String nome, String endereco, String cpf, String telefone) {
 	super(nome, endereco);

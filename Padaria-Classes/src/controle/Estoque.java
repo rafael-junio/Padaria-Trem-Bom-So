@@ -4,6 +4,7 @@ import fornecedores.Fornecedor;
 import produtos.Produto;
 import produtos.ProdutoNaoPerecivel;
 import produtos.ProdutoPerecivel;
+import trabalhoProgooII.Vendedor;
 
 public class Estoque implements AlertaEstoque {
 	protected Produto[] produtos;
@@ -76,6 +77,23 @@ public class Estoque implements AlertaEstoque {
 		return false;
 	}
 
+	public boolean descadastrarProduto(String codigo, int quantidade) {
+
+		for (int i = 0; i < produtos.length; i++)
+			if (produtos[i] != null)
+				if (produtos[i].getCodigo().equals("codigo"))
+					if ((produtos[i].getQuantidade() - quantidade) > 0) {
+						produtos[i].setQuantidade(produtos[i].getQuantidade() - quantidade);
+						return true;
+					} else if (((produtos[i].getQuantidade() - quantidade) == 0)) {
+						///////////////////////////////////////////////////////////////////
+						produtos[i].setQuantidade(0);
+//						produtos[i] = null;
+					}
+		return false;
+
+	}
+
 	public Produto[] getProdutos() {
 		return produtos;
 	}
@@ -86,8 +104,10 @@ public class Estoque implements AlertaEstoque {
 
 	public boolean produdoEmEstoque(String codigo) {
 		for (int i = 0; i < produtos.length; i++) {
-			if (produtos[i] != null && produtos[i].getCodigo().equals(codigo))
+			if (produtos[i] != null && produtos[i].getCodigo().equals(codigo)) {
+				produtos[i].imprimeInformacoesProduto();
 				return true;
+			}
 		}
 		System.out.println("Produto não encontrado!");
 		return false;

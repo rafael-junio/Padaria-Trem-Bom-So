@@ -45,12 +45,12 @@ public abstract class Vendedores extends Funcionario {
 
 	public void imprimeInformacoesFuncionario() {
 		super.imprimeInformacoesFuncionario();
-		if (this.montanteVendas != 0f) {
-			System.out.printf("Montante de vendas: %.2fR$.\n", getMontanteVendas());
-			System.out.printf("Meta de vendas: %.2fR$.\n", getMetaVendas());
+		if (this.metaVendas != 0f) {
+			System.out.printf("Montante de vendas: %.2fR$.\n", this.montanteVendas);
+			System.out.printf("Meta de vendas: %.2fR$.\n", this.metaVendas);
 		} else
 			System.out.println("Cálculo do salário com base nas metas de venda não foi realizado!");
-		System.out.printf("Salário final: %.2fR$.\n", getSalarioFinal());
+		System.out.printf("Salário final: %.2fR$.\n", this.salarioFinal);
 	}
 
 }
