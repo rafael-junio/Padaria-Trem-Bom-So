@@ -1,8 +1,9 @@
 package controle;
 
-
+import telas.TelaPrincipal;
 
 public class PadariaTeste {
+	@SuppressWarnings("static-access")
 	public static void main(String[] args) {
 
 		Padaria tremBao = new Padaria();
@@ -25,8 +26,8 @@ public class PadariaTeste {
 		
 		tremBao.cadastrarProdutoPerecivel("Ovo Frito", "000001", tremBao.encontraFornecedor("001"), 20f, 30f, 1, 10, 2019, null, 30);
 		
-		tremBao.imprimeInformacoesEstoque();
-
-
+		TelaPrincipal p = new TelaPrincipal(tremBao);
+		p.main(null);
+		
 	}
 }

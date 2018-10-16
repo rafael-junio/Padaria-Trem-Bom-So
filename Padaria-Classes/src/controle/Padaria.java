@@ -35,7 +35,6 @@ public class Padaria {
 		this.funcionarios = new Funcionario[10];
 		this.clientes = new Cliente[50];
 		this.vendas = new Venda[20];
-		
 	}
 
 	public Fornecedor[] getFornecedores() {
@@ -46,13 +45,6 @@ public class Padaria {
 		this.fornecedores = fornecedores;
 	}
 
-	/*public Estoque getEstoque() {
-		return estoque;
-	}
-
-	public void setEstoque(Estoque estoque) {
-		this.estoque = estoque;
-	}*/
 
 	public Funcionario[] getFuncionarios() {
 		return funcionarios;
@@ -112,14 +104,11 @@ public class Padaria {
 			for (int i = 0; i < estoque.length; i++) {
 				if (estoque[i] == null) {
 						estoque[i] = new Estoque(nome, codigo, fornecedor, precoCusto, precoFinal, apelido, quantidadeEstoque);
-						System.out.println("Produto cadastrado com sucesso!");
 						return true;
 				}
 			}
 		}
-		else {
-			System.out.println("Produto já cadastrado");
-		}
+
 		return false;
 	}
 
@@ -132,14 +121,12 @@ public class Padaria {
 			for (int i = 0; i < estoque.length; i++) {
 				if (estoque[i] == null) {
 						estoque[i] = new Estoque(nome, codigo, fornecedor, precoCusto, precoFinal, dia, mes, ano, apelido, quantidadeEstoque);
-						System.out.println("Produto cadastrado com sucesso!");
+
 						return true;
 				}
 			}
 		}
-		else {
-			System.out.println("Produto já cadastrado");
-		}
+
 		return false;
 	}
 
@@ -173,7 +160,6 @@ public class Padaria {
 			}
 		}
 	}
-	
 	
 	public boolean cadastrarClienteRegular(String nome, String endereco, String cpf, String telefone) {
 		ClienteRegular cliente = new ClienteRegular(nome, endereco, cpf, telefone);
@@ -272,7 +258,7 @@ public class Padaria {
 		return false;
 	}
 	
-	public Fornecedor  encontraFornecedor(String codigo) {
+	public Fornecedor encontraFornecedor(String codigo) {
 		for (int i = 0; i < fornecedores.length; i++) {
 			if (fornecedores[i] != null && fornecedores[i].getCodigo().equals(codigo))
 				return fornecedores[i];
@@ -366,7 +352,7 @@ public class Padaria {
 		System.out.println("Funcionário não encontrado!");
 		return null;
 	}
-
+	
 	public boolean realizarVendaProdutos(String cpfCliente, String codigoVendedor, String formaPagamento,
 			int numParcelas, int dia, int mes, int ano) {
 
@@ -388,8 +374,6 @@ public class Padaria {
 		}
 
 		Venda venda = new Venda(clientes[c], (Vendedores) funcionarios[f], formaPagamento, numParcelas, dia, mes, ano);
-		
-		
 		
 		boolean maisProduto = false;
 		
@@ -425,24 +409,24 @@ public class Padaria {
 	
 	public boolean adicionarProdutoVenda(String codigo, int quantidade, int n) {
 		
-		for (int i = 0; i < estoque.getProdutos().length; i++)
+		for (int i = 0; i < estoque.length; i++)
 			
-			if (estoque.getProdutos()[i] != null)
+			if (estoque[i] != null)
 			
-				if (estoque.getProdutos()[i].getCodigo().equals("codigo"))
+				if (estoque[i].getCodigo().equals("codigo"))
 				
-					if ((estoque.getProdutos()[i].getQuantidade() - quantidade) > 0) {
+					if ((estoque[i].getQuantidadeEstoque() - quantidade) > 0) {
 					
-						estoque.descadastrarProduto(codigo, quantidade);
+						descadastrarProduto(codigo, quantidade);
 						
-						this.vendas[n].adicionarProduto(estoque.getProdutos()[i]);
+						this.vendas[n].adicionarProduto(estoque[i]);
 						
-						this.vendas[n].calcularValorCompra(estoque.getProdutos()[i].getPrecoFinal());
+						this.vendas[n].calcularValorCompra(estoque[i].getPrecoFinal());
 						
 						return true;
-					} else if (((estoque.getProdutos()[i].getQuantidade() - quantidade) == 0)) {
+					} else if (((estoque[i].getQuantidadeEstoque() - quantidade) == 0)) {
 						///////////////////////////////////////////////////////////////////
-						estoque.getProdutos()[i].setQuantidade(estoque.getProdutos()[i].getQuantidade() - quantidade);
+						estoque[i].setQuantidadeEstoque(estoque[i].getQuantidadeEstoque() - quantidade);
 //						produtos[i] = null;
 					}
 		return false;
