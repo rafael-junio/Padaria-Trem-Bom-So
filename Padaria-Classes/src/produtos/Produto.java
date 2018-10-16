@@ -14,11 +14,10 @@ public abstract class Produto {
 	protected Fornecedor fornecedor;
 	protected float precoCusto;
 	protected float precoFinal;
-	protected int quantidade;
-	protected String[] apelidoRegiao;
+	protected String[] apelido;
 
 	public Produto(String nome, String codigo, Fornecedor fornecedor, float precoCusto, float precoFinal,
-			boolean temApelido) {
+			String[] apelido) {
 		
 		this.nome = nome;
 
@@ -35,26 +34,13 @@ public abstract class Produto {
 			this.precoCusto = precoCusto;
 
 		this.precoFinal = precoFinal;
-		this.quantidade = 0;
 
-		if (temApelido) {
-			this.apelidoRegiao = new String[5];
-			System.out.println("Apelido para " + this.nome);
-
-			int i = 0;
-			
-			while (temApelido) {
-				System.out.print("Digite o apelido: ");
-				temApelido = cadastrarApelido(teclado.nextLine(), i);
-				i += 1;
-			}
-		}
-
+		this.apelido = apelido;
 
 	}
 
 	private boolean cadastrarApelido(String apelido, int i) {
-		apelidoRegiao[i] = apelido;
+
 		if(i != 4)
 			System.out.print("Deseja cadastrar outro? ");
 		if (i < 4 && teclado.nextBoolean()) {
@@ -105,24 +91,16 @@ public abstract class Produto {
 		this.precoFinal = precoFinal;
 	}
 
-	public int getQuantidade() {
-		return quantidade;
-	}
-
-	public void setQuantidade(int quantidade) {
-		this.quantidade = quantidade;
-	}
-
 	public String[] getApelidoRegiao() {
-		return apelidoRegiao;
+		return apelido;
 	}
 
 	public void setApelidoRegiao(String[] apelidoRegiao) {
-		this.apelidoRegiao = apelidoRegiao;
+		this.apelido = apelidoRegiao;
 	}
 
 	public boolean hasApelido() {
-		if (this.apelidoRegiao != null)
+		if (this.apelido != null)
 			return true;
 		return false;
 	}
@@ -136,7 +114,7 @@ public abstract class Produto {
 
 		if (hasApelido()) {
 			System.out.println("Apelido(s): ");
-			for (String i : apelidoRegiao)
+			for (String i : apelido)
 				if(i != null)
 					System.out.println(i);
 		}

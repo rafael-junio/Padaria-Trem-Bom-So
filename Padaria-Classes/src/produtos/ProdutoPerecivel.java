@@ -11,8 +11,8 @@ public final class ProdutoPerecivel extends Produto {
 	private int ano;
 
 	public ProdutoPerecivel(String nome, String codigo, Fornecedor fornecedorProduto, float precoCusto,
-			float precoFinal, int dia, int mes, int ano, boolean temApelido) {
-		super(nome, codigo, fornecedorProduto, precoCusto, precoFinal, temApelido);
+			float precoFinal, int dia, int mes, int ano, String[] apelido) {
+		super(nome, codigo, fornecedorProduto, precoCusto, precoFinal, apelido);
 		dataValidade = new Data(dia, mes, ano);
 	}
 
