@@ -1,4 +1,3 @@
-
 package telas;
 
 import java.awt.EventQueue;
@@ -132,7 +131,7 @@ public class TelaImprimeInformacoes {
 		JButton btnProcuraCliente = new JButton("Procura cliente");
 		btnProcuraCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			String info = JOptionPane.showInputDialog("Digite o CPF do cliente. (11 Digítos)");
+			String info = JOptionPane.showInputDialog("Digite o CPF do cliente. (3 Digítos)");
 				
 				if(info == null)
 					JOptionPane.showMessageDialog(null, "Operação cancelada");

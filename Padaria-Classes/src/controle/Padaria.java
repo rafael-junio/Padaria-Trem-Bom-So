@@ -107,11 +107,12 @@ public class Padaria {
 		return false;
 	}
 	
-	public boolean cadastrarClienteGold(String nome, String endereco, String cpf, String telefone) {
+	public boolean cadastrarClienteGold(String cpf) {
 
 		for (int i = 0; i < clientes.length; i++)
-			if (clientes[i] != null && clientes[i].getValorCompras() > 250f){
-				ClienteGold cliente = (ClienteGold) clientes[i];
+			if (clientes[i] != null && clientes[i].getCpf().equals(cpf) && clientes[i].getValorCompras() > 250f){
+				ClienteGold cliente = new ClienteGold(clientes[i].getNome(), clientes[i].getEndereco(), clientes[i].getCpf(), clientes[i].getTelefone());
+				clientes[i] = null;
 				clientes[i] = cliente;
 				cliente = null;
 				return true;
@@ -120,11 +121,12 @@ public class Padaria {
 		return false;
 	}
 	
-	public boolean cadastrarClientePlatinum(String nome, String endereco, String cpf, String telefone) {
+	public boolean cadastrarClientePlatinum(String cpf) {
 
 		for (int i = 0; i < clientes.length; i++)
-			if (clientes[i] != null && clientes[i].getValorCompras() > 250f){
-				ClientePlatinum cliente = (ClientePlatinum) clientes[i];
+			if (clientes[i] != null && clientes[i].getCpf().equals(cpf) && clientes[i].getValorCompras() > 500f){
+				ClientePlatinum cliente = new ClientePlatinum(clientes[i].getNome(), clientes[i].getEndereco(), clientes[i].getCpf(), clientes[i].getTelefone());
+				clientes[i] = null;
 				clientes[i] = cliente;
 				cliente = null;
 				return true;
@@ -165,13 +167,13 @@ public class Padaria {
 				return true;
 			} else {
 				if (fornecedores[i].getCnpj().equals(cnpj)) {
-					System.out.println("Fornecedor já cadastrado!");
+//					System.out.println("Fornecedor já cadastrado!");
 					fornecedor = null;
 					return false;
 				}
 			}
 
-		System.out.println("Não foi possível descadastrar!");
+//		System.out.println("Não foi possível descadastrar!");
 		fornecedor = null;
 		return false;
 	}
@@ -228,7 +230,7 @@ public class Padaria {
 				return true;
 			} else {
 				if (funcionarios[i].getCpf().equals(cpf)) {
-					System.out.println("Vendedor já cadastrado!");
+//					System.out.println("Vendedor já cadastrado!");
 					funcionario = null;
 					return false;
 				}
@@ -327,6 +329,7 @@ public class Padaria {
 				vendas[i].calcularValorFinalCompra(numParcelas);
 				this.montanteVendasGlobal += vendas[i].getValorFinalCompra();
 				venda = null;
+				this.comprasRealizadas = null;
 				this.comprasRealizadas = new Produto[20];
 				return true;
 			}
@@ -338,15 +341,16 @@ public class Padaria {
 
 	}
 
-	public boolean adicionarProdutoVenda(String codigo, int quantidade) {
+	public boolean adicionarProdutoVenda(String codigo, int quantidade) throws CloneNotSupportedException {
 
 		if (estoque.venderQuantidadeProduto(codigo, quantidade)) {
 
-			Produto produtoComprado = estoque.procurarProduto(codigo);
+			Produto produtoComprado = estoque.procurarProduto(codigo).clone();
 
 			for (int i = 0; i < comprasRealizadas.length; i++)
 				if (comprasRealizadas[i] == null) {
 					comprasRealizadas[i] = produtoComprado;
+					produtoComprado = null;
 					return true;
 				}
 		}
@@ -379,6 +383,8 @@ public class Padaria {
 				JOptionPane.showMessageDialog(null, "Informação solicitada impressa no console");
 				System.out.println();
 				System.out.println("----------Cliente encontrado-----------");
+<<<<<<< HEAD
+=======
 				
 				if(clientes[i] instanceof ClienteGold)
 					System.out.println("Cliente Gold");
@@ -387,6 +393,7 @@ public class Padaria {
 				else if(clientes[i] instanceof ClienteRegular)
 					System.out.println("Cliente Regular");
 				
+>>>>>>> branch 'master' of https://github.com/rafael-junio/Padaria-Trem-Bom-So.git
 				clientes[i].imprimeInformacoesCliente();
 				encontra = true;
 			}
@@ -462,8 +469,6 @@ public class Padaria {
 		for (int i = 0; i < vendas.length; i++)
 			if (vendas[i] != null)
 				vendas[i].imprimeInformacoesVenda();
-
-		System.out.println(this.montanteVendasGlobal);
 	}
 
 }

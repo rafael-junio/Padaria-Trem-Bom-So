@@ -7,6 +7,7 @@ public final class ClienteRegular extends Cliente {
 	}
 	
 	public void imprimeInformacoesCliente() {
+		System.out.println("Cliente Regular.");
 		super.imprimeInformacoesCliente();
 	}
 }

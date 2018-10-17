@@ -2,6 +2,8 @@ package controle;
 
 
 import cliente.Cliente;
+import cliente.ClienteGold;
+import cliente.ClientePlatinum;
 import funcionarios.Vendedor;
 import produtos.Produto;
 
@@ -23,7 +25,7 @@ public final class Venda{
 			int ano) {
 		
 		if(produtosVendidos.length <= 20)
-			this.produtosVendidos = produtosVendidos;
+			this.produtosVendidos = produtosVendidos.clone();
 		else
 			System.out.println("Número de produtos inválido!");
 		
@@ -112,47 +114,57 @@ public final class Venda{
 
 	float calcularValorFinalCompra(int numParcelas) {
 		
+		this.valorFinalCompra = 0;
+		
 		for(int i = 0; i < this.produtosVendidos.length; i++) {
 			if(this.produtosVendidos[i] != null)
-				this.valorFinalCompra += this.produtosVendidos[i].getPrecoFinal();
+				this.valorFinalCompra += this.produtosVendidos[i].getPrecoFinal() * this.produtosVendidos[i].getQuantidadeVenda();
 		}
 		
 		if (this.numParcelas > 0)
 			this.valorFinalCompra *= JUROSPRAZO;
 		
 		this.cliente.setValorCompras(this.cliente.getValorCompras() + this.valorFinalCompra);
+		
+		if(this.cliente instanceof ClienteGold)
+			this.cliente.setValorCompras(this.cliente.getValorCompras() * ((ClienteGold) this.cliente).getDESCONTO());
+		
+		else if(this.cliente instanceof ClientePlatinum)
+			this.cliente.setValorCompras(this.cliente.getValorCompras() * ((ClientePlatinum) this.cliente).getDESCONTO());
+		
 		this.vendedor.setMontanteVendas(this.vendedor.getMontanteVendas() + this.valorFinalCompra);
 		
 		return this.valorFinalCompra;
 	}
 	
-	public boolean adicionarProduto(Produto p) {
-		for(int i = 0; i < produtosVendidos.length; i++)
-			if(produtosVendidos[i] == null) {
-				produtosVendidos[i] = p;
-				return true;
-			}
-		return false;
-			
-	}
+//	public boolean adicionarProduto(Produto p) {
+//		for(int i = 0; i < produtosVendidos.length; i++)
+//			if(produtosVendidos[i] == null) {
+//				produtosVendidos[i] = p;
+//				return true;
+//			}
+//		return false;
+//			
+//	}
 	
 	public void imprimeProdutosVendidos() {
 		for(Produto i : produtosVendidos)
 			if(i != null)
-				i.imprimeInformacoesProduto();
+				i.imprimeInformacoesProdutoVenda();
 	}
 	
 	public void imprimeInformacoesVenda() {
 		System.out.printf("Data da venda: %02d/%02d/%04d.\n", this.dia, this.mes, this.ano);
-		System.out.println("\nCLIENTE");
+		System.out.println("\n***********************PRODUTO(S) VENDIDOS***********************");
+		imprimeProdutosVendidos();
+		System.out.printf("\nVALOR TOTAL DA COMPRA: %.2f.\n", this.valorFinalCompra);
+		System.out.println("\n***********************CLIENTE***********************");
 		this.cliente.imprimeInformacoesCliente();
 		System.out.printf("Forma de pagamento: %s.\n", this.formaPagamento);
 		System.out.printf("Número de parcelas: %d.\n", this.numParcelas);
-		System.out.println("\nVENDEDOR");
+		System.out.println("\n***********************VENDEDOR***********************");
 		this.vendedor.imprimeInformacoesFuncionario();
-		System.out.println("\nPRODUTOS VENDIDOS");
-		imprimeProdutosVendidos();
-		System.out.printf("\nValor total compra: %.2f.\n", this.valorFinalCompra);
+		System.out.println("\n**********************************************");
 	}
 
 }
