@@ -124,11 +124,10 @@ public abstract class Produto implements Cloneable {
 		if (hasApelido()) {
 			System.out.println("Apelido(s): ");
 			for (String i : apelido)
-<<<<<<< HEAD
+
 				if (i != null)
-=======
+
 				if(i != null && !i.equals(""))
->>>>>>> branch 'master' of https://github.com/rafael-junio/Padaria-Trem-Bom-So.git
 					System.out.println(i);
 		}
 

@@ -9,7 +9,7 @@ public final class Vendedor extends Funcionario implements SalarioFinal{
 	public Vendedor(String nome, String endereco, String cpf, String telefone, String codigo,
 			float salarioBase) {
 		super(nome, endereco, cpf, telefone, codigo, salarioBase);
-		
+		calcularSalarioFinal();
 	}
 	
 	public float getMontanteVendas() {

@@ -1,10 +1,8 @@
 package controle;
 
-import telas.TelaPrincipal;
-
 public class TestePadaria {
 	@SuppressWarnings("static-access")
-	public static void main(String[] args) {
+	public static void main(String[] args) throws CloneNotSupportedException {
 
 		Padaria tremBao = new Padaria();
 		
@@ -22,9 +20,9 @@ public class TestePadaria {
 
 		tremBao.cadastrarPadeiro("Padeiro que faz pão bom", "Rua Filomena", "533.384.960-95", "(33) 4580-0003", "0002", 1000f);
 		
-		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Pão de queijo", "000000", tremBao.encontraFornecedor("000"), 30f, 300f, null, 30);
+		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("PNaoPe", "000000", tremBao.encontraFornecedor("000"), 30f, 100f, null, 30);
 		
-		tremBao.getEstoque().cadastrarProdutoPerecivel("Nugget", "000001", tremBao.encontraFornecedor("001"), 20f, 30f, 1, 10, 2019, null, 30);
+		tremBao.getEstoque().cadastrarProdutoPerecivel("PPer", "000001", tremBao.encontraFornecedor("001"), 20f, 100f, 1, 10, 2019, null, 30);
 
 //		tremBao.imprimeInfoClientes();
 //		tremBao.imprimeInfoFornecedores();
@@ -39,11 +37,12 @@ public class TestePadaria {
 //		System.out.println();
 //		tremBao.imprimeInfoProdutos("000001");
 
+		tremBao.getEstoque().imprimeInformacoesEstoque();
+		
 		tremBao.adicionarProdutoVenda("000000", 5);
 		tremBao.realizarVenda("136.839.020-00", "0001", "Crédito", 1, 14, 10, 2018);
 		
-<<<<<<< HEAD
-//		tremBao.getEstoque().imprimeInformacoesEstoque();
+		tremBao.getEstoque().imprimeInformacoesEstoque();
 		
 		tremBao.adicionarProdutoVenda("000001", 5);
 		tremBao.adicionarProdutoVenda("000000", 2);
@@ -53,26 +52,18 @@ public class TestePadaria {
 		
 		tremBao.adicionarProdutoVenda("000001", 1);
 		tremBao.realizarVenda("444.163.818-32", "0001", "Crédito", 0, 15, 10, 2018);
-=======
-//		tremBao.imprimeInfoFuncionarios("0001");
->>>>>>> branch 'master' of https://github.com/rafael-junio/Padaria-Trem-Bom-So.git
-		
-		
-<<<<<<< HEAD
-=======
+
 		tremBao.adicionarProdutoVenda("000001", 15);
 		tremBao.adicionarProdutoVenda("000000", 15);
 		tremBao.realizarVenda("444.163.818-32", "0001", "Crédito", 6, 15, 10, 2018);
 		
-		
->>>>>>> branch 'master' of https://github.com/rafael-junio/Padaria-Trem-Bom-So.git
-//		tremBao.imprimeInfoVendas();
+		tremBao.imprimeInfoVendas();
 		
 		
-//		tremBao.getEstoque().imprimeInformacoesEstoque();
+		tremBao.getEstoque().imprimeInformacoesEstoque();
 		
-		TelaPrincipal p = new TelaPrincipal(tremBao);
-		p.main(null);
+//		TelaPrincipal p = new TelaPrincipal(tremBao);
+//		p.main(null);
 
 	}
 }
