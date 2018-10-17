@@ -383,6 +383,17 @@ public class Padaria {
 				JOptionPane.showMessageDialog(null, "Informação solicitada impressa no console");
 				System.out.println();
 				System.out.println("----------Cliente encontrado-----------");
+<<<<<<< HEAD
+=======
+				
+				if(clientes[i] instanceof ClienteGold)
+					System.out.println("Cliente Gold");
+				else if(clientes[i] instanceof ClientePlatinum)
+					System.out.println("Cliente Platinum");
+				else if(clientes[i] instanceof ClienteRegular)
+					System.out.println("Cliente Regular");
+				
+>>>>>>> branch 'master' of https://github.com/rafael-junio/Padaria-Trem-Bom-So.git
 				clientes[i].imprimeInformacoesCliente();
 				encontra = true;
 			}

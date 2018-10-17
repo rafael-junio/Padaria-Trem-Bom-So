@@ -43,6 +43,7 @@ public class TestePadaria {
 		tremBao.adicionarProdutoVenda("000000", 5);
 		tremBao.realizarVenda("136.839.020-00", "0001", "Crédito", 1, 14, 10, 2018);
 		
+<<<<<<< HEAD
 //		tremBao.getEstoque().imprimeInformacoesEstoque();
 		
 		tremBao.adicionarProdutoVenda("000001", 5);
@@ -53,8 +54,19 @@ public class TestePadaria {
 		
 		tremBao.adicionarProdutoVenda("000001", 1);
 		tremBao.realizarVenda("444.163.818-32", "0001", "Crédito", 0, 15, 10, 2018);
+=======
+//		tremBao.imprimeInfoFuncionarios("0001");
+>>>>>>> branch 'master' of https://github.com/rafael-junio/Padaria-Trem-Bom-So.git
 		
 		
+<<<<<<< HEAD
+=======
+		tremBao.adicionarProdutoVenda("000001", 15);
+		tremBao.adicionarProdutoVenda("000000", 15);
+		tremBao.realizarVenda("444.163.818-32", "0001", "Crédito", 6, 15, 10, 2018);
+		
+		
+>>>>>>> branch 'master' of https://github.com/rafael-junio/Padaria-Trem-Bom-So.git
 //		tremBao.imprimeInfoVendas();
 		
 		System.out.println();
