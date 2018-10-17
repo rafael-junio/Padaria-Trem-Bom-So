@@ -7,12 +7,12 @@ import cliente.ClienteRegular;
 import fornecedores.Fornecedor;
 import fornecedores.FornecedorOcasional;
 import fornecedores.FornecedorRecorrente;
+import funcionalidades.ValidaDocumento;
 import funcionarios.Funcionario;
 import funcionarios.Gerente;
 import funcionarios.Padeiro;
 import funcionarios.Vendedor;
 import produtos.Produto;
-import produtos.ProdutoPerecivel;
 
 public class Padaria {
 
@@ -23,6 +23,7 @@ public class Padaria {
 	private Venda[] vendas;
 	private float montanteVendasGlobal;
 	private Produto[] comprasRealizadas;
+	private ValidaDocumento documentos;
 
 	public Padaria() {
 		this.fornecedores = new Fornecedor[15];
@@ -31,6 +32,7 @@ public class Padaria {
 		this.clientes = new Cliente[50];
 		this.vendas = new Venda[20];
 		this.comprasRealizadas = new Produto[20];
+		this.documentos = new ValidaDocumento();
 
 	}
 
@@ -130,8 +132,8 @@ public class Padaria {
 	}
 
 	public boolean descadastrarCliente(String cpf) {
-		for (int i = 0; i < clientes.length; i++) {
-			if (clientes[i].getCpf().equals(cpf)) {
+		for (int i = 0; i < clientes.length && clientes[i] != null; i++) {
+			if (documentos.removeCaracteresEspeciais(clientes[i].getCpf()).equals(cpf)) {
 				clientes[i] = null;
 				return true;
 			}
@@ -195,8 +197,8 @@ public class Padaria {
 
 	public boolean descadastrarFornecedor(String cnpj) {
 
-		for (int i = 0; i < fornecedores.length; i++)
-			if (fornecedores[i].getCnpj().equals(cnpj)) {
+		for (int i = 0; i < fornecedores.length && fornecedores[i] != null; i++)
+			if (documentos.removeCaracteresEspeciais(fornecedores[i].getCnpj()).equals(cnpj)) {
 				fornecedores[i] = null;
 				return true;
 			}
@@ -280,8 +282,8 @@ public class Padaria {
 	}
 
 	public boolean descadastrarFuncionario(String cpf) {
-		for (int i = 0; i < funcionarios.length; i++)
-			if (funcionarios[i].getCpf().equals(cpf)) {
+		for (int i = 0; i < funcionarios.length && funcionarios[i] != null; i++)
+			if (documentos.removeCaracteresEspeciais(funcionarios[i].getCpf()).equals(cpf)) {
 				funcionarios[i] = null;
 				return true;
 			}

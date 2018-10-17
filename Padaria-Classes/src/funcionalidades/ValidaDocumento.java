@@ -5,7 +5,7 @@ import java.util.InputMismatchException;
 public class ValidaDocumento {
 
 	// Remove caractéres especiais
-	protected String removeCaracteresEspeciais(String doc) {
+	public String removeCaracteresEspeciais(String doc) {
 		if (doc.contains(".")) {
 			doc = doc.replace(".", "");
 		}
@@ -19,7 +19,7 @@ public class ValidaDocumento {
 	}
 
 	// Verifica CPNJ
-	protected boolean isCNPJ(String cnpj) {
+	public boolean isCNPJ(String cnpj) {
 		cnpj = removeCaracteresEspeciais(cnpj);
 
 		if (cnpj.equals("00000000000000") || cnpj.equals("11111111111111") || cnpj.equals("22222222222222")

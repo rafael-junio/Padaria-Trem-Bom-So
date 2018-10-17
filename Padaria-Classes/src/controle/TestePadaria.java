@@ -1,8 +1,9 @@
 package controle;
 
-
+import telas.TelaPrincipal;
 
 public class TestePadaria {
+	@SuppressWarnings("static-access")
 	public static void main(String[] args) {
 
 		Padaria tremBao = new Padaria();
@@ -55,6 +56,9 @@ public class TestePadaria {
 		System.out.println();
 		
 		tremBao.getEstoque().imprimeInformacoesEstoque();
+		
+		TelaPrincipal p = new TelaPrincipal(tremBao);
+		p.main(null);
 
 	}
 }
