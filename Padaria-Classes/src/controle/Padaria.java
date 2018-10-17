@@ -1,5 +1,7 @@
 package controle;
 
+import javax.swing.JOptionPane;
+
 import cliente.Cliente;
 import cliente.ClienteGold;
 import cliente.ClientePlatinum;
@@ -370,25 +372,27 @@ public class Padaria {
 		System.out.println();
 	}
 
-	public void imprimeInfoClientes(String cpf) {
+	public void  imprimeInfoClientes(String cpf) {
 		boolean encontra = false;
 		for (int i = 0; !encontra && i < clientes.length; i++) {
-			if (clientes[i] != null && clientes[i].getCpf().equals(cpf)) {
-				System.out.print("Cliente ");
+			if (clientes[i] != null && documentos.removeCaracteresEspeciais(clientes[i].getCpf()).equals(cpf)) {
+				JOptionPane.showMessageDialog(null, "Informação solicitada impressa no console");
+				System.out.println();
+				System.out.println("----------Cliente encontrado-----------");
 				
 				if(clientes[i] instanceof ClienteGold)
-					System.out.println("Gold");
+					System.out.println("Cliente Gold");
 				else if(clientes[i] instanceof ClientePlatinum)
-					System.out.println("Platinum");
+					System.out.println("Cliente Platinum");
 				else if(clientes[i] instanceof ClienteRegular)
-					System.out.println("Regular");
+					System.out.println("Cliente Regular");
 				
 				clientes[i].imprimeInformacoesCliente();
 				encontra = true;
 			}
 		}
-		if (encontra == false)
-			System.out.println("Cliente não encontrado!");
+		if(encontra == false)
+			JOptionPane.showMessageDialog(null, "Cliente não encontrado");
 	}
 
 	public void imprimeInfoFornecedores() {
@@ -401,17 +405,21 @@ public class Padaria {
 		System.out.println();
 	}
 
-	public void imprimeInfoFornecedores(String codigo) {
+	public void  imprimeInfoFornecedores(String codigo) {
 		boolean encontra = false;
 		for (int i = 0; !encontra && i < fornecedores.length; i++) {
 			if (fornecedores[i] != null && fornecedores[i].getCodigo().equals(codigo)) {
+				JOptionPane.showMessageDialog(null, "Informação solicitada impressa no console");
+				System.out.println();
+				System.out.println("----------Fornecedor encontrado-----------");
 				fornecedores[i].imprimeInformacoesFornecedor();
 				encontra = true;
 			}
 		}
-		if (encontra == false)
-			System.out.println("Fornecedor não encontrado!");
+		if(encontra == false)
+			JOptionPane.showMessageDialog(null, "Fornecedor não encontrado");
 	}
+
 
 	public void imprimeInfoFuncionarios() {
 		System.out.println("***********************FUNCIONARIOS***********************");
@@ -424,16 +432,19 @@ public class Padaria {
 		System.out.println();
 	}
 
-	public void imprimeInfoFuncionarios(String codigo) {
+	public void  imprimeInfoFuncionarios(String codigo) {
 		boolean encontra = false;
 		for (int i = 0; !encontra && i < funcionarios.length; i++) {
 			if (funcionarios[i] != null && funcionarios[i].getCodigo().equals(codigo)) {
+				JOptionPane.showMessageDialog(null, "Informação solicitada impressa no console");
+				System.out.println();
+				System.out.println("----------Funcionário encontrado-----------");
 				funcionarios[i].imprimeInformacoesFuncionario();
 				encontra = true;
 			}
 		}
-		if (encontra == false)
-			System.out.println("Funcionário não encontrado!");
+		if(encontra == false)
+			JOptionPane.showMessageDialog(null, "Fornecedor não encontrado");
 	}
 
 	public void imprimeInfoProdutos() {
