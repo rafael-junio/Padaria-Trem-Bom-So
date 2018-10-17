@@ -19,7 +19,7 @@ public class ValidaDocumento {
 	}
 
 	// Verifica CPNJ
-	protected boolean isCNPJ(String cnpj) {
+	public boolean isCNPJ(String cnpj) {
 		cnpj = removeCaracteresEspeciais(cnpj);
 
 		if (cnpj.equals("00000000000000") || cnpj.equals("11111111111111") || cnpj.equals("22222222222222")
@@ -90,7 +90,7 @@ public class ValidaDocumento {
 	}
 
 	// Verifica CPF
-	protected boolean isCPF(String cpf) {
+	public boolean isCPF(String cpf) {
 		cpf = removeCaracteresEspeciais(cpf);
 
 		if (cpf.equals("00000000000") || cpf.equals("11111111111") || cpf.equals("22222222222")
@@ -98,7 +98,7 @@ public class ValidaDocumento {
 				|| cpf.equals("66666666666") || cpf.equals("77777777777") || cpf.equals("88888888888")
 				|| cpf.equals("99999999999") || cpf.length() != 11)
 			return false;
-
+		
 		int dig10, dig11;
 		int sm, i, r, num, peso;
 

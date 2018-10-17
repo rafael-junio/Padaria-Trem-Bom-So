@@ -200,7 +200,6 @@ public class Padaria {
 			if (clientes[i] != null && clientes[i].getCpf().equals(cpf))
 				return clientes[i];
 		}
-		System.out.println("Cliente não encontrado!");
 		return null;
 	}
 
@@ -236,7 +235,6 @@ public class Padaria {
 				return true;
 			} else {
 				if (fornecedores[i].getCnpj().equals(cnpj)) {
-					System.out.println("Fornecedor já cadastrado!");
 					fornecedores = null;
 					return false;
 				}
@@ -263,7 +261,6 @@ public class Padaria {
 			if (fornecedores[i] != null && fornecedores[i].getCodigo().equals(codigo))
 				return fornecedores[i];
 		}
-		System.out.println("Fornecedor não encontrado!");
 		return null;
 	}
 

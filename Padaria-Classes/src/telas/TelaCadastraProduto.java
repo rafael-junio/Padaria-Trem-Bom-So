@@ -9,6 +9,7 @@ import javax.swing.text.MaskFormatter;
 import controle.Padaria;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -91,7 +92,7 @@ public class TelaCadastraProduto {
 		lblNomeDoProduto.setBounds(10, 11, 121, 14);
 		frmCadastrarProduto.getContentPane().add(lblNomeDoProduto);
 		
-		txtNomeProduto = new JFormattedTextField(createFormatter("????????????????????????"));
+		txtNomeProduto = new JFormattedTextField(createFormatter("***********************************"));
 		txtNomeProduto.setBounds(10, 27, 121, 20);
 		frmCadastrarProduto.getContentPane().add(txtNomeProduto);
 		txtNomeProduto.setColumns(10);
@@ -109,7 +110,7 @@ public class TelaCadastraProduto {
 		lblPreoDeCompra.setBounds(10, 58, 121, 14);
 		frmCadastrarProduto.getContentPane().add(lblPreoDeCompra);
 		
-		txtCompra = new JFormattedTextField(createFormatter("######"));
+		txtCompra = new JFormattedTextField(createFormatter("##.##"));
 		txtCompra.setColumns(10);
 		txtCompra.setBounds(10, 74, 121, 20);
 		frmCadastrarProduto.getContentPane().add(txtCompra);
@@ -118,7 +119,7 @@ public class TelaCadastraProduto {
 		lblPreoDeVenda.setBounds(152, 58, 121, 14);
 		frmCadastrarProduto.getContentPane().add(lblPreoDeVenda);
 		
-		txtVenda = new JTextField();
+		txtVenda = new JFormattedTextField(createFormatter("##.##"));
 		txtVenda.setColumns(10);
 		txtVenda.setBounds(152, 74, 121, 20);
 		frmCadastrarProduto.getContentPane().add(txtVenda);
@@ -127,7 +128,7 @@ public class TelaCadastraProduto {
 		lblCodigoDoFornecedor.setBounds(287, 11, 121, 14);
 		frmCadastrarProduto.getContentPane().add(lblCodigoDoFornecedor);
 		
-		txtCodigo = new JTextField();
+		txtCodigo = new JFormattedTextField(createFormatter("###"));
 		txtCodigo.setColumns(10);
 		txtCodigo.setBounds(287, 27, 121, 20);
 		frmCadastrarProduto.getContentPane().add(txtCodigo);
@@ -170,7 +171,7 @@ public class TelaCadastraProduto {
 		lblQuantidadeInicialNo.setBounds(287, 58, 150, 14);
 		frmCadastrarProduto.getContentPane().add(lblQuantidadeInicialNo);
 		
-		txtQuantidade = new JTextField();
+		txtQuantidade = new JFormattedTextField(createFormatter("##"));
 		txtQuantidade.setBounds(287, 74, 121, 20);
 		frmCadastrarProduto.getContentPane().add(txtQuantidade);
 		txtQuantidade.setColumns(10);
@@ -178,13 +179,33 @@ public class TelaCadastraProduto {
 		btnCadastrarProduto = new JButton("Cadastrar produto!");
 		btnCadastrarProduto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-			padaria.cadastrarProdutoNaoPerecivel(txtNomeProduto.getText(), txtCodigoProduto.getText(), padaria.encontraFornecedor(txtCodigo.getText()), 
-					Float.parseFloat(txtCompra.getText()), Float.parseFloat(txtVenda.getText()), null, Integer.parseInt(txtQuantidade.getText()));
-					
-			frmCadastrarProduto.setVisible(false);
-				
-				
+			
+				boolean existeFornecedor = false;
+				boolean estoqueValido = false;
+				if(txtCodigo.getText().equals("   ") || padaria.encontraFornecedor(txtCodigo.getText()) == null){
+					JOptionPane.showMessageDialog(null, "Fornecedor inválido");
+				}
+				if(txtQuantidade.getText().equals("  ") || Integer.parseInt(txtQuantidade.getText()) > 30 || Integer.parseInt(txtQuantidade.getText()) < 0 ) {
+					JOptionPane.showMessageDialog(null, "Quantidade para cadastro no estoque inválido");
+				}
+				if(txtCodigoProduto.getText().equals("      ") || padaria.encontraFornecedor(txtCodigo.getText()) == null){
+					JOptionPane.showMessageDialog(null, "Código inválido, deve ter 6 dígitos");
+				}
+				else {	
+						existeFornecedor = true;
+						estoqueValido = true;
+				}	
+				if(existeFornecedor && estoqueValido) {
+					try {
+						padaria.cadastrarProdutoNaoPerecivel(txtNomeProduto.getText(), txtCodigoProduto.getText(), padaria.encontraFornecedor(txtCodigo.getText()), 
+								Float.parseFloat(txtCompra.getText()), Float.parseFloat(txtVenda.getText()), null, Integer.parseInt(txtQuantidade.getText()));
+						JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso!");
+						frmCadastrarProduto.setVisible(false);
+					}
+					catch (Exception NumberFormatException) {
+						JOptionPane.showMessageDialog(null, "Um ou mais preços são inválidos, utilize o formato XX.XX");
+					}
+				}
 			}
 		});
 		btnCadastrarProduto.setBounds(10, 227, 414, 23);

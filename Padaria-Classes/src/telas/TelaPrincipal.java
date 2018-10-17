@@ -78,7 +78,36 @@ public class TelaPrincipal{
 				padaria.imprimeInformacoesEstoque();
 			}
 		});
-		btnImprimirInformaes.setBounds(25, 90, 383, 23);
+		btnImprimirInformaes.setBounds(25, 210, 383, 23);
 		frmPadariaTremBo.getContentPane().add(btnImprimirInformaes);
+		
+		JButton btnNewButton = new JButton("Cadastrar cliente");
+		btnNewButton.addActionListener(new ActionListener() {
+			@SuppressWarnings("static-access")
+			public void actionPerformed(ActionEvent arg0) {
+				
+				TelaCadastraCliente p = new TelaCadastraCliente(padaria);
+				p.main(null);
+				
+			}
+		});
+		btnNewButton.setBounds(25, 90, 383, 23);
+		frmPadariaTremBo.getContentPane().add(btnNewButton);
+		
+		JButton btnCadastrarFornecedor = new JButton("Cadastrar Fornecedor");
+		btnCadastrarFornecedor.addActionListener(new ActionListener() {
+			@SuppressWarnings("static-access")
+			public void actionPerformed(ActionEvent e) {
+				
+				TelaCadastraFornecedor p = new TelaCadastraFornecedor(padaria);
+				p.main(null);
+			}
+		});
+		btnCadastrarFornecedor.setBounds(25, 124, 383, 23);
+		frmPadariaTremBo.getContentPane().add(btnCadastrarFornecedor);
+		
+		JButton btnCadastrarFuncionrio = new JButton("Cadastrar Funcion\u00E1rio");
+		btnCadastrarFuncionrio.setBounds(25, 158, 383, 23);
+		frmPadariaTremBo.getContentPane().add(btnCadastrarFuncionrio);
 	}
 }
