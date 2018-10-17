@@ -1,19 +1,22 @@
 package funcionarios;
 
-public final class Gerente extends Vendedores {
+public final class Gerente extends Funcionario implements SalarioFinal{
+	private final float BONIFICACAO = 1.2f;
 
 	public Gerente(String nome, String endereco, String cpf, String telefone, String codigo,
 			float salarioBase) {
 		super(nome, endereco, cpf, telefone, codigo, salarioBase);
-		super.bonificacaoVendedor = 0.2f;
+		calcularSalarioFinal();
 	}
-
-	public void atualizarMontanteVendas(float valor) {
-		this.montanteVendas += valor;
+	
+	@Override
+	public void calcularSalarioFinal() {
+		this.salarioFinal = this.salarioBase * BONIFICACAO;
 	}
 	
 	public void imprimeInformacoesFuncionario() {
 		System.out.printf("Nome Gerente: %s.\n", this.nome);
 		super.imprimeInformacoesFuncionario();
+		System.out.printf("Salário final: %.2fR$.\n", this.salarioFinal);
 	}
 }

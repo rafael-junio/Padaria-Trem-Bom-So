@@ -1,13 +1,16 @@
 package cliente;
 
 public final class ClienteGold extends Cliente {
-
+	private final float DESCONTO = 1.05f;
+	
 	public ClienteGold(String nome, String endereco, String cpf, String telefone) {
 		super(nome, endereco, cpf, telefone);
-		if (super.valorCompras > 250f)
-			super.desconto = 0.05f;
 	}
 	
+	public float getDESCONTO() {
+		return DESCONTO;
+	}
+
 	public void imprimeInformacoesCliente() {
 		super.imprimeInformacoesCliente();
 	}

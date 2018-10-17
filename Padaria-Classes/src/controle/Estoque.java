@@ -2,43 +2,143 @@ package controle;
 
 import fornecedores.Fornecedor;
 import produtos.Produto;
+import produtos.ProdutoNaoPerecivel;
+import produtos.ProdutoPerecivel;
 
+public class Estoque implements AlertaEstoque {
+	private Produto[] produtos;
 
-public class Estoque extends Produto implements AlertaEstoque {
-
-	protected int quantidadeEstoque;
-	protected int dia, mes, ano;
+	public Estoque() {
+		this.produtos = new Produto[50];
+	}
 	
-	public Estoque(String nome, String codigo, Fornecedor fornecedor, float precoCusto, float precoFinal,
-			String[] apelido, int quantidadeEstoque) {
-		super(nome, codigo, fornecedor, precoCusto, precoFinal, apelido);
-		this.quantidadeEstoque = quantidadeEstoque;
+	public Produto[] getProdutos() {
+		return produtos;
 	}
 
-	public Estoque(String nome, String codigo, Fornecedor fornecedor, float precoCusto, float precoFinal, int dia,
-			int mes, int ano, String[] apelido, int quantidadeEstoque) {
-			super(nome, codigo, fornecedor, precoCusto, precoFinal, apelido);
-			this.quantidadeEstoque = quantidadeEstoque;
-			this.dia = dia;
-			this.mes = mes;
-			this.ano = ano;
-	}
-
-	public int getQuantidadeEstoque() {
-		return quantidadeEstoque;
+	public void setProdutos(Produto[] produtos) {
+		this.produtos = produtos;
 	}
 
 
+	public boolean cadastrarProdutoNaoPerecivel(String nome, String codigo, Fornecedor fornecedor, float precoCusto,
+			float precoFinal, String[] apelido, int quantidade) {
 
-	public void setQuantidadeEstoque(int quantidadeEstoque) {
-		this.quantidadeEstoque = quantidadeEstoque;
+		ProdutoNaoPerecivel novoProduto = new ProdutoNaoPerecivel(nome, codigo, fornecedor, precoCusto, precoFinal,
+				apelido);
+
+		for (int i = 0; i < produtos.length; i++) {
+			if (produtos[i] == null) {
+				if ((novoProduto.getQuantidade() + quantidade) < 1 || (novoProduto.getQuantidade() + quantidade) > 30) {
+//					System.out.println("Não é possível cadastrar produto! Quantidade inválida.");
+					novoProduto = null;
+					return false;
+				} else {
+					produtos[i] = novoProduto;
+					novoProduto = null;
+					produtos[i].setQuantidade(produtos[i].getQuantidade() + quantidade);
+//					System.out.println("Produto cadastrado com sucesso!");
+					alertaEstoque(produtos[i]);
+					return true;
+				}
+			} else {
+				if (produtos[i].getCodigo().equals(novoProduto.getCodigo())) {
+//					System.out.println("Produto já está em estoque!");
+					novoProduto = null;
+					return false;
+				}
+			}
+		}
+		return false;
 	}
 
+	public boolean cadastrarProdutoPerecivel(String nome, String codigo, Fornecedor fornecedor, float precoCusto,
+			float precoFinal, int dia, int mes, int ano, String[] apelido, int quantidade) {
+
+		ProdutoPerecivel novoProduto = new ProdutoPerecivel(nome, codigo, fornecedor, precoCusto, precoFinal, dia, mes,
+				ano, apelido);
+
+		for (int i = 0; i < produtos.length; i++) {
+			if (produtos[i] == null) {
+				if ((novoProduto.getQuantidade() + quantidade) < 1 || (novoProduto.getQuantidade() + quantidade) > 30) {
+//					System.out.println("Não é possível cadastrar produto! Quantidade inválida.");
+					novoProduto = null;
+					return false;
+				} else {
+					produtos[i] = novoProduto;
+					novoProduto = null;
+					produtos[i].setQuantidade(produtos[i].getQuantidade() + quantidade);
+//					System.out.println("Produto cadastrado com sucesso!");
+					alertaEstoque(produtos[i]);
+					return true;
+				}
+			} else {
+				if (produtos[i].getCodigo().equals(novoProduto.getCodigo())) {
+//					System.out.println("Produto já está em estoque!");
+					novoProduto = null;
+					return false;
+				}
+			}
+		}
+		return false;
+	}
+
+	public boolean venderQuantidadeProduto(String codigo, int quantidade) {
+		for (int i = 0; i < produtos.length; i++)
+			if (produtos[i] != null && produtos[i].getCodigo().equals(codigo))
+				if ((produtos[i].getQuantidade() - quantidade) > 0) {
+					produtos[i].setQuantidade(produtos[i].getQuantidade() - quantidade);
+					alertaEstoque(produtos[i]);
+					return true;
+				}
+		return false;
+	}
+
+	public boolean descadastrarProduto(String codigo) {
+
+		for (int i = 0; i < produtos.length; i++) {
+			if (produtos[i] != null && produtos[i].getCodigo().equals(codigo)) {
+				produtos[i] = null;
+				return true;
+			}
+		}
+
+		return false; // produto não encontrado
+	}
+
+	public boolean produdoEmEstoque(String codigo) {
+		for (int i = 0; i < produtos.length; i++) {
+			if (produtos[i] != null && produtos[i].getCodigo().equals(codigo)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public Produto procurarProduto(String codigo) {
+		for (int i = 0; i < produtos.length; i++) {
+			if (produtos[i] != null && produtos[i].getCodigo().equals(codigo)) {
+				return produtos[i];
+			}
+		}
+//		System.out.println("Produto não encontrado!");
+		return null;
+	}
+
+	public void imprimeInformacoesEstoque() {
+		for (Produto i : produtos) {
+			if (i != null) {
+				i.imprimeInformacoesProduto();
+				System.out.printf("Contém %d unidade(s) em estoque.\n", i.getQuantidade());
+				System.out.println();
+			}
+		}
+	}
 
 	public void alertaEstoque(Object obj1) {
-		Estoque produto = (Estoque) obj1;
+		Produto produto = (Produto) obj1;
 
-		if (produto.getQuantidadeEstoque() == 1)
+		if (produto.getQuantidade() == 1)
 			System.out.println("ALERTA! PRODUTO CONTÉM APENAS 1 UNIDADE EM ESTOQUE!");
 	}
 
