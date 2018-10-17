@@ -3,6 +3,7 @@ package telas;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import controle.Padaria;
 
@@ -64,21 +65,23 @@ public class TelaPrincipal{
 				
 			}
 		});
-		btnCadastrarProduto.setBounds(25, 22, 383, 23);
+		btnCadastrarProduto.setBounds(10, 22, 197, 23);
 		frmPadariaTremBo.getContentPane().add(btnCadastrarProduto);
 		
 		JButton btnVenderProduto = new JButton("Vender produto");
-		btnVenderProduto.setBounds(25, 56, 383, 23);
+		btnVenderProduto.setBounds(227, 22, 197, 23);
 		frmPadariaTremBo.getContentPane().add(btnVenderProduto);
 		
-		JButton btnImprimirInformaes = new JButton("Imprimir informa\u00E7\u00F5es dos produtos em estoque");
+		JButton btnImprimirInformaes = new JButton("Verifique aqui as informa\u00E7\u00F5es que queira mostrar");
 		btnImprimirInformaes.addActionListener(new ActionListener() {
+			@SuppressWarnings("static-access")
 			public void actionPerformed(ActionEvent e) {
 				
-				padaria.imprimeInformacoesEstoque();
+				TelaImprimeInformacoes p = new TelaImprimeInformacoes(padaria);
+				p.main(null);
 			}
 		});
-		btnImprimirInformaes.setBounds(25, 210, 383, 23);
+		btnImprimirInformaes.setBounds(25, 181, 383, 52);
 		frmPadariaTremBo.getContentPane().add(btnImprimirInformaes);
 		
 		JButton btnNewButton = new JButton("Cadastrar cliente");
@@ -91,7 +94,7 @@ public class TelaPrincipal{
 				
 			}
 		});
-		btnNewButton.setBounds(25, 90, 383, 23);
+		btnNewButton.setBounds(10, 56, 197, 23);
 		frmPadariaTremBo.getContentPane().add(btnNewButton);
 		
 		JButton btnCadastrarFornecedor = new JButton("Cadastrar Fornecedor");
@@ -103,11 +106,69 @@ public class TelaPrincipal{
 				p.main(null);
 			}
 		});
-		btnCadastrarFornecedor.setBounds(25, 124, 383, 23);
+		btnCadastrarFornecedor.setBounds(10, 90, 197, 23);
 		frmPadariaTremBo.getContentPane().add(btnCadastrarFornecedor);
 		
 		JButton btnCadastrarFuncionrio = new JButton("Cadastrar Funcion\u00E1rio");
-		btnCadastrarFuncionrio.setBounds(25, 158, 383, 23);
+		btnCadastrarFuncionrio.addActionListener(new ActionListener() {
+			@SuppressWarnings("static-access")
+			public void actionPerformed(ActionEvent e) {
+				TelaCadastraFuncionario p = new TelaCadastraFuncionario(padaria);
+				p.main(null);
+				
+			}
+		});
+		btnCadastrarFuncionrio.setBounds(10, 124, 197, 23);
 		frmPadariaTremBo.getContentPane().add(btnCadastrarFuncionrio);
+		
+		JButton btnRemoverCliente = new JButton("Remover cliente");
+		btnRemoverCliente.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String cpf = JOptionPane.showInputDialog("Digite o CPF do cliente que deseja remover do sistema. (Não use caracteres especiais)");
+				if(cpf == null)
+					JOptionPane.showMessageDialog(null, "Operação cancelada");
+				else if(padaria.descadastrarCliente(cpf)){
+					JOptionPane.showMessageDialog(null, "Cliente descadastrado com suecsso");
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "CPF não encontrado no sistema");
+				}
+			}
+		});
+		btnRemoverCliente.setBounds(227, 56, 197, 23);
+		frmPadariaTremBo.getContentPane().add(btnRemoverCliente);
+		
+		JButton btnRemoverFornecedor = new JButton("Remover Fornecedor");
+		btnRemoverFornecedor.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String cnpj = JOptionPane.showInputDialog("Digite o CNPJ do fornecedor que deseja remover do sistema. (Não use caracteres especiais)");
+				if(cnpj == null)
+					JOptionPane.showMessageDialog(null, "Operação cancelada");
+				else if(padaria.descadastrarFornecedores(cnpj)) {
+					JOptionPane.showMessageDialog(null, "Fornecedor descadastrado com suecsso");
+				}
+				else
+					JOptionPane.showMessageDialog(null, "CNPJ não encontrado no sistema");
+			}
+		});
+		btnRemoverFornecedor.setBounds(227, 90, 197, 23);
+		frmPadariaTremBo.getContentPane().add(btnRemoverFornecedor);
+		
+		JButton btnRemoverFuncionrio = new JButton("Remover funcion\u00E1rio");
+		btnRemoverFuncionrio.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String cpf = JOptionPane.showInputDialog("Digite o CPF do funcionario que deseja remover do sistema. (Não use caracteres especiais)");
+				if(cpf == null)
+					JOptionPane.showMessageDialog(null, "Operação cancelada");
+				else if(padaria.descadastrarFuncionarios(cpf)){
+					JOptionPane.showMessageDialog(null, "Funcionario descadastrado com suecsso");
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "CPF não encontrado no sistema");
+				}
+			}
+		});
+		btnRemoverFuncionrio.setBounds(227, 124, 197, 23);
+		frmPadariaTremBo.getContentPane().add(btnRemoverFuncionrio);
 	}
 }

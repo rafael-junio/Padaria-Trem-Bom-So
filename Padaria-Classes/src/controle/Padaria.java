@@ -7,6 +7,7 @@ import cliente.ClienteRegular;
 import fornecedores.Fornecedor;
 import fornecedores.FornecedorOcasional;
 import fornecedores.FornecedorRecorrente;
+import funcionalidades.ValidaDocumento;
 import funcionarios.Funcionario;
 import funcionarios.Gerente;
 import funcionarios.Padeiro;
@@ -25,6 +26,7 @@ public class Padaria {
 	private Funcionario[] funcionarios;
 	private Cliente[] clientes;
 	private Venda[] vendas;
+	private ValidaDocumento documentos;
 	private float montanteVendasGlobal;
 	private float MontanteVendasComprador;
 	private float MontanteVendasVendedor;
@@ -35,6 +37,7 @@ public class Padaria {
 		this.funcionarios = new Funcionario[10];
 		this.clientes = new Cliente[50];
 		this.vendas = new Venda[20];
+		this.documentos = new ValidaDocumento();
 	}
 
 	public Fornecedor[] getFornecedores() {
@@ -183,14 +186,12 @@ public class Padaria {
 	}
 
 	public boolean descadastrarCliente(String cpf) {
-		for (int i = 0; i < clientes.length; i++) {
-			if (clientes[i].getCpf().equals(cpf)) {
+		for (int i = 0; i < clientes.length && clientes[i] != null; i++) {
+			if (documentos.removeCaracteresEspeciais(clientes[i].getCpf()).equals(cpf)) {
 				clientes[i] = null;
 				return true;
 			}
 		}
-
-		System.out.println("Não foi possível descadastrar!");
 		return false;
 
 	}
@@ -247,12 +248,11 @@ public class Padaria {
 
 	public boolean descadastrarFornecedores(String cnpj) {
 
-		for (int i = 0; i < fornecedores.length; i++)
-			if (fornecedores[i].getCnpj().equals(cnpj)) {
+		for (int i = 0; i < fornecedores.length && fornecedores[i] != null; i++)
+			if (documentos.removeCaracteresEspeciais(fornecedores[i].getCnpj()).equals(cnpj)) {
 				fornecedores[i] = null;
 				return true;
 			}
-		System.out.println("Não foi possível descadastrar!");
 		return false;
 	}
 	
@@ -331,12 +331,11 @@ public class Padaria {
 	}
 
 	public boolean descadastrarFuncionarios(String cpf) {
-		for (int i = 0; i < funcionarios.length; i++)
-			if (funcionarios[i].getCpf().equals(cpf)) {
+		for (int i = 0; i < funcionarios.length && funcionarios[i] != null; i++)
+			if (documentos.removeCaracteresEspeciais(funcionarios[i].getCpf()).equals(cpf)) {
 				funcionarios[i] = null;
 				return true;
 			}
-		System.out.println("Não foi possível descadastrar!");
 		return false;
 
 	}
@@ -346,7 +345,6 @@ public class Padaria {
 			if (funcionarios[i] != null && funcionarios[i].getCodigo().equals(codigo))
 				return funcionarios[i];
 		}
-		System.out.println("Funcionário não encontrado!");
 		return null;
 	}
 	

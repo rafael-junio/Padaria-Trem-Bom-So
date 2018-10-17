@@ -115,7 +115,7 @@ public abstract class Produto {
 		if (hasApelido()) {
 			System.out.println("Apelido(s): ");
 			for (String i : apelido)
-				if(i != null)
+				if(i != null && !i.equals(""))
 					System.out.println(i);
 		}
 

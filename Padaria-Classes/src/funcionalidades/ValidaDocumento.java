@@ -5,7 +5,7 @@ import java.util.InputMismatchException;
 public class ValidaDocumento {
 
 	// Remove caractéres especiais
-	protected String removeCaracteresEspeciais(String doc) {
+	public String removeCaracteresEspeciais(String doc) {
 		if (doc.contains(".")) {
 			doc = doc.replace(".", "");
 		}

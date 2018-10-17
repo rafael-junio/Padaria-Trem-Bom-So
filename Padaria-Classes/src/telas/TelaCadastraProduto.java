@@ -182,6 +182,8 @@ public class TelaCadastraProduto {
 			
 				boolean existeFornecedor = false;
 				boolean estoqueValido = false;
+				
+				String[] apelido = new String[] {txtApelido1.getText(), txtApelido2.getText(), txtApelido3.getText(), txtApelido4.getText(), txtApelido5.getText()};
 				if(txtCodigo.getText().equals("   ") || padaria.encontraFornecedor(txtCodigo.getText()) == null){
 					JOptionPane.showMessageDialog(null, "Fornecedor inválido");
 				}
@@ -198,7 +200,7 @@ public class TelaCadastraProduto {
 				if(existeFornecedor && estoqueValido) {
 					try {
 						padaria.cadastrarProdutoNaoPerecivel(txtNomeProduto.getText(), txtCodigoProduto.getText(), padaria.encontraFornecedor(txtCodigo.getText()), 
-								Float.parseFloat(txtCompra.getText()), Float.parseFloat(txtVenda.getText()), null, Integer.parseInt(txtQuantidade.getText()));
+								Float.parseFloat(txtCompra.getText()), Float.parseFloat(txtVenda.getText()), apelido, Integer.parseInt(txtQuantidade.getText()));
 						JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso!");
 						frmCadastrarProduto.setVisible(false);
 					}
