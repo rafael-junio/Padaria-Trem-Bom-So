@@ -18,6 +18,6 @@ public final class FornecedorRecorrente extends Fornecedor {
     
     public void imprimeInformacoesFornecedor() {
     	super.imprimeInformacoesFornecedor();
-    	System.out.printf("Taxa de desconto: %.1f%%.\n", (getTaxaDesconto() * 100f));
+    	System.out.printf("Taxa de desconto: %.0f%%.\n", (getTaxaDesconto() * 100f));
     }
 }

@@ -87,6 +87,7 @@ public class Estoque implements AlertaEstoque {
 		for (int i = 0; i < produtos.length; i++)
 			if (produtos[i] != null && produtos[i].getCodigo().equals(codigo))
 				if ((produtos[i].getQuantidade() - quantidade) > 0) {
+					produtos[i].setQuantidadeVenda(quantidade);
 					produtos[i].setQuantidade(produtos[i].getQuantidade() - quantidade);
 					alertaEstoque(produtos[i]);
 					return true;

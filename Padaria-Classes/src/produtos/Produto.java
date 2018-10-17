@@ -3,8 +3,8 @@ package produtos;
 import fornecedores.Fornecedor;
 import fornecedores.FornecedorRecorrente;
 
-public abstract class Produto {
-	
+public abstract class Produto implements Cloneable {
+
 	protected String nome;
 	protected String codigo;
 	protected Fornecedor fornecedor;
@@ -12,10 +12,11 @@ public abstract class Produto {
 	protected float precoFinal;
 	protected String[] apelido;
 	protected int quantidade;
+	private int quantidadeVenda;
 
 	public Produto(String nome, String codigo, Fornecedor fornecedor, float precoCusto, float precoFinal,
 			String[] apelido) {
-		
+
 		this.nome = nome;
 
 		if (codigo.length() == 6)
@@ -33,6 +34,7 @@ public abstract class Produto {
 		this.precoFinal = precoFinal;
 		this.apelido = apelido;
 		this.quantidade = 0;
+		this.quantidadeVenda = 0;
 
 	}
 
@@ -92,6 +94,22 @@ public abstract class Produto {
 		this.quantidade = quantidade;
 	}
 
+	public int getQuantidadeVenda() {
+		return quantidadeVenda;
+	}
+
+	public void setQuantidadeVenda(int quantidadeVenda) {
+		this.quantidadeVenda = quantidadeVenda;
+	}
+
+	public Produto clone() {
+		try {
+			return (Produto) super.clone();
+		} catch (CloneNotSupportedException e) {
+			System.out.println(" Clonagem não permitida.");
+			return this;
+		}
+	}
 
 	public boolean hasApelido() {
 		if (this.apelido != null)
@@ -102,16 +120,33 @@ public abstract class Produto {
 	public void imprimeInformacoesProduto() {
 		System.out.println("Produto: " + this.nome + ".");
 		System.out.println("Código: " + this.codigo + ".");
-		fornecedor.imprimeInformacoesFornecedor();
-		System.out.printf("Preçoo de custo: %.2f. ", this.precoCusto);
-		System.out.printf("\nPreço de final: %.2f.\n", this.precoFinal);
 
 		if (hasApelido()) {
 			System.out.println("Apelido(s): ");
 			for (String i : apelido)
-				if(i != null)
+				if (i != null)
 					System.out.println(i);
 		}
+
+		fornecedor.imprimeInformacoesFornecedor();
+		System.out.printf("Preço de custo: %.2f. ", this.precoCusto);
+		System.out.printf("\nPreço de final: %.2f.\n\n", this.precoFinal);
+
+	}
+
+	public void imprimeInformacoesProdutoVenda() {
+		System.out.println("Produto: " + this.nome + ".");
+		System.out.println("Código: " + this.codigo + ".");
+
+		if (hasApelido()) {
+			System.out.println("Apelido(s): ");
+			for (String i : apelido)
+				if (i != null)
+					System.out.println(i);
+		}
+
+		System.out.printf("Unidades compradas: %d.\n", this.quantidadeVenda);
+		System.out.printf("Preço de final: %.2f.\n\n", this.precoFinal * this.quantidadeVenda);
 
 	}
 }

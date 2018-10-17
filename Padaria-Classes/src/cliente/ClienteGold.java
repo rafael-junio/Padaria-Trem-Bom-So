@@ -12,6 +12,8 @@ public final class ClienteGold extends Cliente {
 	}
 
 	public void imprimeInformacoesCliente() {
+		System.out.println("Cliente Gold.");
 		super.imprimeInformacoesCliente();
+		System.out.printf("Desconto: %.0f%%.\n", ((getDESCONTO() -1f) * 100f));
 	}
 }

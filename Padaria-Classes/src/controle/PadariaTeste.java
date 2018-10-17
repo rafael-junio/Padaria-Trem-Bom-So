@@ -10,9 +10,9 @@ public class PadariaTeste {
 		
 		tremBao.cadastrarClienteRegular("Cl1", "Rua 1", "136.839.020-00", "(00) 0000-0000");
 		
-//		tremBao.cadastrarFornecedorOcasional("fo1", "Rua 2", "000", "24.587.906/0001-12");
+		tremBao.cadastrarFornecedorOcasional("fo1", "Rua 2", "000", "24.587.906/0001-12");
 //		
-//		tremBao.cadastrarFornecedorRecorrente("fr1", "Rua 3", "001", "38.078.863/0001-54", 0.15f);
+		tremBao.cadastrarFornecedorRecorrente("fr1", "Rua 3", "001", "38.078.863/0001-54", 0.15f);
 		
 		tremBao.cadastrarGerente("g1", "Rua 4", "797.674.120-93", "(00) 0000-0001", "0000", 2000f);
 		

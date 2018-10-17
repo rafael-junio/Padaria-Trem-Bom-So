@@ -1,5 +1,7 @@
 package controle;
 
+import javax.swing.JOptionPane;
+
 import cliente.Cliente;
 import cliente.ClienteGold;
 import cliente.ClientePlatinum;
@@ -7,12 +9,12 @@ import cliente.ClienteRegular;
 import fornecedores.Fornecedor;
 import fornecedores.FornecedorOcasional;
 import fornecedores.FornecedorRecorrente;
+import funcionalidades.ValidaDocumento;
 import funcionarios.Funcionario;
 import funcionarios.Gerente;
 import funcionarios.Padeiro;
 import funcionarios.Vendedor;
 import produtos.Produto;
-import produtos.ProdutoPerecivel;
 
 public class Padaria {
 
@@ -23,6 +25,7 @@ public class Padaria {
 	private Venda[] vendas;
 	private float montanteVendasGlobal;
 	private Produto[] comprasRealizadas;
+	private ValidaDocumento documentos;
 
 	public Padaria() {
 		this.fornecedores = new Fornecedor[15];
@@ -31,6 +34,7 @@ public class Padaria {
 		this.clientes = new Cliente[50];
 		this.vendas = new Venda[20];
 		this.comprasRealizadas = new Produto[20];
+		this.documentos = new ValidaDocumento();
 
 	}
 
@@ -103,11 +107,12 @@ public class Padaria {
 		return false;
 	}
 	
-	public boolean cadastrarClienteGold(String nome, String endereco, String cpf, String telefone) {
+	public boolean cadastrarClienteGold(String cpf) {
 
 		for (int i = 0; i < clientes.length; i++)
-			if (clientes[i] != null && clientes[i].getValorCompras() > 250f){
-				ClienteGold cliente = (ClienteGold) clientes[i];
+			if (clientes[i] != null && clientes[i].getCpf().equals(cpf) && clientes[i].getValorCompras() > 250f){
+				ClienteGold cliente = new ClienteGold(clientes[i].getNome(), clientes[i].getEndereco(), clientes[i].getCpf(), clientes[i].getTelefone());
+				clientes[i] = null;
 				clientes[i] = cliente;
 				cliente = null;
 				return true;
@@ -116,11 +121,12 @@ public class Padaria {
 		return false;
 	}
 	
-	public boolean cadastrarClientePlatinum(String nome, String endereco, String cpf, String telefone) {
+	public boolean cadastrarClientePlatinum(String cpf) {
 
 		for (int i = 0; i < clientes.length; i++)
-			if (clientes[i] != null && clientes[i].getValorCompras() > 250f){
-				ClientePlatinum cliente = (ClientePlatinum) clientes[i];
+			if (clientes[i] != null && clientes[i].getCpf().equals(cpf) && clientes[i].getValorCompras() > 500f){
+				ClientePlatinum cliente = new ClientePlatinum(clientes[i].getNome(), clientes[i].getEndereco(), clientes[i].getCpf(), clientes[i].getTelefone());
+				clientes[i] = null;
 				clientes[i] = cliente;
 				cliente = null;
 				return true;
@@ -130,8 +136,8 @@ public class Padaria {
 	}
 
 	public boolean descadastrarCliente(String cpf) {
-		for (int i = 0; i < clientes.length; i++) {
-			if (clientes[i].getCpf().equals(cpf)) {
+		for (int i = 0; i < clientes.length && clientes[i] != null; i++) {
+			if (documentos.removeCaracteresEspeciais(clientes[i].getCpf()).equals(cpf)) {
 				clientes[i] = null;
 				return true;
 			}
@@ -161,13 +167,13 @@ public class Padaria {
 				return true;
 			} else {
 				if (fornecedores[i].getCnpj().equals(cnpj)) {
-					System.out.println("Fornecedor já cadastrado!");
+//					System.out.println("Fornecedor já cadastrado!");
 					fornecedor = null;
 					return false;
 				}
 			}
 
-		System.out.println("Não foi possível descadastrar!");
+//		System.out.println("Não foi possível descadastrar!");
 		fornecedor = null;
 		return false;
 	}
@@ -195,8 +201,8 @@ public class Padaria {
 
 	public boolean descadastrarFornecedor(String cnpj) {
 
-		for (int i = 0; i < fornecedores.length; i++)
-			if (fornecedores[i].getCnpj().equals(cnpj)) {
+		for (int i = 0; i < fornecedores.length && fornecedores[i] != null; i++)
+			if (documentos.removeCaracteresEspeciais(fornecedores[i].getCnpj()).equals(cnpj)) {
 				fornecedores[i] = null;
 				return true;
 			}
@@ -224,7 +230,7 @@ public class Padaria {
 				return true;
 			} else {
 				if (funcionarios[i].getCpf().equals(cpf)) {
-					System.out.println("Vendedor já cadastrado!");
+//					System.out.println("Vendedor já cadastrado!");
 					funcionario = null;
 					return false;
 				}
@@ -280,8 +286,8 @@ public class Padaria {
 	}
 
 	public boolean descadastrarFuncionario(String cpf) {
-		for (int i = 0; i < funcionarios.length; i++)
-			if (funcionarios[i].getCpf().equals(cpf)) {
+		for (int i = 0; i < funcionarios.length && funcionarios[i] != null; i++)
+			if (documentos.removeCaracteresEspeciais(funcionarios[i].getCpf()).equals(cpf)) {
 				funcionarios[i] = null;
 				return true;
 			}
@@ -323,6 +329,7 @@ public class Padaria {
 				vendas[i].calcularValorFinalCompra(numParcelas);
 				this.montanteVendasGlobal += vendas[i].getValorFinalCompra();
 				venda = null;
+				this.comprasRealizadas = null;
 				this.comprasRealizadas = new Produto[20];
 				return true;
 			}
@@ -334,15 +341,16 @@ public class Padaria {
 
 	}
 
-	public boolean adicionarProdutoVenda(String codigo, int quantidade) {
+	public boolean adicionarProdutoVenda(String codigo, int quantidade) throws CloneNotSupportedException {
 
 		if (estoque.venderQuantidadeProduto(codigo, quantidade)) {
 
-			Produto produtoComprado = estoque.procurarProduto(codigo);
+			Produto produtoComprado = estoque.procurarProduto(codigo).clone();
 
 			for (int i = 0; i < comprasRealizadas.length; i++)
 				if (comprasRealizadas[i] == null) {
 					comprasRealizadas[i] = produtoComprado;
+					produtoComprado = null;
 					return true;
 				}
 		}
@@ -368,25 +376,19 @@ public class Padaria {
 		System.out.println();
 	}
 
-	public void imprimeInfoClientes(String cpf) {
+	public void  imprimeInfoClientes(String cpf) {
 		boolean encontra = false;
 		for (int i = 0; !encontra && i < clientes.length; i++) {
-			if (clientes[i] != null && clientes[i].getCpf().equals(cpf)) {
-				System.out.print("Cliente ");
-				
-				if(clientes[i] instanceof ClienteGold)
-					System.out.println("Gold");
-				else if(clientes[i] instanceof ClientePlatinum)
-					System.out.println("Platinum");
-				else if(clientes[i] instanceof ClienteRegular)
-					System.out.println("Regular");
-				
+			if (clientes[i] != null && documentos.removeCaracteresEspeciais(clientes[i].getCpf()).equals(cpf)) {
+				JOptionPane.showMessageDialog(null, "Informação solicitada impressa no console");
+				System.out.println();
+				System.out.println("----------Cliente encontrado-----------");
 				clientes[i].imprimeInformacoesCliente();
 				encontra = true;
 			}
 		}
-		if (encontra == false)
-			System.out.println("Cliente não encontrado!");
+		if(encontra == false)
+			JOptionPane.showMessageDialog(null, "Cliente não encontrado");
 	}
 
 	public void imprimeInfoFornecedores() {
@@ -399,17 +401,21 @@ public class Padaria {
 		System.out.println();
 	}
 
-	public void imprimeInfoFornecedores(String codigo) {
+	public void  imprimeInfoFornecedores(String codigo) {
 		boolean encontra = false;
 		for (int i = 0; !encontra && i < fornecedores.length; i++) {
 			if (fornecedores[i] != null && fornecedores[i].getCodigo().equals(codigo)) {
+				JOptionPane.showMessageDialog(null, "Informação solicitada impressa no console");
+				System.out.println();
+				System.out.println("----------Fornecedor encontrado-----------");
 				fornecedores[i].imprimeInformacoesFornecedor();
 				encontra = true;
 			}
 		}
-		if (encontra == false)
-			System.out.println("Fornecedor não encontrado!");
+		if(encontra == false)
+			JOptionPane.showMessageDialog(null, "Fornecedor não encontrado");
 	}
+
 
 	public void imprimeInfoFuncionarios() {
 		System.out.println("***********************FUNCIONARIOS***********************");
@@ -422,16 +428,19 @@ public class Padaria {
 		System.out.println();
 	}
 
-	public void imprimeInfoFuncionarios(String codigo) {
+	public void  imprimeInfoFuncionarios(String codigo) {
 		boolean encontra = false;
 		for (int i = 0; !encontra && i < funcionarios.length; i++) {
 			if (funcionarios[i] != null && funcionarios[i].getCodigo().equals(codigo)) {
+				JOptionPane.showMessageDialog(null, "Informação solicitada impressa no console");
+				System.out.println();
+				System.out.println("----------Funcionário encontrado-----------");
 				funcionarios[i].imprimeInformacoesFuncionario();
 				encontra = true;
 			}
 		}
-		if (encontra == false)
-			System.out.println("Funcionário não encontrado!");
+		if(encontra == false)
+			JOptionPane.showMessageDialog(null, "Fornecedor não encontrado");
 	}
 
 	public void imprimeInfoProdutos() {
@@ -449,8 +458,6 @@ public class Padaria {
 		for (int i = 0; i < vendas.length; i++)
 			if (vendas[i] != null)
 				vendas[i].imprimeInformacoesVenda();
-
-		System.out.println(this.montanteVendasGlobal);
 	}
 
 }
