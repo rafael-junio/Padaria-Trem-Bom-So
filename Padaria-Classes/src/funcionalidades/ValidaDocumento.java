@@ -90,7 +90,7 @@ public class ValidaDocumento {
 	}
 
 	// Verifica CPF
-	protected boolean isCPF(String cpf) {
+	public boolean isCPF(String cpf) {
 		cpf = removeCaracteresEspeciais(cpf);
 
 		if (cpf.equals("00000000000") || cpf.equals("11111111111") || cpf.equals("22222222222")

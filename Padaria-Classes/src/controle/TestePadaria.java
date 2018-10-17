@@ -21,7 +21,7 @@ public class TestePadaria {
 
 		tremBao.cadastrarPadeiro("pdo1", "Rua 6", "533.384.960-95", "(00) 0000-0003", "0002", 1000f);
 		
-		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("pnp1", "000000", tremBao.encontraFornecedor("000"), 10f, 15f, null, 30);
+		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("pnp1", "000000", tremBao.encontraFornecedor("000"), 30f, 300f, null, 30);
 		
 		tremBao.getEstoque().cadastrarProdutoPerecivel("pp1", "000001", tremBao.encontraFornecedor("001"), 20f, 30f, 1, 10, 2019, null, 30);
 
@@ -39,7 +39,7 @@ public class TestePadaria {
 //		System.out.println();
 //		tremBao.imprimeInfoProdutos("000001");
 
-		tremBao.adicionarProdutoVenda("000001", 5);
+		tremBao.adicionarProdutoVenda("000000", 5);
 		tremBao.realizarVenda("136.839.020-00", "0001", "Crédito", 1, 14, 10, 2018);
 		
 		tremBao.imprimeInfoFuncionarios("0001");

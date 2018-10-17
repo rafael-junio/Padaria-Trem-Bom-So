@@ -144,7 +144,7 @@ public class TelaPrincipal{
 				String cnpj = JOptionPane.showInputDialog("Digite o CNPJ do fornecedor que deseja remover do sistema. (Não use caracteres especiais)");
 				if(cnpj == null)
 					JOptionPane.showMessageDialog(null, "Operação cancelada");
-				else if(padaria.descadastrarFornecedores(cnpj)) {
+				else if(padaria.descadastrarFornecedor(cnpj)) {
 					JOptionPane.showMessageDialog(null, "Fornecedor descadastrado com suecsso");
 				}
 				else
@@ -160,7 +160,7 @@ public class TelaPrincipal{
 				String cpf = JOptionPane.showInputDialog("Digite o CPF do funcionario que deseja remover do sistema. (Não use caracteres especiais)");
 				if(cpf == null)
 					JOptionPane.showMessageDialog(null, "Operação cancelada");
-				else if(padaria.descadastrarFuncionarios(cpf)){
+				else if(padaria.descadastrarFuncionario(cpf)){
 					JOptionPane.showMessageDialog(null, "Funcionario descadastrado com suecsso");
 				}
 				else {

@@ -372,6 +372,15 @@ public class Padaria {
 		boolean encontra = false;
 		for (int i = 0; !encontra && i < clientes.length; i++) {
 			if (clientes[i] != null && clientes[i].getCpf().equals(cpf)) {
+				System.out.print("Cliente ");
+				
+				if(clientes[i] instanceof ClienteGold)
+					System.out.println("Gold");
+				else if(clientes[i] instanceof ClientePlatinum)
+					System.out.println("Platinum");
+				else if(clientes[i] instanceof ClienteRegular)
+					System.out.println("Regular");
+				
 				clientes[i].imprimeInformacoesCliente();
 				encontra = true;
 			}
