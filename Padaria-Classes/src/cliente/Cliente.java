@@ -27,10 +27,6 @@ public abstract class Cliente extends PessoaFisica {
 	public void setDesconto(float desconto) {
 		this.desconto = desconto;
 	}
-
-	public float atualizarValorCompras(float totalCompra) {
-		return this.valorCompras += totalCompra;
-	}
 	
 	public void imprimeInformacoesCliente() {
 		System.out.printf("Nome do Cliente: %s.\n", this.nome);

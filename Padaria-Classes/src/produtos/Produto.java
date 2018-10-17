@@ -1,20 +1,17 @@
 package produtos;
 
-import java.util.Scanner;
-
 import fornecedores.Fornecedor;
 import fornecedores.FornecedorRecorrente;
 
 public abstract class Produto {
-
-	Scanner teclado = new Scanner(System.in);
-
+	
 	protected String nome;
 	protected String codigo;
 	protected Fornecedor fornecedor;
 	protected float precoCusto;
 	protected float precoFinal;
 	protected String[] apelido;
+	protected int quantidade;
 
 	public Produto(String nome, String codigo, Fornecedor fornecedor, float precoCusto, float precoFinal,
 			String[] apelido) {
@@ -29,26 +26,14 @@ public abstract class Produto {
 		this.fornecedor = fornecedor;
 
 		if (fornecedor instanceof FornecedorRecorrente) {
-			this.precoCusto = precoCusto + (precoCusto * ((FornecedorRecorrente) this.fornecedor).getTaxaDesconto());
+			this.precoCusto = precoCusto - (precoCusto * ((FornecedorRecorrente) this.fornecedor).getTaxaDesconto());
 		} else
 			this.precoCusto = precoCusto;
 
 		this.precoFinal = precoFinal;
-
 		this.apelido = apelido;
+		this.quantidade = 0;
 
-	}
-
-	private boolean cadastrarApelido(String apelido, int i) {
-
-		if(i != 4)
-			System.out.print("Deseja cadastrar outro? ");
-		if (i < 4 && teclado.nextBoolean()) {
-			teclado.nextLine();
-			return true;
-		}
-		else
-			return false;
 	}
 
 	public String getNome() {
@@ -91,13 +76,22 @@ public abstract class Produto {
 		this.precoFinal = precoFinal;
 	}
 
-	public String[] getApelidoRegiao() {
+	public String[] getApelido() {
 		return apelido;
 	}
 
-	public void setApelidoRegiao(String[] apelidoRegiao) {
-		this.apelido = apelidoRegiao;
+	public void setApelido(String[] apelido) {
+		this.apelido = apelido;
 	}
+
+	public int getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
+	}
+
 
 	public boolean hasApelido() {
 		if (this.apelido != null)
@@ -115,7 +109,7 @@ public abstract class Produto {
 		if (hasApelido()) {
 			System.out.println("Apelido(s): ");
 			for (String i : apelido)
-				if(i != null && !i.equals(""))
+				if(i != null)
 					System.out.println(i);
 		}
 

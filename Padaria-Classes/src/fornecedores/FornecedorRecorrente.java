@@ -5,10 +5,7 @@ public final class FornecedorRecorrente extends Fornecedor {
 
     public FornecedorRecorrente(String nome, String endereco, String codigo, String cnpj, float taxaDesconto) {
 	super(nome, endereco, codigo, cnpj);
-	if (taxaDesconto > 0f && taxaDesconto < 1f) {
 	    this.taxaDesconto = taxaDesconto;
-	} else
-	    System.out.println("Digite um valor válido! A taxa deve estar entre 0 e 1.");
     }
 
     public float getTaxaDesconto() {

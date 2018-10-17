@@ -199,7 +199,7 @@ public class TelaCadastraProduto {
 				}	
 				if(existeFornecedor && estoqueValido) {
 					try {
-						padaria.cadastrarProdutoNaoPerecivel(txtNomeProduto.getText(), txtCodigoProduto.getText(), padaria.encontraFornecedor(txtCodigo.getText()), 
+						padaria.getEstoque().cadastrarProdutoNaoPerecivel(txtNomeProduto.getText(), txtCodigoProduto.getText(), padaria.encontraFornecedor(txtCodigo.getText()), 
 								Float.parseFloat(txtCompra.getText()), Float.parseFloat(txtVenda.getText()), apelido, Integer.parseInt(txtQuantidade.getText()));
 						JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso!");
 						frmCadastrarProduto.setVisible(false);

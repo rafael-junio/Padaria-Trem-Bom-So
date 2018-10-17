@@ -14,7 +14,7 @@ public abstract class Funcionario extends PessoaFisica {
 		if (salarioBase > 0)
 			this.salarioBase = salarioBase;
 		else
-			System.out.println("Salário base inválido! Deve ser maior que zero.");
+			System.out.println("Salá¡rio base invá¡lido! Deve ser maior que zero.");
 
 		if (codigo.length() == 4)
 			this.codigo = codigo;
