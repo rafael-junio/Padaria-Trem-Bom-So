@@ -117,22 +117,63 @@ public class TelaImprimeInformacoes {
 		frmImprimeInformacoes.getContentPane().add(lblCasoQueiraPesquisar);
 		
 		JButton btnProcuraProduto = new JButton("Procura produto");
+		btnProcuraProduto.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				padaria.imprimeInfoProdutos(JOptionPane.showInputDialog("Digite o código do produto. (6 Digítos)"));
+				
+				
+				//AINDA FALTA FAZER
+			}
+		});
 		btnProcuraProduto.setBounds(10, 167, 200, 23);
 		frmImprimeInformacoes.getContentPane().add(btnProcuraProduto);
 		
 		JButton btnProcuraCliente = new JButton("Procura cliente");
+		btnProcuraCliente.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			String info = JOptionPane.showInputDialog("Digite o CPF do cliente. (3 Digítos)");
+				
+				if(info == null)
+					JOptionPane.showMessageDialog(null, "Operação cancelada");
+				else if (info != null){
+					padaria.imprimeInfoClientes(info);
+				}
+				
+				
+			}
+		});
 		btnProcuraCliente.setBounds(224, 201, 200, 23);
 		frmImprimeInformacoes.getContentPane().add(btnProcuraCliente);
 		
 		JButton btnProcuraFornecedor = new JButton("Procura Fornecedor");
 		btnProcuraFornecedor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String info = JOptionPane.showInputDialog("Digite o código do fornecedor. (3 Digítos)");
+				
+				if(info == null)
+					JOptionPane.showMessageDialog(null, "Operação cancelada");
+				else if (info != null){
+					padaria.imprimeInfoFornecedores(info);
+				}
+				
 			}
 		});
 		btnProcuraFornecedor.setBounds(224, 167, 200, 23);
 		frmImprimeInformacoes.getContentPane().add(btnProcuraFornecedor);
 		
 		JButton btnProcuraFuncionrio = new JButton("Procura funcion\u00E1rio");
+		btnProcuraFuncionrio.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				String info = JOptionPane.showInputDialog("Digite o código do funcionário. (4 Digítos)");
+				
+				if(info == null)
+					JOptionPane.showMessageDialog(null, "Operação cancelada");
+				else if (info != null){
+					padaria.imprimeInfoFuncionarios(info);
+				}	
+			}
+		});
 		btnProcuraFuncionrio.setBounds(10, 201, 200, 23);
 		frmImprimeInformacoes.getContentPane().add(btnProcuraFuncionrio);
 		
