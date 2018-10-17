@@ -69,6 +69,13 @@ public class TelaPrincipal{
 		frmPadariaTremBo.getContentPane().add(btnCadastrarProduto);
 		
 		JButton btnVenderProduto = new JButton("Vender produto");
+		btnVenderProduto.addActionListener(new ActionListener() {
+			@SuppressWarnings("static-access")
+			public void actionPerformed(ActionEvent e) {
+				TelaVendeProduto p = new TelaVendeProduto(padaria);
+				p.main(null);
+			}
+		});
 		btnVenderProduto.setBounds(227, 22, 197, 23);
 		frmPadariaTremBo.getContentPane().add(btnVenderProduto);
 		

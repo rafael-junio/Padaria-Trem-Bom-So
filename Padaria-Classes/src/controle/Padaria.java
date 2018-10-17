@@ -444,7 +444,7 @@ public class Padaria {
 			}
 		}
 		if(encontra == false)
-			JOptionPane.showMessageDialog(null, "Fornecedor não encontrado");
+			JOptionPane.showMessageDialog(null, "Funcionário não encontrado");
 	}
 
 	public void imprimeInfoProdutos() {

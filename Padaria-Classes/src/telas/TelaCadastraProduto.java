@@ -187,10 +187,10 @@ public class TelaCadastraProduto {
 				if(txtCodigo.getText().equals("   ") || padaria.encontraFornecedor(txtCodigo.getText()) == null){
 					JOptionPane.showMessageDialog(null, "Fornecedor inválido");
 				}
-				if(txtQuantidade.getText().equals("  ") || Integer.parseInt(txtQuantidade.getText()) > 30 || Integer.parseInt(txtQuantidade.getText()) < 0 ) {
+				else if(txtQuantidade.getText().equals("  ") || Integer.parseInt(txtQuantidade.getText()) > 30 || Integer.parseInt(txtQuantidade.getText()) < 0 ) {
 					JOptionPane.showMessageDialog(null, "Quantidade para cadastro no estoque inválido");
 				}
-				if(txtCodigoProduto.getText().equals("      ") || padaria.encontraFornecedor(txtCodigo.getText()) == null){
+				else if(txtCodigoProduto.getText().equals("      ") || padaria.encontraFornecedor(txtCodigo.getText()) == null){
 					JOptionPane.showMessageDialog(null, "Código inválido, deve ter 6 dígitos");
 				}
 				else {	
