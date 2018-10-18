@@ -25,7 +25,6 @@ public class Padaria {
 	private Venda[] vendas;
 	private float montanteVendasGlobal;
 	private Produto[] comprasRealizadas;
-	private ValidaDocumento documentos;
 
 	public Padaria() {
 		this.fornecedores = new Fornecedor[15];
@@ -34,7 +33,6 @@ public class Padaria {
 		this.clientes = new Cliente[50];
 		this.vendas = new Venda[20];
 		this.comprasRealizadas = new Produto[20];
-		this.documentos = new ValidaDocumento();
 
 	}
 
@@ -137,7 +135,7 @@ public class Padaria {
 
 	public boolean descadastrarCliente(String cpf) {
 		for (int i = 0; i < clientes.length && clientes[i] != null; i++) {
-			if (documentos.removeCaracteresEspeciais(clientes[i].getCpf()).equals(cpf)) {
+			if (clientes[i].removeCaracteresEspeciais(clientes[i].getCpf()).equals(cpf)) {
 				clientes[i] = null;
 				return true;
 			}
@@ -202,7 +200,7 @@ public class Padaria {
 	public boolean descadastrarFornecedor(String cnpj) {
 
 		for (int i = 0; i < fornecedores.length && fornecedores[i] != null; i++)
-			if (documentos.removeCaracteresEspeciais(fornecedores[i].getCnpj()).equals(cnpj)) {
+			if (fornecedores[i].removeCaracteresEspeciais(fornecedores[i].getCnpj()).equals(cnpj)) {
 				fornecedores[i] = null;
 				return true;
 			}
@@ -287,7 +285,7 @@ public class Padaria {
 
 	public boolean descadastrarFuncionario(String cpf) {
 		for (int i = 0; i < funcionarios.length && funcionarios[i] != null; i++)
-			if (documentos.removeCaracteresEspeciais(funcionarios[i].getCpf()).equals(cpf)) {
+			if (funcionarios[i].removeCaracteresEspeciais(funcionarios[i].getCpf()).equals(cpf)) {
 				funcionarios[i] = null;
 				return true;
 			}
@@ -382,18 +380,9 @@ public class Padaria {
 	public void  imprimeInfoClientes(String cpf) {
 		boolean encontra = false;
 		for (int i = 0; !encontra && i < clientes.length; i++) {
-			if (clientes[i] != null && documentos.removeCaracteresEspeciais(clientes[i].getCpf()).equals(cpf)) {
+			if (clientes[i] != null && clientes[i].removeCaracteresEspeciais(clientes[i].getCpf()).equals(cpf)) {
 				JOptionPane.showMessageDialog(null, "Informação solicitada impressa no console");
 				System.out.println();
-				System.out.println("----------Cliente encontrado-----------");
-				
-				if(clientes[i] instanceof ClienteGold)
-					System.out.println("Cliente Gold");
-				else if(clientes[i] instanceof ClientePlatinum)
-					System.out.println("Cliente Platinum");
-				else if(clientes[i] instanceof ClienteRegular)
-					System.out.println("Cliente Regular");
-				
 				clientes[i].imprimeInformacoesCliente();
 				encontra = true;
 			}
