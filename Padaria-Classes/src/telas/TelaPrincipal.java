@@ -148,14 +148,14 @@ public class TelaPrincipal{
 		JButton btnRemoverFornecedor = new JButton("Remover Fornecedor");
 		btnRemoverFornecedor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String cnpj = JOptionPane.showInputDialog("Digite o CNPJ do fornecedor que deseja remover do sistema. (Não use caracteres especiais)");
-				if(cnpj == null)
+				String codigo = JOptionPane.showInputDialog("Digite o código do fornecedor que deseja remover do sistema.");
+				if(codigo == null)
 					JOptionPane.showMessageDialog(null, "Operação cancelada");
-				else if(padaria.descadastrarFornecedor(cnpj)) {
+				else if(padaria.descadastrarFornecedor(codigo)) {
 					JOptionPane.showMessageDialog(null, "Fornecedor descadastrado com suecsso");
 				}
 				else
-					JOptionPane.showMessageDialog(null, "CNPJ não encontrado no sistema");
+					JOptionPane.showMessageDialog(null, "Código não encontrado no sistema");
 			}
 		});
 		btnRemoverFornecedor.setBounds(227, 90, 197, 23);
@@ -164,14 +164,14 @@ public class TelaPrincipal{
 		JButton btnRemoverFuncionrio = new JButton("Remover funcion\u00E1rio");
 		btnRemoverFuncionrio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String cpf = JOptionPane.showInputDialog("Digite o CPF do funcionario que deseja remover do sistema. (Não use caracteres especiais)");
-				if(cpf == null)
+				String codigo = JOptionPane.showInputDialog("Digite o código do funcionário que deseja remover do sistema.");
+				if(codigo == null)
 					JOptionPane.showMessageDialog(null, "Operação cancelada");
-				else if(padaria.descadastrarFuncionario(cpf)){
+				else if(padaria.descadastrarFuncionario(codigo)){
 					JOptionPane.showMessageDialog(null, "Funcionario descadastrado com suecsso");
 				}
 				else {
-					JOptionPane.showMessageDialog(null, "CPF não encontrado no sistema");
+					JOptionPane.showMessageDialog(null, "Código não encontrado no sistema");
 				}
 			}
 		});

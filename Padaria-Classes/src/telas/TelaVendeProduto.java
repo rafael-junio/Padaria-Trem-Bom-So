@@ -241,9 +241,6 @@ public class TelaVendeProduto {
 					} catch (NumberFormatException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
-					} catch (CloneNotSupportedException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
 					}
 					JOptionPane.showMessageDialog(null, "Produto adicionado no carrinho com sucesso");
 					cont++;

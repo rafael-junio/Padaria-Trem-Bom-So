@@ -197,10 +197,10 @@ public class Padaria {
 		return false;
 	}
 
-	public boolean descadastrarFornecedor(String cnpj) {
+	public boolean descadastrarFornecedor(String codigo) {
 
 		for (int i = 0; i < fornecedores.length && fornecedores[i] != null; i++)
-			if (fornecedores[i].removeCaracteresEspeciais(fornecedores[i].getCnpj()).equals(cnpj)) {
+			if (fornecedores[i].getCodigo().equals(codigo)) {
 				fornecedores[i] = null;
 				return true;
 			}
@@ -283,9 +283,9 @@ public class Padaria {
 		return false;
 	}
 
-	public boolean descadastrarFuncionario(String cpf) {
+	public boolean descadastrarFuncionario(String codigo) {
 		for (int i = 0; i < funcionarios.length && funcionarios[i] != null; i++)
-			if (funcionarios[i].removeCaracteresEspeciais(funcionarios[i].getCpf()).equals(cpf)) {
+			if (funcionarios[i].getCodigo().equals(codigo)) {
 				funcionarios[i] = null;
 				return true;
 			}
