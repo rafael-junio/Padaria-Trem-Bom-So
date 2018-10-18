@@ -15,11 +15,15 @@ import javax.swing.JFormattedTextField;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JCheckBox;
 
 public class TelaVendeProduto {
 
 	private JFrame frmVendaDeProdutos;
 	private static Padaria padaria;
+	
+	protected int cont;
+	
 	private JTextField txtCodigo;
 	private JTextField txtCPF;
 	private JTextField txtQuantidade;
@@ -50,6 +54,7 @@ public class TelaVendeProduto {
 	public TelaVendeProduto(Padaria padaria) {
 		initialize();
 		this.padaria = padaria;
+		this.cont = 0;
 	}
 
 	/**
@@ -61,6 +66,8 @@ public class TelaVendeProduto {
 		frmVendaDeProdutos.setBounds(100, 100, 450, 300);
 		frmVendaDeProdutos.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmVendaDeProdutos.getContentPane().setLayout(null);
+		
+
 		
 		JLabel lblCdigoDoProduto = new JLabel("C\u00F3digo do produto");
 		lblCdigoDoProduto.setBounds(10, 11, 144, 14);
@@ -120,6 +127,7 @@ public class TelaVendeProduto {
 		txtParcela.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Vender produto!");
+		btnNewButton.setEnabled(false);
 
 		frmVendaDeProdutos.getContentPane().add(btnNewButton);
 		
@@ -190,6 +198,44 @@ public class TelaVendeProduto {
 					JOptionPane.showMessageDialog(null, "CPF inválido");
 				
 				if(cpfValido) {
+					padaria.realizarVenda(CPF, codigoVendedor, pagamento, parcela, dia, mes, ano);
+					JOptionPane.showMessageDialog(null, "Venda concluída!");
+					frmVendaDeProdutos.dispose();
+				}
+			
+			}
+		});
+		btnNewButton.setBounds(10, 214, 414, 36);
+		
+		JCheckBox chckbxFinalizarVenda = new JCheckBox("Finalizar venda?");
+		chckbxFinalizarVenda.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(chckbxFinalizarVenda.isSelected()) {
+					btnNewButton.setEnabled(true);
+				}
+				else
+					btnNewButton.setEnabled(false);
+			}
+		});
+		chckbxFinalizarVenda.setBounds(10, 184, 137, 23);
+		frmVendaDeProdutos.getContentPane().add(chckbxFinalizarVenda);
+		
+		JLabel lblProdutosNoCarrinho = new JLabel("Produtos no carrinho(0)");
+		lblProdutosNoCarrinho.setBounds(280, 135, 184, 14);
+		frmVendaDeProdutos.getContentPane().add(lblProdutosNoCarrinho);
+		
+		JButton btnNewButton_1 = new JButton("Adicionar produto ao carrinho");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				if(txtCodigo.getText().equals("      ")) {
+					JOptionPane.showMessageDialog(null, "Código do produto inválido");
+				}
+				else if(padaria.encontraCliente(txtCPF.getText()) == null) {
+					JOptionPane.showMessageDialog(null, "CPF do cliente inválido");
+				}
+				else {	
 					try {
 						padaria.adicionarProdutoVenda(txtCodigo.getText(), Integer.parseInt(txtQuantidade.getText()));
 					} catch (NumberFormatException e1) {
@@ -199,16 +245,16 @@ public class TelaVendeProduto {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
-
-					padaria.realizarVenda(CPF, codigoVendedor, pagamento, parcela, dia, mes, ano);
-					frmVendaDeProdutos.dispose();
-
-					
+					JOptionPane.showMessageDialog(null, "Produto adicionado no carrinho com sucesso");
+					cont++;
+					lblProdutosNoCarrinho.setText(String.valueOf("Produtos no carrinho("+ String.valueOf(cont) + ")"));
 				}
-			
 			}
 		});
-		btnNewButton.setBounds(10, 193, 414, 57);
+		btnNewButton_1.setBounds(200, 161, 224, 46);
+		frmVendaDeProdutos.getContentPane().add(btnNewButton_1);
+		
+
 		
 
 		
