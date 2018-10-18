@@ -4,7 +4,6 @@ package controle;
 import cliente.Cliente;
 import cliente.ClienteGold;
 import cliente.ClientePlatinum;
-import cliente.ClienteRegular;
 import funcionarios.Vendedor;
 import produtos.Produto;
 

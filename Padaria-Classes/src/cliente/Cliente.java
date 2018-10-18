@@ -1,7 +1,6 @@
 package cliente;
 
 import funcionalidades.PessoaFisica;
-import produtos.Produto;
 
 public abstract class Cliente extends PessoaFisica implements Cloneable{
 
@@ -20,8 +19,13 @@ public abstract class Cliente extends PessoaFisica implements Cloneable{
 		this.valorCompras = valorCompras;
 	}
 
-	public Cliente clone() throws CloneNotSupportedException {
-		return (Cliente) super.clone();
+	@Override
+	public Cliente clone() {
+		try {
+			return (Cliente) super.clone();
+		} catch (CloneNotSupportedException e) {
+			return null;
+		}
 	}
 
 	public void imprimeInformacoesCliente() {

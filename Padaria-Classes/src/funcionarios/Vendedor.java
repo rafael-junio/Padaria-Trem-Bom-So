@@ -1,6 +1,5 @@
 package funcionarios;
 
-import produtos.Produto;
 
 public final class Vendedor extends Funcionario implements SalarioFinal, Cloneable {
 	private final float BONIFICACAO = 1.1f;
@@ -37,8 +36,13 @@ public final class Vendedor extends Funcionario implements SalarioFinal, Cloneab
 			salarioFinal = salarioBase;
 	}
 
-	public Vendedor clone() throws CloneNotSupportedException {
-		return (Vendedor) super.clone();
+	@Override
+	public Vendedor clone() {
+		try {
+			return (Vendedor) super.clone();
+		} catch (CloneNotSupportedException e) {
+			return null;
+		}
 	}
 
 	public void imprimeInformacoesFuncionario() {
