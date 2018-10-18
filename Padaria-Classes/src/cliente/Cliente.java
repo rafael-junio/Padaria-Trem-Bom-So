@@ -27,6 +27,11 @@ public abstract class Cliente extends PessoaFisica implements Cloneable{
 			return null;
 		}
 	}
+	
+	@Override
+	public String toString() {
+		return getNome();
+	}
 
 	public void imprimeInformacoesCliente() {
 		System.out.printf("Nome do Cliente: %s.\n", this.nome);

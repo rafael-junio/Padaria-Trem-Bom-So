@@ -45,6 +45,11 @@ public abstract class Funcionario extends PessoaFisica {
 	public void setCodigo(String codigoFuncionario) {
 		this.codigo = codigoFuncionario;
 	}
+	
+	@Override
+	public String toString() {
+		return getNome();
+	}
 
 	public void imprimeInformacoesFuncionario() {
 		System.out.printf("Endereço: %s.\n", this.endereco);

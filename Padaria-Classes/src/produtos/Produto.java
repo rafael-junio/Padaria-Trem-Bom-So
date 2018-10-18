@@ -110,6 +110,11 @@ public abstract class Produto implements Cloneable {
 				return null;
 			}
 	}
+	
+	@Override
+	public String toString() {
+		return getNome();
+	}
 
 	public boolean hasApelido() {
 		if (this.apelido != null)

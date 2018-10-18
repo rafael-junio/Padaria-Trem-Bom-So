@@ -34,6 +34,11 @@ public abstract class Fornecedor extends Pessoa {
 	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
 	}
+	
+	@Override
+	public String toString() {
+		return getNome();
+	}
 
 	public void imprimeInformacoesFornecedor() {
 		System.out.printf("Nome do Fornecedor: %s.\n", this.nome);

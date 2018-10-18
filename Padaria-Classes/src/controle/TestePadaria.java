@@ -10,8 +10,6 @@ public class TestePadaria{
 		
 		tremBao.cadastrarClienteRegular("Guilherme Guimarães Rosa", "Rua Cordisburgo 685", "444.163.818-32", "(32) 3333-0001");
 		
-		System.out.println(tremBao.getClientes()[1].getValorCompras());
-		
 		tremBao.cadastrarFornecedorOcasional("Igor Corporation's", "Rua UFMS 01", "000", "24.587.906/0001-12");
 		
 		tremBao.cadastrarFornecedorRecorrente("Pet-Sistemas S.A Industries", "Av. Costa e silva 500", "001", "38.078.863/0001-54", 0.15f);
@@ -39,7 +37,7 @@ public class TestePadaria{
 //		System.out.println();
 //		tremBao.imprimeInfoProdutos("000001");
 
-		tremBao.getEstoque().imprimeInformacoesEstoque();
+//		tremBao.getEstoque().imprimeInformacoesEstoque();
 		
 //		tremBao.adicionarProdutoVenda("000000", 5);
 //		tremBao.realizarVenda("136.839.020-00", "0001", "Crédito", 1, 14, 10, 2018);
@@ -60,7 +58,7 @@ public class TestePadaria{
 		tremBao.imprimeInfoVendas();
 		
 		
-		tremBao.getEstoque().imprimeInformacoesEstoque();
+		System.out.println(tremBao.getClientes()[0].toString());
 //		
 //		TelaPrincipal p = new TelaPrincipal(tremBao);
 //		p.main(null);
