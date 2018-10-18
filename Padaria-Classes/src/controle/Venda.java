@@ -45,6 +45,10 @@ public final class Venda{
 		
 	}
 
+	public float getJUROSPRAZO() {
+		return this.JUROSPRAZO;
+	}
+	
 	public Produto[] getProdutosVendidos() {
 		return produtosVendidos;
 	}

@@ -12,6 +12,10 @@ public final class Vendedor extends Funcionario implements SalarioFinal, Cloneab
 		calcularSalarioFinal();
 	}
 
+	public float getBONIFICACAO() {
+		return this.BONIFICACAO;
+	}
+	
 	public float getMontanteVendas() {
 		return montanteVendas;
 	}

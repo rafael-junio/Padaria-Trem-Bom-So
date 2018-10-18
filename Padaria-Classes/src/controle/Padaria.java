@@ -342,7 +342,7 @@ public class Padaria {
 
 	}
 
-	public boolean adicionarProdutoVenda(String codigo, int quantidade) throws CloneNotSupportedException {
+	public boolean adicionarProdutoVenda(String codigo, int quantidade){
 
 		if (estoque.venderQuantidadeProduto(codigo, quantidade)) {
 

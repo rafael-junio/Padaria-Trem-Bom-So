@@ -9,6 +9,10 @@ public final class Gerente extends Funcionario implements SalarioFinal{
 		calcularSalarioFinal();
 	}
 	
+	public float getBONIFICACAO() {
+		return this.BONIFICACAO;
+	}
+	
 	@Override
 	public void calcularSalarioFinal() {
 		this.salarioFinal = this.salarioBase * BONIFICACAO;

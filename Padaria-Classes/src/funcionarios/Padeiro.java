@@ -14,7 +14,10 @@ public final class Padeiro extends Funcionario implements SalarioFinal{
 		calcularSalarioFinal();
 	}
 	
-
+	public float getGRATIFICACAO() {
+		return this.GRATIFICACAO;
+	}
+	
 	public float getValorPorHora() {
 		return valorPorHora;
 	}
