@@ -16,7 +16,7 @@ public class PessoaFisica extends Pessoa{
     }
 
     public String getCpf() {
-        return imprimeCPF(cpf);
+        return imprimeCPF(this.cpf);
     }
 
     public void setCpf(String cpf) {
