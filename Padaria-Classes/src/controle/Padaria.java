@@ -387,8 +387,6 @@ public class Padaria {
 				encontra = true;
 			}
 		}
-		if(encontra == false)
-			JOptionPane.showMessageDialog(null, "Cliente não encontrado");
 	}
 
 	public void imprimeInfoFornecedores() {
@@ -412,8 +410,6 @@ public class Padaria {
 				encontra = true;
 			}
 		}
-		if(encontra == false)
-			JOptionPane.showMessageDialog(null, "Fornecedor não encontrado");
 	}
 
 
@@ -439,8 +435,6 @@ public class Padaria {
 				encontra = true;
 			}
 		}
-		if(encontra == false)
-			JOptionPane.showMessageDialog(null, "Funcionário não encontrado");
 	}
 
 	public void imprimeInfoProdutos() {

@@ -6,16 +6,20 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import controle.Padaria;
+import funcionarios.Funcionario;
+import funcionarios.Padeiro;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Font;
 
 public class TelaPrincipal{
 	
 
 	private JFrame frmPadariaTremBo;
 	private static Padaria padaria;
+	private Padeiro padeiros;
 
 	/**
 	 * Launch the application.
@@ -46,8 +50,9 @@ public class TelaPrincipal{
 
 	/**
 	 * Initialize the contents of the frame.
+	 * @param <funcionarios>
 	 */
-	private void initialize() {
+	private <funcionarios> void initialize() {
 		
 		frmPadariaTremBo = new JFrame();
 		frmPadariaTremBo.setTitle("Padaria Trem B\u00E3o S\u00F4");
@@ -88,7 +93,7 @@ public class TelaPrincipal{
 				p.main(null);
 			}
 		});
-		btnImprimirInformaes.setBounds(25, 181, 383, 52);
+		btnImprimirInformaes.setBounds(25, 198, 383, 52);
 		frmPadariaTremBo.getContentPane().add(btnImprimirInformaes);
 		
 		JButton btnNewButton = new JButton("Cadastrar cliente");
@@ -177,5 +182,35 @@ public class TelaPrincipal{
 		});
 		btnRemoverFuncionrio.setBounds(227, 124, 197, 23);
 		frmPadariaTremBo.getContentPane().add(btnRemoverFuncionrio);
+		
+		JButton btnHoraExtraPadeiro = new JButton("Adicional noturno (Padeiros)");
+		btnHoraExtraPadeiro.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		btnHoraExtraPadeiro.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String codigo = "";
+				boolean codigoValido = false;
+				try {
+					codigo = JOptionPane.showInputDialog("Digite o código do padeiro");
+					if(padaria.encontraFuncionario(codigo) != null)
+						codigoValido = true;					
+				}
+				catch (Exception NullPointerException) {
+					JOptionPane.showMessageDialog(null, "Código invalido");
+				}		
+				try {
+					if(codigoValido) {
+						String horasTrabalhadas = JOptionPane.showInputDialog("Digite quantas horas extras o padeiro trabalhou");
+						Padeiro padeiro = (Padeiro) padaria.encontraFuncionario(codigo);
+						padeiro.setHorasTrabalhadas(160 + Integer.parseInt(horasTrabalhadas));
+						padeiro.calcularSalarioFinal();
+					}
+				}
+				catch (Exception NumberFormatException) {
+					JOptionPane.showMessageDialog(null, "Número inválido");
+				}
+			}
+		});
+		btnHoraExtraPadeiro.setBounds(10, 158, 197, 23);
+		frmPadariaTremBo.getContentPane().add(btnHoraExtraPadeiro);
 	}
 }

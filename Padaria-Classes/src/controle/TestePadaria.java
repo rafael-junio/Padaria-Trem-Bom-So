@@ -1,5 +1,7 @@
 package controle;
 
+import telas.TelaPrincipal;
+
 public class TestePadaria{
 	@SuppressWarnings("static-access")
 	public static void main(String[] args) throws CloneNotSupportedException {
@@ -60,8 +62,8 @@ public class TestePadaria{
 		
 		System.out.println(tremBao.getClientes()[0].toString());
 //		
-//		TelaPrincipal p = new TelaPrincipal(tremBao);
-//		p.main(null);
+		TelaPrincipal p = new TelaPrincipal(tremBao);
+		p.main(null);
 
 	}
 }

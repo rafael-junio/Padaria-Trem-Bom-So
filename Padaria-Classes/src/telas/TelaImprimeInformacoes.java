@@ -119,10 +119,13 @@ public class TelaImprimeInformacoes {
 		JButton btnProcuraProduto = new JButton("Procura produto");
 		btnProcuraProduto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				padaria.imprimeInfoProdutos(JOptionPane.showInputDialog("Digite o código do produto. (6 Digítos)"));
-				
-				
-				//AINDA FALTA FAZER
+				try {	
+					String codigo = JOptionPane.showInputDialog("Digite o código do produto. (6 Digítos)");
+					padaria.imprimeInfoProdutos(codigo);
+					}
+				catch (Exception exception){
+					padaria.imprimeInfoProdutos();
+				}
 			}
 		});
 		btnProcuraProduto.setBounds(10, 167, 200, 23);
@@ -131,15 +134,11 @@ public class TelaImprimeInformacoes {
 		JButton btnProcuraCliente = new JButton("Procura cliente");
 		btnProcuraCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			String info = JOptionPane.showInputDialog("Digite o CPF do cliente. (3 Digítos)");
+				String info = JOptionPane.showInputDialog("Digite o CPF do cliente");
+				padaria.imprimeInfoClientes(info);
 				
-				if(info == null)
-					JOptionPane.showMessageDialog(null, "Operação cancelada");
-				else if (info != null){
-					padaria.imprimeInfoClientes(info);
-				}
-				
-				
+				if(info == null || info.equals(""))
+					padaria.imprimeInfoClientes();
 			}
 		});
 		btnProcuraCliente.setBounds(224, 201, 200, 23);
@@ -148,13 +147,13 @@ public class TelaImprimeInformacoes {
 		JButton btnProcuraFornecedor = new JButton("Procura Fornecedor");
 		btnProcuraFornecedor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
 				String info = JOptionPane.showInputDialog("Digite o código do fornecedor. (3 Digítos)");
+				padaria.imprimeInfoFornecedores(info);
 				
-				if(info == null)
-					JOptionPane.showMessageDialog(null, "Operação cancelada");
-				else if (info != null){
-					padaria.imprimeInfoFornecedores(info);
-				}
+				if(info == null || info.equals(""))
+					padaria.imprimeInfoFornecedores();
+				
 				
 			}
 		});
@@ -164,14 +163,13 @@ public class TelaImprimeInformacoes {
 		JButton btnProcuraFuncionrio = new JButton("Procura funcion\u00E1rio");
 		btnProcuraFuncionrio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				String info = JOptionPane.showInputDialog("Digite o código do funcionário. (4 Digítos)");
-				
-				if(info == null)
-					JOptionPane.showMessageDialog(null, "Operação cancelada");
-				else if (info != null){
-					padaria.imprimeInfoFuncionarios(info);
-				}	
+				padaria.imprimeInfoFuncionarios(info);
+
+				if(info == null || info.equals(""))
+					padaria.imprimeInfoFuncionarios();
+
 			}
 		});
 		btnProcuraFuncionrio.setBounds(10, 201, 200, 23);

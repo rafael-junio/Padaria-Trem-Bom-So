@@ -11,6 +11,7 @@ public final class Padeiro extends Funcionario implements SalarioFinal{
 			float salarioBase) {
 		super(nome, endereco, cpf, telefone, codigo, salarioBase);
 		this.horasPorMes = 160;
+		this.horasTrabalhadas = 160;
 		calcularSalarioFinal();
 	}
 	
