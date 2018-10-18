@@ -1,7 +1,7 @@
 package cliente;
 
 public final class ClientePlatinum extends Cliente {
-	private final float DESCONTO = 1.1f;
+	private final float DESCONTO = 0.1f;
 	
 	public ClientePlatinum(String nome, String endereco, String cpf, String telefone) {
 		super(nome, endereco, cpf, telefone);

@@ -31,6 +31,11 @@ public final class Venda{
 		
 		this.cliente = cliente;
 		this.vendedor = vendedor;
+		if(formaPagamento.equalsIgnoreCase("crédito"))
+			if(numParcelas > 0) {
+				this.formaPagamento = formaPagamento;
+				this.numParcelas = numParcelas;
+			}
 		this.formaPagamento = formaPagamento;
 		this.numParcelas = numParcelas;
 		this.dia = dia;
@@ -127,10 +132,10 @@ public final class Venda{
 		this.cliente.setValorCompras(this.cliente.getValorCompras() + this.valorFinalCompra);
 		
 		if(this.cliente instanceof ClienteGold)
-			this.cliente.setValorCompras(this.cliente.getValorCompras() * ((ClienteGold) this.cliente).getDESCONTO());
+			this.cliente.setValorCompras(this.cliente.getValorCompras() - (this.cliente.getValorCompras() * ((ClienteGold) this.cliente).getDESCONTO()));
 		
 		else if(this.cliente instanceof ClientePlatinum)
-			this.cliente.setValorCompras(this.cliente.getValorCompras() * ((ClientePlatinum) this.cliente).getDESCONTO());
+			this.cliente.setValorCompras(this.cliente.getValorCompras() - (this.cliente.getValorCompras() * ((ClientePlatinum) this.cliente).getDESCONTO()));
 		
 		this.vendedor.setMontanteVendas(this.vendedor.getMontanteVendas() + this.valorFinalCompra);
 		

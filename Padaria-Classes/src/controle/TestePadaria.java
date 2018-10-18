@@ -10,6 +10,8 @@ public class TestePadaria {
 		
 		tremBao.cadastrarClienteRegular("Guilherme Guimarães Rosa", "Rua Cordisburgo 685", "444.163.818-32", "(32) 3333-0001");
 		
+		System.out.println(tremBao.getClientes()[1].getValorCompras());
+		
 		tremBao.cadastrarFornecedorOcasional("Igor Corporation's", "Rua UFMS 01", "000", "24.587.906/0001-12");
 		
 		tremBao.cadastrarFornecedorRecorrente("Pet-Sistemas S.A Industries", "Av. Costa e silva 500", "001", "38.078.863/0001-54", 0.15f);
@@ -42,21 +44,19 @@ public class TestePadaria {
 		tremBao.adicionarProdutoVenda("000000", 5);
 		tremBao.realizarVenda("136.839.020-00", "0001", "Crédito", 1, 14, 10, 2018);
 		
-		tremBao.getEstoque().imprimeInformacoesEstoque();
+		tremBao.imprimeInfoVendas();
 		
-		tremBao.adicionarProdutoVenda("000001", 5);
-		tremBao.adicionarProdutoVenda("000000", 2);
+		tremBao.adicionarProdutoVenda("000001", 1);
+		tremBao.adicionarProdutoVenda("000000", 1);
 		tremBao.realizarVenda("444.163.818-32", "0001", "Crédito", 0, 15, 10, 2018);
+		
+		tremBao.imprimeInfoVendas();
 		
 		tremBao.cadastrarClienteGold("444.163.818-32");
 		
 		tremBao.adicionarProdutoVenda("000001", 1);
 		tremBao.realizarVenda("444.163.818-32", "0001", "Crédito", 0, 15, 10, 2018);
 
-		tremBao.adicionarProdutoVenda("000001", 15);
-		tremBao.adicionarProdutoVenda("000000", 15);
-		tremBao.realizarVenda("444.163.818-32", "0001", "Crédito", 6, 15, 10, 2018);
-		
 		tremBao.imprimeInfoVendas();
 		
 		
