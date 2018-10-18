@@ -1,5 +1,0 @@
-Onde usar interface?
-Como modelar Cartão Fidelidade?
-Como modelar forma de pagamento?
-Como modelar alerta de produto com 1 unidade em Estoque?
-Como fazer atributos constantes(bonificação de 10% e 15% dos funcionários)?
