@@ -1,6 +1,7 @@
 package cliente;
 
 import funcionalidades.PessoaFisica;
+import produtos.Produto;
 
 public abstract class Cliente extends PessoaFisica {
 
@@ -17,6 +18,15 @@ public abstract class Cliente extends PessoaFisica {
 
 	public void setValorCompras(float valorCompras) {
 		this.valorCompras = valorCompras;
+	}
+	
+	public Cliente clone() {
+		try {
+			return (Cliente) super.clone();
+		} catch (CloneNotSupportedException e) {
+			System.out.println(" Clonagem não permitida.");
+			return this;
+		}
 	}
 	
 	public void imprimeInformacoesCliente() {

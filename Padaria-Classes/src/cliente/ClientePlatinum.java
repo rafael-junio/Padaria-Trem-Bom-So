@@ -14,6 +14,6 @@ public final class ClientePlatinum extends Cliente {
 	public void imprimeInformacoesCliente() {
 		System.out.println("Cliente Platinum.");
 		super.imprimeInformacoesCliente();
-		System.out.printf("Desconto: %.0f%%.\n", ((getDESCONTO() -1f) * 100f));
+		System.out.printf("Desconto: %.0f%%.\n", (getDESCONTO() * 100f));
 	}
 }

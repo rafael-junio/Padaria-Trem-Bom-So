@@ -1,5 +1,7 @@
 package controle;
 
+import telas.TelaPrincipal;
+
 public class TestePadaria {
 	@SuppressWarnings("static-access")
 	public static void main(String[] args) throws CloneNotSupportedException {
@@ -41,29 +43,29 @@ public class TestePadaria {
 
 		tremBao.getEstoque().imprimeInformacoesEstoque();
 		
-		tremBao.adicionarProdutoVenda("000000", 5);
-		tremBao.realizarVenda("136.839.020-00", "0001", "Crédito", 1, 14, 10, 2018);
+//		tremBao.adicionarProdutoVenda("000000", 5);
+//		tremBao.realizarVenda("136.839.020-00", "0001", "Crédito", 1, 14, 10, 2018);
 		
-		tremBao.imprimeInfoVendas();
-		
-		tremBao.adicionarProdutoVenda("000001", 1);
+//		tremBao.imprimeInfoVendas();
+//		
+//		tremBao.adicionarProdutoVenda("000001", 1);
 		tremBao.adicionarProdutoVenda("000000", 1);
-		tremBao.realizarVenda("444.163.818-32", "0001", "Crédito", 0, 15, 10, 2018);
-		
-		tremBao.imprimeInfoVendas();
-		
+		tremBao.realizarVenda("444.163.818-32", "0001", "Dinheiro", 0, 15, 10, 2018);
+//		
+//		tremBao.imprimeInfoVendas();
+//		
 		tremBao.cadastrarClienteGold("444.163.818-32");
 		
 		tremBao.adicionarProdutoVenda("000001", 1);
-		tremBao.realizarVenda("444.163.818-32", "0001", "Crédito", 0, 15, 10, 2018);
+		tremBao.realizarVenda("444.163.818-32", "0001", "Dinheiro", 0, 15, 10, 2018);
 
 		tremBao.imprimeInfoVendas();
 		
 		
 		tremBao.getEstoque().imprimeInformacoesEstoque();
 		
-//		TelaPrincipal p = new TelaPrincipal(tremBao);
-//		p.main(null);
+		TelaPrincipal p = new TelaPrincipal(tremBao);
+		p.main(null);
 
 	}
 }

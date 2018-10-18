@@ -4,6 +4,7 @@ package controle;
 import cliente.Cliente;
 import cliente.ClienteGold;
 import cliente.ClientePlatinum;
+import cliente.ClienteRegular;
 import funcionarios.Vendedor;
 import produtos.Produto;
 
@@ -137,6 +138,7 @@ public final class Venda{
 		else if(this.cliente instanceof ClientePlatinum)
 			this.cliente.setValorCompras(this.cliente.getValorCompras() - (this.cliente.getValorCompras() * ((ClientePlatinum) this.cliente).getDESCONTO()));
 		
+
 		this.vendedor.setMontanteVendas(this.vendedor.getMontanteVendas() + this.valorFinalCompra);
 		
 		return this.valorFinalCompra;

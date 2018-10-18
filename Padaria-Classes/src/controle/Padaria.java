@@ -110,7 +110,7 @@ public class Padaria {
 	public boolean cadastrarClienteGold(String cpf) {
 
 		for (int i = 0; i < clientes.length; i++)
-			if (clientes[i] != null && clientes[i].getCpf().equals(cpf) && clientes[i].getValorCompras() > 250f){
+			if (clientes[i] != null && clientes[i].getCpf().equals(cpf) && clientes[i].getValorCompras() > 90f){
 				ClienteGold cliente = new ClienteGold(clientes[i].getNome(), clientes[i].getEndereco(), clientes[i].getCpf(), clientes[i].getTelefone());
 				clientes[i] = null;
 				clientes[i] = cliente;
@@ -319,9 +319,12 @@ public class Padaria {
 
 	public boolean realizarVenda(String cpfCliente, String codigoVendedor, String formaPagamento, int numParcelas,
 			int dia, int mes, int ano) {
+		
+		Cliente c = encontraCliente(cpfCliente).clone();
+		
+		Vendedor v = encontraVendedor(codigoVendedor).clone();
 
-		Venda venda = new Venda(encontraCliente(cpfCliente), (Vendedor) encontraFuncionario(codigoVendedor),
-				formaPagamento, numParcelas, comprasRealizadas, dia, mes, ano);
+		Venda venda = new Venda(c, v, formaPagamento, numParcelas, comprasRealizadas, dia, mes, ano);
 
 		for (int i = 0; i < vendas.length; i++) {
 			if (vendas[i] == null) {

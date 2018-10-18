@@ -161,14 +161,14 @@ public class TelaVendeProduto {
 				
 				int dia = Integer.parseInt(txtData.getText().substring(0, 1));
 				int mes = Integer.parseInt(txtData.getText().substring(3, 4));
-				int ano = Integer.parseInt(txtData.getText().substring(6, 7));
+				int ano = Integer.parseInt(txtData.getText().substring(6, 9));
 				
 				String pagamento = "";
 				if(rdbtnCrdito.isSelected()) {
-					pagamento = "Crédito";
+					pagamento = "credito";
 				}
 				else
-					pagamento = "Vista";
+					pagamento = "Dinheiro";
 				
 				boolean cpfValido = false;
 				
@@ -179,7 +179,15 @@ public class TelaVendeProduto {
 					JOptionPane.showMessageDialog(null, "CPF inválido");
 				
 				if(cpfValido) {
-					padaria.adicionarProdutoVenda(txtCodigoVendedor.getText(), Integer.parseInt(txtQuantidade.getText()));
+					try {
+						padaria.adicionarProdutoVenda(txtCodigoVendedor.getText(), Integer.parseInt(txtQuantidade.getText()));
+					} catch (NumberFormatException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (CloneNotSupportedException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 					padaria.realizarVenda(txtCPF.getText(), txtCodigo.getText(), pagamento, Integer.parseInt(txtParcela.getText()), dia, mes, ano);
 				}
 			
@@ -191,7 +199,7 @@ public class TelaVendeProduto {
 		lblCodigoDoVendedor.setBounds(280, 67, 119, 14);
 		frmVendaDeProdutos.getContentPane().add(lblCodigoDoVendedor);
 		
-		txtCodigoVendedor = new JFormattedTextField(createFormatter("######"));
+		txtCodigoVendedor = new JFormattedTextField(createFormatter("####"));
 		txtCodigoVendedor.setBounds(280, 92, 119, 20);
 		frmVendaDeProdutos.getContentPane().add(txtCodigoVendedor);
 		txtCodigoVendedor.setColumns(10);
