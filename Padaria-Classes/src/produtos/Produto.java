@@ -102,13 +102,8 @@ public abstract class Produto implements Cloneable {
 		this.quantidadeVenda = quantidadeVenda;
 	}
 
-	public Produto clone() {
-		try {
+	public Produto clone() throws CloneNotSupportedException{
 			return (Produto) super.clone();
-		} catch (CloneNotSupportedException e) {
-			System.out.println(" Clonagem não permitida.");
-			return this;
-		}
 	}
 
 	public boolean hasApelido() {

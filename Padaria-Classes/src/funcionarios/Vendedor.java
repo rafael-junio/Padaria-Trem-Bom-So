@@ -2,18 +2,17 @@ package funcionarios;
 
 import produtos.Produto;
 
-public final class Vendedor extends Funcionario implements SalarioFinal{
+public final class Vendedor extends Funcionario implements SalarioFinal, Cloneable {
 	private final float BONIFICACAO = 1.1f;
 
 	private float montanteVendas;
 	private float metaVendas;
-	
-	public Vendedor(String nome, String endereco, String cpf, String telefone, String codigo,
-			float salarioBase) {
+
+	public Vendedor(String nome, String endereco, String cpf, String telefone, String codigo, float salarioBase) {
 		super(nome, endereco, cpf, telefone, codigo, salarioBase);
 		calcularSalarioFinal();
 	}
-	
+
 	public float getMontanteVendas() {
 		return montanteVendas;
 	}
@@ -37,14 +36,9 @@ public final class Vendedor extends Funcionario implements SalarioFinal{
 		else
 			salarioFinal = salarioBase;
 	}
-	
-	public Vendedor clone() {
-		try {
-			return (Vendedor) super.clone();
-		} catch (CloneNotSupportedException e) {
-			System.out.println(" Clonagem não permitida.");
-			return this;
-		}
+
+	public Vendedor clone() throws CloneNotSupportedException {
+		return (Vendedor) super.clone();
 	}
 
 	public void imprimeInformacoesFuncionario() {

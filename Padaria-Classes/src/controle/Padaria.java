@@ -318,7 +318,7 @@ public class Padaria {
 	}
 
 	public boolean realizarVenda(String cpfCliente, String codigoVendedor, String formaPagamento, int numParcelas,
-			int dia, int mes, int ano) {
+			int dia, int mes, int ano) throws CloneNotSupportedException {
 		
 		Cliente c = encontraCliente(cpfCliente).clone();
 		
