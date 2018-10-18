@@ -1,7 +1,6 @@
 package cliente;
 
 import funcionalidades.PessoaFisica;
-import produtos.Produto;
 
 public abstract class Cliente extends PessoaFisica {
 

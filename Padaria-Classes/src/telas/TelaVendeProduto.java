@@ -12,7 +12,6 @@ import javax.swing.text.MaskFormatter;
 import javax.swing.JRadioButton;
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
-import javax.swing.text.MaskFormatter;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -97,7 +96,7 @@ public class TelaVendeProduto {
 		lblQuantidadeComprada.setBounds(157, 123, 161, 14);
 		frmVendaDeProdutos.getContentPane().add(lblQuantidadeComprada);
 		
-		txtQuantidade = new JFormattedTextField(createFormatter("##"));
+		txtQuantidade = new JFormattedTextField(createFormatter("#"));
 		txtQuantidade.setBounds(157, 148, 33, 20);
 		frmVendaDeProdutos.getContentPane().add(txtQuantidade);
 		txtQuantidade.setColumns(10);
@@ -115,7 +114,7 @@ public class TelaVendeProduto {
 		lblNmerosDeParcela.setBounds(157, 67, 119, 14);
 		frmVendaDeProdutos.getContentPane().add(lblNmerosDeParcela);
 		
-		txtParcela = new JFormattedTextField(createFormatter("##"));
+		txtParcela = new JFormattedTextField(createFormatter("#"));
 		
 		frmVendaDeProdutos.getContentPane().add(txtParcela);
 		txtParcela.setColumns(10);
@@ -137,7 +136,7 @@ public class TelaVendeProduto {
 				if(rdbtnVista.isSelected()) {
 					rdbtnCrdito.setSelected(false);
 					txtParcela.setEnabled(false);
-					txtParcela.setText("01");
+					txtParcela.setText("0");
 					lblNmerosDeParcela.setEnabled(false);
 				}					
 			}
@@ -149,21 +148,33 @@ public class TelaVendeProduto {
 				if(rdbtnCrdito.isSelected()) {
 					rdbtnVista.setSelected(false);
 					txtParcela.setEnabled(true);
-					txtParcela.setText("  ");
+					txtParcela.setText("#");
 					lblNmerosDeParcela.setEnabled(true);
 				}	
 			}
 		});
 		rdbtnCrdito.setBounds(157, 35, 109, 23);
 		
+		JLabel lblCodigoDoVendedor = new JLabel("Codigo do vendedor");
+		lblCodigoDoVendedor.setBounds(280, 67, 119, 14);
+		frmVendaDeProdutos.getContentPane().add(lblCodigoDoVendedor);
+		
+		txtCodigoVendedor = new JFormattedTextField(createFormatter("####"));
+		txtCodigoVendedor.setBounds(280, 92, 119, 20);
+		frmVendaDeProdutos.getContentPane().add(txtCodigoVendedor);
+		txtCodigoVendedor.setColumns(10);
+		
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				int dia = Integer.parseInt(txtData.getText().substring(0, 1));
-				int mes = Integer.parseInt(txtData.getText().substring(3, 4));
-				int ano = Integer.parseInt(txtData.getText().substring(6, 9));
-				
+				int dia = Integer.parseInt(txtData.getText().substring(0, 2));
+				int mes = Integer.parseInt(txtData.getText().substring(3, 5));
+				int ano = Integer.parseInt(txtData.getText().substring(6, 10));
 				String pagamento = "";
+				String CPF = txtCPF.getText();
+				String codigoVendedor = txtCodigoVendedor.getText();
+				int parcela = Integer.parseInt(txtParcela.getText());
+
 				if(rdbtnCrdito.isSelected()) {
 					pagamento = "credito";
 				}
@@ -180,7 +191,7 @@ public class TelaVendeProduto {
 				
 				if(cpfValido) {
 					try {
-						padaria.adicionarProdutoVenda(txtCodigoVendedor.getText(), Integer.parseInt(txtQuantidade.getText()));
+						padaria.adicionarProdutoVenda(txtCodigo.getText(), Integer.parseInt(txtQuantidade.getText()));
 					} catch (NumberFormatException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
@@ -188,21 +199,18 @@ public class TelaVendeProduto {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
-					padaria.realizarVenda(txtCPF.getText(), txtCodigo.getText(), pagamento, Integer.parseInt(txtParcela.getText()), dia, mes, ano);
+
+					padaria.realizarVenda(CPF, codigoVendedor, pagamento, parcela, dia, mes, ano);
+					frmVendaDeProdutos.dispose();
+
+					
 				}
 			
 			}
 		});
 		btnNewButton.setBounds(10, 193, 414, 57);
 		
-		JLabel lblCodigoDoVendedor = new JLabel("Codigo do vendedor");
-		lblCodigoDoVendedor.setBounds(280, 67, 119, 14);
-		frmVendaDeProdutos.getContentPane().add(lblCodigoDoVendedor);
-		
-		txtCodigoVendedor = new JFormattedTextField(createFormatter("####"));
-		txtCodigoVendedor.setBounds(280, 92, 119, 20);
-		frmVendaDeProdutos.getContentPane().add(txtCodigoVendedor);
-		txtCodigoVendedor.setColumns(10);
+
 		
 	}
 	

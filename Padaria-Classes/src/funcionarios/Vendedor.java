@@ -1,6 +1,5 @@
 package funcionarios;
 
-import produtos.Produto;
 
 public final class Vendedor extends Funcionario implements SalarioFinal{
 	private final float BONIFICACAO = 1.1f;
