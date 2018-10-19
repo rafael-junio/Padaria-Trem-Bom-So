@@ -10,7 +10,6 @@ import fornecedores.Fornecedor;
 import fornecedores.FornecedorOcasional;
 import fornecedores.FornecedorRecorrente;
 import funcionalidades.Ordenacao;
-import funcionalidades.ValidaDocumento;
 import funcionarios.Funcionario;
 import funcionarios.Gerente;
 import funcionarios.Padeiro;
@@ -26,6 +25,9 @@ public class Padaria {
 	private Venda[] vendas;
 	private float montanteVendasGlobal;
 	private Produto[] comprasRealizadas;
+	private int qntFornecedores;
+	private int qntFuncionarios;
+	private int qntClientes;
 
 	public Padaria() {
 		this.fornecedores = new Fornecedor[15];
@@ -34,6 +36,9 @@ public class Padaria {
 		this.clientes = new Cliente[50];
 		this.vendas = new Venda[20];
 		this.comprasRealizadas = new Produto[20];
+		this.qntFornecedores = 0;
+		this.qntFuncionarios = 0;
+		this.qntClientes = 0;
 
 	}
 
@@ -84,6 +89,10 @@ public class Padaria {
 	public void setMontanteVendasGlobal(float montanteVendasGlobal) {
 		this.montanteVendasGlobal = montanteVendasGlobal;
 	}
+	
+	public int getQntFuncionarios() {
+		return qntFuncionarios;
+	}
 
 	public boolean cadastrarClienteRegular(String nome, String endereco, String cpf, String telefone) {
 		ClienteRegular cliente = new ClienteRegular(nome, endereco, cpf, telefone);
@@ -92,6 +101,7 @@ public class Padaria {
 			if (clientes[i] == null) {
 				clientes[i] = cliente;
 				cliente = null;
+				qntClientes++;
 				return true;
 			} else {
 				if (clientes[i].getCpf().equals(cpf)) {
@@ -138,6 +148,7 @@ public class Padaria {
 		for (int i = 0; i < clientes.length && clientes[i] != null; i++) {
 			if (clientes[i].removeCaracteresEspeciais(clientes[i].getCpf()).equals(cpf)) {
 				clientes[i] = null;
+				qntClientes--;
 				return true;
 			}
 		}
@@ -163,6 +174,7 @@ public class Padaria {
 			if (fornecedores[i] == null) {
 				fornecedores[i] = fornecedor;
 				fornecedor = null;
+				qntFornecedores++;
 				return true;
 			} else {
 				if (fornecedores[i].getCnpj().equals(cnpj)) {
@@ -185,6 +197,7 @@ public class Padaria {
 			if (fornecedores[i] == null) {
 				fornecedores[i] = fornecedor;
 				fornecedor = null;
+				qntFornecedores++;
 				return true;
 			} else {
 				if (fornecedores[i].getCnpj().equals(cnpj)) {
@@ -203,6 +216,7 @@ public class Padaria {
 		for (int i = 0; i < fornecedores.length && fornecedores[i] != null; i++)
 			if (fornecedores[i].getCodigo().equals(codigo)) {
 				fornecedores[i] = null;
+				qntFornecedores--;
 				return true;
 			}
 //		System.out.println("Não foi possível descadastrar!");
@@ -225,6 +239,7 @@ public class Padaria {
 		for (int i = 0; i < funcionarios.length; i++)
 			if (funcionarios[i] == null) {
 				funcionarios[i] = funcionario;
+				qntFuncionarios++;
 				funcionario = null;
 				return true;
 			} else {
@@ -247,6 +262,7 @@ public class Padaria {
 		for (int i = 0; i < funcionarios.length; i++)
 			if (funcionarios[i] == null) {
 				funcionarios[i] = funcionario;
+				qntFuncionarios++;
 				funcionario = null;
 				return true;
 			} else {
@@ -269,6 +285,7 @@ public class Padaria {
 		for (int i = 0; i < funcionarios.length; i++)
 			if (funcionarios[i] == null) {
 				funcionarios[i] = funcionario;
+				qntFuncionarios++;
 				funcionario = null;
 				return true;
 			} else {
@@ -287,6 +304,7 @@ public class Padaria {
 	public boolean descadastrarFuncionario(String codigo) {
 		for (int i = 0; i < funcionarios.length && funcionarios[i] != null; i++)
 			if (funcionarios[i].getCodigo().equals(codigo)) {
+				qntFuncionarios--;
 				funcionarios[i] = null;
 				return true;
 			}
@@ -370,7 +388,7 @@ public class Padaria {
 
 	public void imprimeInfoClientes() {
 		System.out.println("***********************CLIENTES***********************");
-		Ordenacao.ordena(clientes);
+		Ordenacao.ordena(clientes, qntClientes);
 		for (int i = 0; i < clientes.length; i++)
 			if (clientes[i] != null) {
 				clientes[i].imprimeInformacoesCliente();
@@ -393,7 +411,7 @@ public class Padaria {
 
 	public void imprimeInfoFornecedores() {
 		System.out.println("***********************FORNECEDORES***********************");
-		Ordenacao.ordena(fornecedores);
+		Ordenacao.ordena(fornecedores, qntFornecedores);
 		for (int i = 0; i < fornecedores.length; i++)
 			if (fornecedores[i] != null) {
 				fornecedores[i].imprimeInformacoesFornecedor();
@@ -418,7 +436,7 @@ public class Padaria {
 
 	public void imprimeInfoFuncionarios() {
 		System.out.println("***********************FUNCIONARIOS***********************");
-		Ordenacao.ordena(funcionarios);
+		Ordenacao.ordena(funcionarios, qntFuncionarios);
 		for (int i = 0; i < funcionarios.length; i++)
 			if (funcionarios[i] != null) {
 				funcionarios[i].imprimeInformacoesFuncionario();
@@ -443,7 +461,7 @@ public class Padaria {
 
 	public void imprimeInfoProdutos() {
 		System.out.println("***********************ESTOQUE***********************");
-		Ordenacao.ordena(estoque.getProdutos());
+		Ordenacao.ordena(estoque.getProdutos(), estoque.getQntProdutosEstoque());
 		this.estoque.imprimeInformacoesEstoque();
 		System.out.println();
 	}

@@ -1,10 +1,12 @@
 package controle;
 
 public class TestePadariaMetodos{
-	@SuppressWarnings("static-access")
+	
 	public static void main(String[] args) throws CloneNotSupportedException {
 
 		Padaria tremBao = new Padaria();
+		
+		tremBao.cadastrarClienteRegular("Cafael Junio Xavier", "Rua Recife 540", "704.878.040-15", "(31) 3464-7066");
 		
 		tremBao.cadastrarClienteRegular("Bafael Junio Xavier", "Rua Recife 540", "136.839.020-00", "(31) 3464-7066");
 		
@@ -14,15 +16,15 @@ public class TestePadariaMetodos{
 		
 		tremBao.cadastrarFornecedorRecorrente("Aet-Sistemas S.A Industries", "Av. Costa e silva 500", "001", "38.078.863/0001-54", 0.15f);
 		
-		tremBao.cadastrarGerente("Dalvadino Malvadão", "Rua Guaicurus 6888", "797.674.120-93", "(67) 3122-0201", "0000", 2000.55f);
+		tremBao.cadastrarGerente("calvadino Malvadão", "Rua Guaicurus 6888", "797.674.120-93", "(67) 3122-0201", "0000", 2000.55f);
 		
-		tremBao.cadastrarVendedor("Bendelino Vendedor", "Rua 5 547", "173.002.900-00", "(11) 3300-0002", "0001", 1500f);
+		tremBao.cadastrarVendedor("bendelino Vendedor", "Rua 5 547", "173.002.900-00", "(11) 3300-0002", "0001", 1500f);
 
-		tremBao.cadastrarPadeiro("aadeiro que faz pão bom", "Rua Filomena", "533.384.960-95", "(33) 4580-0003", "0002", 1000f);
+		tremBao.cadastrarPadeiro("adeiro que faz pão bom", "Rua Filomena", "533.384.960-95", "(33) 4580-0003", "0002", 1000f);
 		
-		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("c", "000000", tremBao.encontraFornecedor("000"), 30f, 100f, null, 30);
+		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("A", "000000", tremBao.encontraFornecedor("000"), 30f, 100f, null, 30);
 		
-		tremBao.getEstoque().cadastrarProdutoPerecivel("b", "000001", tremBao.encontraFornecedor("001"), 20f, 100f, 1, 10, 2019, null, 30);
+		tremBao.getEstoque().cadastrarProdutoPerecivel("a", "000001", tremBao.encontraFornecedor("001"), 20f, 100f, 1, 10, 2019, null, 30);
 
 		tremBao.imprimeInfoClientes();
 		System.out.println();
@@ -31,6 +33,7 @@ public class TestePadariaMetodos{
 		tremBao.imprimeInfoFuncionarios();
 		System.out.println();
 		tremBao.imprimeInfoProdutos();
+		System.out.println(tremBao.getQntFuncionarios());
 		
 		
 ////		tremBao.imprimeInfoClientes("136.839.020-00");
