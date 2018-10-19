@@ -142,19 +142,19 @@ public abstract class Produto implements Cloneable {
 
 	}
 
-	public void imprimeInformacoesProdutoVenda() {
-		System.out.println("Produto: " + this.nome + ".");
-		System.out.println("Código: " + this.codigo + ".");
+	public String exibeInfoVendaProdutos() {
+		String info = String.format("Produto: %s\nCódigo: %s\n", this.nome, this.codigo);
+		String apelidos = "";
 
 		if (hasApelido()) {
 			System.out.println("Apelido(s): ");
 			for (String i : apelido)
 				if (i != null)
-					System.out.println(i);
+					apelidos += i + "\n";
 		}
-
-		System.out.printf("Unidades compradas: %d.\n", this.quantidadeVenda);
-		System.out.printf("Preço de final: %.2f.\n\n", this.precoFinal * this.quantidadeVenda);
+		info += apelidos;
+		info += String.format("Unidades compradas: %d.\nPreço de final: %.2f.\n", this.quantidadeVenda, (this.precoFinal * this.quantidadeVenda));
+		return info;
 
 	}
 }

@@ -1,6 +1,6 @@
 package funcionarios;
 
-public final class Padeiro extends Funcionario implements SalarioFinal{
+public final class Padeiro extends Funcionario{
 	private final float GRATIFICACAO = 1.25f;
 
 	private float valorPorHora;
@@ -12,7 +12,6 @@ public final class Padeiro extends Funcionario implements SalarioFinal{
 		super(nome, endereco, cpf, telefone, codigo, salarioBase);
 		this.horasPorMes = 160;
 		this.horasTrabalhadas = 160;
-		calcularSalarioFinal();
 	}
 	
 	public float getGRATIFICACAO() {
@@ -44,9 +43,9 @@ public final class Padeiro extends Funcionario implements SalarioFinal{
 	}
 
 	@Override
-	public void calcularSalarioFinal() {
+	public float calcularSalarioFinal() {
 		valorPorHora = (salarioBase/horasPorMes); 
-		salarioFinal = salarioBase + (((horasTrabalhadas-horasPorMes)*valorPorHora) * GRATIFICACAO);
+		return salarioFinal = salarioBase + (((horasTrabalhadas-horasPorMes)*valorPorHora) * GRATIFICACAO);
 	}
 	
 	public void imprimeInformacoesFuncionario() {

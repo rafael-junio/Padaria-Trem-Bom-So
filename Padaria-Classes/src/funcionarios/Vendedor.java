@@ -1,7 +1,7 @@
 package funcionarios;
 
 
-public final class Vendedor extends Funcionario implements SalarioFinal, Cloneable {
+public final class Vendedor extends Funcionario implements SalarioFinal{
 	private final float BONIFICACAO = 1.1f;
 
 	private float montanteVendas;
@@ -9,7 +9,6 @@ public final class Vendedor extends Funcionario implements SalarioFinal, Cloneab
 
 	public Vendedor(String nome, String endereco, String cpf, String telefone, String codigo, float salarioBase) {
 		super(nome, endereco, cpf, telefone, codigo, salarioBase);
-		calcularSalarioFinal();
 	}
 
 	public float getBONIFICACAO() {
@@ -31,22 +30,22 @@ public final class Vendedor extends Funcionario implements SalarioFinal, Cloneab
 	public void setMetaVendas(float metaVendas) {
 		this.metaVendas = metaVendas;
 	}
-
-	@Override
-	public void calcularSalarioFinal() {
-		if (montanteVendas > metaVendas)
-			salarioFinal = salarioBase * BONIFICACAO;
-		else
-			salarioFinal = salarioBase;
+	
+	public float atualizaMontanteVendas(float valorVenda) {
+		return this.montanteVendas += valorVenda;
 	}
 
 	@Override
-	public Vendedor clone() {
-		try {
-			return (Vendedor) super.clone();
-		} catch (CloneNotSupportedException e) {
-			return null;
-		}
+	public float calcularSalarioFinal() {
+		if (montanteVendas > metaVendas)
+			return salarioFinal = salarioBase * BONIFICACAO;
+		else
+			return salarioFinal = salarioBase;
+	}
+	
+	public String exibeInfoVendaVendedor() {
+		String info = String.format("Nome Vendedor: %s\nCódigo de Funcionário: %s", this.nome, this.codigo);
+		return info;
 	}
 
 	public void imprimeInformacoesFuncionario() {

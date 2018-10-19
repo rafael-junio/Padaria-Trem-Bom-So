@@ -7,12 +7,9 @@ import produtos.ProdutoPerecivel;
 
 public class Estoque implements AlertaEstoque {
 	private Produto[] produtos;
-	private int qntProdutosEstoque;
-	
 
 	public Estoque() {
 		this.produtos = new Produto[50];
-		this.qntProdutosEstoque = 0;
 	}
 	
 	public Produto[] getProdutos() {
@@ -22,15 +19,6 @@ public class Estoque implements AlertaEstoque {
 	public void setProdutos(Produto[] produtos) {
 		this.produtos = produtos;
 	}
-	
-	public int getQntProdutosEstoque() {
-		return qntProdutosEstoque;
-	}
-	
-	public void setQntProdutosEstoque(int qntProdutosEstoque) {
-		this.qntProdutosEstoque = qntProdutosEstoque;
-	}
-
 
 	public boolean cadastrarProdutoNaoPerecivel(String nome, String codigo, Fornecedor fornecedor, float precoCusto,
 			float precoFinal, String[] apelido, int quantidade) {
@@ -50,7 +38,6 @@ public class Estoque implements AlertaEstoque {
 					produtos[i].setQuantidade(produtos[i].getQuantidade() + quantidade);
 //					System.out.println("Produto cadastrado com sucesso!");
 					alertaEstoque(produtos[i]);
-					qntProdutosEstoque++;
 					return true;
 				}
 			} else {
@@ -82,7 +69,6 @@ public class Estoque implements AlertaEstoque {
 					produtos[i].setQuantidade(produtos[i].getQuantidade() + quantidade);
 //					System.out.println("Produto cadastrado com sucesso!");
 					alertaEstoque(produtos[i]);
-					qntProdutosEstoque++;
 					return true;
 				}
 			} else {
@@ -113,7 +99,6 @@ public class Estoque implements AlertaEstoque {
 		for (int i = 0; i < produtos.length; i++) {
 			if (produtos[i] != null && produtos[i].getCodigo().equals(codigo)) {
 				produtos[i] = null;
-				qntProdutosEstoque--;
 				return true;
 			}
 		}

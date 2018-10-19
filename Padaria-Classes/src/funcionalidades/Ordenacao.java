@@ -7,9 +7,9 @@ import produtos.Produto;
 
 public class Ordenacao {
 	
-	public static void ordena(Object[] obj, int qnt) {
-		insertion(obj);
-		mergeSort(obj, 0, qnt-1);
+	public static void ordena(Object[] obj) {
+		int posicaoFinal = insertion(obj);
+		mergeSort(obj, 0, posicaoFinal);
 	}
 	
 	private static void mergeSort(Object[] a, int inicio, int fim) {
@@ -77,7 +77,9 @@ public class Ordenacao {
 			a[k++] = b[i++];
 	}
 
-	private static void insertion(Object[] a) {
+	private static int insertion(Object[] a) {
+		int cont = 0;
+		
 		Object aux = null;
 		
 		if(a instanceof Fornecedor[]) {
@@ -100,13 +102,17 @@ public class Ordenacao {
 			aux = (String) aux;
 		
 		for(int i = 1; i < a.length; i++) {
-			int j = i;
+			if(a[i] != null)
+				cont++;
+			
+			int j = i;				
 			while(j > 0 && a[j-1] == null && a[j] != null) {
 				aux = a[j];
 				a[j] = a[j-1];
 				a[j-1] = aux;
 				j = j-1;				
 			}
-		}
+		}		
+		return cont;
 	}
 }

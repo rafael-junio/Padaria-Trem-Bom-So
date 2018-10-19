@@ -9,12 +9,15 @@ import produtos.Produto;
 
 public final class Venda{
 
-	private final float JUROSPRAZO = 1.02f;
+	private final float JUROSPRAZO = 0.02f;
 
 	private Produto[] produtosVendidos;
 	private Cliente cliente;
 	private Vendedor vendedor;
 	private String formaPagamento;
+	private String infoVendedor;
+	private String infoCliente;
+	private String infoProduto;
 	private int numParcelas;
 	private float valorFinalCompra;
 	private int dia;
@@ -31,18 +34,13 @@ public final class Venda{
 		
 		this.cliente = cliente;
 		this.vendedor = vendedor;
-		if(formaPagamento.equalsIgnoreCase("crédito"))
-			if(numParcelas > 0) {
-				this.formaPagamento = formaPagamento;
-				this.numParcelas = numParcelas;
-			}
 		this.formaPagamento = formaPagamento;
 		this.numParcelas = numParcelas;
+		this.valorFinalCompra = 0;
 		this.dia = dia;
 		this.mes = mes;
 		this.ano = ano;
-		
-		
+		this.infoProduto = "";
 	}
 
 	public float getJUROSPRAZO() {
@@ -122,8 +120,7 @@ public final class Venda{
 	}
 
 	float calcularValorFinalCompra(int numParcelas) {
-		
-		this.valorFinalCompra = 0;
+		float desconto = 0;
 		
 		for(int i = 0; i < this.produtosVendidos.length; i++) {
 			if(this.produtosVendidos[i] != null)
@@ -131,18 +128,17 @@ public final class Venda{
 		}
 		
 		if (this.numParcelas > 0)
-			this.valorFinalCompra *= JUROSPRAZO;
+			this.valorFinalCompra += (this.valorFinalCompra * JUROSPRAZO);
 		
-		this.cliente.setValorCompras(this.cliente.getValorCompras() + this.valorFinalCompra);
+		if(cliente instanceof ClienteGold)
+			desconto = ((ClienteGold) cliente).calculaDesconto(this.valorFinalCompra);
 		
-		if(this.cliente instanceof ClienteGold)
-			this.cliente.setValorCompras(this.cliente.getValorCompras() - (this.cliente.getValorCompras() * ((ClienteGold) this.cliente).getDESCONTO()));
+		else if(cliente instanceof ClientePlatinum)
+			desconto = ((ClientePlatinum) cliente).calculaDesconto(this.valorFinalCompra);
 		
-		else if(this.cliente instanceof ClientePlatinum)
-			this.cliente.setValorCompras(this.cliente.getValorCompras() - (this.cliente.getValorCompras() * ((ClientePlatinum) this.cliente).getDESCONTO()));
+		this.valorFinalCompra -= desconto;
 		
-
-		this.vendedor.setMontanteVendas(this.vendedor.getMontanteVendas() + this.valorFinalCompra);
+		cliente.atualizaCompraCliente(this.valorFinalCompra);
 		
 		return this.valorFinalCompra;
 	}
@@ -157,24 +153,39 @@ public final class Venda{
 //			
 //	}
 	
-	public void imprimeProdutosVendidos() {
-		for(Produto i : produtosVendidos)
+	public String imprimeProdutosVendidos() {
+		for(Produto i : produtosVendidos) {
 			if(i != null)
-				i.imprimeInformacoesProdutoVenda();
+				this.infoProduto += i.exibeInfoVendaProdutos() + "\n";
+		}
+		return this.infoProduto;
 	}
 	
 	public void imprimeInformacoesVenda() {
 		System.out.printf("Data da venda: %02d/%02d/%04d.\n", this.dia, this.mes, this.ano);
+		
 		System.out.println("\n***********************PRODUTO(S) VENDIDOS***********************");
-		imprimeProdutosVendidos();
-		System.out.printf("\nVALOR TOTAL DA COMPRA: %.2f.\n", this.valorFinalCompra);
-		System.out.println("\n***********************CLIENTE***********************");
-		this.cliente.imprimeInformacoesCliente();
+		
+		System.out.print(imprimeProdutosVendidos());
+		
+		System.out.println("***********************CLIENTE***********************");
+		
+		this.infoCliente = cliente.exibeInfoVendaCliente();
+		System.out.println(this.infoCliente);
+
 		System.out.printf("Forma de pagamento: %s.\n", this.formaPagamento);
-		System.out.printf("Número de parcelas: %d.\n", this.numParcelas);
+		
+		if(this.numParcelas > 0)
+			System.out.printf("Número de parcelas: %d.\n", this.numParcelas);
+		
 		System.out.println("\n***********************VENDEDOR***********************");
-		this.vendedor.imprimeInformacoesFuncionario();
+		
+		this.infoVendedor = vendedor.exibeInfoVendaVendedor();
+		System.out.println(this.infoVendedor);
+		
 		System.out.println("\n**********************************************");
+		System.out.printf("\nVALOR TOTAL DA COMPRA: %.2fR$.\n", this.valorFinalCompra);
+		
 	}
 
 }

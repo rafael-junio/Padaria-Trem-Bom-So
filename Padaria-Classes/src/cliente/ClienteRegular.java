@@ -6,6 +6,15 @@ public final class ClienteRegular extends Cliente {
 		super(nome, endereco, cpf, telefone);
 	}
 	
+	public float atualizaCompraCliente(float valorCompra) {
+		return this.valorCompras = valorCompra;
+	}
+	
+	public String exibeInfoVendaCliente() {
+		String info = "Cliente Regular.\n" + super.exibeInfoVendaCliente();
+		return info;
+	}
+	
 	public void imprimeInformacoesCliente() {
 		System.out.println("Cliente Regular.");
 		super.imprimeInformacoesCliente();

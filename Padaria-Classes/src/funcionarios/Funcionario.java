@@ -2,7 +2,7 @@ package funcionarios;
 
 import funcionalidades.PessoaFisica;
 
-public abstract class Funcionario extends PessoaFisica {
+public abstract class Funcionario extends PessoaFisica implements SalarioFinal {
 	protected float salarioBase;
 	protected float salarioFinal;
 	protected String codigo;
