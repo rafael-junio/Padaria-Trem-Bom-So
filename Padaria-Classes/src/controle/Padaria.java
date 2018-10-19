@@ -9,6 +9,7 @@ import cliente.ClienteRegular;
 import fornecedores.Fornecedor;
 import fornecedores.FornecedorOcasional;
 import fornecedores.FornecedorRecorrente;
+import funcionalidades.Ordenacao;
 import funcionalidades.ValidaDocumento;
 import funcionarios.Funcionario;
 import funcionarios.Gerente;
@@ -369,6 +370,7 @@ public class Padaria {
 
 	public void imprimeInfoClientes() {
 		System.out.println("***********************CLIENTES***********************");
+		Ordenacao.ordena(clientes);
 		for (int i = 0; i < clientes.length; i++)
 			if (clientes[i] != null) {
 				clientes[i].imprimeInformacoesCliente();
@@ -391,6 +393,7 @@ public class Padaria {
 
 	public void imprimeInfoFornecedores() {
 		System.out.println("***********************FORNECEDORES***********************");
+		Ordenacao.ordena(fornecedores);
 		for (int i = 0; i < fornecedores.length; i++)
 			if (fornecedores[i] != null) {
 				fornecedores[i].imprimeInformacoesFornecedor();
@@ -415,6 +418,7 @@ public class Padaria {
 
 	public void imprimeInfoFuncionarios() {
 		System.out.println("***********************FUNCIONARIOS***********************");
+		Ordenacao.ordena(funcionarios);
 		for (int i = 0; i < funcionarios.length; i++)
 			if (funcionarios[i] != null) {
 				funcionarios[i].imprimeInformacoesFuncionario();
@@ -439,6 +443,7 @@ public class Padaria {
 
 	public void imprimeInfoProdutos() {
 		System.out.println("***********************ESTOQUE***********************");
+		Ordenacao.ordena(estoque.getProdutos());
 		this.estoque.imprimeInformacoesEstoque();
 		System.out.println();
 	}

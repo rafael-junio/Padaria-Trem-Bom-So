@@ -30,7 +30,7 @@ public abstract class Cliente extends PessoaFisica implements Cloneable{
 	
 	@Override
 	public String toString() {
-		return getNome();
+		return super.getNome();
 	}
 
 	public void imprimeInformacoesCliente() {

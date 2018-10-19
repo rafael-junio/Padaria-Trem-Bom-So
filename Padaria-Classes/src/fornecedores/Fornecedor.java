@@ -37,7 +37,7 @@ public abstract class Fornecedor extends Pessoa {
 	
 	@Override
 	public String toString() {
-		return getNome();
+		return super.getNome();
 	}
 
 	public void imprimeInformacoesFornecedor() {

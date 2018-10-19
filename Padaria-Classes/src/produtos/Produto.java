@@ -113,7 +113,7 @@ public abstract class Produto implements Cloneable {
 	
 	@Override
 	public String toString() {
-		return getNome();
+		return this.getNome();
 	}
 
 	public boolean hasApelido() {

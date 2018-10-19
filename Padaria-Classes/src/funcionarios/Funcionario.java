@@ -48,7 +48,7 @@ public abstract class Funcionario extends PessoaFisica {
 	
 	@Override
 	public String toString() {
-		return getNome();
+		return super.getNome();
 	}
 
 	public void imprimeInformacoesFuncionario() {
