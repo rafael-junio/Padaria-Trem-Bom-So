@@ -14,6 +14,12 @@ public abstract class Produto {
 	protected int quantidade;
 	private int quantidadeVenda;
 
+	/**
+	 * Método construtor da classe Produto.java.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public Produto(String nome, String codigo, Fornecedor fornecedor, float precoCusto, float precoFinal,
 			String[] apelido) {
 
@@ -38,70 +44,172 @@ public abstract class Produto {
 
 	}
 
+	/**
+	 * Método getNome.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public String getNome() {
 		return nome;
 	}
 
+	/**
+	 * Método setNome.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
 
+	/**
+	 * Método getCodigo.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public String getCodigo() {
 		return codigo;
 	}
 
+	/**
+	 * Método setCodigo.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
 
+	/**
+	 * Método getFornecedor.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public Fornecedor getFornecedor() {
 		return fornecedor;
 	}
 
+	/**
+	 * Método setFornecedor.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public void setFornecedor(Fornecedor fornecedor) {
 		this.fornecedor = fornecedor;
 	}
 
+	/**
+	 * Método getPrecoCusto.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public float getPrecoCusto() {
 		return precoCusto;
 	}
 
+	/**
+	 * Método setPrecoCusto.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public void setPrecoCusto(float precoCusto) {
 		this.precoCusto = precoCusto;
 	}
 
+	/**
+	 * Método getPrecoFinal.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public float getPrecoFinal() {
 		return precoFinal;
 	}
 
+	/**
+	 * Método setPrecoFinal.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public void setPrecoFinal(float precoFinal) {
 		this.precoFinal = precoFinal;
 	}
 
+	/**
+	 * Método getApelido.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public String[] getApelido() {
 		return apelido;
 	}
 
+	/**
+	 * Método setApelido.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public void setApelido(String[] apelido) {
 		this.apelido = apelido;
 	}
 
+	/**
+	 * Método getQuantidade.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public int getQuantidade() {
 		return quantidade;
 	}
 
+	/**
+	 * Método setQuantidade.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
 	}
 
+	/**
+	 * Método getQuantidadeVenda.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public int getQuantidadeVenda() {
 		return quantidadeVenda;
 	}
 
+	/**
+	 * Método setQuantidadeVenda.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public void setQuantidadeVenda(int quantidadeVenda) {
 		this.quantidadeVenda = quantidadeVenda;
 	}
 	
+	/**
+	 * Método ehIgual.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public boolean ehIgual(String codigo) {
 		if(this.codigo.equals(codigo))
 			return true;
@@ -109,6 +217,12 @@ public abstract class Produto {
 			return false;
 	}
 	
+	/**
+	 * Método verificaQuantidadeProduto.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public boolean verificaQuantidadeProduto(int quantidade) {
 		if((this.quantidade + quantidade) < 1 || (this.quantidade + quantidade) > 30)
 			return false;
@@ -118,6 +232,12 @@ public abstract class Produto {
 		}
 	}
 	
+	/**
+	 * Método verificaQuantidadeVenda.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public boolean verificaQuantidadeVenda(int quantidade) {
 		if(this.quantidade - quantidade > 0) {
 			this.quantidade -= quantidade;
@@ -127,17 +247,32 @@ public abstract class Produto {
 		return false;
 	}
 	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
 		return this.getNome();
 	}
 
+	/**
+	 * Método hasApelido.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public boolean hasApelido() {
 		if (this.apelido != null)
 			return true;
 		return false;
 	}
 
+	/**
+	 * Método imprimeInformacoesProduto.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public void imprimeInformacoesProduto() {
 		System.out.println("Produto: " + this.nome + ".");
 		System.out.println("Código: " + this.codigo + ".");
@@ -154,6 +289,12 @@ public abstract class Produto {
 		System.out.printf("\nPreço de final: %.2fR$.\n\n", this.precoFinal);
 	}
 
+	/**
+	 * Método exibeInfoVendaProdutos.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public String exibeInfoVendaProdutos() {
 		String info = String.format("Produto: %s\nCódigo: %s\n", this.nome, this.codigo);
 		String apelidos = "";

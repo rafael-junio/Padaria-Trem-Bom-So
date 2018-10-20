@@ -5,6 +5,12 @@ import java.util.InputMismatchException;
 public class ValidaDocumento {
 
 	// Remove caractéres especiais
+	/**
+	 * Método removeCaracteresEspeciais.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public String removeCaracteresEspeciais(String doc) {
 		if (doc.contains(".")) {
 			doc = doc.replace(".", "");
@@ -19,6 +25,12 @@ public class ValidaDocumento {
 	}
 
 	// Verifica CPNJ
+	/**
+	 * Método isCNPJ.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public boolean isCNPJ(String cnpj) {
 		cnpj = removeCaracteresEspeciais(cnpj);
 
@@ -82,6 +94,12 @@ public class ValidaDocumento {
 	}
 
 	// Imprime a máscara do CNPJ
+	/**
+	 * Método imprimeCNPJ.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	protected String imprimeCNPJ(String cnpj) {
 		cnpj = removeCaracteresEspeciais(cnpj);
 		// máscara do cnpj: 99.999.999/9999-99
@@ -90,6 +108,12 @@ public class ValidaDocumento {
 	}
 
 	// Verifica CPF
+	/**
+	 * Método isCPF.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public boolean isCPF(String cpf) {
 		cpf = removeCaracteresEspeciais(cpf);
 
@@ -145,6 +169,12 @@ public class ValidaDocumento {
 	}
 
 	// Imprime máscara do CPF: 999.999.999-99
+	/**
+	 * Método imprimeCPF.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	protected String imprimeCPF(String cpf) {
 		cpf = removeCaracteresEspeciais(cpf);
 		return (cpf.substring(0, 3) + "." + cpf.substring(3, 6) + "." + cpf.substring(6, 9) + "-"

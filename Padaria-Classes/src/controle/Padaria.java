@@ -26,6 +26,12 @@ public class Padaria {
 	private float impostoFuncionarios;
 	private float impostoTotal;
 
+	/**
+	 * Método construtor da classe Padaria.java.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public Padaria() {
 		this.fornecedores = new Fornecedor[15];
 		this.estoque = new Estoque();
@@ -40,54 +46,132 @@ public class Padaria {
 		this.alpha = new Ordenacao();
 	}
 
+	/**
+	 * Método getFornecedores.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public Fornecedor[] getFornecedores() {
 		return fornecedores;
 	}
 
+	/**
+	 * Método setFornecedores.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public void setFornecedores(Fornecedor[] fornecedores) {
 		this.fornecedores = fornecedores;
 	}
 
+	/**
+	 * Método getEstoque.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public Estoque getEstoque() {
 		return estoque;
 	}
 
+	/**
+	 * Método setEstoque.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public void setEstoque(Estoque estoque) {
 		this.estoque = estoque;
 	}
 
+	/**
+	 * Método getFuncionarios.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public Funcionario[] getFuncionarios() {
 		return funcionarios;
 	}
 
+	/**
+	 * Método setFuncionarios.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public void setFuncionarios(Funcionario[] funcionarios) {
 		this.funcionarios = funcionarios;
 	}
 
+	/**
+	 * Método getClientes.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public Cliente[] getClientes() {
 		return clientes;
 	}
 
+	/**
+	 * Método setClientes.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public void setClientes(Cliente[] clientes) {
 		this.clientes = clientes;
 	}
 
+	/**
+	 * Método getVendas.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public Venda[] getVendas() {
 		return vendas;
 	}
 
+	/**
+	 * Método setVendas.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public void setVendas(Venda[] vendas) {
 		this.vendas = vendas;
 	}
 
+	/**
+	 * Método getMontanteVendasGlobal.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public float getMontanteVendasGlobal() {
 		return montanteVendasGlobal;
 	}
 
+	/**
+	 * Método setMontanteVendasGlobal.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public void setMontanteVendasGlobal(float montanteVendasGlobal) {
 		this.montanteVendasGlobal = montanteVendasGlobal;
 	}
 
+	/**
+	 * Método cadastrarClienteRegular.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public boolean cadastrarClienteRegular(String nome, String endereco, String cpf, String telefone) {
 		ClienteRegular cliente = new ClienteRegular(nome, endereco, cpf, telefone);
 
@@ -106,6 +190,12 @@ public class Padaria {
 		return false;
 	}
 	
+	/**
+	 * Método cadastrarClienteGold.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public boolean cadastrarClienteGold(String cpf) {
 
 		for (int i = 0; i < clientes.length; i++)
@@ -120,6 +210,12 @@ public class Padaria {
 		return false;
 	}
 	
+	/**
+	 * Método cadastrarClientePlatinum.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public boolean cadastrarClientePlatinum(String cpf) {
 
 		for (int i = 0; i < clientes.length; i++)
@@ -134,6 +230,12 @@ public class Padaria {
 		return false;
 	}
 
+	/**
+	 * Método descadastrarCliente.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public boolean descadastrarCliente(String cpf) {
 		for (int i = 0; i < clientes.length && clientes[i] != null; i++) {
 			if (clientes[i].ehIgual(cpf)) {
@@ -144,6 +246,12 @@ public class Padaria {
 		return false;
 	}
 
+	/**
+	 * Método encontraCliente.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public Cliente encontraCliente(String cpf) {
 		for (int i = 0; i < clientes.length; i++) {
 			if (clientes[i] != null && clientes[i].ehIgual(cpf))
@@ -152,6 +260,12 @@ public class Padaria {
 		return null;
 	}
 
+	/**
+	 * Método cadastrarFornecedorOcasional.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public boolean cadastrarFornecedorOcasional(String nome, String endereco, String codigo, String cnpj) {
 		FornecedorOcasional fornecedor = new FornecedorOcasional(nome, endereco, codigo, cnpj);
 
@@ -170,6 +284,12 @@ public class Padaria {
 		return false;
 	}
 
+	/**
+	 * Método cadastrarFornecedorRecorrente.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public boolean cadastrarFornecedorRecorrente(String nome, String endereco, String codigo, String cnpj,
 			float taxaDesconto) {
 		FornecedorRecorrente fornecedor = new FornecedorRecorrente(nome, endereco, codigo, cnpj, taxaDesconto);
@@ -189,6 +309,12 @@ public class Padaria {
 		return false;
 	}
 
+	/**
+	 * Método descadastrarFornecedor.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public boolean descadastrarFornecedor(String codigo) {
 
 		for (int i = 0; i < fornecedores.length && fornecedores[i] != null; i++)
@@ -199,6 +325,12 @@ public class Padaria {
 		return false;
 	}
 
+	/**
+	 * Método encontraFornecedor.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public Fornecedor encontraFornecedor(String codigo) {
 		for (int i = 0; i < fornecedores.length; i++) {
 			if (fornecedores[i] != null && fornecedores[i].ehIgual(codigo))
@@ -207,6 +339,12 @@ public class Padaria {
 		return null;
 	}
 
+	/**
+	 * Método cadastrarVendedor.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public boolean cadastrarVendedor(String nome, String endereco, String cpf, String telefone, String codigo,
 			float salarioBase, float metaVendas) {
 		Vendedor funcionario = new Vendedor(nome, endereco, cpf, telefone, codigo, salarioBase, metaVendas);
@@ -226,6 +364,12 @@ public class Padaria {
 		return false;
 	}
 
+	/**
+	 * Método cadastrarGerente.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public boolean cadastrarGerente(String nome, String endereco, String cpf, String telefone, String codigo,
 			float salarioBase) {
 		Gerente funcionario = new Gerente(nome, endereco, cpf, telefone, codigo, salarioBase);
@@ -245,6 +389,12 @@ public class Padaria {
 		return false;
 	}
 
+	/**
+	 * Método cadastrarPadeiro.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public boolean cadastrarPadeiro(String nome, String endereco, String cpf, String telefone, String codigo,
 			float salarioBase) {
 		Padeiro funcionario = new Padeiro(nome, endereco, cpf, telefone, codigo, salarioBase);
@@ -264,6 +414,12 @@ public class Padaria {
 		return false;
 	}
 
+	/**
+	 * Método descadastrarFuncionario.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public boolean descadastrarFuncionario(String codigo) {
 		for (int i = 0; i < funcionarios.length && funcionarios[i] != null; i++)
 			if (funcionarios[i].ehIgual(codigo)) {
@@ -273,6 +429,12 @@ public class Padaria {
 		return false;
 	}
 
+	/**
+	 * Método encontraFuncionario.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public Funcionario encontraFuncionario(String codigo) {
 		for (int i = 0; i < funcionarios.length; i++) {
 			if (funcionarios[i] != null && funcionarios[i].ehIgual(codigo))
@@ -281,6 +443,12 @@ public class Padaria {
 		return null;
 	}
 
+	/**
+	 * Método encontraVendedor.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public Vendedor encontraVendedor(String codigo) {
 		for (int i = 0; i < funcionarios.length; i++) {
 			if (funcionarios[i] != null && funcionarios[i].ehIgual(codigo))
@@ -292,6 +460,12 @@ public class Padaria {
 		return null;
 	}
 
+	/**
+	 * Método realizarVenda.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public boolean realizarVenda(String cpfCliente, String codigoVendedor, String formaPagamento, int numParcelas,
 			int dia, int mes, int ano) {
 		
@@ -316,6 +490,12 @@ public class Padaria {
 
 	}
 
+	/**
+	 * Método adicionarProdutoVenda.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public boolean adicionarProdutoVenda(String codigo, int quantidade){
 
 		if (estoque.venderQuantidadeProduto(codigo, quantidade)) {
@@ -332,6 +512,12 @@ public class Padaria {
 		return false;
 	}
 
+	/**
+	 * Método procuraVenda.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public Venda procuraVenda(String cpfCliente) {
 		for (int i = 0; i < vendas.length; i++) {
 			if (vendas[i] != null)
@@ -341,6 +527,12 @@ public class Padaria {
 		return null;
 	}
 	
+	/**
+	 * Método calcularImpostos.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public void calcularImpostos() {
 		impostoVendas = montanteVendasGlobal * 0.15f;
 		for(int i =0; i < funcionarios.length; i++) {
@@ -351,6 +543,12 @@ public class Padaria {
 		this.impostoTotal = impostoVendas + impostoFuncionarios;	
 	}
 
+	/**
+	 * Método imprimeInfoClientes.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public void imprimeInfoClientes() {
 		System.out.println("------------------------CLIENTES------------------------");
 		alpha.ordena(clientes);
@@ -362,6 +560,12 @@ public class Padaria {
 		System.out.println();
 	}
 
+	/**
+	 * Método imprimeInfoClientes.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public void  imprimeInfoClientes(String cpf) {
 		boolean encontra = false;
 		for (int i = 0; !encontra && i < clientes.length; i++)
@@ -373,6 +577,12 @@ public class Padaria {
 			}
 	}
 
+	/**
+	 * Método imprimeInfoFornecedores.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public void imprimeInfoFornecedores() {
 		System.out.println("------------------------FORNECEDORES------------------------");
 		alpha.ordena(fornecedores);
@@ -384,6 +594,12 @@ public class Padaria {
 		System.out.println();
 	}
 
+	/**
+	 * Método imprimeInfoFornecedores.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public void  imprimeInfoFornecedores(String codigo) {
 		boolean encontra = false;
 		for (int i = 0; !encontra && i < fornecedores.length; i++)
@@ -397,6 +613,12 @@ public class Padaria {
 	}
 
 
+	/**
+	 * Método imprimeInfoFuncionarios.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public void imprimeInfoFuncionarios() {
 		System.out.println("------------------------FUNCIONARIOS------------------------");
 		alpha.ordena(funcionarios);
@@ -409,6 +631,12 @@ public class Padaria {
 		System.out.println();
 	}
 
+	/**
+	 * Método imprimeInfoFuncionarios.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public void  imprimeInfoFuncionarios(String codigo) {
 		boolean encontra = false;
 		for (int i = 0; !encontra && i < funcionarios.length; i++)
@@ -421,6 +649,12 @@ public class Padaria {
 			}
 	}
 
+	/**
+	 * Método imprimeInfoEstoque.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public void imprimeInfoEstoque() {
 		System.out.println("------------------------ESTOQUE------------------------");
 		alpha.ordena(estoque.getProdutos());
@@ -428,10 +662,22 @@ public class Padaria {
 		System.out.println();
 	}
 
+	/**
+	 * Método imprimeInfoEstoque.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public void imprimeInfoEstoque(String codigo) {
 		this.estoque.procurarProduto(codigo).imprimeInformacoesProduto();
 	}
 
+	/**
+	 * Método imprimeInfoVendas.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public void imprimeInfoVendas() {
 		System.out.println("------------------------VENDAS REALIZADAS------------------------");
 		for (int i = 0; i < vendas.length; i++)
@@ -439,6 +685,12 @@ public class Padaria {
 				vendas[i].imprimeInformacoesVenda();
 	}
 	
+	/**
+	 * Método imprimeInfoVendas.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public void imprimeInfoVendas(String cpfCliente) {
 		System.out.println("------------------------VENDAS CLIENTE------------------------");
 		for (int i = 0; i < vendas.length; i++)
@@ -447,6 +699,12 @@ public class Padaria {
 			}
 	}
 	
+	/**
+	 * Método imprimeInfoImposto.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public void imprimeInfoImposto() {
 		System.out.println("------------------------IMPOSTO------------------------");
 		System.out.printf("Montante de venda global: %.2fR$.\n", this.montanteVendasGlobal);
@@ -455,6 +713,12 @@ public class Padaria {
 		System.out.printf("Imposto Total: %.2fR$.\n", this.impostoTotal);
 	}
 	
+	/**
+	 * Método imprimeInfoPadaria.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public void imprimeInfoPadaria() {
 		System.out.println("------------------------PADARIA TREM BÃO------------------------\n");
 		imprimeInfoFuncionarios();

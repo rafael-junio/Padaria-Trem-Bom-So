@@ -8,11 +8,23 @@ import controle.produto.Produto;
 public class Ordenacao {
 	public static int cont;
 	
+	/**
+	 * Método ordena.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public void ordena(Object[] obj) {
 		int posicaoFinal = insertion(obj);
 		mergeSort(obj, 0, posicaoFinal);
 	}
 	
+	/**
+	 * Método mergeSort.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	private static void mergeSort(Object[] a, int inicio, int fim) {
 		if (inicio < fim) {
 			int meio = (inicio + fim) / 2;
@@ -22,6 +34,12 @@ public class Ordenacao {
 		}
 	}
 
+	/**
+	 * Método merge.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	private static void merge(Object[] a, int inicio, int meio, int fim) {
 		Object[] b = null;
 
@@ -78,6 +96,12 @@ public class Ordenacao {
 			a[k++] = b[i++];
 	}
 
+	/**
+	 * Método insertion.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	private int insertion(Object[] a) {
 		Ordenacao.cont = 0;
 		

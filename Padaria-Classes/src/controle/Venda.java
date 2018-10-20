@@ -21,6 +21,12 @@ public final class Venda{
 	private int mes;
 	private int ano;
 
+	/**
+	 * Método construtor da classe Venda.
+	 *
+	 * Pré-condição: recebe como atributos um cliente, vendedor, a forma de pagamento
+	 * Pós-condição: 
+	 */
 	public Venda(Cliente cliente, Vendedor vendedor, String formaPagamento, int numParcelas, Produto[] produtosVendidos, int dia, int mes,
 			int ano) {
 		
@@ -39,106 +45,262 @@ public final class Venda{
 		this.ano = ano;
 	}
 
+	/**
+	 * Método getJUROSPRAZO.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public float getJUROSPRAZO() {
 		return this.JUROSPRAZO;
 	}
 	
+	/**
+	 * Método getProdutosVendidos.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public Produto[] getProdutosVendidos() {
 		return produtosVendidos;
 	}
 
+	/**
+	 * Método setProdutosVendidos.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public void setProdutosVendidos(Produto[] produtosVendidos) {
 		this.produtosVendidos = produtosVendidos;
 	}
 
+	/**
+	 * Método getCliente.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public Cliente getCliente() {
 		return cliente;
 	}
 
+	/**
+	 * Método setCliente.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
 
+	/**
+	 * Método getVendedor.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public Vendedor getVendedor() {
 		return vendedor;
 	}
 
+	/**
+	 * Método setVendedor.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public void setVendedor(Vendedor vendedor) {
 		this.vendedor = vendedor;
 	}
 
+	/**
+	 * Método getFormaPagamento.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public String getFormaPagamento() {
 		return formaPagamento;
 	}
 
+	/**
+	 * Método setFormaPagamento.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public void setFormaPagamento(String formaPagamento) {
 		this.formaPagamento = formaPagamento;
 	}
 
+	/**
+	 * Método getNumParcelas.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public int getNumParcelas() {
 		return numParcelas;
 	}
 
+	/**
+	 * Método setNumParcelas.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public void setNumParcelas(int numParcelas) {
 		this.numParcelas = numParcelas;
 	}
 
+	/**
+	 * Método getValorFinalCompra.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public float getValorFinalCompra() {
 		return valorFinalCompra;
 	}
 
+	/**
+	 * Método setValorFinalCompra.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public void setValorFinalCompra(float valorFinalCompra) {
 		this.valorFinalCompra = valorFinalCompra;
 	}
 
+	/**
+	 * Método getInfoVendedor.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public String getInfoVendedor() {
 		return infoVendedor;
 	}
 
+	/**
+	 * Método setInfoVendedor.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public void setInfoVendedor(String infoVendedor) {
 		this.infoVendedor = infoVendedor;
 	}
 
+	/**
+	 * Método getInfoCliente.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public String getInfoCliente() {
 		return infoCliente;
 	}
 
+	/**
+	 * Método setInfoCliente.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public void setInfoCliente(String infoCliente) {
 		this.infoCliente = infoCliente;
 	}
 
+	/**
+	 * Método getInfoProduto.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public String getInfoProduto() {
 		return infoProduto;
 	}
 
+	/**
+	 * Método setInfoProduto.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public void setInfoProduto(String infoProduto) {
 		this.infoProduto = infoProduto;
 	}
 
+	/**
+	 * Método getDia.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public int getDia() {
 		return dia;
 	}
 
+	/**
+	 * Método setDia.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public void setDia(int dia) {
 		this.dia = dia;
 	}
 
+	/**
+	 * Método getMes.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public int getMes() {
 		return mes;
 	}
 
+	/**
+	 * Método setMes.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public void setMes(int mes) {
 		this.mes = mes;
 	}
 
+	/**
+	 * Método getAno.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public int getAno() {
 		return ano;
 	}
 
+	/**
+	 * Método setAno.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public void setAno(int ano) {
 		this.ano = ano;
 	}
 
+	/**
+	 * Método calcularValorFinalCompra.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	float calcularValorFinalCompra(int numParcelas) {
 		float desconto = 0;
 		String infoProdutosVendidos = "";
@@ -171,6 +333,12 @@ public final class Venda{
 		return this.valorFinalCompra;
 	}
 	
+	/**
+	 * Método imprimeInformacoesVenda.
+	 *
+	 * Pré-condição: 
+	 * Pós-condição: 
+	 */
 	public void imprimeInformacoesVenda() {
 		System.out.println("\n--------------------------------------------------------");
 		
