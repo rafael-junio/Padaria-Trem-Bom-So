@@ -1,11 +1,8 @@
 package controle;
 
-
-import cliente.Cliente;
-import cliente.ClienteGold;
-import cliente.ClientePlatinum;
-import funcionarios.Vendedor;
-import produtos.Produto;
+import pessoa.cliente.*;
+import pessoa.funcionario.Vendedor;
+import controle.produto.Produto;
 
 public final class Venda{
 
@@ -15,11 +12,11 @@ public final class Venda{
 	private Cliente cliente;
 	private Vendedor vendedor;
 	private String formaPagamento;
+	private int numParcelas;
+	private float valorFinalCompra;
 	private String infoVendedor;
 	private String infoCliente;
 	private String infoProduto;
-	private int numParcelas;
-	private float valorFinalCompra;
 	private int dia;
 	private int mes;
 	private int ano;
@@ -28,7 +25,7 @@ public final class Venda{
 			int ano) {
 		
 		if(produtosVendidos.length <= 20)
-			this.produtosVendidos = produtosVendidos.clone();
+			this.produtosVendidos = produtosVendidos;
 		else
 			System.out.println("Número de produtos inválido!");
 		
@@ -40,7 +37,6 @@ public final class Venda{
 		this.dia = dia;
 		this.mes = mes;
 		this.ano = ano;
-		this.infoProduto = "";
 	}
 
 	public float getJUROSPRAZO() {
@@ -95,6 +91,30 @@ public final class Venda{
 		this.valorFinalCompra = valorFinalCompra;
 	}
 
+	public String getInfoVendedor() {
+		return infoVendedor;
+	}
+
+	public void setInfoVendedor(String infoVendedor) {
+		this.infoVendedor = infoVendedor;
+	}
+
+	public String getInfoCliente() {
+		return infoCliente;
+	}
+
+	public void setInfoCliente(String infoCliente) {
+		this.infoCliente = infoCliente;
+	}
+
+	public String getInfoProduto() {
+		return infoProduto;
+	}
+
+	public void setInfoProduto(String infoProduto) {
+		this.infoProduto = infoProduto;
+	}
+
 	public int getDia() {
 		return dia;
 	}
@@ -121,11 +141,13 @@ public final class Venda{
 
 	float calcularValorFinalCompra(int numParcelas) {
 		float desconto = 0;
+		String infoProdutosVendidos = "";
 		
-		for(int i = 0; i < this.produtosVendidos.length; i++) {
-			if(this.produtosVendidos[i] != null)
+		for(int i = 0; i < this.produtosVendidos.length; i++)
+			if(this.produtosVendidos[i] != null) {
+				infoProdutosVendidos += produtosVendidos[i].exibeInfoVendaProdutos() + "\n";
 				this.valorFinalCompra += this.produtosVendidos[i].getPrecoFinal() * this.produtosVendidos[i].getQuantidadeVenda();
-		}
+			}
 		
 		if (this.numParcelas > 0)
 			this.valorFinalCompra += (this.valorFinalCompra * JUROSPRAZO);
@@ -140,52 +162,41 @@ public final class Venda{
 		
 		cliente.atualizaCompraCliente(this.valorFinalCompra);
 		
+		this.infoCliente = cliente.exibeInfoVendaCliente();
+		
+		this.infoVendedor = vendedor.exibeInfoVendaVendedor();
+		
+		this.infoProduto = infoProdutosVendidos;
+		
 		return this.valorFinalCompra;
 	}
 	
-//	public boolean adicionarProduto(Produto p) {
-//		for(int i = 0; i < produtosVendidos.length; i++)
-//			if(produtosVendidos[i] == null) {
-//				produtosVendidos[i] = p;
-//				return true;
-//			}
-//		return false;
-//			
-//	}
-	
-	public String imprimeProdutosVendidos() {
-		for(Produto i : produtosVendidos) {
-			if(i != null)
-				this.infoProduto += i.exibeInfoVendaProdutos() + "\n";
-		}
-		return this.infoProduto;
-	}
-	
 	public void imprimeInformacoesVenda() {
-		System.out.printf("Data da venda: %02d/%02d/%04d.\n", this.dia, this.mes, this.ano);
+		System.out.println("\n--------------------------------------------------------");
 		
-		System.out.println("\n***********************PRODUTO(S) VENDIDOS***********************");
+		System.out.printf("\nVENDA REALIZADA EM %02d/%02d/%04d POR FUNCIONÁRIO(A)\n", this.dia, this.mes, this.ano);
 		
-		System.out.print(imprimeProdutosVendidos());
+		System.out.println(this.infoVendedor);
 		
-		System.out.println("***********************CLIENTE***********************");
+		System.out.println("\n------------------------CLIENTE------------------------");
 		
-		this.infoCliente = cliente.exibeInfoVendaCliente();
 		System.out.println(this.infoCliente);
-
+		
 		System.out.printf("Forma de pagamento: %s.\n", this.formaPagamento);
 		
 		if(this.numParcelas > 0)
 			System.out.printf("Número de parcelas: %d.\n", this.numParcelas);
 		
-		System.out.println("\n***********************VENDEDOR***********************");
+		System.out.println("\n------------------------PRODUTO(S) VENDIDOS------------------------");
 		
-		this.infoVendedor = vendedor.exibeInfoVendaVendedor();
-		System.out.println(this.infoVendedor);
+		System.out.print(this.infoProduto);
 		
-		System.out.println("\n**********************************************");
-		System.out.printf("\nVALOR TOTAL DA COMPRA: %.2fR$.\n", this.valorFinalCompra);
+		System.out.println("------------------------VALOR TOTAL DA COMPRA------------------------");
+		System.out.print("\nValor total");
 		
+		if (this.numParcelas > 0)
+			System.out.print(" (Mais acréscimo de 2% sobre as vendas)");
+				
+		System.out.printf(": %.2fR$.\n\n", this.valorFinalCompra);
 	}
-
 }

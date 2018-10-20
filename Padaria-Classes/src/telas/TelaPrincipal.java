@@ -6,8 +6,8 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import controle.Padaria;
-import funcionarios.Funcionario;
-import funcionarios.Padeiro;
+import pessoa.funcionario.Funcionario;
+import pessoa.funcionario.Padeiro;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;

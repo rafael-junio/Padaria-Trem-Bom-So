@@ -61,7 +61,7 @@ public class TelaImprimeInformacoes {
 		JButton btnProdutosEmEstoque = new JButton("Produtos em estoque");
 		btnProdutosEmEstoque.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				padaria.imprimeInfoProdutos();
+				padaria.imprimeInfoEstoque();
 				JOptionPane.showMessageDialog(null, "Informações impressas no console");
 			}
 		});
@@ -121,10 +121,10 @@ public class TelaImprimeInformacoes {
 			public void actionPerformed(ActionEvent arg0) {
 				try {	
 					String codigo = JOptionPane.showInputDialog("Digite o código do produto. (6 Digítos)");
-					padaria.imprimeInfoProdutos(codigo);
+					padaria.imprimeInfoEstoque(codigo);
 					}
 				catch (Exception exception){
-					padaria.imprimeInfoProdutos();
+					padaria.imprimeInfoEstoque();
 				}
 			}
 		});

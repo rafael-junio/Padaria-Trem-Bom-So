@@ -1,13 +1,14 @@
 package funcionalidades;
 
-import cliente.Cliente;
-import fornecedores.Fornecedor;
-import funcionarios.Funcionario;
-import produtos.Produto;
+import pessoa.cliente.Cliente;
+import pessoa.fornecedor.Fornecedor;
+import pessoa.funcionario.Funcionario;
+import controle.produto.Produto;
 
 public class Ordenacao {
+	public static int cont;
 	
-	public static void ordena(Object[] obj) {
+	public void ordena(Object[] obj) {
 		int posicaoFinal = insertion(obj);
 		mergeSort(obj, 0, posicaoFinal);
 	}
@@ -77,8 +78,8 @@ public class Ordenacao {
 			a[k++] = b[i++];
 	}
 
-	private static int insertion(Object[] a) {
-		int cont = 0;
+	private int insertion(Object[] a) {
+		Ordenacao.cont = 0;
 		
 		Object aux = null;
 		
@@ -103,7 +104,7 @@ public class Ordenacao {
 		
 		for(int i = 1; i < a.length; i++) {
 			if(a[i] != null)
-				cont++;
+				Ordenacao.cont++;
 			
 			int j = i;				
 			while(j > 0 && a[j-1] == null && a[j] != null) {
@@ -113,6 +114,6 @@ public class Ordenacao {
 				j = j-1;				
 			}
 		}		
-		return cont;
+		return Ordenacao.cont;
 	}
 }
