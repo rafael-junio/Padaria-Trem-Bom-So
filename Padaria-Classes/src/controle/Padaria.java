@@ -6,31 +6,41 @@ import funcionalidades.Ordenacao;
 import pessoa.fornecedor.*;
 import controle.estoque.Estoque;
 import pessoa.funcionario.*;
-import pessoa.*;
 import pessoa.cliente.*;
 import controle.produto.*;
 
-
-
 public class Padaria {
+	private final float PERCENTUALSOBREVENDAS = 0.15f; // porcentagem de imposto sobre as vendas realizadas.
+	
+	private final float PERCENTUALSOBRESALARIOFUNCIONARIOS = 0.18f; // porcentagem de imposto sobre o salário final dos funcionários.
 
-	private Ordenacao alpha;
-	private Fornecedor[] fornecedores;
-	private Estoque estoque;
-	private Funcionario[] funcionarios;
-	private Cliente[] clientes;
-	private Venda[] vendas;
-	private Produto[] comprasRealizadas;
-	private float montanteVendasGlobal;
-	private float impostoVendas;
-	private float impostoFuncionarios;
-	private float impostoTotal;
+	private Ordenacao alpha; // objeto para ordenar em ordem alfabética.
+	
+	private Fornecedor[] fornecedores; // vetor de fornecedores cadastratos na padaria.
+	
+	private Estoque estoque; // estoque de produtos da padaria.
+	
+	private Funcionario[] funcionarios; // vetor de funcionários cadastrados na padaria.
+	
+	private Cliente[] clientes; // vetor de funcionários cadastrados na padaria.
+	
+	private Venda[] vendas; // vetor de compras realizadas na padaria.
+	
+	private Produto[] comprasRealizadas; // vetor de produtos comprados pelo cliente.
+	
+	private float montanteVendasGlobal; // valor total das vendas realizadas.
+	
+	private float impostoVendas; // imposto calculado sobre vendas.
+	
+	private float impostoFuncionarios; // imposto calculado sobre salário dos funcionários.
+	
+	private float impostoTotal; // imposto total da padaria.
 
 	/**
-	 * Método construtor da classe Padaria.java.
+	 * Método construtor da classe Padaria.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: instância todos os atributos da classe.
 	 */
 	public Padaria() {
 		this.fornecedores = new Fornecedor[15];
@@ -49,8 +59,8 @@ public class Padaria {
 	/**
 	 * Método getFornecedores.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: retorna o vetor de objetos do tipo Fornecedor, contendo os fornecedores cadastrados.
 	 */
 	public Fornecedor[] getFornecedores() {
 		return fornecedores;
@@ -59,8 +69,8 @@ public class Padaria {
 	/**
 	 * Método setFornecedores.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe como parâmetro um vetor de fornecedores.
+	 * Pós-condição: não retorna nada, apenas instancia atributo vetor do tipo Fornecedor.
 	 */
 	public void setFornecedores(Fornecedor[] fornecedores) {
 		this.fornecedores = fornecedores;
@@ -69,8 +79,8 @@ public class Padaria {
 	/**
 	 * Método getEstoque.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição:retorna objeto do tipo Estoque, atributo contendo todos os produtos cadastrados.
 	 */
 	public Estoque getEstoque() {
 		return estoque;
@@ -79,8 +89,8 @@ public class Padaria {
 	/**
 	 * Método setEstoque.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe objeto da classe Estoque como parâmetro.
+	 * Pós-condição: não retorna nada, apenas instancia atributo do tipo Estoque.
 	 */
 	public void setEstoque(Estoque estoque) {
 		this.estoque = estoque;
@@ -89,8 +99,8 @@ public class Padaria {
 	/**
 	 * Método getFuncionarios.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: retorna vetor do tipo Funcionario, contendo os funcionários cadastrados.
 	 */
 	public Funcionario[] getFuncionarios() {
 		return funcionarios;
@@ -99,8 +109,8 @@ public class Padaria {
 	/**
 	 * Método setFuncionarios.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe vetor de objetos da classe Funcionario como parâmetro.
+	 * Pós-condição: não retorna nada, apenas instancia atributo vetor da tipo Funcionario.
 	 */
 	public void setFuncionarios(Funcionario[] funcionarios) {
 		this.funcionarios = funcionarios;
@@ -109,8 +119,8 @@ public class Padaria {
 	/**
 	 * Método getClientes.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: retorna vetor de objetos do tipo Cliente, contendo clientes cadastrados.
 	 */
 	public Cliente[] getClientes() {
 		return clientes;
@@ -119,8 +129,8 @@ public class Padaria {
 	/**
 	 * Método setClientes.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe vetor de objetos da classe Cliente como parâmetro.
+	 * Pós-condição: não retorna nada, apenas instancia atributo vetor do tipo Cliente.
 	 */
 	public void setClientes(Cliente[] clientes) {
 		this.clientes = clientes;
@@ -129,8 +139,8 @@ public class Padaria {
 	/**
 	 * Método getVendas.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: retorna vetor de objetos do tipo Venda, contendo as vendas realizadas.
 	 */
 	public Venda[] getVendas() {
 		return vendas;
@@ -139,8 +149,8 @@ public class Padaria {
 	/**
 	 * Método setVendas.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe vetor do tipo Venda como parâmetro.
+	 * Pós-condição: não retorna nada, apenas instancia atributo vetor do tipo Venda.
 	 */
 	public void setVendas(Venda[] vendas) {
 		this.vendas = vendas;
@@ -149,8 +159,8 @@ public class Padaria {
 	/**
 	 * Método getMontanteVendasGlobal.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: retorna atributo do tipo float contendo o montante de vendas realizadas.
 	 */
 	public float getMontanteVendasGlobal() {
 		return montanteVendasGlobal;
@@ -159,18 +169,118 @@ public class Padaria {
 	/**
 	 * Método setMontanteVendasGlobal.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe variável do tipo float como parâmetro.
+	 * Pós-condição: não retorna nada, apenas instancia atributo do tipo float montanteVendasGlobal, que contém montante de vendas realizadas.
 	 */
 	public void setMontanteVendasGlobal(float montanteVendasGlobal) {
 		this.montanteVendasGlobal = montanteVendasGlobal;
+	}
+	
+	/**
+	 * Método getComprasRealizadas.
+	 *
+	 * Pré-condição: não recebe nenhum parâmetro
+	 * Pós-condição: retorna vetor do tipo Produto que contém as os produtos vendidos.
+	 */
+	public Produto[] getComprasRealizadas() {
+		return comprasRealizadas;
+	}
+
+	/**
+	 * Método setComprasRealizadas.
+	 *
+	 * Pré-condição: recebe como parâmetro vetor do tipo Produto.
+	 * Pós-condição: não retorna nada, apenas instancia atributo vetor do tipo Produto que contém os produtos vendidos.
+	 */
+	public void setComprasRealizadas(Produto[] comprasRealizadas) {
+		this.comprasRealizadas = comprasRealizadas;
+	}
+
+	/**
+	 * Método getImpostoVendas.
+	 *
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: retorna valor do tipo float imposto sobre as vendas, impostoVendas.
+	 */
+	public float getImpostoVendas() {
+		return impostoVendas;
+	}
+
+	/**
+	 * Método setImpostoVendas.
+	 *
+	 * Pré-condição: recebe como parâmetro um valor float.
+	 * Pós-condição: não retorna nada, apenas instacia atributo float impostoVendas.
+	 */
+	public void setImpostoVendas(float impostoVendas) {
+		this.impostoVendas = impostoVendas;
+	}
+
+	/**
+	 * Método getImpostoFuncionarios.
+	 *
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: retorna valor do tipo float improsto sobre o salário dos funcionários, impostoFuncionarios.
+	 */
+	public float getImpostoFuncionarios() {
+		return impostoFuncionarios;
+	}
+
+	/**
+	 * Método setImpostoFuncionarios.
+	 *
+	 * Pré-condição: recebe como parâmetro um valor do tipo float.
+	 * Pós-condição: não retorna nada, apenas instancia atributo impostoFuncionarios.
+	 */
+	public void setImpostoFuncionarios(float impostoFuncionarios) {
+		this.impostoFuncionarios = impostoFuncionarios;
+	}
+
+	/**
+	 * Método getImpostoTotal.
+	 *
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: retorna valor do tipo float improsto total calculado, impostoTotal.
+	 */
+	public float getImpostoTotal() {
+		return impostoTotal;
+	}
+
+	/**
+	 * Método setImpostoTotal.
+	 *
+	 * Pré-condição: recebe como parâmetro um valor do tipo float.
+	 * Pós-condição: não retorna nada, apenas instancia atributo impostoTotal.
+	 */
+	public void setImpostoTotal(float impostoTotal) {
+		this.impostoTotal = impostoTotal;
+	}
+
+	/**
+	 * Método getImpostosobrevendas.
+	 *
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: retorna valor do atributo final tipo float PERCENTUALSOBREVENDAS.
+	 */
+	public float getPERCENTUALSOBREVENDAS() {
+		return PERCENTUALSOBREVENDAS;
+	}
+
+	/**
+	 * Método getImpostosobresalariofuncionarios.
+	 *
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: retorna valor do atributo final tipo float PERCENTUALSOBRESALARIOFUNCIONARIOS.
+	 */
+	public float getPERCENTUALSOBRESALARIOFUNCIONARIOS() {
+		return PERCENTUALSOBRESALARIOFUNCIONARIOS;
 	}
 
 	/**
 	 * Método cadastrarClienteRegular.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe como parâmetro quatro Strings, o nome, endereço, CPF e telefone, respectivamente.
+	 * Pós-condição: retorna um booleano, TRUE, caso cliente seja cadastrado com sucesso e FALSE, caso contrário.
 	 */
 	public boolean cadastrarClienteRegular(String nome, String endereco, String cpf, String telefone) {
 		ClienteRegular cliente = new ClienteRegular(nome, endereco, cpf, telefone);
@@ -193,8 +303,8 @@ public class Padaria {
 	/**
 	 * Método cadastrarClienteGold.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe String CPF do cliente regular, caso ele atenda a condição estabelecida, cliente é convertido em cliente gold.
+	 * Pós-condição: retorna um booleano, TRUE, caso cliente seja atualizado com sucesso e FALSE, caso contrário.
 	 */
 	public boolean cadastrarClienteGold(String cpf) {
 
@@ -213,8 +323,8 @@ public class Padaria {
 	/**
 	 * Método cadastrarClientePlatinum.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe String CPF do cliente regular, caso ele atenda a condição estabelecida, cliente é convertido em cliente platinum.
+	 * Pós-condição: retorna um booleano, TRUE, caso cliente seja atualizado com sucesso e FALSE, caso contrário.
 	 */
 	public boolean cadastrarClientePlatinum(String cpf) {
 
@@ -233,8 +343,8 @@ public class Padaria {
 	/**
 	 * Método descadastrarCliente.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe String CPF do cliente e o mesmo é descadastrado, caso ele seja encontrado.
+	 * Pós-condição: retorna um booleano, TRUE, caso cliente seja descadastrado com sucesso e FALSE, caso contrário.
 	 */
 	public boolean descadastrarCliente(String cpf) {
 		for (int i = 0; i < clientes.length && clientes[i] != null; i++) {
@@ -249,8 +359,8 @@ public class Padaria {
 	/**
 	 * Método encontraCliente.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe String CPF do cliente e procura por ele no sistema.
+	 * Pós-condição: caso encontrado, retorna o objeto do tipo Cliente, caso contrário retorna null.
 	 */
 	public Cliente encontraCliente(String cpf) {
 		for (int i = 0; i < clientes.length; i++) {
@@ -263,8 +373,8 @@ public class Padaria {
 	/**
 	 * Método cadastrarFornecedorOcasional.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe como parâmetro quatro Strings, o nome, endereço, codigo e CNPJ, respectivamente.
+	 * Pós-condição: retorna um booleano, TRUE, caso fornecedor ocasional seja cadastrado com sucesso e FALSE, caso contrário.
 	 */
 	public boolean cadastrarFornecedorOcasional(String nome, String endereco, String codigo, String cnpj) {
 		FornecedorOcasional fornecedor = new FornecedorOcasional(nome, endereco, codigo, cnpj);
@@ -287,8 +397,8 @@ public class Padaria {
 	/**
 	 * Método cadastrarFornecedorRecorrente.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe como parâmetro quatro Strings e um float, o nome, endereço, codigo, CNPJ e taxa de desconto, respectivamente.
+	 * Pós-condição: retorna um booleano, TRUE, caso fornecedor recorrente seja cadastrado com sucesso e FALSE, caso contrário.
 	 */
 	public boolean cadastrarFornecedorRecorrente(String nome, String endereco, String codigo, String cnpj,
 			float taxaDesconto) {
@@ -312,8 +422,8 @@ public class Padaria {
 	/**
 	 * Método descadastrarFornecedor.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe String codigo do fornecedor e o mesmo é descadastrado, caso ele seja encontrado.
+	 * Pós-condição: retorna um booleano, TRUE, caso fornecedor seja descadastrado com sucesso e FALSE, caso contrário.
 	 */
 	public boolean descadastrarFornecedor(String codigo) {
 
@@ -328,8 +438,8 @@ public class Padaria {
 	/**
 	 * Método encontraFornecedor.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe String codigo do fornecedor e procura por ele no sistema.
+	 * Pós-condição: caso encontrado, retorna o objeto do tipo Fornecedor, caso contrário retorna null.
 	 */
 	public Fornecedor encontraFornecedor(String codigo) {
 		for (int i = 0; i < fornecedores.length; i++) {
@@ -342,8 +452,8 @@ public class Padaria {
 	/**
 	 * Método cadastrarVendedor.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe como parâmetro cinco Strings e dois floats, o nome, endereço, CPF, telefone, codigo, salário base e a meta de vendas, respectivamente.
+	 * Pós-condição: retorna um booleano, TRUE, caso vendedor seja cadastrado com sucesso e FALSE, caso contrário.
 	 */
 	public boolean cadastrarVendedor(String nome, String endereco, String cpf, String telefone, String codigo,
 			float salarioBase, float metaVendas) {
@@ -367,8 +477,8 @@ public class Padaria {
 	/**
 	 * Método cadastrarGerente.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe como parâmetro cinco Strings e um float, o nome, endereço, CPF, telefone, codigo e o salário base, respectivamente.
+	 * Pós-condição: retorna um booleano, TRUE, caso gerente seja cadastrado com sucesso e FALSE, caso contrário.
 	 */
 	public boolean cadastrarGerente(String nome, String endereco, String cpf, String telefone, String codigo,
 			float salarioBase) {
@@ -392,8 +502,8 @@ public class Padaria {
 	/**
 	 * Método cadastrarPadeiro.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe como parâmetro cinco Strings e um float, o nome, endereço, CPF, telefone, codigo e o salário base, respectivamente.
+	 * Pós-condição: retorna um booleano, TRUE, caso padeiro seja cadastrado com sucesso e FALSE, caso contrário.
 	 */
 	public boolean cadastrarPadeiro(String nome, String endereco, String cpf, String telefone, String codigo,
 			float salarioBase) {
@@ -417,8 +527,8 @@ public class Padaria {
 	/**
 	 * Método descadastrarFuncionario.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe String codigo do funcionário e o mesmo é descadastrado, caso ele seja encontrado.
+	 * Pós-condição: retorna um booleano, TRUE, caso funcionário seja descadastrado com sucesso e FALSE, caso contrário.
 	 */
 	public boolean descadastrarFuncionario(String codigo) {
 		for (int i = 0; i < funcionarios.length && funcionarios[i] != null; i++)
@@ -432,8 +542,8 @@ public class Padaria {
 	/**
 	 * Método encontraFuncionario.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe String codigo do funcionário e procura por ele no sistema.
+	 * Pós-condição: caso encontrado, retorna o objeto do tipo Funcionário, caso contrário retorna null.
 	 */
 	public Funcionario encontraFuncionario(String codigo) {
 		for (int i = 0; i < funcionarios.length; i++) {
@@ -446,8 +556,8 @@ public class Padaria {
 	/**
 	 * Método encontraVendedor.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe String codigo do vendedor e procura por ele no sistema.
+	 * Pós-condição: caso encontrado, retorna o objeto do tipo Vendedor, caso contrário retorna null.
 	 */
 	public Vendedor encontraVendedor(String codigo) {
 		for (int i = 0; i < funcionarios.length; i++) {
@@ -463,17 +573,19 @@ public class Padaria {
 	/**
 	 * Método realizarVenda.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe três Strings e quatro floats, o CPF do cliente, o código do vendedor, a forma de pagamento, o número de parcelas e a data (dia, mes, ano), respectivamente.
+	 * Pós-condição: retorna um booleano, TRUE, caso venda seja realizada e armazanada no vetor de objetos do tipo Venda, e FALSE, caso contrário.
 	 */
 	public boolean realizarVenda(String cpfCliente, String codigoVendedor, String formaPagamento, int numParcelas,
 			int dia, int mes, int ano) {
 		
-		Cliente clienteVenda = encontraCliente(cpfCliente);
+		if(this.comprasRealizadas != null) {
+
+			Cliente clienteVenda = encontraCliente(cpfCliente);
 		
 		Vendedor vendedor = encontraVendedor(codigoVendedor);
-
-		Venda venda = new Venda(clienteVenda, vendedor, formaPagamento, numParcelas, comprasRealizadas, dia, mes, ano);
+		
+		Venda venda = new Venda(clienteVenda, vendedor, formaPagamento, numParcelas, this.comprasRealizadas, dia, mes, ano);
 
 		for (int i = 0; i < vendas.length; i++)
 			if (vendas[i] == null) {
@@ -487,14 +599,17 @@ public class Padaria {
 			}
 		venda = null;
 		return false;
+		}
+		else
+			return false;
 
 	}
 
 	/**
 	 * Método adicionarProdutoVenda.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe uma String e um inteiro, o código do produto e a quantidade daquele produto, respectivamente
+	 * Pós-condição: retorna um booleano, TRUE, caso produto seja adicionado ao vetor de objetos do tipo Produto, e FALSE, caso contrário.
 	 */
 	public boolean adicionarProdutoVenda(String codigo, int quantidade){
 
@@ -515,10 +630,10 @@ public class Padaria {
 	/**
 	 * Método procuraVenda.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe String CPF do cliente e procura por ele no sistema.
+	 * Pós-condição: caso encontrado, retorna o objeto do tipo Venda, caso contrário retorna null.
 	 */
-	public Venda procuraVenda(String cpfCliente) {
+	public Venda encontraVenda(String cpfCliente) {
 		for (int i = 0; i < vendas.length; i++) {
 			if (vendas[i] != null)
 				if (vendas[i].getCliente().ehIgual(cpfCliente))
@@ -530,24 +645,24 @@ public class Padaria {
 	/**
 	 * Método calcularImpostos.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: não recebe nenhum parâmetro, 
+	 * Pós-condição: não retorna nada, apenas calcula e instancia os atributos do tipo float impostoVendas, impostoFuncionario e impostoTotal, responsáveis por armazenar os impostos a serem pagos. 
 	 */
 	public void calcularImpostos() {
-		impostoVendas = montanteVendasGlobal * 0.15f;
+		this.impostoVendas = this.montanteVendasGlobal * this.PERCENTUALSOBREVENDAS;
 		for(int i =0; i < funcionarios.length; i++) {
 			if(funcionarios[i] != null)
 				impostoFuncionarios += funcionarios[i].calcularSalarioFinal();
 		}
-		this.impostoFuncionarios *= 0.18f;
+		this.impostoFuncionarios = (this.impostoFuncionarios * this.PERCENTUALSOBRESALARIOFUNCIONARIOS);
 		this.impostoTotal = impostoVendas + impostoFuncionarios;	
 	}
 
 	/**
 	 * Método imprimeInfoClientes.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: não retorna nada, apenas imprime os atributos dos objetos do tipo Cliente.
 	 */
 	public void imprimeInfoClientes() {
 		System.out.println("------------------------CLIENTES------------------------");
@@ -563,8 +678,8 @@ public class Padaria {
 	/**
 	 * Método imprimeInfoClientes.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe uma String CPF do cliente como parâmetro.
+	 * Pós-condição: não retorna nada, apenas imprime os atributos do objeto Cliente que possui o CPF passado como parâmetro.
 	 */
 	public void  imprimeInfoClientes(String cpf) {
 		boolean encontra = false;
@@ -580,8 +695,8 @@ public class Padaria {
 	/**
 	 * Método imprimeInfoFornecedores.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: não retorna nada, apenas imprime os atributos dos objetos do tipo Fornecedor.
 	 */
 	public void imprimeInfoFornecedores() {
 		System.out.println("------------------------FORNECEDORES------------------------");
@@ -597,8 +712,8 @@ public class Padaria {
 	/**
 	 * Método imprimeInfoFornecedores.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe como parâmetro uma String código do fornecedor.
+	 * Pós-condição: não retorna nada, apenas imprime os atributos do objeto Fornecedor que possui o código passado como parâmetro.
 	 */
 	public void  imprimeInfoFornecedores(String codigo) {
 		boolean encontra = false;
@@ -616,8 +731,8 @@ public class Padaria {
 	/**
 	 * Método imprimeInfoFuncionarios.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: não retorna nada, apenas imprime os atributos dos objetos do tipo Funcionario.
 	 */
 	public void imprimeInfoFuncionarios() {
 		System.out.println("------------------------FUNCIONARIOS------------------------");
@@ -634,8 +749,8 @@ public class Padaria {
 	/**
 	 * Método imprimeInfoFuncionarios.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe como parâmetro uma String código do funcionário.
+	 * Pós-condição: não retorna nada, apenas imprime os atributos do objeto Funcionário que possui o código passado como parâmetro.
 	 */
 	public void  imprimeInfoFuncionarios(String codigo) {
 		boolean encontra = false;
@@ -652,8 +767,8 @@ public class Padaria {
 	/**
 	 * Método imprimeInfoEstoque.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: não retorna nada, apenas imprime os atributos dos objetos do tipo Produto contido no atributo estoque..
 	 */
 	public void imprimeInfoEstoque() {
 		System.out.println("------------------------ESTOQUE------------------------");
@@ -665,8 +780,8 @@ public class Padaria {
 	/**
 	 * Método imprimeInfoEstoque.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe como parâmetro uma String código do produto.
+	 * Pós-condição: não retorna nada, apenas imprime os atributos do objeto Produto que possui o código passado como parâmetro.
 	 */
 	public void imprimeInfoEstoque(String codigo) {
 		this.estoque.procurarProduto(codigo).imprimeInformacoesProduto();
@@ -675,8 +790,8 @@ public class Padaria {
 	/**
 	 * Método imprimeInfoVendas.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: não retorna nada, apenas imprime os atributos dos objetos do tipo Venda.
 	 */
 	public void imprimeInfoVendas() {
 		System.out.println("------------------------VENDAS REALIZADAS------------------------");
@@ -688,8 +803,8 @@ public class Padaria {
 	/**
 	 * Método imprimeInfoVendas.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe como parâmetro uma String CPF do produto.
+	 * Pós-condição: não retorna nada, apenas imprime os atributos do objeto Venda que possui o CPF do objeto Cliente passado como parâmetro.
 	 */
 	public void imprimeInfoVendas(String cpfCliente) {
 		System.out.println("------------------------VENDAS CLIENTE------------------------");
@@ -702,22 +817,26 @@ public class Padaria {
 	/**
 	 * Método imprimeInfoImposto.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: não retorna nada, apenas imprime os atributos de tipo float, montanteVendasGlobal, impostoVendas, impostoFuncionarios e impostoTotal.
 	 */
 	public void imprimeInfoImposto() {
 		System.out.println("------------------------IMPOSTO------------------------");
-		System.out.printf("Montante de venda global: %.2fR$.\n", this.montanteVendasGlobal);
-		System.out.printf("Imposto sobre vendas: %.2fR$.\n", this.impostoVendas);
-		System.out.printf("Imposto sobre salário dos funcionários: %.2fR$.\n", this.impostoFuncionarios);
-		System.out.printf("Imposto Total: %.2fR$.\n", this.impostoTotal);
+		if(this.impostoTotal > 0) {
+			System.out.printf("Montante de venda global: %.2fR$.\n", this.montanteVendasGlobal);
+			System.out.printf("Imposto sobre vendas: %.2fR$.\n", this.impostoVendas);
+			System.out.printf("Imposto sobre salário dos funcionários: %.2fR$.\n", this.impostoFuncionarios);
+			System.out.printf("Imposto Total: %.2fR$.\n", this.impostoTotal);
+		}
+		else
+			System.out.println("Imposto não foi calculado!");
 	}
 	
 	/**
 	 * Método imprimeInfoPadaria.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: não retorna nada, apenas chama todos os métodos de impressão da classe Padaria, exceto imprimeInfoVendas, e imprime eles.
 	 */
 	public void imprimeInfoPadaria() {
 		System.out.println("------------------------PADARIA TREM BÃO------------------------\n");

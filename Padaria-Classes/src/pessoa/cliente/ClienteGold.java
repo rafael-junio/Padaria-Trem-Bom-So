@@ -1,7 +1,7 @@
 package pessoa.cliente;
 
 public final class ClienteGold extends Cliente {
-	private final float DESCONTO = 0.05f;
+	private static final float DESCONTO = 0.05f;
 	
 	/**
 	 * Método construtor da classe ClienteGold.java.

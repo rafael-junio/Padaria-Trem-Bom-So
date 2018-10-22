@@ -4,12 +4,11 @@ import java.util.InputMismatchException;
 
 public class ValidaDocumento {
 
-	// Remove caractéres especiais
 	/**
 	 * Método removeCaracteresEspeciais.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe uma String.
+	 * Pós-condição: retorna uma String sem caracteres especiais.
 	 */
 	public String removeCaracteresEspeciais(String doc) {
 		if (doc.contains(".")) {
@@ -24,12 +23,11 @@ public class ValidaDocumento {
 		return doc;
 	}
 
-	// Verifica CPNJ
 	/**
 	 * Método isCNPJ.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe uma String.
+	 * Pós-condição: retorna TRUE, caso DV do CNJP seja válido, e FALSE, caso contrário.
 	 */
 	public boolean isCNPJ(String cnpj) {
 		cnpj = removeCaracteresEspeciais(cnpj);
@@ -93,26 +91,23 @@ public class ValidaDocumento {
 		}
 	}
 
-	// Imprime a máscara do CNPJ
 	/**
 	 * Método imprimeCNPJ.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe uma String. 
+	 * Pós-condição: retorna uma Sting com a máscara do CNPJ (99.999.999/9999-99).
 	 */
 	protected String imprimeCNPJ(String cnpj) {
 		cnpj = removeCaracteresEspeciais(cnpj);
-		// máscara do cnpj: 99.999.999/9999-99
 		return (cnpj.substring(0, 2) + "." + cnpj.substring(2, 5) + "." + cnpj.substring(5, 8) + "/"
 				+ cnpj.substring(8, 12) + "-" + cnpj.substring(12, 14));
 	}
 
-	// Verifica CPF
 	/**
 	 * Método isCPF.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe uma String.
+	 * Pós-condição: retorna TRUE, caso DV do CPF seja válido, e FALSE, caso contrário.
 	 */
 	public boolean isCPF(String cpf) {
 		cpf = removeCaracteresEspeciais(cpf);
@@ -168,12 +163,11 @@ public class ValidaDocumento {
 		}
 	}
 
-	// Imprime máscara do CPF: 999.999.999-99
 	/**
 	 * Método imprimeCPF.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-recebe uma String. 
+	 * Pós-condição: retorna uma Sting com a máscara do CPF (999.999.999-99).
 	 */
 	protected String imprimeCPF(String cpf) {
 		cpf = removeCaracteresEspeciais(cpf);

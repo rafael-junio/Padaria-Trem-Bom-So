@@ -5,13 +5,13 @@ import funcionalidades.Ordenacao;
 import controle.produto.*;
 
 public class Estoque implements AlertaEstoque {
-	private Produto[] produtos;
+	private Produto[] produtos; // produtos armazenados em estoque (max 50).
 
 	/**
-	 * Método construtor da classe Estoque.java.
+	 * Método construtor da classe Estoque.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: não recebe parâmetro.
+	 * Pós-condição: instancia único atributo da classe.
 	 */
 	public Estoque() {
 		this.produtos = new Produto[50];
@@ -20,8 +20,8 @@ public class Estoque implements AlertaEstoque {
 	/**
 	 * Método getProdutos.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: não recebe parâmetro.
+	 * Pós-condição: retorna atributo vetor do tipo Produto.
 	 */
 	public Produto[] getProdutos() {
 		return produtos;
@@ -30,8 +30,8 @@ public class Estoque implements AlertaEstoque {
 	/**
 	 * Método setProdutos.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe vetor do tipo Produto.
+	 * Pós-condição: não retorna valor. Instacia atributo produtos.
 	 */
 	public void setProdutos(Produto[] produtos) {
 		this.produtos = produtos;
@@ -40,8 +40,8 @@ public class Estoque implements AlertaEstoque {
 	/**
 	 * Método cadastrarProdutoNaoPerecivel.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe duas Strings, um objeto do tipo Fornecedor, dois floats, um vetor de Strings e um inteiro.
+	 * Pós-condição: retorna TRUE, caso objeto do tipo ProdutoNaoPerecivel é armazenado no vetor produtos, e FALSE, caso contrário.
 	 */
 	public boolean cadastrarProdutoNaoPerecivel(String nome, String codigo, Fornecedor fornecedor, float precoCusto,
 			float precoFinal, String[] apelido, int quantidade) {
@@ -63,8 +63,8 @@ public class Estoque implements AlertaEstoque {
 	/**
 	 * Método cadastrarProdutoPerecivel.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe duas Strings, um objeto do tipo Fornecedor, dois floats, tês inteiros, um vetor de Strings e um inteiro.
+	 * Pós-condição: retorna TRUE, caso objeto do tipo ProdutoPerecivel é armazenado no vetor produtos, e FALSE, caso contrário.
 	 */
 	public boolean cadastrarProdutoPerecivel(String nome, String codigo, Fornecedor fornecedor, float precoCusto,
 			float precoFinal, int dia, int mes, int ano, String[] apelido, int quantidade) {
@@ -86,8 +86,8 @@ public class Estoque implements AlertaEstoque {
 	/**
 	 * Método atualizarQuantidadeProdutoEstoque.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe uma String código do produto e um inteiro quantidade do produto.
+	 * Pós-condição: retorna TRUE, caso quantidade do produto com código passado como parâmetro é alterada, e FALSE, caso contrário.
 	 */
 	public boolean atualizarQuantidadeProdutoEstoque(String codigo, int quantidadeNovoProduto) {
 		Produto alteraProduto = procurarProduto(codigo);	
@@ -102,8 +102,8 @@ public class Estoque implements AlertaEstoque {
 	/**
 	 * Método venderQuantidadeProduto.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe uma String código do produto e um inteiro quantidade do produto.
+	 * Pós-condição: retorna TRUE, caso quantidade do produto com código passado como parâmetro é vendida, e FALSE, caso contrário.
 	 */
 	public boolean venderQuantidadeProduto(String codigo, int quantidade) {
 		for (int i = 0; i < produtos.length; i++)
@@ -112,14 +112,16 @@ public class Estoque implements AlertaEstoque {
 					alertaEstoque(produtos[i]);
 					return true;
 				}
+				else
+					return false;
 		return false;
 	}
 
 	/**
 	 * Método descadastrarProduto.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe um String código do produto.
+	 * Pós-condição: retorna TRUE, caso produto a ser descadastrado é encontrado, e FALSE, caso contário.
 	 */
 	public boolean descadastrarProduto(String codigo) {
 		for (int i = 0; i < produtos.length; i++)
@@ -133,8 +135,8 @@ public class Estoque implements AlertaEstoque {
 	/**
 	 * Método produdoEmEstoque.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe um String código do produto.
+	 * Pós-condição: retorna TRUE, caso produto é encontrado, e FALSE, caso contário.
 	 */
 	public boolean produdoEmEstoque(String codigo) {
 		for (int i = 0; i < produtos.length; i++)
@@ -147,8 +149,8 @@ public class Estoque implements AlertaEstoque {
 	/**
 	 * Método procurarProduto.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe um String código do produto.
+	 * Pós-condição: retorna objeto do tipo Produto, caso produto é encontrado, e null, caso contário.
 	 */
 	public Produto procurarProduto(String codigo) {
 		for (int i = 0; i < produtos.length; i++) {
@@ -162,8 +164,8 @@ public class Estoque implements AlertaEstoque {
 	/**
 	 * Método imprimeInformacoesEstoque.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: não retorna valor. Imprime produtos contidos em atributo vetor do tipo Produto.
 	 */
 	public void imprimeInformacoesEstoque() {
 		for (int i = 0; i <= Ordenacao.cont; i++) {
@@ -175,14 +177,17 @@ public class Estoque implements AlertaEstoque {
 		}
 	}
 
-	/* (non-Javadoc)
-	 * @see controle.estoque.AlertaEstoque#alertaEstoque(java.lang.Object)
+	/**
+	 * Método alertaEstoque.
+	 *
+	 * Pré-condição: recebe objeto do tipo Object.
+	 * Pós-condição: não retorna valor.
 	 */
 	public void alertaEstoque(Object obj1) {
 		Produto produto = (Produto) obj1;
 
 		if (produto.getQuantidade() == 1)
-			System.out.println("ALERTA! PRODUTO CONTÉM APENAS 1 UNIDADE EM ESTOQUE!");
+			System.err.println("ALERTA! PRODUTO CONTÉM APENAS 1 UNIDADE EM ESTOQUE!");
 	}
 
 }

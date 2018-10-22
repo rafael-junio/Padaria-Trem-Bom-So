@@ -24,15 +24,16 @@ public class TestePadariaMetodos{
 
 		tremBao.cadastrarPadeiro("adeiro que faz pão bom", "Rua Filomena", "533.384.960-95", "(33) 4580-0003", "0002", 100f);
 		
-		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("A", "000000", tremBao.encontraFornecedor("000"), 30f, 100f, null, 30);
+		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("A", "000000", tremBao.encontraFornecedor("000"), 1f, 100f, null, 1);
 		
 		tremBao.getEstoque().cadastrarProdutoPerecivel("a", "000001", tremBao.encontraFornecedor("001"), 20f, 100f, 1, 10, 2019, null, 30);
 
+		tremBao.descadastrarFuncionario("0001");
 //		tremBao.imprimeInfoClientes();
 //		System.out.println();
 //		tremBao.imprimeInfoFornecedores();
 //		System.out.println();
-//		tremBao.imprimeInfoFuncionarios();
+		tremBao.imprimeInfoFuncionarios();
 //		System.out.println();
 //		tremBao.imprimeInfoEstoque();
 //		System.out.println(tremBao.getQntFuncionarios());
@@ -44,24 +45,24 @@ public class TestePadariaMetodos{
 //		tremBao.imprimeInfoProdutos("000001");
 
 		
-		tremBao.adicionarProdutoVenda("000000", 5);
-		tremBao.realizarVenda("44416381832", "0001", "Débito", 3, 14, 10, 2018);
+//		tremBao.adicionarProdutoVenda("000000", 5);
+//		tremBao.realizarVenda("44416381832", "0001", "Débito", 3, 14, 10, 2018);
+//		System.out.println(tremBao.getComprasRealizadas().length);
 //		
-		tremBao.cadastrarClienteGold("44416381832");
+//		tremBao.cadastrarClienteGold("44416381832");
 //		tremBao.imprimeInfoVendas();
 		
 		
-		tremBao.adicionarProdutoVenda("000001", 5);
-		tremBao.adicionarProdutoVenda("000000", 2);
-		tremBao.realizarVenda("44416381832", "0001", "Dinheiro", 0, 15, 10, 2018);
+//		tremBao.adicionarProdutoVenda("000001", 5);
+//		tremBao.adicionarProdutoVenda("000000", 2);
+//		tremBao.realizarVenda("44416381832", "0001", "Dinheiro", 0, 15, 10, 2018);
 		
-		tremBao.descadastrarFuncionario("0001");
 		
-		tremBao.imprimeInfoVendas();
+//		tremBao.imprimeInfoVendas();
 //		tremBao.calcularImpostos();
 //		tremBao.imprimeInfoPadaria();
 		
-		tremBao.imprimeInfoEstoque();
+//		tremBao.imprimeInfoEstoque();
 		
 //		System.out.println(tremBao.encontraCliente("44416381832").getValorCompras());
 //		tremBao.adicionarProdutoVenda("000001", 1);

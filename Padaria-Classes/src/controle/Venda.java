@@ -6,26 +6,35 @@ import controle.produto.Produto;
 
 public final class Venda{
 
-	private final float JUROSPRAZO = 0.02f;
+	private static final float JUROSPRAZO = 0.02f; // porcentagem de juros aplicado nas compras parceladas.
 
-	private Produto[] produtosVendidos;
-	private Cliente cliente;
-	private Vendedor vendedor;
-	private String formaPagamento;
-	private int numParcelas;
-	private float valorFinalCompra;
-	private String infoVendedor;
-	private String infoCliente;
-	private String infoProduto;
+	private Produto[] produtosVendidos; // vetor de tamanho 20 para armazenar os produtos vendidos.
+	
+	private Cliente cliente; // cliente que realiza compra.
+	
+	private Vendedor vendedor; // vendedor responsável pela venda.
+	
+	private String formaPagamento; // forma de pagamento escolhida pelo cliente.
+	
+	private int numParcelas; // número de parcelas escolhida pelo cliente.
+	
+	private float valorFinalCompra; // valor final da compra.
+	
+	private String infoVendedor; // informações do vendedor relevantes para a venda.
+	
+	private String infoCliente; // informações do cliente relevantes para a venda.
+	
+	private String infoProduto; // informações dos produtos relevantes para a venda.
+	
 	private int dia;
-	private int mes;
+	private int mes;	// data da venda.
 	private int ano;
 
 	/**
 	 * Método construtor da classe Venda.
 	 *
-	 * Pré-condição: recebe como atributos um cliente, vendedor, a forma de pagamento
-	 * Pós-condição: 
+	 * Pré-condição: recebe como parâmetro, um objeto Cliente, objeto Vendedor, float forma de pagamento, int numero de parcelas, vetor de objetos Produto, e int dia, mes e ano.
+	 * Pós-condição: instância atributos da classe.
 	 */
 	public Venda(Cliente cliente, Vendedor vendedor, String formaPagamento, int numParcelas, Produto[] produtosVendidos, int dia, int mes,
 			int ano) {
@@ -46,20 +55,10 @@ public final class Venda{
 	}
 
 	/**
-	 * Método getJUROSPRAZO.
-	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
-	 */
-	public float getJUROSPRAZO() {
-		return this.JUROSPRAZO;
-	}
-	
-	/**
 	 * Método getProdutosVendidos.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: retorna um vetor de objetos Produto.
 	 */
 	public Produto[] getProdutosVendidos() {
 		return produtosVendidos;
@@ -68,8 +67,8 @@ public final class Venda{
 	/**
 	 * Método setProdutosVendidos.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe como parâmero um vetor de Produto.
+	 * Pós-condição: não retorna nada, apenas instancia atributo produtosVendidos.
 	 */
 	public void setProdutosVendidos(Produto[] produtosVendidos) {
 		this.produtosVendidos = produtosVendidos;
@@ -78,8 +77,8 @@ public final class Venda{
 	/**
 	 * Método getCliente.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: retorna um objeto Cliente, que realizou a venda.
 	 */
 	public Cliente getCliente() {
 		return cliente;
@@ -88,8 +87,8 @@ public final class Venda{
 	/**
 	 * Método setCliente.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe como parâmetro um objeto Cliente.
+	 * Pós-condição: não retorna nada, apenas instancia atributo do tipo Cliente.
 	 */
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
@@ -98,8 +97,8 @@ public final class Venda{
 	/**
 	 * Método getVendedor.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: retorna um objeto Vendedor, resposável pela venda.
 	 */
 	public Vendedor getVendedor() {
 		return vendedor;
@@ -108,8 +107,8 @@ public final class Venda{
 	/**
 	 * Método setVendedor.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe como parâmetro um objeto Vendedor.
+	 * Pós-condição: não retorna nada, apenas instancia atributo do tipo Vendedor.
 	 */
 	public void setVendedor(Vendedor vendedor) {
 		this.vendedor = vendedor;
@@ -118,8 +117,8 @@ public final class Venda{
 	/**
 	 * Método getFormaPagamento.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: retorna uma String que informa o tipo de pagamento realizado pelo cliente.
 	 */
 	public String getFormaPagamento() {
 		return formaPagamento;
@@ -128,8 +127,8 @@ public final class Venda{
 	/**
 	 * Método setFormaPagamento.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe como parâmetro uma String.
+	 * Pós-condição: não retorna nada, apenas instancia atributo do tipo String, formaPagamento.
 	 */
 	public void setFormaPagamento(String formaPagamento) {
 		this.formaPagamento = formaPagamento;
@@ -138,8 +137,8 @@ public final class Venda{
 	/**
 	 * Método getNumParcelas.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: retorna atributo do tipo int numParcelas.
 	 */
 	public int getNumParcelas() {
 		return numParcelas;
@@ -148,18 +147,20 @@ public final class Venda{
 	/**
 	 * Método setNumParcelas.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe como parâmetro um int.
+	 * Pós-condição: não retorna nada, apenas instancia o atributo do tipo int, numParcelas.
 	 */
 	public void setNumParcelas(int numParcelas) {
 		this.numParcelas = numParcelas;
 	}
 
+
+
 	/**
 	 * Método getValorFinalCompra.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: retorna atributo do tipo float valorFinalCompra.
 	 */
 	public float getValorFinalCompra() {
 		return valorFinalCompra;
@@ -168,8 +169,8 @@ public final class Venda{
 	/**
 	 * Método setValorFinalCompra.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe como parâmetro um float.
+	 * Pós-condição: não retorna valor, apenas instância atributo float ValorFinalCompra.
 	 */
 	public void setValorFinalCompra(float valorFinalCompra) {
 		this.valorFinalCompra = valorFinalCompra;
@@ -178,8 +179,8 @@ public final class Venda{
 	/**
 	 * Método getInfoVendedor.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: retorna atributo do tipo String infoVendedor.
 	 */
 	public String getInfoVendedor() {
 		return infoVendedor;
@@ -188,8 +189,8 @@ public final class Venda{
 	/**
 	 * Método setInfoVendedor.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe uma String.
+	 * Pós-condição: não retorna valor. Instancia atributo String infoVendedor.
 	 */
 	public void setInfoVendedor(String infoVendedor) {
 		this.infoVendedor = infoVendedor;
@@ -198,8 +199,8 @@ public final class Venda{
 	/**
 	 * Método getInfoCliente.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: retorna atributo String infoCliente.
 	 */
 	public String getInfoCliente() {
 		return infoCliente;
@@ -208,8 +209,8 @@ public final class Venda{
 	/**
 	 * Método setInfoCliente.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe uma String.
+	 * Pós-condição: não retorna valor. Instancia atributo String infoCliente.
 	 */
 	public void setInfoCliente(String infoCliente) {
 		this.infoCliente = infoCliente;
@@ -218,8 +219,8 @@ public final class Venda{
 	/**
 	 * Método getInfoProduto.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: retorna atributo String infoProduto
 	 */
 	public String getInfoProduto() {
 		return infoProduto;
@@ -228,8 +229,8 @@ public final class Venda{
 	/**
 	 * Método setInfoProduto.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe uma String.
+	 * Pós-condição: não retorna valor. Instancia atributo String infoProduto.
 	 */
 	public void setInfoProduto(String infoProduto) {
 		this.infoProduto = infoProduto;
@@ -238,8 +239,8 @@ public final class Venda{
 	/**
 	 * Método getDia.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: retorna atributo int dia.
 	 */
 	public int getDia() {
 		return dia;
@@ -248,8 +249,8 @@ public final class Venda{
 	/**
 	 * Método setDia.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe um int.
+	 * Pós-condição: não retorna valor. Instancia atributo int dia.
 	 */
 	public void setDia(int dia) {
 		this.dia = dia;
@@ -258,8 +259,8 @@ public final class Venda{
 	/**
 	 * Método getMes.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: retorna atributo int mes.
 	 */
 	public int getMes() {
 		return mes;
@@ -268,8 +269,8 @@ public final class Venda{
 	/**
 	 * Método setMes.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe um int.
+	 * Pós-condição: não retorna valor. Instancia atributo int mes.
 	 */
 	public void setMes(int mes) {
 		this.mes = mes;
@@ -278,8 +279,8 @@ public final class Venda{
 	/**
 	 * Método getAno.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: retorna atributo int ano.
 	 */
 	public int getAno() {
 		return ano;
@@ -288,20 +289,30 @@ public final class Venda{
 	/**
 	 * Método setAno.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe um int.
+	 * Pós-condição: não retorna valor. Instancia atributo int ano.
 	 */
 	public void setAno(int ano) {
 		this.ano = ano;
 	}
 
 	/**
+	 * Método getJUROSPRAZO.
+	 *
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: retorna atributo final float JUROSPRAZO, porcentagem de juros quando a compra é parcelada.
+	 */
+	public float getJUROSPRAZO() {
+		return JUROSPRAZO;
+	}
+
+	/**
 	 * Método calcularValorFinalCompra.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe um int.
+	 * Pós-condição: retorna atributo float valorFinalCompra, após calculado preço final a ser pago pelo cliente.
 	 */
-	float calcularValorFinalCompra(int numParcelas) {
+	public float calcularValorFinalCompra(int numParcelas) {
 		float desconto = 0;
 		String infoProdutosVendidos = "";
 		
@@ -336,8 +347,8 @@ public final class Venda{
 	/**
 	 * Método imprimeInformacoesVenda.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: não retorna valor. Imprime valores dos atributos da classe.
 	 */
 	public void imprimeInformacoesVenda() {
 		System.out.println("\n--------------------------------------------------------");

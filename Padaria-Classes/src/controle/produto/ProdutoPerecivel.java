@@ -11,8 +11,8 @@ public final class ProdutoPerecivel extends Produto {
 	/**
 	 * Método construtor da classe ProdutoPerecivel.java.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe duas Strings, um objeto do tipo Fornecedor, dois floats, três inteiros e um vetor de Strings. 
+	 * Pós-condição: instancia os atributos da classe.
 	 */
 	public ProdutoPerecivel(String nome, String codigo, Fornecedor fornecedorProduto, float precoCusto,
 			float precoFinal, int dia, int mes, int ano, String[] apelido) {
@@ -25,8 +25,8 @@ public final class ProdutoPerecivel extends Produto {
 	/**
 	 * Método getDia.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: retorna atributo int dia.
 	 */
 	public int getDia() {
 		return dia;
@@ -35,18 +35,20 @@ public final class ProdutoPerecivel extends Produto {
 	/**
 	 * Método setDia.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe um int.
+	 * Pós-condição: não retorna valor. Instancia atributo int dia.
 	 */
 	public void setDia(int dia) {
 		this.dia = dia;
 	}
 
+
+
 	/**
 	 * Método getMes.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: retorna atributo int mes.
 	 */
 	public int getMes() {
 		return mes;
@@ -55,8 +57,8 @@ public final class ProdutoPerecivel extends Produto {
 	/**
 	 * Método setMes.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe um int.
+	 * Pós-condição: não retorna valor. Instancia atributo int mes.
 	 */
 	public void setMes(int mes) {
 		this.mes = mes;
@@ -65,8 +67,8 @@ public final class ProdutoPerecivel extends Produto {
 	/**
 	 * Método getAno.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: retorna atributo int ano.
 	 */
 	public int getAno() {
 		return ano;
@@ -75,19 +77,33 @@ public final class ProdutoPerecivel extends Produto {
 	/**
 	 * Método setAno.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe um int.
+	 * Pós-condição: não retorna valor. Instancia atributo int ano.
 	 */
 	public void setAno(int ano) {
 		this.ano = ano;
 	}
 	
-	/* (non-Javadoc)
-	 * @see controle.produto.Produto#imprimeInformacoesProduto()
+	/**
+	 * Método imprimeInformacoesProduto.
+	 *
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: não retorna valor. Imprime atributos da classe.
 	 */
 	public void imprimeInformacoesProduto() {
 		super.imprimeInformacoesProduto();
 		System.out.printf("Data de validade: %02d/%02d/%02d.\n", this.dia, this.mes, this.ano);
 	}
-
+	
+	/**
+	 * Método exibeInfoVendaProdutos.
+	 *
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: retorna uma String com atributos da classe relevantes para a venda do produto.
+	 */
+	public String exibeInfoVendaProdutos() {
+		String info = String.format("Data de validade: %02d/%02d/%02d.\n", this.dia, this.mes, this.ano);
+		info += super.exibeInfoVendaProdutos();
+		return info;
+	}
 }

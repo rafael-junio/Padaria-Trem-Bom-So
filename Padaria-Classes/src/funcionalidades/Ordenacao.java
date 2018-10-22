@@ -6,24 +6,69 @@ import pessoa.funcionario.Funcionario;
 import controle.produto.Produto;
 
 public class Ordenacao {
-	public static int cont;
+	public static int cont; // conta o número de posições não nulas no vetor.
 	
 	/**
 	 * Método ordena.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe um vetor Object a serem ordenados em ordem alfabética.
+	 * Pós-condição: não retorna valor. Chama métodos de ordenação.
 	 */
 	public void ordena(Object[] obj) {
 		int posicaoFinal = insertion(obj);
 		mergeSort(obj, 0, posicaoFinal);
 	}
+
+	/**
+	 * Método insertion.
+	 *
+	 * Pré-condição: recebe um vetor Object a serem ordenados em ordem alfabética.
+	 * Pós-condição: retorna um interio com o valor de posições não nulas no vetor Object. Ordena vetor em posições não nulas.
+	 */
+	private int insertion(Object[] a) {
+		Ordenacao.cont = 0;
+		
+		Object aux = null;
+		
+		if(a instanceof Fornecedor[]) {
+			a = (Fornecedor[]) a;
+			aux = (Fornecedor) aux;
+		}
+		
+		else if(a instanceof Cliente[])
+			aux = (Cliente) aux;
+		
+		else if(a instanceof Funcionario[]) {
+			a = (Funcionario[]) a;
+			aux = (Funcionario) aux;
+		}
+		
+		else if(a instanceof Produto[])
+			aux = (Produto) aux;
+		
+		else
+			aux = (String) aux;
+		
+		for(int i = 1; i < a.length; i++) {
+			if(a[i] != null)
+				Ordenacao.cont++;
+			
+			int j = i;				
+			while(j > 0 && a[j-1] == null && a[j] != null) {
+				aux = a[j];
+				a[j] = a[j-1];
+				a[j-1] = aux;
+				j = j-1;				
+			}
+		}		
+		return Ordenacao.cont;
+	}
 	
 	/**
 	 * Método mergeSort.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe um vetor de Object e dois inteiros.
+	 * Pós-condição: não retorna valor. Alteras posições dos valores do vetor Object.
 	 */
 	private static void mergeSort(Object[] a, int inicio, int fim) {
 		if (inicio < fim) {
@@ -37,8 +82,8 @@ public class Ordenacao {
 	/**
 	 * Método merge.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe um vetor de Object e três inteiros.
+	 * Pós-condição: não retorna valor. Alteras posições dos valores do vetor Object.
 	 */
 	private static void merge(Object[] a, int inicio, int meio, int fim) {
 		Object[] b = null;
@@ -94,50 +139,5 @@ public class Ordenacao {
 
 		while (i <= meio)
 			a[k++] = b[i++];
-	}
-
-	/**
-	 * Método insertion.
-	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
-	 */
-	private int insertion(Object[] a) {
-		Ordenacao.cont = 0;
-		
-		Object aux = null;
-		
-		if(a instanceof Fornecedor[]) {
-			a = (Fornecedor[]) a;
-			aux = (Fornecedor) aux;
-		}
-		
-		else if(a instanceof Cliente[])
-			aux = (Cliente) aux;
-		
-		else if(a instanceof Funcionario[]) {
-			a = (Funcionario[]) a;
-			aux = (Funcionario) aux;
-		}
-		
-		else if(a instanceof Produto[])
-			aux = (Produto) aux;
-		
-		else
-			aux = (String) aux;
-		
-		for(int i = 1; i < a.length; i++) {
-			if(a[i] != null)
-				Ordenacao.cont++;
-			
-			int j = i;				
-			while(j > 0 && a[j-1] == null && a[j] != null) {
-				aux = a[j];
-				a[j] = a[j-1];
-				a[j-1] = aux;
-				j = j-1;				
-			}
-		}		
-		return Ordenacao.cont;
 	}
 }

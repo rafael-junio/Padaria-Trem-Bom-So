@@ -3,22 +3,30 @@ package controle.produto;
 import pessoa.fornecedor.Fornecedor;
 import pessoa.fornecedor.FornecedorRecorrente;
 
+
 public abstract class Produto {
 
-	protected String nome;
-	protected String codigo;
-	protected Fornecedor fornecedor;
-	protected float precoCusto;
-	protected float precoFinal;
-	protected String[] apelido;
-	protected int quantidade;
-	private int quantidadeVenda;
+	protected String nome; // nome do produto.
+	
+	protected String codigo; // código do produto.
+	
+	protected Fornecedor fornecedor; // código do fornecedor.
+	
+	protected float precoCusto; // preço de custo do produto.
+	
+	protected float precoFinal; // preço final do produto.
+	
+	protected String[] apelido; // apelidos do produto.
+	
+	protected int quantidade; // quantidade do produto em estoque.
+	
+	private int quantidadeVenda; // quantidade do produto a ser vendida.
 
 	/**
-	 * Método construtor da classe Produto.java.
+	 * Método construtor da classe Produto.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe duas Strings, um objeto do tipo Fornecedor, dois floats e um vetor de Strings. 
+	 * Pós-condição: instancia os atributos da classe.
 	 */
 	public Produto(String nome, String codigo, Fornecedor fornecedor, float precoCusto, float precoFinal,
 			String[] apelido) {
@@ -47,8 +55,8 @@ public abstract class Produto {
 	/**
 	 * Método getNome.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: retorna uma String, nome do produto.
 	 */
 	public String getNome() {
 		return nome;
@@ -57,8 +65,8 @@ public abstract class Produto {
 	/**
 	 * Método setNome.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe uma String.
+	 * Pós-condição: não retorna valor. Instancia atributo do tipo String, nome.
 	 */
 	public void setNome(String nome) {
 		this.nome = nome;
@@ -67,8 +75,8 @@ public abstract class Produto {
 	/**
 	 * Método getCodigo.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: retorna uma String, código do produto.
 	 */
 	public String getCodigo() {
 		return codigo;
@@ -77,8 +85,8 @@ public abstract class Produto {
 	/**
 	 * Método setCodigo.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe uma String.
+	 * Pós-condição: não retorna valor. Instancia atributo do tipo String, codigo.
 	 */
 	public void setCodigo(String codigo) {
 		this.codigo = codigo;
@@ -87,8 +95,8 @@ public abstract class Produto {
 	/**
 	 * Método getFornecedor.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: retorna objeto Fornecedor, fornecedor do produto.
 	 */
 	public Fornecedor getFornecedor() {
 		return fornecedor;
@@ -97,8 +105,8 @@ public abstract class Produto {
 	/**
 	 * Método setFornecedor.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe um objeto Fornecedor.
+	 * Pós-condição: não retorna valor. Instancia atributo do tipo Fornecedor.
 	 */
 	public void setFornecedor(Fornecedor fornecedor) {
 		this.fornecedor = fornecedor;
@@ -107,8 +115,8 @@ public abstract class Produto {
 	/**
 	 * Método getPrecoCusto.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: retorna um float, atributo precoCusto.
 	 */
 	public float getPrecoCusto() {
 		return precoCusto;
@@ -117,8 +125,8 @@ public abstract class Produto {
 	/**
 	 * Método setPrecoCusto.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe um float.
+	 * Pós-condição: não retorna valor. Instancia atributo float precoCusto.
 	 */
 	public void setPrecoCusto(float precoCusto) {
 		this.precoCusto = precoCusto;
@@ -127,8 +135,8 @@ public abstract class Produto {
 	/**
 	 * Método getPrecoFinal.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: retorna um float, atributo precoFinal.
 	 */
 	public float getPrecoFinal() {
 		return precoFinal;
@@ -137,8 +145,8 @@ public abstract class Produto {
 	/**
 	 * Método setPrecoFinal.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe um float.
+	 * Pós-condição: não retorna valor. Instancia atributo float precoFinal.
 	 */
 	public void setPrecoFinal(float precoFinal) {
 		this.precoFinal = precoFinal;
@@ -147,8 +155,8 @@ public abstract class Produto {
 	/**
 	 * Método getApelido.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: retorna vetor de Strings, atributo apelido.
 	 */
 	public String[] getApelido() {
 		return apelido;
@@ -157,8 +165,8 @@ public abstract class Produto {
 	/**
 	 * Método setApelido.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe um vetor de String.
+	 * Pós-condição: não retorna valor. Instancia atributo apelidos.
 	 */
 	public void setApelido(String[] apelido) {
 		this.apelido = apelido;
@@ -167,8 +175,8 @@ public abstract class Produto {
 	/**
 	 * Método getQuantidade.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: retorna um inteiro, atributo quantidade.
 	 */
 	public int getQuantidade() {
 		return quantidade;
@@ -177,8 +185,8 @@ public abstract class Produto {
 	/**
 	 * Método setQuantidade.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe um inteiro.
+	 * Pós-condição: não retorna valor. Instancia atributo inteiro quantidade.
 	 */
 	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
@@ -187,8 +195,8 @@ public abstract class Produto {
 	/**
 	 * Método getQuantidadeVenda.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: retorna um inteiro, atributo quantidadeVenda.
 	 */
 	public int getQuantidadeVenda() {
 		return quantidadeVenda;
@@ -197,8 +205,8 @@ public abstract class Produto {
 	/**
 	 * Método setQuantidadeVenda.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe um inteiro.
+	 * Pós-condição: não retorna valor. Instancia atributo inteiro quantidadeVenda.
 	 */
 	public void setQuantidadeVenda(int quantidadeVenda) {
 		this.quantidadeVenda = quantidadeVenda;
@@ -207,8 +215,8 @@ public abstract class Produto {
 	/**
 	 * Método ehIgual.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe uma String código do produto.
+	 * Pós-condição: retorna TRUE, caso produto tenha código passado como parâmetro, e FALSE, caso contrário.
 	 */
 	public boolean ehIgual(String codigo) {
 		if(this.codigo.equals(codigo))
@@ -220,8 +228,8 @@ public abstract class Produto {
 	/**
 	 * Método verificaQuantidadeProduto.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe um inteiro quantidade do produto.
+	 * Pós-condição: retorna TRUE, caso quantidade do produto seja válida, e FALSE, caso cotrário.
 	 */
 	public boolean verificaQuantidadeProduto(int quantidade) {
 		if((this.quantidade + quantidade) < 1 || (this.quantidade + quantidade) > 30)
@@ -235,8 +243,8 @@ public abstract class Produto {
 	/**
 	 * Método verificaQuantidadeVenda.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: recebe um inteiro quantidade do produto a ser vendida.
+	 * Pós-condição: retorna TRUE, caso quantidade do produto seja válida, e FALSE, caso cotrário.
 	 */
 	public boolean verificaQuantidadeVenda(int quantidade) {
 		if(this.quantidade - quantidade > 0) {
@@ -247,10 +255,12 @@ public abstract class Produto {
 		return false;
 	}
 	
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
+	/**
+	 * Método toString.
+	 *
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: retorna uma String, atributo nome.
 	 */
-	@Override
 	public String toString() {
 		return this.getNome();
 	}
@@ -270,8 +280,8 @@ public abstract class Produto {
 	/**
 	 * Método imprimeInformacoesProduto.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: não retorna valor. Imprime atributos da classe.
 	 */
 	public void imprimeInformacoesProduto() {
 		System.out.println("Produto: " + this.nome + ".");
@@ -292,8 +302,8 @@ public abstract class Produto {
 	/**
 	 * Método exibeInfoVendaProdutos.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: retorna uma String com atributos da classe relevantes para a venda do produto.
 	 */
 	public String exibeInfoVendaProdutos() {
 		String info = String.format("Produto: %s\nCódigo: %s\n", this.nome, this.codigo);
