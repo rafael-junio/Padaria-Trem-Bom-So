@@ -1,3 +1,9 @@
+/*Alunos:
+ * Guilherme Ribeiro de Carvalho - RGA: 2018.1907.071-9
+ * Rafael Junio Xavier - RGA: 2018.1907.050-6
+ * Igor José Tamagno - RGA: 2018.1907.034-4
+ */
+
 package pessoa.funcionario;
 
 public final class Padeiro extends Funcionario{
@@ -5,26 +11,28 @@ public final class Padeiro extends Funcionario{
 
 	private float valorPorHora;
 	private int horasPorMes;
-	private int horasTrabalhadas;
-
+	private int horasNoturnas;
+	
 	/**
 	 * Método construtor da classe Padeiro.java.
-	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Método para a inicialização da classe Padeiro.
+	 * Pré-condição: recebimento de quatro String como parâmetros: nome, endereço, codigo e cnpj e um float: taxaDesconto. 
+	 * Pós-condição: atribução de valores dos atributos nome, endereço, cpf, telefone, codigo e salarioBase conforme recebidos pelos parâmetros.
 	 */
 	public Padeiro(String nome, String endereco, String cpf, String telefone, String codigo,
 			float salarioBase) {
 		super(nome, endereco, cpf, telefone, codigo, salarioBase);
 		this.horasPorMes = 160;
-		this.horasTrabalhadas = 160;
+		this.horasNoturnas = 0;
+		
+		
 	}
 	
 	/**
 	 * Método getGRATIFICACAO.
-	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Método para permitir acesso ao valor do atributo GRATIFICACAO.
+     * Pré-condição: não há.
+     * Pós-condição: retorna um float do valor do atributo GRATIFICACAO.
 	 */
 	public float getGRATIFICACAO() {
 		return this.GRATIFICACAO;
@@ -32,9 +40,9 @@ public final class Padeiro extends Funcionario{
 	
 	/**
 	 * Método getValorPorHora.
-	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Método para permitir acesso ao valor do atributo valorPorHora.
+     * Pré-condição: não há.
+     * Pós-condição: retorna um float do valor do atributo valorPorHora.
 	 */
 	public float getValorPorHora() {
 		return valorPorHora;
@@ -42,9 +50,9 @@ public final class Padeiro extends Funcionario{
 
 	/**
 	 * Método setValorPorHora.
-	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Método que permite alteração do valor do atributo valorPorHora.
+     * Pré-condição: recebimento de um float como parâmetro: valorPorHora.
+     * Pós-condição: atribuição do novo valor no atributo valorPorHora. 
 	 */
 	public void setValorPorHora(float valorPorHora) {
 		this.valorPorHora = valorPorHora;
@@ -52,9 +60,9 @@ public final class Padeiro extends Funcionario{
 
 	/**
 	 * Método getHorasPorMes.
-	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Método para permitir acesso ao valor do atributo horasPorMes.
+     * Pré-condição: não há.
+     * Pós-condição: retorna um float do valor do atributo horasPorMes.
 	 */
 	public int getHorasPorMes() {
 		return horasPorMes;
@@ -62,65 +70,52 @@ public final class Padeiro extends Funcionario{
 
 	/**
 	 * Método setHorasPorMes.
-	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Método que permite alteração do valor do atributo horasPorMes.
+     * Pré-condição: recebimento de um float como parâmetro: horasPorMes.
+     * Pós-condição: atribuição do novo valor no atributo horasPorMes. 
 	 */
 	public void setHorasPorMes(int horasPorMes) {
 		this.horasPorMes = horasPorMes;
 	}
 
+	
 	/**
-	 * Método getHorasTrabalhadas.
-	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
-	 */
-	public int getHorasTrabalhadas() {
-		return horasTrabalhadas;
-	}
-
-	/**
-	 * Método setHorasTrabalhadas.
-	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
-	 */
-	public void setHorasTrabalhadas(int horasTrabalhadas) {
-		this.horasTrabalhadas = horasTrabalhadas;
-	}
-
-	/* (non-Javadoc)
-	 * @see pessoa.funcionario.SalarioFinal#calcularSalarioFinal()
+	 * Método calcularSalarioFinal.
+	 * Método para calcular o valor do atributo salarioFinal de acordo com as peculariedades do cargo.
+	 * Pré-condição: não há.
+	 * Pós-condição: retorna um float com o valor do atributo salarioFinal acrescido do resultado da multiplicação entre as horasNoturas, o valorPorHora e a GRATIFICAO.
 	 */
 	@Override
 	public float calcularSalarioFinal() {
 		valorPorHora = (salarioBase/horasPorMes); 
-		return salarioFinal = salarioBase + (((horasTrabalhadas-horasPorMes)*valorPorHora) * GRATIFICACAO);
+		return salarioFinal = salarioBase + ((horasNoturnas*valorPorHora) * GRATIFICACAO);
 	}
 	
 	/**
 	 * Método informaHoraNoturnaPadeiro.
-	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Método que informa a quantidade de horas trabalhadas em período noturno.
+     * Pré-condição: recebimento de um int como parâmetro: hora.
+     * Pós-condição: atribuição do novo valor no atributo horasNoturnas. 
 	 */
 	public boolean informaHoraNoturnaPadeiro(int hora) {
 		if(hora > 0) {
-			this.horasTrabalhadas = hora;
+			this.horasNoturnas = hora;
 			return true;
 		}
 		else
 			return false;
 	}
 	
-	/* (non-Javadoc)
-	 * @see pessoa.funcionario.Funcionario#imprimeInformacoesFuncionario()
+	/**
+	 * Método imprimeInformacoesFuncionario.
+	 * Método para imprimir em tela as informações referentes ao padeiro.
+	 * Pré-condição: não há.
+	 * Pós-condição: impressão dos valores dos atributos do padeiro em tela.
 	 */
 	public void imprimeInformacoesFuncionario() {
 		System.out.printf("Nome Padeiro: %s.\n", this.nome);
 		super.imprimeInformacoesFuncionario();
-		System.out.printf("Horas excedente de trabalho noturno: %02d hora(s).\n", (this.horasTrabalhadas - this.horasPorMes));
+		System.out.printf("Horas excedente de trabalho noturno: %02d hora(s).\n", (this.horasNoturnas - this.horasPorMes));
 		System.out.printf("Salário final: %.2f.\n", this.salarioFinal);
 	}
 }
