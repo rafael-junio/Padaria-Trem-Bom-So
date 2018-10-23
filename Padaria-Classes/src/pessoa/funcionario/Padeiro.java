@@ -115,7 +115,7 @@ public final class Padeiro extends Funcionario{
 	public void imprimeInformacoesFuncionario() {
 		System.out.printf("Nome Padeiro: %s.\n", this.nome);
 		super.imprimeInformacoesFuncionario();
-		System.out.printf("Horas excedente de trabalho noturno: %02d hora(s).\n", (this.horasNoturnas - this.horasPorMes));
+		System.out.printf("Horas excedente de trabalho noturno: %02d hora(s).\n", (this.horasNoturnas));
 		System.out.printf("Salário final: %.2f.\n", this.salarioFinal);
 	}
 }
