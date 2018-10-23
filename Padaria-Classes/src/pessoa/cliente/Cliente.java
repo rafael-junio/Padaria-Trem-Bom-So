@@ -13,7 +13,7 @@ public abstract class Cliente extends PessoaFisica {
 	protected float valorCompras;
 
 	/**
-	 * Método construtor da classe Cliente.java.
+	 * Método construtor da classe Cliente.
 	 * Método para a inicialização da classe Cliente.
 	 * Pré-condição: recebimento de quatro String como parâmetros: nome, endereço, cpf e telefone. 
 	 * Pós-condição: atribução de valores dos atributos nome, endereço, cpf e telefone conforme recebidos pelos parâmetros, sendo que todos esses os atributos são heranças da classe PessoaFisica. Inicialização do atributo valorCompras como zero.

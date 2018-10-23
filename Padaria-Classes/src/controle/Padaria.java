@@ -2,12 +2,22 @@ package controle;
 
 import javax.swing.JOptionPane;
 
-import funcionalidades.Ordenacao;
-import pessoa.fornecedor.*;
 import controle.estoque.Estoque;
-import pessoa.funcionario.*;
-import pessoa.cliente.*;
-import controle.produto.*;
+import controle.produto.Produto;
+import funcionalidades.Ordenacao;
+import pessoa.cliente.Cliente;
+import pessoa.cliente.ClienteGold;
+import pessoa.cliente.ClientePlatinum;
+import pessoa.cliente.ClienteRegular;
+import pessoa.fornecedor.Fornecedor;
+import pessoa.fornecedor.FornecedorOcasional;
+import pessoa.fornecedor.FornecedorRecorrente;
+import pessoa.funcionario.Funcionario;
+import pessoa.funcionario.Gerente;
+import pessoa.funcionario.Padeiro;
+import pessoa.funcionario.Vendedor;
+
+
 
 public class Padaria {
 	private final float PERCENTUALSOBREVENDAS = 0.15f; // porcentagem de imposto sobre as vendas realizadas.
@@ -290,12 +300,7 @@ public class Padaria {
 				clientes[i] = cliente;
 				cliente = null;
 				return true;
-			} else {
-				if (clientes[i].ehIgual(cpf)) {
-					cliente = null;
-					return false;
-				}
-			}
+			} 
 		cliente = null;
 		return false;
 	}
@@ -315,8 +320,7 @@ public class Padaria {
 				clientes[i] = cliente;
 				cliente = null;
 				return true;
-			}
-		
+			}		
 		return false;
 	}
 	
@@ -335,8 +339,7 @@ public class Padaria {
 				clientes[i] = cliente;
 				cliente = null;
 				return true;
-			}
-		
+			}		
 		return false;
 	}
 
@@ -384,11 +387,6 @@ public class Padaria {
 				fornecedores[i] = fornecedor;
 				fornecedor = null;
 				return true;
-			} else {
-				if (fornecedores[i].ehIgual(codigo)) {
-					fornecedor = null;
-					return false;
-				}
 			}
 		fornecedor = null;
 		return false;
@@ -409,11 +407,6 @@ public class Padaria {
 				fornecedores[i] = fornecedor;
 				fornecedor = null;
 				return true;
-			} else {
-				if (fornecedores[i].ehIgual(codigo)) {
-					fornecedor = null;
-					return false;
-				}
 			}
 		fornecedor = null;
 		return false;
@@ -464,12 +457,7 @@ public class Padaria {
 				funcionarios[i] = funcionario;
 				funcionario = null;
 				return true;
-			} else {
-				if (funcionarios[i].ehIgual(codigo)) {
-					funcionario = null;
-					return false;
-				}
-			}
+			} 
 		funcionario = null;
 		return false;
 	}
@@ -489,12 +477,7 @@ public class Padaria {
 				funcionarios[i] = funcionario;
 				funcionario = null;
 				return true;
-			} else {
-				if (funcionarios[i].ehIgual(codigo)) {
-					funcionario = null;
-					return false;
-				}
-			}
+			} 
 		funcionario = null;
 		return false;
 	}
@@ -514,12 +497,7 @@ public class Padaria {
 				funcionarios[i] = funcionario;
 				funcionario = null;
 				return true;
-			} else {
-				if (funcionarios[i].ehIgual(codigo)) {
-					funcionario = null;
-					return false;
-				}
-			}
+			} 
 		funcionario = null;
 		return false;
 	}
@@ -582,23 +560,23 @@ public class Padaria {
 		if(this.comprasRealizadas != null) {
 
 			Cliente clienteVenda = encontraCliente(cpfCliente);
-		
-		Vendedor vendedor = encontraVendedor(codigoVendedor);
-		
-		Venda venda = new Venda(clienteVenda, vendedor, formaPagamento, numParcelas, this.comprasRealizadas, dia, mes, ano);
-
-		for (int i = 0; i < vendas.length; i++)
-			if (vendas[i] == null) {
-				vendas[i] = venda;
-				vendas[i].calcularValorFinalCompra(numParcelas);
-				this.montanteVendasGlobal += vendas[i].getValorFinalCompra();
-				venda = null;
-				this.comprasRealizadas = null;
-				this.comprasRealizadas = new Produto[20];
-				return true;
-			}
-		venda = null;
-		return false;
+			
+			Vendedor vendedor = encontraVendedor(codigoVendedor);
+			
+			Venda venda = new Venda(clienteVenda, vendedor, formaPagamento, numParcelas, this.comprasRealizadas, dia, mes, ano);
+	
+			for (int i = 0; i < vendas.length; i++)
+				if (vendas[i] == null) {
+					vendas[i] = venda;
+					vendas[i].calcularValorFinalCompra(numParcelas);
+					this.montanteVendasGlobal += vendas[i].getValorFinalCompra();
+					venda = null;
+					this.comprasRealizadas = null;
+					this.comprasRealizadas = new Produto[20];
+					return true;
+				}
+			venda = null;
+			return false;
 		}
 		else
 			return false;
@@ -721,7 +699,6 @@ public class Padaria {
 			if (fornecedores[i] != null && fornecedores[i].ehIgual(codigo)) {
 				JOptionPane.showMessageDialog(null, "Informação solicitada impressa no console");
 				System.out.println();
-				System.out.println("----------Fornecedor encontrado-----------");
 				fornecedores[i].imprimeInformacoesFornecedor();
 				encontra = true;
 			}
@@ -758,7 +735,6 @@ public class Padaria {
 			if (funcionarios[i] != null && funcionarios[i].ehIgual(codigo)) {
 				JOptionPane.showMessageDialog(null, "Informação solicitada impressa no console");
 				System.out.println();
-				System.out.println("----------Funcionário encontrado-----------");
 				funcionarios[i].imprimeInformacoesFuncionario();
 				encontra = true;
 			}

@@ -9,7 +9,7 @@ package pessoa.cliente;
 public final class ClienteRegular extends Cliente {
 
 	/**
-	 * Método construtor da classe Cliente.java.
+	 * Método construtor da classe ClienteRegular.
 	 * Método para a inicialização da classe Cliente.
 	 * Pré-condição: recebimento de quatro String como parâmetros: nome, endereço, cpf e telefone. 
 	 * Pós-condição: atribução de valores dos atributos nome, endereço, cpf e telefone conforme recebidos pelos parâmetros, sendo que todos esses os atributos são heranças da classe Cliente.

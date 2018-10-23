@@ -10,7 +10,7 @@ public final class ClientePlatinum extends Cliente {
 	private final float DESCONTO = 0.1f;
 	
 	/**
-	 * Método construtor da classe ClientePlatinum.java.
+	 * Método construtor da classe ClientePlatinum.
 	 * Método para a inicialização da classe ClienteGold.
 	 * Pré-condição: recebimento de quatro String como parâmetros: nome, endereço, cpf e telefone e um float: valorCompras.
 	 * Pós-condição: atribução de valores dos atributos nome, endereço, cpf e telefone e valorCompras conforme recebidos pelos parâmetros.

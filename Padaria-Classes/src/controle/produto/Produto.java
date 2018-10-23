@@ -45,7 +45,9 @@ public abstract class Produto {
 		} else
 			this.precoCusto = precoCusto;
 
-		this.precoFinal = precoFinal;
+		if(apelido.length <= 5)
+			this.precoFinal = precoFinal;
+		
 		this.apelido = apelido;
 		this.quantidade = 0;
 		this.quantidadeVenda = 0;

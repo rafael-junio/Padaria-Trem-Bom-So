@@ -1,8 +1,10 @@
 package controle;
 
-import pessoa.cliente.*;
-import pessoa.funcionario.Vendedor;
 import controle.produto.Produto;
+import pessoa.cliente.Cliente;
+import pessoa.cliente.ClienteGold;
+import pessoa.cliente.ClientePlatinum;
+import pessoa.funcionario.Vendedor;
 
 public final class Venda{
 
