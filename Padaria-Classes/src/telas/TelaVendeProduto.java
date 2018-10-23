@@ -14,6 +14,7 @@ import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 
 import java.awt.event.ActionListener;
+import java.util.Calendar;
 import java.awt.event.ActionEvent;
 import javax.swing.JCheckBox;
 
@@ -53,6 +54,7 @@ public class TelaVendeProduto {
 	@SuppressWarnings("static-access")
 	public TelaVendeProduto(Padaria padaria) {
 		initialize();
+		
 		this.padaria = padaria;
 		this.cont = 0;
 	}
@@ -61,6 +63,13 @@ public class TelaVendeProduto {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		
+		Calendar c = Calendar.getInstance();
+		
+		int dia = c.get(Calendar.DAY_OF_MONTH);
+		int mes = c.get(Calendar.MONTH) + 1;
+		int ano = c.get(Calendar.YEAR);
+		
 		frmVendaDeProdutos = new JFrame();
 		frmVendaDeProdutos.setTitle("Venda de produtos");
 		frmVendaDeProdutos.setBounds(100, 100, 450, 300);
@@ -103,7 +112,7 @@ public class TelaVendeProduto {
 		lblQuantidadeComprada.setBounds(157, 123, 161, 14);
 		frmVendaDeProdutos.getContentPane().add(lblQuantidadeComprada);
 		
-		txtQuantidade = new JFormattedTextField(createFormatter("#"));
+		txtQuantidade = new JFormattedTextField(createFormatter("##"));
 		txtQuantidade.setBounds(157, 148, 33, 20);
 		frmVendaDeProdutos.getContentPane().add(txtQuantidade);
 		txtQuantidade.setColumns(10);
@@ -112,7 +121,7 @@ public class TelaVendeProduto {
 		lblDataDaCompra.setBounds(10, 123, 94, 14);
 		frmVendaDeProdutos.getContentPane().add(lblDataDaCompra);
 		
-		txtData = new JFormattedTextField(createFormatter("##/##/####"));
+		txtData = new JFormattedTextField(createFormatter(dia + "/" + mes + "/" + ano));
 		txtData.setBounds(10, 148, 119, 20);
 		frmVendaDeProdutos.getContentPane().add(txtData);
 		txtData.setColumns(10);
@@ -175,9 +184,6 @@ public class TelaVendeProduto {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				int dia = Integer.parseInt(txtData.getText().substring(0, 2));
-				int mes = Integer.parseInt(txtData.getText().substring(3, 5));
-				int ano = Integer.parseInt(txtData.getText().substring(6, 10));
 				String pagamento = "";
 				String CPF = txtCPF.getText();
 				String codigoVendedor = txtCodigoVendedor.getText();
@@ -226,26 +232,35 @@ public class TelaVendeProduto {
 		
 		JButton btnNewButton_1 = new JButton("Adicionar produto ao carrinho");
 		btnNewButton_1.addActionListener(new ActionListener() {
+			@SuppressWarnings("unlikely-arg-type")
 			public void actionPerformed(ActionEvent e) {
 				
 				
 				if(txtCodigo.getText().equals("      ")) {
 					JOptionPane.showMessageDialog(null, "Código do produto inválido");
 				}
+				else if(txtCodigoVendedor.getText().equals("    ") || padaria.encontraVendedor(txtCodigoVendedor.getText()) == null) {
+					JOptionPane.showMessageDialog(null, "Código do vendedor inválido");
+				}
 				else if(padaria.encontraCliente(txtCPF.getText()) == null) {
 					JOptionPane.showMessageDialog(null, "CPF do cliente inválido");
 				}
-				else {	
+				else if(txtQuantidade.getText().equals("  ") || Integer.parseInt(txtQuantidade.getText()) > 30 || Integer.parseInt(txtQuantidade.getText()) < 0)
+					JOptionPane.showMessageDialog(null, "Quantidade para compra inválido");
+				else if(txtData.equals("  /  /    "))
+					JOptionPane.showMessageDialog(null, "Data inválida");
+				else if(((rdbtnCrdito.isSelected() && txtParcela.getText().equals("  ")) || rdbtnVista.isSelected())){	
 					try {
 						padaria.adicionarProdutoVenda(txtCodigo.getText(), Integer.parseInt(txtQuantidade.getText()));
-					} catch (NumberFormatException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
+					} catch (Exception NumberFormatException) {
+						JOptionPane.showMessageDialog(null, "Ocorreu um erro, por favor preencha todos os campos corretamente.");				
 					}
 					JOptionPane.showMessageDialog(null, "Produto adicionado no carrinho com sucesso");
 					cont++;
 					lblProdutosNoCarrinho.setText(String.valueOf("Produtos no carrinho("+ String.valueOf(cont) + ")"));
 				}
+				else
+					JOptionPane.showMessageDialog(null, "Selecione a opção de crédito ou a vista e preencha a quantidade de parcelas caso for crédito");
 			}
 		});
 		btnNewButton_1.setBounds(200, 161, 224, 46);

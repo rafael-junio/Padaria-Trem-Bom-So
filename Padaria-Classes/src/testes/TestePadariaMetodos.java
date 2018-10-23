@@ -1,6 +1,7 @@
 package testes;
 
 import controle.Padaria;
+import telas.TelaPrincipal;
 
 public class TestePadariaMetodos{
 	
@@ -100,6 +101,9 @@ public class TestePadariaMetodos{
 //		tremBao.realizarVenda("444.163.818-32", "0001", "Dinheiro", 0, 15, 10, 2018);
 //		System.out.println(tremBao.getVendas()[0].getValorFinalCompra());
 //		System.out.println(tremBao.getVendas()[1].getValorFinalCompra());
+		
+		TelaPrincipal p = new TelaPrincipal(tremBao);
+		p.main(null);
 	}
 }
 
