@@ -7,6 +7,7 @@ import javax.swing.JTextField;
 import javax.swing.text.MaskFormatter;
 
 import controle.Padaria;
+import funcionalidades.ValidaData;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -200,7 +201,18 @@ public class TelaCadastraProduto {
 					apelido[4] = null;
 				}
 				
-				if(txtCodigo.getText().equals("   ") || padaria.encontraFornecedor(txtCodigo.getText()) == null){
+				boolean data = false;
+				try {
+					data = ValidaData.isDateValid(Integer.parseInt(txtDia.getText()), Integer.parseInt(txtMes.getText()), Integer.parseInt(txtAno.getText()));
+				}
+				catch (NumberFormatException exception) {
+					JOptionPane.showMessageDialog(null, "Por favor, preencha com uma data válida no formato XX/XX/XXXX");
+				}
+				
+				if(!data) {
+					JOptionPane.showMessageDialog(null, "Data inválida");
+				}
+				else if(txtCodigo.getText().equals("   ") || padaria.encontraFornecedor(txtCodigo.getText()) == null){
 					JOptionPane.showMessageDialog(null, "Fornecedor inválido");
 				}
 				else if(txtQuantidade.getText().equals("  ") || Integer.parseInt(txtQuantidade.getText()) > 30 || Integer.parseInt(txtQuantidade.getText()) < 0 ) {
@@ -213,7 +225,7 @@ public class TelaCadastraProduto {
 						existeFornecedor = true;
 						estoqueValido = true;
 				}	
-				if(existeFornecedor && estoqueValido) {
+				if(existeFornecedor && estoqueValido && data) {
 					try {
 						padaria.getEstoque().cadastrarProdutoNaoPerecivel(txtNomeProduto.getText(), txtCodigoProduto.getText(), padaria.encontraFornecedor(txtCodigo.getText()), 
 								Float.parseFloat(txtCompra.getText()), Float.parseFloat(txtVenda.getText()), apelido, Integer.parseInt(txtQuantidade.getText()));
@@ -243,7 +255,7 @@ public class TelaCadastraProduto {
 		txtMes.setBounds(342, 168, 28, 20);
 		frmCadastrarProduto.getContentPane().add(txtMes);
 		
-		txtAno = new JFormattedTextField(createFormatter("##"));
+		txtAno = new JFormattedTextField(createFormatter("####"));
 		txtAno.setColumns(10);
 		txtAno.setBounds(380, 168, 28, 20);
 		frmCadastrarProduto.getContentPane().add(txtAno);
@@ -288,4 +300,6 @@ public class TelaCadastraProduto {
 	    }
 	    return formatter;
 	}
+	
+
 }
