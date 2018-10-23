@@ -293,15 +293,16 @@ public class Padaria {
 	 * Pós-condição: retorna um booleano, TRUE, caso cliente seja cadastrado com sucesso e FALSE, caso contrário.
 	 */
 	public boolean cadastrarClienteRegular(String nome, String endereco, String cpf, String telefone) {
-		ClienteRegular cliente = new ClienteRegular(nome, endereco, cpf, telefone);
 
-		for (int i = 0; i < clientes.length; i++)
-			if (clientes[i] == null) {
-				clientes[i] = cliente;
-				cliente = null;
-				return true;
-			} 
-		cliente = null;
+		if(clienteEstaCadastrado(cpf)) {
+			ClienteRegular cliente = new ClienteRegular(nome, endereco, cpf, telefone);
+			for (int i = 0; i < clientes.length; i++)
+				if (clientes[i] == null) {
+					clientes[i] = cliente;
+					cliente = null;
+					return true;
+				} 
+		}
 		return false;
 	}
 	
@@ -372,6 +373,20 @@ public class Padaria {
 		}
 		return null;
 	}
+	
+	/**
+	 * Método clienteEstaCadastrado.
+	 *
+	 * Pré-condição: recebe String CPF do cliente e procura por ele no sistema.
+	 * Pós-condição: retorna um booleano, TRUE, caso cliente é encontrado e FALSE, caso contrário.
+	 */
+	public boolean clienteEstaCadastrado(String cpf) {
+		for(int i = 0; i < this.clientes.length; i++)
+			if(this.clientes[i] != null && this.clientes[i].ehIgual(cpf))
+				return true;
+		
+		return false;
+	}
 
 	/**
 	 * Método cadastrarFornecedorOcasional.
@@ -380,15 +395,16 @@ public class Padaria {
 	 * Pós-condição: retorna um booleano, TRUE, caso fornecedor ocasional seja cadastrado com sucesso e FALSE, caso contrário.
 	 */
 	public boolean cadastrarFornecedorOcasional(String nome, String endereco, String codigo, String cnpj) {
-		FornecedorOcasional fornecedor = new FornecedorOcasional(nome, endereco, codigo, cnpj);
 
-		for (int i = 0; i < fornecedores.length; i++)
-			if (fornecedores[i] == null) {
-				fornecedores[i] = fornecedor;
-				fornecedor = null;
-				return true;
-			}
-		fornecedor = null;
+		if(fornecedorEstaCadastrado(codigo)) {
+			FornecedorOcasional fornecedor = new FornecedorOcasional(nome, endereco, codigo, cnpj);			
+			for (int i = 0; i < fornecedores.length; i++)
+				if (fornecedores[i] == null) {
+					fornecedores[i] = fornecedor;
+					fornecedor = null;
+					return true;
+				}
+		}
 		return false;
 	}
 
@@ -400,15 +416,16 @@ public class Padaria {
 	 */
 	public boolean cadastrarFornecedorRecorrente(String nome, String endereco, String codigo, String cnpj,
 			float taxaDesconto) {
-		FornecedorRecorrente fornecedor = new FornecedorRecorrente(nome, endereco, codigo, cnpj, taxaDesconto);
 
-		for (int i = 0; i < fornecedores.length; i++)
-			if (fornecedores[i] == null) {
-				fornecedores[i] = fornecedor;
-				fornecedor = null;
-				return true;
-			}
-		fornecedor = null;
+		if(fornecedorEstaCadastrado(codigo)) {
+			FornecedorRecorrente fornecedor = new FornecedorRecorrente(nome, endereco, codigo, cnpj, taxaDesconto);
+			for (int i = 0; i < fornecedores.length; i++)
+				if (fornecedores[i] == null) {
+					fornecedores[i] = fornecedor;
+					fornecedor = null;
+					return true;
+				}
+		}
 		return false;
 	}
 
@@ -441,6 +458,20 @@ public class Padaria {
 		}
 		return null;
 	}
+	
+	/**
+	 * Método fornecedorEstaCadastrado.
+	 *
+	 * Pré-condição: recebe String código do fornecedor e procura por ele no sistema.
+	 * Pós-condição: retorna um booleano, TRUE, caso fornecedor é encontrado e FALSE, caso contrário.
+	 */
+	public boolean fornecedorEstaCadastrado(String codigo) {
+		for(int i = 0; i < this.fornecedores.length; i++)
+			if(this.fornecedores[i] != null && this.fornecedores[i].ehIgual(codigo))
+				return true;
+		
+		return false;
+	}
 
 	/**
 	 * Método cadastrarVendedor.
@@ -450,15 +481,16 @@ public class Padaria {
 	 */
 	public boolean cadastrarVendedor(String nome, String endereco, String cpf, String telefone, String codigo,
 			float salarioBase, float metaVendas) {
-		Vendedor funcionario = new Vendedor(nome, endereco, cpf, telefone, codigo, salarioBase, metaVendas);
-
-		for (int i = 0; i < funcionarios.length; i++)
-			if (funcionarios[i] == null) {
-				funcionarios[i] = funcionario;
-				funcionario = null;
-				return true;
-			} 
-		funcionario = null;
+	
+		if(!funcionarioEstaCadastrado(codigo)) {			
+			Vendedor funcionario = new Vendedor(nome, endereco, cpf, telefone, codigo, salarioBase, metaVendas);
+			for (int i = 0; i < funcionarios.length; i++)
+				if (funcionarios[i] == null) {
+					funcionarios[i] = funcionario;
+					funcionario = null;
+					return true;
+				} 
+		}
 		return false;
 	}
 
@@ -470,15 +502,16 @@ public class Padaria {
 	 */
 	public boolean cadastrarGerente(String nome, String endereco, String cpf, String telefone, String codigo,
 			float salarioBase) {
-		Gerente funcionario = new Gerente(nome, endereco, cpf, telefone, codigo, salarioBase);
 
-		for (int i = 0; i < funcionarios.length; i++)
-			if (funcionarios[i] == null) {
-				funcionarios[i] = funcionario;
-				funcionario = null;
-				return true;
-			} 
-		funcionario = null;
+		if(!funcionarioEstaCadastrado(codigo)) {			
+			Gerente funcionario = new Gerente(nome, endereco, cpf, telefone, codigo, salarioBase);			
+			for (int i = 0; i < funcionarios.length; i++)
+				if (funcionarios[i] == null) {
+					funcionarios[i] = funcionario;
+					funcionario = null;
+					return true;
+				} 
+		}
 		return false;
 	}
 
@@ -490,15 +523,16 @@ public class Padaria {
 	 */
 	public boolean cadastrarPadeiro(String nome, String endereco, String cpf, String telefone, String codigo,
 			float salarioBase) {
-		Padeiro funcionario = new Padeiro(nome, endereco, cpf, telefone, codigo, salarioBase);
 
-		for (int i = 0; i < funcionarios.length; i++)
-			if (funcionarios[i] == null) {
-				funcionarios[i] = funcionario;
-				funcionario = null;
-				return true;
-			} 
-		funcionario = null;
+		if(!funcionarioEstaCadastrado(codigo)) {						
+			Padeiro funcionario = new Padeiro(nome, endereco, cpf, telefone, codigo, salarioBase);
+			for (int i = 0; i < funcionarios.length; i++)
+				if (funcionarios[i] == null) {
+					funcionarios[i] = funcionario;
+					funcionario = null;
+					return true;
+				} 
+		}
 		return false;
 	}
 
@@ -547,6 +581,20 @@ public class Padaria {
 		}
 		return null;
 	}
+	
+	/**
+	 * Método funcionarioEstaCadastrado.
+	 *
+	 * Pré-condição: recebe String código do funcionário e procura por ele no sistema.
+	 * Pós-condição: retorna um booleano, TRUE, caso funcionário é encontrado e FALSE, caso contrário.
+	 */
+	public boolean funcionarioEstaCadastrado(String codigo) {
+		for(int i = 0; i < this.funcionarios.length; i++)
+			if(this.funcionarios[i] != null && this.funcionarios[i].ehIgual(codigo))
+				return true;
+		
+		return false;
+	}
 
 	/**
 	 * Método realizarVenda.
@@ -562,6 +610,9 @@ public class Padaria {
 			Cliente clienteVenda = encontraCliente(cpfCliente);
 			
 			Vendedor vendedor = encontraVendedor(codigoVendedor);
+			
+			if(clienteVenda == null || vendedor == null)
+				return false;
 			
 			Venda venda = new Venda(clienteVenda, vendedor, formaPagamento, numParcelas, this.comprasRealizadas, dia, mes, ano);
 	

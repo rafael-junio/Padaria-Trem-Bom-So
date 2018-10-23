@@ -131,7 +131,7 @@ public class Ordenacao {
 		int k = inicio;
 
 		while (i <= meio && j <= fim) {
-			if (b[i].toString().compareTo(b[j].toString()) < 0)
+			if (b[i].toString().compareToIgnoreCase(b[j].toString()) < 0)
 				a[k++] = b[i++];
 			else
 				a[k++] = b[j++];

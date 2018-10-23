@@ -118,7 +118,11 @@ public final class Vendedor extends Funcionario implements SalarioFinal{
 		System.out.printf("Nome Vendedor: %s.\n", this.nome);
 		super.imprimeInformacoesFuncionario();
 		System.out.printf("Montante de vendas: %.2fR$.\n", this.montanteVendas);
-		System.out.printf("Salário final: %.2fR$.\n", this.salarioFinal);
+		
+		if(this.salarioFinal == 0f)
+			System.out.println("SALÁRIO FINAL NÃO FOI CALCULADO.");
+		else
+			System.out.printf("Salário final: %.2fR$.\n", this.salarioFinal);
 	}
 
 }

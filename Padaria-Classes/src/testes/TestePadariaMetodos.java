@@ -31,22 +31,21 @@ public class TestePadariaMetodos{
 		
 		
 		// Produtos NÃO Perecíveis
-		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("A", "000000", tremBao.encontraFornecedor("000"), 1f, 100f, null, 7);
-		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Café Bom Jesus", "000000", tremBao.encontraFornecedor("000"), 0f, 5.97f, null, 29);
+		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Café Bom Jesus", "000000", tremBao.encontraFornecedor("000"), 3.47f, 500.97f, null, 30);
 		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Mucilon", "000001", tremBao.encontraFornecedor("000"), 2.3f, 5.49f, null, 11);
-		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Sal Grosso Qualitá", "00002", tremBao.encontraFornecedor("000"), 0.78f, 1.08f, null, 23);
-		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Ólea Soja Liza", "00003", tremBao.encontraFornecedor("000"), 3.2f, 5.80f , null, 22);
-		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Leiet em pó NINHO Nestlé", "000004", tremBao.encontraFornecedor("001"), 7.81f, 11.99f, null, 16);
+		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Sal Grosso Qualitá", "000002", tremBao.encontraFornecedor("000"), 0.78f, 1.08f, null, 23);
+		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Oleo Soja Liza", "000003", tremBao.encontraFornecedor("000"), 3.2f, 5.80f , null, 22);
+		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Leite em pó NINHO Nestlé", "000004", tremBao.encontraFornecedor("001"), 7.81f, 11.99f, null, 16);
 		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Açucar Refinado União", "000005", tremBao.encontraFornecedor("001"), 2.1f, 4.10f, null, 26);
 		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Polvilho Azedo Yoki", "000006", tremBao.encontraFornecedor("001"), 7.8f, 11.20f, null, 28);
 		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Polvilho Doce Yoki", "000007", tremBao.encontraFornecedor("001"), 35f, 44.99f, null, 23);
 		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Farinha Láctea Nestlé", "000008", tremBao.encontraFornecedor("001"), 8.1f, 11.19f, null, 17);
 		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Achocolatado", "000009", tremBao.encontraFornecedor("001"), 5.1f, 6.85f, null, 18);
 		
-		
+		String[] apelidoPao = new String [] {"cacetinho", "pão de sal"};
 		// Produtos Perecíveis
 		tremBao.getEstoque().cadastrarProdutoPerecivel("Pão de queijo", "000010", tremBao.encontraFornecedor("001"), 2f, 5f, 1, 10, 2018, null, 30);
-		tremBao.getEstoque().cadastrarProdutoPerecivel("Pão francês", "000011", tremBao.encontraFornecedor("001"), 1f, 3f, 5, 11, 2018, null, 24);
+		tremBao.getEstoque().cadastrarProdutoPerecivel("Pão francês", "000011", tremBao.encontraFornecedor("001"), 1f, 3f, 5, 11, 2018, apelidoPao, 24);
 		tremBao.getEstoque().cadastrarProdutoPerecivel("Esfiha", "000012", tremBao.encontraFornecedor("001"), 2f, 4f, 5, 12, 2018, null, 16);
 		tremBao.getEstoque().cadastrarProdutoPerecivel("Coca-Cola 2l", "000013", tremBao.encontraFornecedor("001"), 4f, 9.5f, 12, 04, 2019, null, 20);
 		tremBao.getEstoque().cadastrarProdutoPerecivel("Iogurte", "000014", tremBao.encontraFornecedor("001"), 0.5f, 2f, 11, 01, 2019, null, 13);
@@ -59,12 +58,12 @@ public class TestePadariaMetodos{
 		// Testes
 		
 		// Impressões
-		tremBao.descadastrarFuncionario("0001");
-		tremBao.imprimeInfoClientes();
+//		tremBao.descadastrarFuncionario("0001");
+//		tremBao.imprimeInfoClientes();
 //		System.out.println();
 //		tremBao.imprimeInfoFornecedores();
 //		System.out.println();
-		tremBao.imprimeInfoFuncionarios();
+//		tremBao.imprimeInfoFuncionarios();
 //		System.out.println();
 //		tremBao.imprimeInfoEstoque();
 //		System.out.println(tremBao.getQntFuncionarios());
@@ -77,17 +76,17 @@ public class TestePadariaMetodos{
 
 		
 		// Vendas
-		tremBao.adicionarProdutoVenda("000000", 5);
-		tremBao.realizarVenda("44416381832", "0001", "Débito", 3, 14, 10, 2018);
+//		System.out.println(tremBao.adicionarProdutoVenda("000000", 5));
+//		System.out.println(tremBao.realizarVenda("13683902000", "0001", "Débito", 3, 14, 10, 2018));
 //		System.out.println(tremBao.getComprasRealizadas().length);
 //		
-//		tremBao.cadastrarClienteGold("44416381832");
-		tremBao.imprimeInfoVendas();
+//		tremBao.cadastrarClienteGold("13683902000");
+//		tremBao.imprimeInfoVendas();
 		
 		
 //		tremBao.adicionarProdutoVenda("000001", 5);
 //		tremBao.adicionarProdutoVenda("000000", 2);
-//		tremBao.realizarVenda("44416381832", "0001", "Dinheiro", 0, 15, 10, 2018);
+//		tremBao.realizarVenda("13683902000", "0001", "Dinheiro", 0, 15, 10, 2018);
 		
 		
 //		tremBao.imprimeInfoVendas();

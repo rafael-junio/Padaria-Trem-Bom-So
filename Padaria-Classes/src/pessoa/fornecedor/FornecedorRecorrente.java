@@ -47,6 +47,7 @@ public final class FornecedorRecorrente extends Fornecedor {
 	 * Pós-condição: impressão dos valores dos atributos do fornecedor recorrente em tela.
 	 */
     public void imprimeInformacoesFornecedor() {
+    	System.out.println("Fornecedor Recorrente");
     	super.imprimeInformacoesFornecedor();
     	System.out.printf("Taxa de desconto: %.0f%%.\n", (getTaxaDesconto() * 100f));
     }

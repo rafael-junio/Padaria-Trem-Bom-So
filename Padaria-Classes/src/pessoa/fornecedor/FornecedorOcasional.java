@@ -25,6 +25,7 @@ public final class FornecedorOcasional extends Fornecedor {
 	 * Pós-condição: impressão dos valores dos atributos do fornecedor ocasional em tela.
 	 */
 	public void imprimeInformacoesFornecedor() {
+		System.out.println("Fornecedor Ocasional");
 		super.imprimeInformacoesFornecedor();
 	}
 }

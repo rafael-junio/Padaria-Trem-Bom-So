@@ -7,6 +7,7 @@
 package pessoa.funcionario;
 
 import pessoa.PessoaFisica;
+import pessoa.funcionario.SalarioFinal;
 
 public abstract class Funcionario extends PessoaFisica implements SalarioFinal {
 	protected float salarioBase;

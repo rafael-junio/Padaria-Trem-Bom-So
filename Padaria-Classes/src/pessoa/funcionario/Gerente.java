@@ -50,6 +50,10 @@ public final class Gerente extends Funcionario{
 	public void imprimeInformacoesFuncionario() {
 		System.out.printf("Nome Gerente: %s.\n", this.nome);
 		super.imprimeInformacoesFuncionario();
-		System.out.printf("Salário final: %.2fR$.\n", this.salarioFinal);
+		
+		if(this.salarioFinal == 0f)
+			System.out.println("SALÁRIO FINAL NÃO FOI CALCULADO.");
+		else
+			System.out.printf("Salário final: %.2fR$.\n", this.salarioFinal);
 	}
 }
