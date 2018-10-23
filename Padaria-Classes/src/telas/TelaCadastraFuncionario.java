@@ -29,6 +29,7 @@ public class TelaCadastraFuncionario {
 	private JTextField txtCodigo;
 	private JTextField txtSalario;
 	private JTextField txtTelefone;
+	private JTextField txtMeta;
 
 	/**
 	 * Launch the application.
@@ -152,15 +153,15 @@ public class TelaCadastraFuncionario {
 		
 		txtCodigo = new JFormattedTextField(createFormatter("####"));
 		txtCodigo.setColumns(10);
-		txtCodigo.setBounds(212, 146, 94, 20);
+		txtCodigo.setBounds(212, 146, 46, 20);
 		frmCadastrarFuncionrios.getContentPane().add(txtCodigo);
 		
 		JLabel lblNewLabel_1 = new JLabel("Sal\u00E1rio");
-		lblNewLabel_1.setBounds(326, 121, 46, 14);
+		lblNewLabel_1.setBounds(267, 121, 46, 14);
 		frmCadastrarFuncionrios.getContentPane().add(lblNewLabel_1);
 		
 		txtSalario = new JFormattedTextField(createFormatter("####.##"));
-		txtSalario.setBounds(323, 146, 101, 20);
+		txtSalario.setBounds(267, 146, 46, 20);
 		frmCadastrarFuncionrios.getContentPane().add(txtSalario);
 		txtSalario.setColumns(10);
 		
@@ -182,7 +183,7 @@ public class TelaCadastraFuncionario {
 				
 				
 				if (rdbtnVendedor.isSelected() == true && !jaCadastrado && CPF) {
-					padaria.cadastrarVendedor(txtNome.getText(), txtEndereco.getText(), txtCPF.getText(), txtTelefone.getText(), txtCodigo.getText(),Float.parseFloat(txtSalario.getText()));
+					padaria.cadastrarVendedor(txtNome.getText(), txtEndereco.getText(), txtCPF.getText(), txtTelefone.getText(), txtCodigo.getText(),Float.parseFloat(txtSalario.getText()), Float.parseFloat(txtMeta.getText()));
 					JOptionPane.showMessageDialog(null, "Vendedor cadastrado com sucesso!");
 					frmCadastrarFuncionrios.setVisible(false);
 				}
@@ -210,6 +211,15 @@ public class TelaCadastraFuncionario {
 		txtTelefone.setColumns(10);
 		txtTelefone.setBounds(323, 90, 101, 20);
 		frmCadastrarFuncionrios.getContentPane().add(txtTelefone);
+		
+		JLabel lblMetaDeVendas = new JLabel("Meta de vendas");
+		lblMetaDeVendas.setBounds(326, 121, 108, 14);
+		frmCadastrarFuncionrios.getContentPane().add(lblMetaDeVendas);
+		
+		txtMeta = new JFormattedTextField(createFormatter("####.##"));
+		txtMeta.setBounds(323, 146, 86, 20);
+		frmCadastrarFuncionrios.getContentPane().add(txtMeta);
+		txtMeta.setColumns(10);
 		
 		
 	}

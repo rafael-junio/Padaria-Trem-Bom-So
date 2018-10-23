@@ -153,10 +153,12 @@ public class TelaCadastraFornecedor {
 				}
 				else if (checaRecorrente.isSelected() && CNPJ && !jaCadastrado && !codigo) {
 					padaria.cadastrarFornecedorRecorrente(txtNome.getText(), txtEndereco.getText(), txtCodigo.getText(), txtCNPJ.getText(), Float.parseFloat(txtDesconto.getText()));
+					JOptionPane.showMessageDialog(null, "Fornecedor recorrente cadastrado!");
 					CadastrarFornecedores.setVisible(false);
 				}
 				else if (!checaRecorrente.isSelected() && CNPJ && !jaCadastrado && !codigo){
 					padaria.cadastrarFornecedorOcasional(txtNome.getText(), txtEndereco.getText(), txtCodigo.getText(), txtCNPJ.getText());
+					JOptionPane.showMessageDialog(null, "Fornecedor não recorrente cadastrado!");
 					CadastrarFornecedores.setVisible(false);
 				}	
 			}

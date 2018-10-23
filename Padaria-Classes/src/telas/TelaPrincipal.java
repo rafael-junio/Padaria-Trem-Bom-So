@@ -6,7 +6,6 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import controle.Padaria;
-import pessoa.funcionario.Funcionario;
 import pessoa.funcionario.Padeiro;
 
 import javax.swing.JButton;
@@ -19,7 +18,6 @@ public class TelaPrincipal{
 
 	private JFrame frmPadariaTremBo;
 	private static Padaria padaria;
-	private Padeiro padeiros;
 
 	/**
 	 * Launch the application.
@@ -188,26 +186,21 @@ public class TelaPrincipal{
 		btnHoraExtraPadeiro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String codigo = "";
-				boolean codigoValido = false;
 				try {
 					codigo = JOptionPane.showInputDialog("Digite o código do padeiro");
-					if(padaria.encontraFuncionario(codigo) != null)
-						codigoValido = true;					
-				}
-				catch (Exception NullPointerException) {
-					JOptionPane.showMessageDialog(null, "Código invalido");
-				}		
-				try {
-					if(codigoValido) {
+					if(padaria.encontraFuncionario(codigo) != null) {
 						String horasTrabalhadas = JOptionPane.showInputDialog("Digite quantas horas extras o padeiro trabalhou");
 						Padeiro padeiro = (Padeiro) padaria.encontraFuncionario(codigo);
-						padeiro.setHorasTrabalhadas(160 + Integer.parseInt(horasTrabalhadas));
+						padeiro.informaHoraNoturnaPadeiro(Integer.parseInt(horasTrabalhadas));
 						padeiro.calcularSalarioFinal();
+						JOptionPane.showMessageDialog(null, "Adicional noturno do mês cadastrado com sucesso");
 					}
+					else
+						JOptionPane.showMessageDialog(null, "Código do padeiro invalido ou número de horas inválido");
 				}
-				catch (Exception NumberFormatException) {
-					JOptionPane.showMessageDialog(null, "Número inválido");
-				}
+				catch (Exception NullPointerException) {
+					JOptionPane.showMessageDialog(null, "Código do padeiro invalido ou número de horas inválido");
+				}		
 			}
 		});
 		btnHoraExtraPadeiro.setBounds(10, 158, 197, 23);

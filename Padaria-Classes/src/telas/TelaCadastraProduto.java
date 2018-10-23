@@ -184,6 +184,22 @@ public class TelaCadastraProduto {
 				boolean estoqueValido = false;
 				
 				String[] apelido = new String[] {txtApelido1.getText(), txtApelido2.getText(), txtApelido3.getText(), txtApelido4.getText(), txtApelido5.getText()};
+				if(txtApelido1.getText().equals("")) {
+					apelido[0] = null;
+				}
+				if(txtApelido2.getText().equals("")) {
+					apelido[1] = null;
+				}
+				if(txtApelido3.getText().equals("")) {
+					apelido[2] = null;
+				}
+				if(txtApelido4.getText().equals("")) {
+					apelido[3] = null;
+				}
+				if(txtApelido5.getText().equals("")) {
+					apelido[4] = null;
+				}
+				
 				if(txtCodigo.getText().equals("   ") || padaria.encontraFornecedor(txtCodigo.getText()) == null){
 					JOptionPane.showMessageDialog(null, "Fornecedor inválido");
 				}
