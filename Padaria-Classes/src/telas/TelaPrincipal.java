@@ -225,11 +225,10 @@ public class TelaPrincipal{
 					if(padaria.getEstoque().produtoEmEstoque(codigoProduto)) {
 						try {	
 							Produto produto = padaria.getEstoque().procurarProduto(codigoProduto);
-							int maxEstoque = produto.getQuantidade();
+							
 							int quantidade = Integer.parseInt(JOptionPane.showInputDialog(null, "Insira a quantidade a ser adicionada ao estoque."));
-							maxEstoque = maxEstoque + quantidade;
-							if(maxEstoque < 30) {
-								produto.setQuantidade(quantidade);
+							if(produto.verificaQuantidadeProduto(quantidade)) {
+								produto.setQuantidade(produto.getQuantidade() + quantidade);
 								JOptionPane.showMessageDialog(null, "Estoque reabastecido!");
 							}
 							else
