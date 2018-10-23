@@ -310,7 +310,7 @@ public abstract class Produto {
 		String apelidos = "";
 
 		if (hasApelido()) {
-			System.out.println("Apelido(s): ");
+			apelidos += "Apelido(s): \n";
 			for (String i : apelido)
 				if (i != null)
 					apelidos += i + "\n";
