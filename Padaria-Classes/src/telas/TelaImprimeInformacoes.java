@@ -54,69 +54,21 @@ public class TelaImprimeInformacoes {
 		frmImprimeInformacoes.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmImprimeInformacoes.getContentPane().setLayout(null);
 		
-		JLabel lblEscolhaAOpo = new JLabel("Escolha a op\u00E7\u00E3o para mostrar as informa\u00E7\u00F5es de todos os elementos:");
-		lblEscolhaAOpo.setBounds(10, 11, 374, 14);
-		frmImprimeInformacoes.getContentPane().add(lblEscolhaAOpo);
-		
-		JButton btnProdutosEmEstoque = new JButton("Produtos em estoque");
-		btnProdutosEmEstoque.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				padaria.imprimeInfoEstoque();
-				JOptionPane.showMessageDialog(null, "Informações impressas no console");
-			}
-		});
-		btnProdutosEmEstoque.setBounds(10, 36, 200, 23);
-		frmImprimeInformacoes.getContentPane().add(btnProdutosEmEstoque);
-		
-		JButton btnProdutosVendidos = new JButton("Produtos vendidos");
+		JButton btnProdutosVendidos = new JButton("Produtos Vendidos");
 		btnProdutosVendidos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				padaria.imprimeInfoVendas();
 				JOptionPane.showMessageDialog(null, "Informações impressas no console");
 			}
 		});
-		btnProdutosVendidos.setBounds(224, 36, 200, 23);
+		btnProdutosVendidos.setBounds(224, 70, 200, 23);
 		frmImprimeInformacoes.getContentPane().add(btnProdutosVendidos);
-		
-		JButton btnClientesCadastrados = new JButton("Clientes cadastrados");
-		btnClientesCadastrados.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				padaria.imprimeInfoClientes();
-				JOptionPane.showMessageDialog(null, "Informações impressas no console");
-			}
-		});
-		btnClientesCadastrados.setBounds(10, 70, 200, 23);
-		frmImprimeInformacoes.getContentPane().add(btnClientesCadastrados);
-		
-		JButton btnFornecedoresCadastrados = new JButton("Fornecedores cadastrados");
-		btnFornecedoresCadastrados.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				padaria.imprimeInfoFornecedores();
-				JOptionPane.showMessageDialog(null, "Informações impressas no console");
-			}
-		});
-		btnFornecedoresCadastrados.setBounds(224, 70, 200, 23);
-		frmImprimeInformacoes.getContentPane().add(btnFornecedoresCadastrados);
-		
-		JButton btnFuncionariosCadastrados = new JButton("Funcionarios cadastrados");
-		btnFuncionariosCadastrados.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				padaria.imprimeInfoFuncionarios();
-				JOptionPane.showMessageDialog(null, "Informações impressas no console");
-			}
-		});
-		btnFuncionariosCadastrados.setBounds(10, 104, 200, 23);
-		frmImprimeInformacoes.getContentPane().add(btnFuncionariosCadastrados);
 		
 		JSeparator separator = new JSeparator();
 		separator.setBounds(10, 138, 414, 2);
 		frmImprimeInformacoes.getContentPane().add(separator);
 		
-		JLabel lblCasoQueiraPesquisar = new JLabel("Caso queira pesquisar por um elemento espec\u00EDfico:");
-		lblCasoQueiraPesquisar.setBounds(10, 148, 314, 14);
-		frmImprimeInformacoes.getContentPane().add(lblCasoQueiraPesquisar);
-		
-		JButton btnProcuraProduto = new JButton("Procura produto");
+		JButton btnProcuraProduto = new JButton("Produtos");
 		btnProcuraProduto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {	
@@ -128,10 +80,10 @@ public class TelaImprimeInformacoes {
 				}
 			}
 		});
-		btnProcuraProduto.setBounds(10, 167, 200, 23);
+		btnProcuraProduto.setBounds(10, 36, 200, 23);
 		frmImprimeInformacoes.getContentPane().add(btnProcuraProduto);
 		
-		JButton btnProcuraCliente = new JButton("Procura cliente");
+		JButton btnProcuraCliente = new JButton("Clientes");
 		btnProcuraCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String info = JOptionPane.showInputDialog("Digite o CPF do cliente");
@@ -141,10 +93,10 @@ public class TelaImprimeInformacoes {
 					padaria.imprimeInfoClientes();
 			}
 		});
-		btnProcuraCliente.setBounds(224, 201, 200, 23);
+		btnProcuraCliente.setBounds(10, 104, 200, 23);
 		frmImprimeInformacoes.getContentPane().add(btnProcuraCliente);
 		
-		JButton btnProcuraFornecedor = new JButton("Procura Fornecedor");
+		JButton btnProcuraFornecedor = new JButton("Fornecedores");
 		btnProcuraFornecedor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -157,10 +109,10 @@ public class TelaImprimeInformacoes {
 				
 			}
 		});
-		btnProcuraFornecedor.setBounds(224, 167, 200, 23);
+		btnProcuraFornecedor.setBounds(224, 36, 200, 23);
 		frmImprimeInformacoes.getContentPane().add(btnProcuraFornecedor);
 		
-		JButton btnProcuraFuncionrio = new JButton("Procura funcion\u00E1rio");
+		JButton btnProcuraFuncionrio = new JButton("Funcion\u00E1rios");
 		btnProcuraFuncionrio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -172,11 +124,24 @@ public class TelaImprimeInformacoes {
 
 			}
 		});
-		btnProcuraFuncionrio.setBounds(10, 201, 200, 23);
+		btnProcuraFuncionrio.setBounds(10, 70, 200, 23);
 		frmImprimeInformacoes.getContentPane().add(btnProcuraFuncionrio);
 		
 		JLabel lblAsInformaes = new JLabel("* As informa\u00E7\u00F5es ser\u00E3o mostradas no console");
-		lblAsInformaes.setBounds(157, 235, 267, 14);
+		lblAsInformaes.setBounds(157, 236, 267, 14);
 		frmImprimeInformacoes.getContentPane().add(lblAsInformaes);
+		
+		JButton btnNewButton = new JButton("Imprime informa\u00E7\u00F5es de toda a padaria");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				padaria.imprimeInfoPadaria();
+			}
+		});
+		btnNewButton.setBounds(10, 161, 414, 64);
+		frmImprimeInformacoes.getContentPane().add(btnNewButton);
+		
+		JLabel lblEscolhaUmaOpo = new JLabel("Digite um c\u00F3digo v\u00E1lido ou deixe em branco para todos os elementos.");
+		lblEscolhaUmaOpo.setBounds(10, 11, 414, 14);
+		frmImprimeInformacoes.getContentPane().add(lblEscolhaUmaOpo);
 	}
 }

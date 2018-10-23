@@ -93,7 +93,7 @@ public class TelaPrincipal{
 				p.main(null);
 			}
 		});
-		btnImprimirInformaes.setBounds(25, 198, 383, 52);
+		btnImprimirInformaes.setBounds(25, 221, 383, 29);
 		frmPadariaTremBo.getContentPane().add(btnImprimirInformaes);
 		
 		JButton btnNewButton = new JButton("Cadastrar cliente");
