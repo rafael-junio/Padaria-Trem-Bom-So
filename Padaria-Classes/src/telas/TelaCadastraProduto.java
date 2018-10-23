@@ -15,6 +15,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JFormattedTextField;
+import javax.swing.JCheckBox;
 
 public class TelaCadastraProduto {
 
@@ -172,6 +173,25 @@ public class TelaCadastraProduto {
 		lblQuantidadeInicialNo.setBounds(287, 58, 150, 14);
 		frmCadastrarProduto.getContentPane().add(lblQuantidadeInicialNo);
 		
+		JCheckBox chckbxPerecvel = new JCheckBox("\u00C9 perec\u00EDvel?");
+		chckbxPerecvel.setSelected(true);
+		chckbxPerecvel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(chckbxPerecvel.isSelected()) {
+					txtDia.setEnabled(true);
+					txtMes.setEnabled(true);
+					txtAno.setEnabled(true);
+				}
+				else {
+					txtDia.setEnabled(false);
+					txtMes.setEnabled(false);
+					txtAno.setEnabled(false);
+				}
+			}
+		});
+		chckbxPerecvel.setBounds(287, 148, 121, 23);
+		frmCadastrarProduto.getContentPane().add(chckbxPerecvel);
+		
 		txtQuantidade = new JFormattedTextField(createFormatter("##"));
 		txtQuantidade.setBounds(287, 74, 121, 20);
 		frmCadastrarProduto.getContentPane().add(txtQuantidade);
@@ -202,38 +222,42 @@ public class TelaCadastraProduto {
 				}
 				
 				boolean data = false;
-				try {
-					data = ValidaData.isDateValid(Integer.parseInt(txtDia.getText()), Integer.parseInt(txtMes.getText()), Integer.parseInt(txtAno.getText()));
+				if (chckbxPerecvel.isSelected()){
+					try {
+						data = ValidaData.isDateValid(Integer.parseInt(txtDia.getText()), Integer.parseInt(txtMes.getText()), Integer.parseInt(txtAno.getText()));
+					}
+					catch (NumberFormatException exception) {
+						JOptionPane.showMessageDialog(null, "Por favor, preencha com uma data válida no formato XX/XX/XXXX");
+					}
 				}
-				catch (NumberFormatException exception) {
-					JOptionPane.showMessageDialog(null, "Por favor, preencha com uma data válida no formato XX/XX/XXXX");
-				}
-				
-				if(!data) {
-					JOptionPane.showMessageDialog(null, "Data inválida");
-				}
-				else if(txtCodigo.getText().equals("   ") || padaria.encontraFornecedor(txtCodigo.getText()) == null){
+				if(data && (txtCodigo.getText().equals("   ") || padaria.encontraFornecedor(txtCodigo.getText()) == null)){
 					JOptionPane.showMessageDialog(null, "Fornecedor inválido");
 				}
-				else if(txtQuantidade.getText().equals("  ") || Integer.parseInt(txtQuantidade.getText()) > 30 || Integer.parseInt(txtQuantidade.getText()) < 0 ) {
+				else if(data && (txtQuantidade.getText().equals("  ") || Integer.parseInt(txtQuantidade.getText()) > 30 || Integer.parseInt(txtQuantidade.getText()) < 0 )) {
 					JOptionPane.showMessageDialog(null, "Quantidade para cadastro no estoque inválido");
 				}
-				else if(txtCodigoProduto.getText().equals("      ") || padaria.encontraFornecedor(txtCodigo.getText()) == null){
+				else if(data && (txtCodigoProduto.getText().equals("      ") || padaria.encontraFornecedor(txtCodigo.getText()) == null)){
 					JOptionPane.showMessageDialog(null, "Código inválido, deve ter 6 dígitos");
 				}
 				else {	
 						existeFornecedor = true;
 						estoqueValido = true;
 				}	
-				if(existeFornecedor && estoqueValido && data) {
-					try {
+				if(existeFornecedor && estoqueValido && !chckbxPerecvel.isSelected()) {
 						padaria.getEstoque().cadastrarProdutoNaoPerecivel(txtNomeProduto.getText(), txtCodigoProduto.getText(), padaria.encontraFornecedor(txtCodigo.getText()), 
 								Float.parseFloat(txtCompra.getText()), Float.parseFloat(txtVenda.getText()), apelido, Integer.parseInt(txtQuantidade.getText()));
-						JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso!");
+						JOptionPane.showMessageDialog(null, "Produto não perecível cadastrado com sucesso!");
+						frmCadastrarProduto.setVisible(false);			
+				}
+				else if (existeFornecedor && estoqueValido && data && chckbxPerecvel.isSelected()) {
+					try {	
+						padaria.getEstoque().cadastrarProdutoPerecivel(txtNomeProduto.getText(), txtCodigoProduto.getText(), padaria.encontraFornecedor(txtCodigo.getText()), 
+								Float.parseFloat(txtCompra.getText()), Float.parseFloat(txtVenda.getText()), Integer.parseInt(txtDia.getText()), Integer.parseInt(txtMes.getText()), Integer.parseInt(txtAno.getText()), apelido, Integer.parseInt(txtQuantidade.getText()));
+						JOptionPane.showMessageDialog(null, "Produto perecível cadastrado com sucesso!");
 						frmCadastrarProduto.setVisible(false);
 					}
-					catch (Exception NumberFormatException) {
-						JOptionPane.showMessageDialog(null, "Um ou mais preços são inválidos, utilize o formato XX.XX");
+					catch (NumberFormatException exception) {
+						JOptionPane.showMessageDialog(null, "Percebemos algum problema, preencha tudo corretamente!");
 					}
 				}
 			}
@@ -242,30 +266,30 @@ public class TelaCadastraProduto {
 		frmCadastrarProduto.getContentPane().add(btnCadastrarProduto);
 		
 		lblDataDeValidade = new JLabel("Data de validade");
-		lblDataDeValidade.setBounds(303, 152, 122, 14);
+		lblDataDeValidade.setBounds(287, 180, 122, 14);
 		frmCadastrarProduto.getContentPane().add(lblDataDeValidade);
 		
 		txtDia = new JFormattedTextField(createFormatter("##"));
-		txtDia.setBounds(304, 168, 28, 20);
+		txtDia.setBounds(287, 196, 28, 20);
 		frmCadastrarProduto.getContentPane().add(txtDia);
 		txtDia.setColumns(10);
 		
 		txtMes = new JFormattedTextField(createFormatter("##"));
 		txtMes.setColumns(10);
-		txtMes.setBounds(342, 168, 28, 20);
+		txtMes.setBounds(335, 196, 28, 20);
 		frmCadastrarProduto.getContentPane().add(txtMes);
 		
 		txtAno = new JFormattedTextField(createFormatter("####"));
 		txtAno.setColumns(10);
-		txtAno.setBounds(380, 168, 28, 20);
+		txtAno.setBounds(380, 196, 44, 20);
 		frmCadastrarProduto.getContentPane().add(txtAno);
 		
 		label = new JLabel("/");
-		label.setBounds(335, 171, 46, 14);
+		label.setBounds(325, 199, 46, 14);
 		frmCadastrarProduto.getContentPane().add(label);
 		
 		label_1 = new JLabel("/");
-		label_1.setBounds(371, 171, 73, 14);
+		label_1.setBounds(371, 199, 73, 14);
 		frmCadastrarProduto.getContentPane().add(label_1);
 		
 		lblcamposObrigtorios = new JLabel("*Campos obrig\u00E1torios");
@@ -288,6 +312,8 @@ public class TelaCadastraProduto {
 		lblApelido_3.setBounds(152, 152, 121, 14);
 		frmCadastrarProduto.getContentPane().add(lblApelido_3);
 		
+		
+		
 	}
 	
 	protected MaskFormatter createFormatter(String s) {
@@ -300,6 +326,4 @@ public class TelaCadastraProduto {
 	    }
 	    return formatter;
 	}
-	
-
 }

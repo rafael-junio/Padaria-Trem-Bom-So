@@ -109,7 +109,15 @@ public class TelaCadastraCliente{
 				if(padaria.encontraCliente(txtCPF.getText()) != null) {
 					JOptionPane.showMessageDialog(null, "Cliente já cadastrado");
 				}
-				
+				else if(txtNomeCliente.getText().equals("")) {
+					JOptionPane.showMessageDialog(null, "Preencha um nome");
+				}
+				else if(txtEndereco.getText().equals("")) {
+					JOptionPane.showMessageDialog(null, "Por favor, preencha o endereço corretamente");
+				}
+				else if(txtTelefone.getText().equals("(  )     -    ")) {
+					JOptionPane.showMessageDialog(null, "Telefone em branco!");
+				}
 				else if(documentos.isCPF(txtCPF.getText())) {
 					padaria.cadastrarClienteRegular(txtNomeCliente.getText(), txtEndereco.getText(), txtCPF.getText(), txtTelefone.getText());
 					JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso!");

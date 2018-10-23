@@ -138,7 +138,7 @@ public class Estoque implements AlertaEstoque {
 	 * Pré-condição: recebe um String código do produto.
 	 * Pós-condição: retorna TRUE, caso produto é encontrado, e FALSE, caso contário.
 	 */
-	public boolean produdoEmEstoque(String codigo) {
+	public boolean produtoEmEstoque(String codigo) {
 		for (int i = 0; i < produtos.length; i++)
 			if (produtos[i] != null && produtos[i].ehIgual(codigo)) {
 				return true;

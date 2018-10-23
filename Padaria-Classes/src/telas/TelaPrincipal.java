@@ -6,12 +6,14 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import controle.Padaria;
+import controle.produto.Produto;
 import pessoa.funcionario.Padeiro;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
+import javax.swing.JSeparator;
 
 public class TelaPrincipal{
 	
@@ -205,5 +207,48 @@ public class TelaPrincipal{
 		});
 		btnHoraExtraPadeiro.setBounds(10, 158, 197, 23);
 		frmPadariaTremBo.getContentPane().add(btnHoraExtraPadeiro);
+		
+		JSeparator separator = new JSeparator();
+		separator.setBounds(10, 151, 414, 2);
+		frmPadariaTremBo.getContentPane().add(separator);
+		
+		JSeparator separator_1 = new JSeparator();
+		separator_1.setBounds(10, 187, 414, 2);
+		frmPadariaTremBo.getContentPane().add(separator_1);
+		
+		JButton btnNewButton_1 = new JButton("Abastecer estoque");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				try {
+					String codigoProduto = JOptionPane.showInputDialog(null, "Insira o código do produto (6 digítos)");
+					if(padaria.getEstoque().produtoEmEstoque(codigoProduto)) {
+						try {	
+							Produto produto = padaria.getEstoque().procurarProduto(codigoProduto);
+							int maxEstoque = produto.getQuantidade();
+							int quantidade = Integer.parseInt(JOptionPane.showInputDialog(null, "Insira a quantidade a ser adicionada ao estoque."));
+							maxEstoque = maxEstoque + quantidade;
+							if(maxEstoque < 30) {
+								produto.setQuantidade(quantidade);
+								JOptionPane.showMessageDialog(null, "Estoque reabastecido!");
+							}
+							else
+								JOptionPane.showMessageDialog(null, "Não foi possível reabastercer o estoque pois a quantidade inserida ultrapassa o limite de 30 unidades por produto.");
+						}
+						catch (Exception exception) {
+							JOptionPane.showMessageDialog(null, "Ocorreu um erro, por favor digite um código e uma quantidade valida!");
+						}
+					}
+					else
+						JOptionPane.showMessageDialog(null, "Código do produto inválido");
+				}
+				catch (Exception exception) {
+					JOptionPane.showMessageDialog(null, "Código inválido");
+				}
+				
+			}
+		});
+		btnNewButton_1.setBounds(227, 158, 197, 23);
+		frmPadariaTremBo.getContentPane().add(btnNewButton_1);
 	}
 }

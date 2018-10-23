@@ -183,30 +183,36 @@ public class TelaVendeProduto {
 		
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				String pagamento = "";
-				String CPF = txtCPF.getText();
-				String codigoVendedor = txtCodigoVendedor.getText();
-				int parcela = Integer.parseInt(txtParcela.getText());
+				try {
+					String pagamento = "";
+					String CPF = txtCPF.getText();
+					String codigoVendedor = txtCodigoVendedor.getText();
+					int parcela = Integer.parseInt(txtParcela.getText());
 
-				if(rdbtnCrdito.isSelected()) {
-					pagamento = "credito";
+					if(rdbtnCrdito.isSelected()) {
+						pagamento = "credito";
+					}
+					else
+						pagamento = "Dinheiro";
+					
+					boolean cpfValido = false;
+					
+					if(padaria.encontraCliente(txtCPF.getText()) != null) {
+						cpfValido = true;
+					}
+					else
+						JOptionPane.showMessageDialog(null, "CPF inválido");
+					
+					if(cpfValido && cont > 0) {
+						padaria.realizarVenda(CPF, codigoVendedor, pagamento, parcela, dia, mes, ano);
+						JOptionPane.showMessageDialog(null, "Venda concluída!");
+						frmVendaDeProdutos.dispose();
+					}
+					else
+						JOptionPane.showMessageDialog(null, "Adicione produtos ao carrinho");
 				}
-				else
-					pagamento = "Dinheiro";
-				
-				boolean cpfValido = false;
-				
-				if(padaria.encontraCliente(txtCPF.getText()) != null) {
-					cpfValido = true;
-				}
-				else
-					JOptionPane.showMessageDialog(null, "CPF inválido");
-				
-				if(cpfValido) {
-					padaria.realizarVenda(CPF, codigoVendedor, pagamento, parcela, dia, mes, ano);
-					JOptionPane.showMessageDialog(null, "Venda concluída!");
-					frmVendaDeProdutos.dispose();
+				catch(Exception exception) {
+					JOptionPane.showMessageDialog(null, "Por favor, preencha todos os campos corretamente!");
 				}
 			
 			}

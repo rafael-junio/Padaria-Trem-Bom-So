@@ -133,34 +133,42 @@ public class TelaCadastraFornecedor {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				boolean CNPJ = false, jaCadastrado = false, codigo = false;
-				if(documentos.isCNPJ(txtCNPJ.getText())) {
-					CNPJ = true;
+				if(txtNome.getText().equals("")) {
+					JOptionPane.showMessageDialog(null, "Preencha o nome do fornecedor");
 				}
-				else
-					JOptionPane.showMessageDialog(null, "CNPJ inválido");
-				
-				if(txtCodigo.getText().equals("   ")) {
-					JOptionPane.showMessageDialog(null, "Preencha o código do fornecedor");
-					codigo = true;
+				else if(txtEndereco.getText().equals("")) {
+					JOptionPane.showMessageDialog(null, "Por favor, preencha o endereço corretamente");
 				}
-				if(padaria.encontraFornecedor(txtCodigo.getText()) != null) {
-					JOptionPane.showMessageDialog(null, "Fornecedor já cadastrado");
-					jaCadastrado = true;
+				else {
+					boolean CNPJ = false, jaCadastrado = false, codigo = false;
+					if(documentos.isCNPJ(txtCNPJ.getText())) {
+						CNPJ = true;
+					}
+					else
+						JOptionPane.showMessageDialog(null, "CNPJ inválido");
+					
+					if(txtCodigo.getText().equals("   ")) {
+						JOptionPane.showMessageDialog(null, "Preencha o código do fornecedor");
+						codigo = true;
+					}
+					if(padaria.encontraFornecedor(txtCodigo.getText()) != null) {
+						JOptionPane.showMessageDialog(null, "Fornecedor já cadastrado");
+						jaCadastrado = true;
+					}
+					if(checaRecorrente.isSelected() && txtDesconto.getText().equals("0.  ")) {
+						JOptionPane.showMessageDialog(null, "Desmarque a opção de recorrente ou insira um valor válido");
+					}
+					else if (checaRecorrente.isSelected() && CNPJ && !jaCadastrado && !codigo) {
+						padaria.cadastrarFornecedorRecorrente(txtNome.getText(), txtEndereco.getText(), txtCodigo.getText(), txtCNPJ.getText(), Float.parseFloat(txtDesconto.getText()));
+						JOptionPane.showMessageDialog(null, "Fornecedor recorrente cadastrado!");
+						CadastrarFornecedores.setVisible(false);
+					}
+					else if (!checaRecorrente.isSelected() && CNPJ && !jaCadastrado && !codigo){
+						padaria.cadastrarFornecedorOcasional(txtNome.getText(), txtEndereco.getText(), txtCodigo.getText(), txtCNPJ.getText());
+						JOptionPane.showMessageDialog(null, "Fornecedor não recorrente cadastrado!");
+						CadastrarFornecedores.setVisible(false);
+					}	
 				}
-				if(checaRecorrente.isSelected() && txtDesconto.getText().equals("0.  ")) {
-					JOptionPane.showMessageDialog(null, "Desmarque a opção de recorrente ou insira um valor válido");
-				}
-				else if (checaRecorrente.isSelected() && CNPJ && !jaCadastrado && !codigo) {
-					padaria.cadastrarFornecedorRecorrente(txtNome.getText(), txtEndereco.getText(), txtCodigo.getText(), txtCNPJ.getText(), Float.parseFloat(txtDesconto.getText()));
-					JOptionPane.showMessageDialog(null, "Fornecedor recorrente cadastrado!");
-					CadastrarFornecedores.setVisible(false);
-				}
-				else if (!checaRecorrente.isSelected() && CNPJ && !jaCadastrado && !codigo){
-					padaria.cadastrarFornecedorOcasional(txtNome.getText(), txtEndereco.getText(), txtCodigo.getText(), txtCNPJ.getText());
-					JOptionPane.showMessageDialog(null, "Fornecedor não recorrente cadastrado!");
-					CadastrarFornecedores.setVisible(false);
-				}	
 			}
 		});
 		btnNewButton.setBounds(10, 202, 402, 48);

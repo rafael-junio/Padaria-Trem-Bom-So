@@ -168,36 +168,46 @@ public class TelaCadastraFuncionario {
 		JButton btnNewButton = new JButton("Cadastrar Funcion\u00E1rio");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				boolean jaCadastrado = false, CPF = false;
 				
-				if(documentos.isCPF(txtCPF.getText())) {
-					CPF = true;
+				if(txtNome.getText().equals("")) {
+					JOptionPane.showMessageDialog(null, "Preencha um nome");
 				}
-				else
-					JOptionPane.showMessageDialog(null, "CPF inválido");
-				
-				if(padaria.encontraFuncionario(txtCodigo.getText()) != null) {
-					JOptionPane.showMessageDialog(null, "Funcionario já cadastrado");
-					jaCadastrado = true;
+				else if(txtEndereco.getText().equals("")) {
+					JOptionPane.showMessageDialog(null, "Por favor, preencha o endereço corretamente");
 				}
-				
-				
-				if (rdbtnVendedor.isSelected() == true && !jaCadastrado && CPF) {
-					padaria.cadastrarVendedor(txtNome.getText(), txtEndereco.getText(), txtCPF.getText(), txtTelefone.getText(), txtCodigo.getText(),Float.parseFloat(txtSalario.getText()), Float.parseFloat(txtMeta.getText()));
-					JOptionPane.showMessageDialog(null, "Vendedor cadastrado com sucesso!");
-					frmCadastrarFuncionrios.setVisible(false);
+				else if(txtTelefone.getText().equals("(  )     -    ")) {
+					JOptionPane.showMessageDialog(null, "Telefone em branco!");
 				}
-				else if (rdbtnPadeiro.isSelected() == true && !jaCadastrado && CPF) {
-					padaria.cadastrarPadeiro(txtNome.getText(), txtEndereco.getText(), txtCPF.getText(), txtTelefone.getText(), txtCodigo.getText(),Float.parseFloat(txtSalario.getText()));
-					JOptionPane.showMessageDialog(null, "Padeiro cadastrado com sucesso!");
-					frmCadastrarFuncionrios.setVisible(false);
+				else {
+					boolean jaCadastrado = false, CPF = false;
+					
+					if(documentos.isCPF(txtCPF.getText())) {
+						CPF = true;
+					}
+					else
+						JOptionPane.showMessageDialog(null, "CPF inválido");
+					
+					if(padaria.encontraFuncionario(txtCodigo.getText()) != null) {
+						JOptionPane.showMessageDialog(null, "Funcionario já cadastrado");
+						jaCadastrado = true;
+					}
+					
+					if (rdbtnVendedor.isSelected() == true && !jaCadastrado && CPF) {
+						padaria.cadastrarVendedor(txtNome.getText(), txtEndereco.getText(), txtCPF.getText(), txtTelefone.getText(), txtCodigo.getText(),Float.parseFloat(txtSalario.getText()), Float.parseFloat(txtMeta.getText()));
+						JOptionPane.showMessageDialog(null, "Vendedor cadastrado com sucesso!");
+						frmCadastrarFuncionrios.setVisible(false);
+					}
+					else if (rdbtnPadeiro.isSelected() == true && !jaCadastrado && CPF) {
+						padaria.cadastrarPadeiro(txtNome.getText(), txtEndereco.getText(), txtCPF.getText(), txtTelefone.getText(), txtCodigo.getText(),Float.parseFloat(txtSalario.getText()));
+						JOptionPane.showMessageDialog(null, "Padeiro cadastrado com sucesso!");
+						frmCadastrarFuncionrios.setVisible(false);
+					}
+					else if (rdbtnGerente.isSelected() == true && !jaCadastrado && CPF) {
+						padaria.cadastrarGerente(txtNome.getText(), txtEndereco.getText(), txtCPF.getText(), txtTelefone.getText(), txtCodigo.getText(),Float.parseFloat(txtSalario.getText()));
+						JOptionPane.showMessageDialog(null, "Gerente cadastrado com sucesso!");
+						frmCadastrarFuncionrios.setVisible(false);
+					}
 				}
-				else if (rdbtnGerente.isSelected() == true && !jaCadastrado && CPF) {
-					padaria.cadastrarGerente(txtNome.getText(), txtEndereco.getText(), txtCPF.getText(), txtTelefone.getText(), txtCodigo.getText(),Float.parseFloat(txtSalario.getText()));
-					JOptionPane.showMessageDialog(null, "Gerente cadastrado com sucesso!");
-					frmCadastrarFuncionrios.setVisible(false);
-				}
-
 			}
 		});
 		btnNewButton.setBounds(10, 190, 414, 60);

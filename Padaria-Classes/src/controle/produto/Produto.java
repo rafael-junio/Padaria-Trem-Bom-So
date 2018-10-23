@@ -191,7 +191,7 @@ public abstract class Produto {
 	 * Pós-condição: não retorna valor. Instancia atributo inteiro quantidade.
 	 */
 	public void setQuantidade(int quantidade) {
-		this.quantidade = quantidade;
+		this.quantidade = this.quantidade + quantidade;
 	}
 
 	/**
