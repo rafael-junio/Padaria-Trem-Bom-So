@@ -31,22 +31,30 @@ public class TestePadariaMetodos{
 		
 		// Produtos NÃO Perecíveis
 		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("A", "000000", tremBao.encontraFornecedor("000"), 1f, 100f, null, 7);
-//		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Café Bom Jesus", "000000", fornecedor, 0f, 5.97f, null, 29);
-//		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Mucilon", "000001", fornecedor, precoCusto, 5.49f, null, 11);
-//		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Sal Grosso Qualitá", "00002", fornecedor, precoCusto, 1.08f, null, 23);
-//		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Ólea Soja Liza", "00003", fornecedor, precoCusto, 5.80f , null, 22);
-//		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Leiet em pó NINHO Nestlé", "000004", fornecedor, precoCusto, 11.99f, null, 16);
-//		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Açucar Refinado União", "000005", fornecedor, precoCusto, 4.10f, null, 26);
-//		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Polvilho Azedo Yoki", "000006", fornecedor, precoCusto, 11.20f, null, 28);
-//		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Polvilho Doce Yoki", "000007", fornecedor, precoCusto, 44.99f, null, 23);
-//		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Farinha Láctea Nestlé", "000008", fornecedor, precoCusto, 11.19f, null, 17);
-//		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Achocolatado", "000009", fornecedor, precoCusto, 6.85f, null, 18);
+		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Café Bom Jesus", "000000", tremBao.encontraFornecedor("000"), 0f, 5.97f, null, 29);
+		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Mucilon", "000001", tremBao.encontraFornecedor("000"), 2.3f, 5.49f, null, 11);
+		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Sal Grosso Qualitá", "00002", tremBao.encontraFornecedor("000"), 0.78f, 1.08f, null, 23);
+		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Ólea Soja Liza", "00003", tremBao.encontraFornecedor("000"), 3.2f, 5.80f , null, 22);
+		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Leiet em pó NINHO Nestlé", "000004", tremBao.encontraFornecedor("001"), 7.81f, 11.99f, null, 16);
+		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Açucar Refinado União", "000005", tremBao.encontraFornecedor("001"), 2.1f, 4.10f, null, 26);
+		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Polvilho Azedo Yoki", "000006", tremBao.encontraFornecedor("001"), 7.8f, 11.20f, null, 28);
+		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Polvilho Doce Yoki", "000007", tremBao.encontraFornecedor("001"), 35f, 44.99f, null, 23);
+		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Farinha Láctea Nestlé", "000008", tremBao.encontraFornecedor("001"), 8.1f, 11.19f, null, 17);
+		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Achocolatado", "000009", tremBao.encontraFornecedor("001"), 5.1f, 6.85f, null, 18);
 		
 		
 		// Produtos Perecíveis
-		tremBao.getEstoque().cadastrarProdutoPerecivel("a", "000001", tremBao.encontraFornecedor("001"), 20f, 100f, 1, 10, 2019, null, 30);
-
-
+		tremBao.getEstoque().cadastrarProdutoPerecivel("Pão de queijo", "000010", tremBao.encontraFornecedor("001"), 2f, 5f, 1, 10, 2018, null, 30);
+		tremBao.getEstoque().cadastrarProdutoPerecivel("Pão francês", "000011", tremBao.encontraFornecedor("001"), 1f, 3f, 5, 11, 2018, null, 24);
+		tremBao.getEstoque().cadastrarProdutoPerecivel("Esfiha", "000012", tremBao.encontraFornecedor("001"), 2f, 4f, 5, 12, 2018, null, 16);
+		tremBao.getEstoque().cadastrarProdutoPerecivel("Coca-Cola 2l", "000013", tremBao.encontraFornecedor("001"), 4f, 9.5f, 12, 04, 2019, null, 20);
+		tremBao.getEstoque().cadastrarProdutoPerecivel("Iogurte", "000014", tremBao.encontraFornecedor("001"), 0.5f, 2f, 11, 01, 2019, null, 13);
+		tremBao.getEstoque().cadastrarProdutoPerecivel("Salsicha", "000015", tremBao.encontraFornecedor("000"), 5f, 11f, 11, 06, 2019, null, 8);
+		tremBao.getEstoque().cadastrarProdutoPerecivel("Mortadela", "000016", tremBao.encontraFornecedor("000"), 3f, 5.5f, 05, 12, 2018, null, 28);
+		tremBao.getEstoque().cadastrarProdutoPerecivel("Queijo", "000017", tremBao.encontraFornecedor("000"), 1.5f, 2.5f, 5, 02, 2019, null, 27);
+		tremBao.getEstoque().cadastrarProdutoPerecivel("Margarina", "000018", tremBao.encontraFornecedor("000"), 3f, 7.2f, 5, 07, 2019, null, 10);
+		tremBao.getEstoque().cadastrarProdutoPerecivel("Bolo", "000019", tremBao.encontraFornecedor("000"), 15f, 21f, 14, 12, 2018, null, 5);
+		
 		// Testes
 		
 		// Impressões
