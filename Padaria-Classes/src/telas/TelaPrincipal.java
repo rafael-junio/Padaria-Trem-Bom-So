@@ -78,6 +78,7 @@ public class TelaPrincipal{
 		btnVenderProduto.addActionListener(new ActionListener() {
 			@SuppressWarnings("static-access")
 			public void actionPerformed(ActionEvent e) {
+				padaria.removeProdutosVenda();
 				TelaVendeProduto p = new TelaVendeProduto(padaria);
 				p.main(null);
 			}

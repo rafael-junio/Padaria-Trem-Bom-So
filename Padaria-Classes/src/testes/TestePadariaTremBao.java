@@ -69,15 +69,15 @@ public class TestePadariaTremBao{
 		tremBao.getEstoque().cadastrarProdutoPerecivel("Bolo", "000019", tremBao.encontraFornecedor("000"), 15f, 21f, 14, 12, 2018, null, 5);
 		
 		// Vendas
-		tremBao.adicionarProdutoVenda("000000", 5);
-		tremBao.realizarVenda("704.878.040-15", "0001", "Débito", 0, 14, 10, 2018);
-		
-		
-		tremBao.adicionarProdutoVenda("000000", 1);
-		tremBao.realizarVenda("36606204089", "0001", "Dinheiro", 0, 15, 10, 2018);
-		
-		tremBao.adicionarProdutoVenda("000001", 1);
-		tremBao.realizarVenda("36606204089", "0001", "Dinheiro", 0, 15, 10, 2018);
+//		tremBao.adicionarProdutoVenda("000000", 5);
+//		tremBao.realizarVenda("704.878.040-15", "0001", "Débito", 0, 14, 10, 2018);
+//		
+//		
+//		tremBao.adicionarProdutoVenda("000000", 1);
+//		tremBao.realizarVenda("36606204089", "0001", "Dinheiro", 0, 15, 10, 2018);
+//		
+//		tremBao.adicionarProdutoVenda("000001", 1);
+//		tremBao.realizarVenda("36606204089", "0001", "Dinheiro", 0, 15, 10, 2018);
 								
 		TelaPrincipal p = new TelaPrincipal(tremBao);
 		p.main(null);

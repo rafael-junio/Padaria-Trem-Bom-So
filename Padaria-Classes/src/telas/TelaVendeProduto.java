@@ -58,6 +58,8 @@ public class TelaVendeProduto {
 		
 		this.padaria = padaria;
 		this.cont = 0;
+		
+		
 	}
 
 	/**
@@ -71,7 +73,7 @@ public class TelaVendeProduto {
 		int mes = c.get(Calendar.MONTH) + 1;
 		int ano = c.get(Calendar.YEAR);
 		
-		padaria.removeProdutosVenda();
+
 
 		frmVendaDeProdutos = new JFrame();
 		frmVendaDeProdutos.setTitle("Venda de produtos");

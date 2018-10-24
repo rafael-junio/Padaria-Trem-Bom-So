@@ -660,8 +660,8 @@ public class Padaria {
 	 */
 	
 	public void removeProdutosVenda() {
-		this.comprasRealizadas = null;
-		this.comprasRealizadas = new Produto[20];
+		comprasRealizadas = null;
+		comprasRealizadas = new Produto[20];
 	}
 
 	/**
