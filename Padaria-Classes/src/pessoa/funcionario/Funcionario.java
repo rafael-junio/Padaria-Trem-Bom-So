@@ -121,4 +121,12 @@ public abstract class Funcionario extends PessoaFisica implements SalarioFinal {
 		System.out.printf("Código do funcionário: %s.\n", this.codigo);
 		System.out.printf("Salário base: %.2fR$.\n", this.salarioBase);
 	}
+
+	/**
+	 * Método calcularSalarioFinal.
+	 * 
+	 * Pré-condição: não há.
+	 * Pós-condição: retorna um float com o valor do salário final.
+	 */
+	public abstract float calcularSalarioFinal();
 }

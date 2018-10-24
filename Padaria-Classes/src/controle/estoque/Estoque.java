@@ -4,14 +4,21 @@ import pessoa.fornecedor.Fornecedor;
 import funcionalidades.Ordenacao;
 import controle.produto.*;
 
+/**
+ * Alunos:
+ * @author Guilherme Ribeiro de Carvalho - RGA: 2018.1907.071-9
+ * @author Rafael Junio Xavier - RGA: 2018.1907.050-6
+ * @author Igor José Tamagno - RGA: 2018.1907.034-4
+ *
+ */
 public class Estoque implements AlertaEstoque {
-	private Produto[] produtos; // produtos armazenados em estoque (max 50).
+	private Produto[] produtos;
 
 	/**
 	 * Método construtor da classe Estoque.
 	 *
 	 * Pré-condição: não recebe parâmetro.
-	 * Pós-condição: instancia único atributo da classe.
+	 * Pós-condição: instancia o único atributo da classe.
 	 */
 	public Estoque() {
 		this.produtos = new Produto[50];

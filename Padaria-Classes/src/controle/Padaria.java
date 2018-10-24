@@ -15,35 +15,28 @@ import pessoa.funcionario.Gerente;
 import pessoa.funcionario.Padeiro;
 import pessoa.funcionario.Vendedor;
 
-
-
+/**
+ * Alunos:
+ * @author Guilherme Ribeiro de Carvalho - RGA: 2018.1907.071-9
+ * @author Rafael Junio Xavier - RGA: 2018.1907.050-6
+ * @author Igor José Tamagno - RGA: 2018.1907.034-4
+ *
+ */
 public class Padaria {
-	private final float PERCENTUALSOBREVENDAS = 0.15f; // porcentagem de imposto sobre as vendas realizadas.
+	private final float PERCENTUALSOBREVENDAS = 0.15f;
+	private final float PERCENTUALSOBRESALARIOFUNCIONARIOS = 0.18f;
+	private Ordenacao alpha;
+	private Fornecedor[] fornecedores;	
+	private Estoque estoque;
+	private Funcionario[] funcionarios;
+	private Cliente[] clientes;
+	private Venda[] vendas;
+	private Produto[] comprasRealizadas;
+	private float montanteVendasGlobal;
+	private float impostoVendas;
+	private float impostoFuncionarios;	
+	private float impostoTotal;
 	
-	private final float PERCENTUALSOBRESALARIOFUNCIONARIOS = 0.18f; // porcentagem de imposto sobre o salário final dos funcionários.
-
-	private Ordenacao alpha; // objeto para ordenar em ordem alfabética.
-	
-	private Fornecedor[] fornecedores; // vetor de fornecedores cadastratos na padaria.
-	
-	private Estoque estoque; // estoque de produtos da padaria.
-	
-	private Funcionario[] funcionarios; // vetor de funcionários cadastrados na padaria.
-	
-	private Cliente[] clientes; // vetor de funcionários cadastrados na padaria.
-	
-	private Venda[] vendas; // vetor de compras realizadas na padaria.
-	
-	private Produto[] comprasRealizadas; // vetor de produtos comprados pelo cliente.
-	
-	private float montanteVendasGlobal; // valor total das vendas realizadas.
-	
-	private float impostoVendas; // imposto calculado sobre vendas.
-	
-	private float impostoFuncionarios; // imposto calculado sobre salário dos funcionários.
-	
-	private float impostoTotal; // imposto total da padaria.
-
 	/**
 	 * Método construtor da classe Padaria.
 	 *
@@ -51,7 +44,7 @@ public class Padaria {
 	 * Pós-condição: instância todos os atributos da classe.
 	 */
 	public Padaria() {
-		this.fornecedores = new Fornecedor[15];
+		this.fornecedores = new Fornecedor[10];
 		this.estoque = new Estoque();
 		this.funcionarios = new Funcionario[10];
 		this.clientes = new Cliente[50];
@@ -313,7 +306,7 @@ public class Padaria {
 	public boolean cadastrarClienteGold(String cpf) {
 
 		for (int i = 0; i < clientes.length; i++)
-			if (!((clientes[i] instanceof ClienteGold) || (clientes[i] instanceof ClientePlatinum)) && clientes[i] != null && clientes[i].ehIgual(cpf) && clientes[i].getValorCompras() > 250f) { // && clientes[i].getValorCompras() < 500f){
+			if (!((clientes[i] instanceof ClienteGold) || (clientes[i] instanceof ClientePlatinum)) && clientes[i] != null && clientes[i].ehIgual(cpf) && clientes[i].getValorCompras() > 250f) {
 				ClienteGold cliente = new ClienteGold(clientes[i].getNome(), clientes[i].getEndereco(), clientes[i].getCpf(), clientes[i].getTelefone(), clientes[i].getValorCompras());
 				clientes[i] = null;
 				clientes[i] = cliente;
@@ -332,7 +325,7 @@ public class Padaria {
 	public boolean cadastrarClientePlatinum(String cpf) {
 
 		for (int i = 0; i < clientes.length; i++)
-			if (!(clientes[i] instanceof ClientePlatinum) && clientes[i] != null && clientes[i].getCpf().equals(cpf) && clientes[i].getValorCompras() >= 500f){
+			if (!(clientes[i] instanceof ClientePlatinum) && clientes[i] != null && clientes[i].getCpf().equals(cpf) && clientes[i].getValorCompras() > 500f){
 				ClientePlatinum cliente = new ClientePlatinum(clientes[i].getNome(), clientes[i].getEndereco(), clientes[i].getCpf(), clientes[i].getTelefone(), clientes[i].getValorCompras());
 				clientes[i] = null;
 				clientes[i] = cliente;
@@ -825,7 +818,7 @@ public class Padaria {
 	/**
 	 * Método imprimeInfoVendas.
 	 *
-	 * Pré-condição: recebe como parâmetro uma String CPF do produto.
+	 * Pré-condição: recebe como parâmetro uma String CPF do cliente.
 	 * Pós-condição: não retorna nada, apenas imprime os atributos do objeto Venda que possui o CPF do objeto Cliente passado como parâmetro.
 	 */
 	public void imprimeInfoVendas(String cpfCliente) {

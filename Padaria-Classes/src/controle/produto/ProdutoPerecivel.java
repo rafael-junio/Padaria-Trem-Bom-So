@@ -2,6 +2,13 @@ package controle.produto;
 
 import pessoa.fornecedor.Fornecedor;
 
+/**
+ * Alunos:
+ * @author Guilherme Ribeiro de Carvalho - RGA: 2018.1907.071-9
+ * @author Rafael Junio Xavier - RGA: 2018.1907.050-6
+ * @author Igor José Tamagno - RGA: 2018.1907.034-4
+ *
+ */
 public final class ProdutoPerecivel extends Produto {
 
 	private int dia;
@@ -35,7 +42,7 @@ public final class ProdutoPerecivel extends Produto {
 	/**
 	 * Método setDia.
 	 *
-	 * Pré-condição: recebe um int.
+	 * Pré-condição: recebe um inteiro.
 	 * Pós-condição: não retorna valor. Instancia atributo int dia.
 	 */
 	public void setDia(int dia) {
@@ -57,7 +64,7 @@ public final class ProdutoPerecivel extends Produto {
 	/**
 	 * Método setMes.
 	 *
-	 * Pré-condição: recebe um int.
+	 * Pré-condição: recebe um inteiro.
 	 * Pós-condição: não retorna valor. Instancia atributo int mes.
 	 */
 	public void setMes(int mes) {
@@ -77,7 +84,7 @@ public final class ProdutoPerecivel extends Produto {
 	/**
 	 * Método setAno.
 	 *
-	 * Pré-condição: recebe um int.
+	 * Pré-condição: recebe um inteiro.
 	 * Pós-condição: não retorna valor. Instancia atributo int ano.
 	 */
 	public void setAno(int ano) {

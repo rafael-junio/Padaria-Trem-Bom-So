@@ -3,24 +3,23 @@ package controle.produto;
 import pessoa.fornecedor.Fornecedor;
 import pessoa.fornecedor.FornecedorRecorrente;
 
-
+/**
+ * Alunos:
+ * @author Guilherme Ribeiro de Carvalho - RGA: 2018.1907.071-9
+ * @author Rafael Junio Xavier - RGA: 2018.1907.050-6
+ * @author Igor José Tamagno - RGA: 2018.1907.034-4
+ *
+ */
 public abstract class Produto {
 
-	protected String nome; // nome do produto.
-	
-	protected String codigo; // código do produto.
-	
-	protected Fornecedor fornecedor; // código do fornecedor.
-	
-	protected float precoCusto; // preço de custo do produto.
-	
-	protected float precoFinal; // preço final do produto.
-	
-	protected String[] apelido; // apelidos do produto.
-	
-	protected int quantidade; // quantidade do produto em estoque.
-	
-	private int quantidadeVenda; // quantidade do produto a ser vendida.
+	protected String nome;
+	protected String codigo;	
+	protected Fornecedor fornecedor;
+	protected float precoCusto;	
+	protected float precoFinal;
+	protected String[] apelido;
+	protected int quantidade;
+	private int quantidadeVenda;
 
 	/**
 	 * Método construtor da classe Produto.
@@ -270,8 +269,8 @@ public abstract class Produto {
 	/**
 	 * Método hasApelido.
 	 *
-	 * Pré-condição: 
-	 * Pós-condição: 
+	 * Pré-condição: não recebe nenhum parâmetro.
+	 * Pós-condição: retorna TRUE, caso vetor de apelido seja diferente de nulo, e FALSE, caso contrário.
 	 */
 	public boolean hasApelido() {
 		if (this.apelido != null)

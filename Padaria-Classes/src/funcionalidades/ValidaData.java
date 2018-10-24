@@ -1,6 +1,3 @@
-/**
- * 
- */
 package funcionalidades;
 
 import java.time.DateTimeException;

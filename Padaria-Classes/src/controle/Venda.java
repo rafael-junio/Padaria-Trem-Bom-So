@@ -6,36 +6,33 @@ import pessoa.cliente.ClienteGold;
 import pessoa.cliente.ClientePlatinum;
 import pessoa.funcionario.Vendedor;
 
-public final class Venda{
+/**
+ * Alunos:
+ * @author Guilherme Ribeiro de Carvalho - RGA: 2018.1907.071-9
+ * @author Rafael Junio Xavier - RGA: 2018.1907.050-6
+ * @author Igor José Tamagno - RGA: 2018.1907.034-4
+ *
+ */
+public class Venda{
 
-	private static final float JUROSPRAZO = 0.02f; // porcentagem de juros aplicado nas compras parceladas.
-
-	private Produto[] produtosVendidos; // vetor de tamanho 20 para armazenar os produtos vendidos.
-	
-	private Cliente cliente; // cliente que realiza compra.
-	
-	private Vendedor vendedor; // vendedor responsável pela venda.
-	
-	private String formaPagamento; // forma de pagamento escolhida pelo cliente.
-	
-	private int numParcelas; // número de parcelas escolhida pelo cliente.
-	
-	private float valorFinalCompra; // valor final da compra.
-	
-	private String infoVendedor; // informações do vendedor relevantes para a venda.
-	
-	private String infoCliente; // informações do cliente relevantes para a venda.
-	
-	private String infoProduto; // informações dos produtos relevantes para a venda.
-	
+	private static final float JUROSPRAZO = 0.02f;
+	private Produto[] produtosVendidos;
+	private Cliente cliente;
+	private Vendedor vendedor;
+	private String formaPagamento;
+	private int numParcelas;
+	private float valorFinalCompra;
+	private String infoVendedor;
+	private String infoCliente;
+	private String infoProduto;	
 	private int dia;
-	private int mes;	// data da venda.
+	private int mes;
 	private int ano;
 
 	/**
 	 * Método construtor da classe Venda.
 	 *
-	 * Pré-condição: recebe como parâmetro, um objeto Cliente, objeto Vendedor, float forma de pagamento, int numero de parcelas, vetor de objetos Produto, e int dia, mes e ano.
+	 * Pré-condição: recebe como parâmetro, um objeto Cliente, objeto Vendedor, uma String forma de pagamento, int numero de parcelas, vetor de objetos Produto, e int dia, mes e ano.
 	 * Pós-condição: instância atributos da classe.
 	 */
 	public Venda(Cliente cliente, Vendedor vendedor, String formaPagamento, int numParcelas, Produto[] produtosVendidos, int dia, int mes,
@@ -251,7 +248,7 @@ public final class Venda{
 	/**
 	 * Método setDia.
 	 *
-	 * Pré-condição: recebe um int.
+	 * Pré-condição: recebe um inteiro.
 	 * Pós-condição: não retorna valor. Instancia atributo int dia.
 	 */
 	public void setDia(int dia) {
@@ -271,7 +268,7 @@ public final class Venda{
 	/**
 	 * Método setMes.
 	 *
-	 * Pré-condição: recebe um int.
+	 * Pré-condição: recebe um inteiro.
 	 * Pós-condição: não retorna valor. Instancia atributo int mes.
 	 */
 	public void setMes(int mes) {
@@ -291,7 +288,7 @@ public final class Venda{
 	/**
 	 * Método setAno.
 	 *
-	 * Pré-condição: recebe um int.
+	 * Pré-condição: recebe um inteiro.
 	 * Pós-condição: não retorna valor. Instancia atributo int ano.
 	 */
 	public void setAno(int ano) {

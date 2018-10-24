@@ -2,6 +2,13 @@ package funcionalidades;
 
 import java.util.InputMismatchException;
 
+/**
+ * Alunos:
+ * @author Guilherme Ribeiro de Carvalho - RGA: 2018.1907.071-9
+ * @author Rafael Junio Xavier - RGA: 2018.1907.050-6
+ * @author Igor José Tamagno - RGA: 2018.1907.034-4
+ *
+ */
 public class ValidaDocumento {
 
 	/**
@@ -28,6 +35,8 @@ public class ValidaDocumento {
 	 *
 	 * Pré-condição: recebe uma String.
 	 * Pós-condição: retorna TRUE, caso DV do CNJP seja válido, e FALSE, caso contrário.
+	 * 
+	 * Código encontrado em: https://www.devmedia.com.br/validando-o-cnpj-em-uma-aplicacao-java/22374.
 	 */
 	public boolean isCNPJ(String cnpj) {
 		cnpj = removeCaracteresEspeciais(cnpj);
@@ -108,6 +117,8 @@ public class ValidaDocumento {
 	 *
 	 * Pré-condição: recebe uma String.
 	 * Pós-condição: retorna TRUE, caso DV do CPF seja válido, e FALSE, caso contrário.
+	 * 
+	 * Código encontrado em: https://www.devmedia.com.br/validando-o-cpf-em-uma-aplicacao-java/22097.
 	 */
 	public boolean isCPF(String cpf) {
 		cpf = removeCaracteresEspeciais(cpf);
