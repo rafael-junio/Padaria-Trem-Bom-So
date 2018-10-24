@@ -195,11 +195,13 @@ public class Estoque implements AlertaEstoque {
 	 * Pré-condição: recebe objeto do tipo Object.
 	 * Pós-condição: não retorna valor.
 	 */
-	public void alertaEstoque(Object obj1) {
+	public boolean alertaEstoque(Object obj1) {
 		Produto produto = (Produto) obj1;
 
 		if (produto.getQuantidade() <= 1)
-			System.err.println("ALERTA! PRODUTO ATINGIU QUANTIDADE MÍNIMA DE 1 UNIDADE EM ESTOQUE!");
+			return true;
+		else
+			return false;
 	}
 
 }

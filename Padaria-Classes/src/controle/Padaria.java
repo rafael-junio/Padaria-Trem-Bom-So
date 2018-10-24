@@ -628,6 +628,7 @@ public class Padaria {
 			return false;
 
 	}
+	
 
 	/**
 	 * Método adicionarProdutoVenda.
@@ -649,6 +650,18 @@ public class Padaria {
 				}
 		}
 		return false;
+	}
+	
+	/**
+	 * Método removeProdutosVenda.
+	 *
+	 * Pré-condição: Sem pré-condição.
+	 * Pós-condição: Sem retorno, apenas apaga os dados atuais do vetor de comprasRealizadas e instância 20 novos objetos.
+	 */
+	
+	public void removeProdutosVenda() {
+		this.comprasRealizadas = null;
+		this.comprasRealizadas = new Produto[20];
 	}
 
 	/**

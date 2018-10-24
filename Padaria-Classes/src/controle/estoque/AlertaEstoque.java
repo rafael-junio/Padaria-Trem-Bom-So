@@ -14,6 +14,7 @@ public interface AlertaEstoque {
 	 *
 	 * Pré-condição: recebe objeto do tipo Object.
 	 * Pós-condição: não retorna valor.
+	 * @return 
 	 */
-	public void alertaEstoque(Object obj1);
+	public boolean alertaEstoque(Object obj1);
 }
