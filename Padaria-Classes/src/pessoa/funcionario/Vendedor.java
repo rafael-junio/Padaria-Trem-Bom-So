@@ -1,22 +1,22 @@
-/*Alunos:
- * Guilherme Ribeiro de Carvalho - RGA: 2018.1907.071-9
- * Rafael Junio Xavier - RGA: 2018.1907.050-6
- * Igor José Tamagno - RGA: 2018.1907.034-4
- */
-
 package pessoa.funcionario;
 
-
-public final class Vendedor extends Funcionario implements SalarioFinal{
+/**
+ * Alunos:
+ * @author Guilherme Ribeiro de Carvalho - RGA: 2018.1907.071-9
+ * @author Rafael Junio Xavier - RGA: 2018.1907.050-6
+ * @author Igor José Tamagno - RGA: 2018.1907.034-4
+ *
+ */
+public final class Vendedor extends Funcionario{
 	private final float BONIFICACAO = 1.1f;
 
 	private float montanteVendas;
 	private float metaVendas;
 
 	/**
-	 * Método construtor da classe Vendedor.java.
-	 * Método para a inicialização da classe Vendedor.
-	 * Pré-condição: recebimento de quatro String como parâmetros: nome, endereço, codigo e cnpj e dois float: taxaDesconto e metaVendas. 
+	 * Método construtor da classe Vendedor.
+	 * 
+	 * Pré-condição: recebimento de quatro String como parâmetros: nome, endereço, codigo, telefone e cnpj e um float: metaVendas. 
 	 * Pós-condição: atribução de valores dos atributos nome, endereço, cpf, telefone, codigo, salarioBase e metaVendas conforme recebidos pelos parâmetros.
 	 */
 	public Vendedor(String nome, String endereco, String cpf, String telefone, String codigo, float salarioBase, float metaVendas) {
@@ -25,7 +25,7 @@ public final class Vendedor extends Funcionario implements SalarioFinal{
 
 	/**
 	 * Método getBONIFICACAO.
-	 * Método para permitir acesso ao valor do atributo BONIFICACAO.
+	 * 
      * Pré-condição: não há.
      * Pós-condição: retorna um float do valor do atributo BONIFICACAO.
 	 */
@@ -35,7 +35,7 @@ public final class Vendedor extends Funcionario implements SalarioFinal{
 	
 	/**
 	 * Método getMontanteVendas.
-	 * Método para permitir acesso ao valor do atributo montanteVendas.
+	 * 
      * Pré-condição: não há.
      * Pós-condição: retorna um float do valor do atributo montanteVendas.
 	 */
@@ -45,7 +45,7 @@ public final class Vendedor extends Funcionario implements SalarioFinal{
 
 	/**
 	 * Método setMontanteVendas.
-	 * Método que permite alteração do valor do atributo montanteVendas.
+	 * 
      * Pré-condição: recebimento de um float como parâmetro: montanteVendas.
      * Pós-condição: atribuição do novo valor no atributo montanteVendas. 
 	 */
@@ -55,7 +55,7 @@ public final class Vendedor extends Funcionario implements SalarioFinal{
 
 	/**
 	 * Método getMetaVendas.
-	 * Método para permitir acesso ao valor do atributo metaVendas.
+	 * 
      * Pré-condição: não há.
      * Pós-condição: retorna um float do valor do atributo metaVendas.
 	 */
@@ -65,7 +65,7 @@ public final class Vendedor extends Funcionario implements SalarioFinal{
 
 	/**
 	 * Método setMetaVendas.
-	 * Método que permite alteração do valor do atributo metaVendas.
+	 * 
      * Pré-condição: recebimento de um float como parâmetro: metaVendas.
      * Pós-condição: atribuição do novo valor no atributo metaVendas. 
 	 */
@@ -75,7 +75,7 @@ public final class Vendedor extends Funcionario implements SalarioFinal{
 	
 	/**
 	 * Método atualizaMontanteVendas.
-	  * Método que atualiza o valor do montante de vendas do vendedor, ou seja, o valor das vendas já realizadas pelo vendedor.
+	 * 
 	 * Pré-condição: recebimento de um float como parâmetro: valorVenda.
 	 * Pós-condição: retorna o valor do atributo montanteVendas após o incremento do valor de valorVenda passado como parâmetro.
 	 */
@@ -85,7 +85,7 @@ public final class Vendedor extends Funcionario implements SalarioFinal{
 
 	/**
 	 * Método calcularSalarioFinal.
-	 * Método para calcular o valor do atributo salarioFinal de acordo com as peculariedades do cargo.
+	 * 
 	 * Pré-condição: não há.
 	 * Pós-condição: retorna um float com o valor do atributo salarioFinal multiplicado pelo valor da BONIFICACAO.
 	 */
@@ -99,7 +99,7 @@ public final class Vendedor extends Funcionario implements SalarioFinal{
 	
 	/**
 	 * Método exibeInfoVendaVendedor.
-	 * Método para converter informações dos atributos relacionados à venda do vendedor para o formato de String.
+	 * 
 	 * Pré-condição: não há.
 	 * Pós-condição: retorna uma String com as informações dos atributos relacionados à venda do vendedor.
 	 */
@@ -110,7 +110,7 @@ public final class Vendedor extends Funcionario implements SalarioFinal{
 
 	/**
 	 * Método imprimeInformacoesFuncionario.
-	 * Método para imprimir em tela as informações referentes ao vendedor.
+	 * 
 	 * Pré-condição: não há.
 	 * Pós-condição: impressão dos valores dos atributos do vendedor em tela.
 	 */

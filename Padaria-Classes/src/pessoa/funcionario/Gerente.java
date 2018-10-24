@@ -1,18 +1,19 @@
-/*Alunos:
- * Guilherme Ribeiro de Carvalho - RGA: 2018.1907.071-9
- * Rafael Junio Xavier - RGA: 2018.1907.050-6
- * Igor José Tamagno - RGA: 2018.1907.034-4
- */
-
 package pessoa.funcionario;
 
+/**
+ * Alunos:
+ * @author Guilherme Ribeiro de Carvalho - RGA: 2018.1907.071-9
+ * @author Rafael Junio Xavier - RGA: 2018.1907.050-6
+ * @author Igor José Tamagno - RGA: 2018.1907.034-4
+ *
+ */
 public final class Gerente extends Funcionario{
 	private final float BONIFICACAO = 1.2f;
 
 	/**
-	 * Método construtor da classe Gerente.java.
-	 * Método para a inicialização da classe Gerente.
-	 * Pré-condição: recebimento de quatro String como parâmetros: nome, endereço, codigo e cnpj e um float: taxaDesconto. 
+	 * Método construtor da classe Gerente.
+	 * 
+	 * Pré-condição: recebimento de cinco String como parâmetros: nome, endereço, telefone, codigo e cnpj e um float: taxaDesconto. 
 	 * Pós-condição: atribução de valores dos atributos nome, endereço, cpf, telefone, codigo e salarioBase conforme recebidos pelos parâmetros.
 	 */
 	public Gerente(String nome, String endereco, String cpf, String telefone, String codigo,
@@ -22,7 +23,7 @@ public final class Gerente extends Funcionario{
 	
 	/**
 	 * Método getBONIFICACAO.
-	 * Método para permitir acesso ao valor do atributo BONIFICACAO.
+	 * 
      * Pré-condição: não há.
      * Pós-condição: retorna um float do valor do atributo BONIFICACAO.
 	 */
@@ -32,7 +33,7 @@ public final class Gerente extends Funcionario{
 	
 	/**
 	 * Método calcularSalarioFinal.
-	 * Método para calcular o valor do atributo salarioFinal de acordo com as peculariedades do cargo.
+	 * 
 	 * Pré-condição: não há.
 	 * Pós-condição: retorna um float com o valor do atributo salarioFinal multiplicado pelo valor da BONIFICACAO.
 	 */
@@ -43,7 +44,7 @@ public final class Gerente extends Funcionario{
 	
 	/**
 	 * Método imprimeInformacoesFuncionario.
-	 * Método para imprimir em tela as informações referentes ao gerente.
+	 * 
 	 * Pré-condição: não há.
 	 * Pós-condição: impressão dos valores dos atributos do gerente em tela.
 	 */

@@ -337,6 +337,8 @@ public final class Venda{
 		
 		cliente.atualizaCompraCliente(this.valorFinalCompra);
 		
+		vendedor.atualizaMontanteVendas(this.valorFinalCompra);
+		
 		this.infoCliente = cliente.exibeInfoVendaCliente();
 		
 		this.infoVendedor = vendedor.exibeInfoVendaVendedor();
@@ -359,6 +361,10 @@ public final class Venda{
 		
 		System.out.println(this.infoVendedor);
 		
+		System.out.println("\n------------------------PRODUTO(S) VENDIDOS------------------------");
+		
+		System.out.print(this.infoProduto);
+		
 		System.out.println("\n------------------------CLIENTE------------------------");
 		
 		System.out.println(this.infoCliente);
@@ -367,10 +373,6 @@ public final class Venda{
 		
 		if(this.numParcelas > 0)
 			System.out.printf("Número de parcelas: %d.\n", this.numParcelas);
-		
-		System.out.println("\n------------------------PRODUTO(S) VENDIDOS------------------------");
-		
-		System.out.print(this.infoProduto);
 		
 		System.out.println("------------------------VALOR TOTAL DA COMPRA------------------------");
 		System.out.print("\nValor total");

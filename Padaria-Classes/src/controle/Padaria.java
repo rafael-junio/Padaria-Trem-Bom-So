@@ -313,7 +313,7 @@ public class Padaria {
 	public boolean cadastrarClienteGold(String cpf) {
 
 		for (int i = 0; i < clientes.length; i++)
-			if (clientes[i] != null && clientes[i].ehIgual(cpf) && clientes[i].getValorCompras() > 250f && clientes[i].getValorCompras() < 500f){
+			if (!((clientes[i] instanceof ClienteGold) || (clientes[i] instanceof ClientePlatinum)) && clientes[i] != null && clientes[i].ehIgual(cpf) && clientes[i].getValorCompras() > 250f) { // && clientes[i].getValorCompras() < 500f){
 				ClienteGold cliente = new ClienteGold(clientes[i].getNome(), clientes[i].getEndereco(), clientes[i].getCpf(), clientes[i].getTelefone(), clientes[i].getValorCompras());
 				clientes[i] = null;
 				clientes[i] = cliente;

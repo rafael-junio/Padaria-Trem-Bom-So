@@ -76,22 +76,25 @@ public class TestePadariaMetodos{
 
 		
 		// Vendas
-//		System.out.println(tremBao.adicionarProdutoVenda("000000", 5));
-//		System.out.println(tremBao.realizarVenda("13683902000", "0001", "Débito", 3, 14, 10, 2018));
-//		System.out.println(tremBao.getComprasRealizadas().length);
+		System.out.println(tremBao.adicionarProdutoVenda("000000", 5));
+		System.out.println(tremBao.realizarVenda("366.062.040-89", "0001", "Débito", 0, 14, 10, 2018));
 //		
-//		tremBao.cadastrarClienteGold("13683902000");
+		System.out.println(tremBao.cadastrarClienteGold("366.062.040-89"));
 //		tremBao.imprimeInfoVendas();
 		
 		
-//		tremBao.adicionarProdutoVenda("000000", 1);
-//		tremBao.realizarVenda("36606204089", "0001", "Dinheiro", 0, 15, 10, 2018);
+		tremBao.adicionarProdutoVenda("000000", 1);
+		tremBao.realizarVenda("36606204089", "0001", "Dinheiro", 0, 15, 10, 2018);
 //		
-//		tremBao.adicionarProdutoVenda("000001", 1);
-//		tremBao.realizarVenda("36606204089", "0001", "Dinheiro", 0, 15, 10, 2018);
+		tremBao.cadastrarClientePlatinum("366.062.040-89");
 		
+		tremBao.adicionarProdutoVenda("000001", 1);
+		tremBao.realizarVenda("36606204089", "0001", "Dinheiro", 0, 15, 10, 2018);
 		
-//		tremBao.imprimeInfoVendas();
+		System.out.println(tremBao.cadastrarClienteGold("366.062.040-89"));
+		System.out.println(tremBao.cadastrarClientePlatinum("366.062.040-89"));
+		
+		tremBao.imprimeInfoVendas();
 //		tremBao.calcularImpostos();
 //		tremBao.imprimeInfoPadaria();
 		

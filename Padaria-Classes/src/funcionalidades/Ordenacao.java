@@ -5,14 +5,21 @@ import pessoa.fornecedor.Fornecedor;
 import pessoa.funcionario.Funcionario;
 import controle.produto.Produto;
 
+/**
+ * Alunos:
+ * @author Guilherme Ribeiro de Carvalho - RGA: 2018.1907.071-9
+ * @author Rafael Junio Xavier - RGA: 2018.1907.050-6
+ * @author Igor José Tamagno - RGA: 2018.1907.034-4
+ *
+ */
 public class Ordenacao {
 	public static int cont; // conta o número de posições não nulas no vetor.
 	
 	/**
 	 * Método ordena.
 	 *
-	 * Pré-condição: recebe um vetor Object a serem ordenados em ordem alfabética.
-	 * Pós-condição: não retorna valor. Chama métodos de ordenação.
+	 * Pré-condição: recebe um vetor Object a ser ordenado em ordem alfabética.
+	 * Pós-condição: não retorna valor. Chama métodos os de ordenação.
 	 */
 	public void ordena(Object[] obj) {
 		int posicaoFinal = insertion(obj);
@@ -22,7 +29,7 @@ public class Ordenacao {
 	/**
 	 * Método insertion.
 	 *
-	 * Pré-condição: recebe um vetor Object a serem ordenados em ordem alfabética.
+	 * Pré-condição: recebe um vetor Object a ser ordenado em ordem posições nula e não nulas.
 	 * Pós-condição: retorna um interio com o valor de posições não nulas no vetor Object. Ordena vetor em posições não nulas.
 	 */
 	private int insertion(Object[] a) {
