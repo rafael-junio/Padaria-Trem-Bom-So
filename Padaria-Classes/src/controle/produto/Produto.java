@@ -318,7 +318,8 @@ public abstract class Produto {
 					apelidos += i + "\n";
 		}
 		info += apelidos;
-		info += String.format("Unidades compradas: %d.\nPreço de final: %.2f.\n", this.quantidadeVenda, (this.precoFinal * this.quantidadeVenda));
+		info += String.format("Preço por unidade: %.2fR$.\n", this.precoFinal);
+		info += String.format("Unidades compradas: %d.\nPreço de final: %.2fR$.\n", this.quantidadeVenda, (this.precoFinal * this.quantidadeVenda));
 		return info;
 	}
 }
