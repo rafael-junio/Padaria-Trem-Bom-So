@@ -45,10 +45,9 @@ public abstract class Produto {
 		} else
 			this.precoCusto = precoCusto;
 
-//		if(apelido != null && apelido.length <= 5)
-//			this.apelido = apelido;
+		if(apelido.length <= 5)
+			this.apelido = apelido;
 		
-		this.apelido = apelido;
 		this.precoFinal = precoFinal;
 		this.quantidade = 0;
 		this.quantidadeVenda = 0;
