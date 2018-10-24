@@ -198,8 +198,8 @@ public class Estoque implements AlertaEstoque {
 	public void alertaEstoque(Object obj1) {
 		Produto produto = (Produto) obj1;
 
-		if (produto.getQuantidade() == 1)
-			System.err.println("ALERTA! PRODUTO CONTÉM APENAS 1 UNIDADE EM ESTOQUE!");
+		if (produto.getQuantidade() <= 1)
+			System.err.println("ALERTA! PRODUTO ATINGIU QUANTIDADE MÍNIMA DE 1 UNIDADE EM ESTOQUE!");
 	}
 
 }

@@ -25,6 +25,9 @@ import pessoa.funcionario.Vendedor;
 public class Padaria {
 	private final float PERCENTUALSOBREVENDAS = 0.15f;
 	private final float PERCENTUALSOBRESALARIOFUNCIONARIOS = 0.18f;
+
+	private static int contVendas = 0;
+	
 	private Ordenacao alpha;
 	private Fornecedor[] fornecedores;	
 	private Estoque estoque;
@@ -36,7 +39,6 @@ public class Padaria {
 	private float impostoVendas;
 	private float impostoFuncionarios;	
 	private float impostoTotal;
-	private int contVendas;
 	
 	/**
 	 * Método construtor da classe Padaria.
@@ -56,7 +58,6 @@ public class Padaria {
 		this.impostoTotal = 0;
 		this.impostoVendas = 0f;
 		this.alpha = new Ordenacao();
-		this.contVendas = 0;
 	}
 
 	/**
@@ -622,19 +623,6 @@ public class Padaria {
 			}
 			else
 				return true;
-	
-//			for (int i = 0; i < vendas.length; i++)
-//				if (vendas[i] == null) {
-//					vendas[i] = venda;
-//					vendas[i].calcularValorFinalCompra(numParcelas);
-//					this.montanteVendasGlobal += vendas[i].getValorFinalCompra();
-//					venda = null;
-//					this.comprasRealizadas = null;
-//					this.comprasRealizadas = new Produto[20];
-//					return true;
-//				}
-//			venda = null;
-//			return false;
 		}
 		else
 			return false;
@@ -815,7 +803,11 @@ public class Padaria {
 	 * Pós-condição: não retorna nada, apenas imprime os atributos do objeto Produto que possui o código passado como parâmetro.
 	 */
 	public void imprimeInfoEstoque(String codigo) {
-		this.estoque.procurarProduto(codigo).imprimeInformacoesProduto();
+		Produto imprime = this.estoque.procurarProduto(codigo);
+		if(imprime != null)
+			imprime.imprimeInformacoesProduto();
+		else
+			System.out.println("Produto não encontrado em estoque!");
 	}
 
 	/**

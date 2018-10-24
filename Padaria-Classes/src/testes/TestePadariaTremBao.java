@@ -18,9 +18,9 @@ public class TestePadariaTremBao{
 		
 		
 		// Clientes
-		tremBao.cadastrarClienteRegular("Rafael Junio Xavier", "Rua Recife 540", "366.062.040-89", "(31) 3464-7066");
+		tremBao.cadastrarClienteRegular("Bento Junio Xavier", "Rua Recife 540", "366.062.040-89", "(31) 3464-7066");
 		tremBao.cadastrarClienteRegular("Carlos Junino Xavier", "Rua Recife 540", "704.878.040-15", "(31) 3464-7786");		
-		tremBao.cadastrarClienteRegular("Gilberto Assis Rosa", "Rua Cordisburgo 685", "853.424.430-83", "(32) 3333-0001");
+		tremBao.cadastrarClienteRegular("Alberto Assis Rosa", "Rua Cordisburgo 685", "853.424.430-83", "(32) 3333-0001");
 
 		
 		// Fornecedores
@@ -37,7 +37,7 @@ public class TestePadariaTremBao{
 		tremBao.cadastrarVendedor("Pitolomeu Hernandes", "Rua 5 547", "456.522.360-00", "(11) 3323-9423", "0003", 1500f, 1000f);
 		
 		tremBao.cadastrarPadeiro("Arnaldo Pereira", "Rua Filomena", "533.384.960-95", "(16) 3946-2845", "0004", 1200f);
-		tremBao.cadastrarPadeiro("Lucas Beneguel", "Rua Filoginia", "923.173.470-90", "(64) 3580-0003", "0004", 1200f);
+		tremBao.cadastrarPadeiro("Lucas Beneguel", "Rua Filoginia", "923.173.470-90", "(64) 3580-0003", "0005", 1200f);
 		
 		
 		// Produtos NÃO Perecíveis
@@ -69,86 +69,20 @@ public class TestePadariaTremBao{
 		tremBao.getEstoque().cadastrarProdutoPerecivel("Bolo", "000019", tremBao.encontraFornecedor("000"), 15f, 21f, 14, 12, 2018, null, 5);
 		
 		// Vendas
-//		tremBao.adicionarProdutoVenda("000000", 1);
-//		System.out.println(tremBao.realizarVenda("704.878.040-15", "0001", "Débito", 0, 14, 10, 2018));
-//		
-//		tremBao.adicionarProdutoVenda("000000", 1);
-//		System.out.println(tremBao.realizarVenda("704.878.040-15", "0001", "Débito", 0, 14, 10, 2018));
-//		
-//		tremBao.adicionarProdutoVenda("000000", 1);
-//		System.out.println(tremBao.realizarVenda("704.878.040-15", "0001", "Débito", 0, 14, 10, 2018));
-//		
-//		tremBao.adicionarProdutoVenda("000000", 1);
-//		System.out.println(tremBao.realizarVenda("704.878.040-15", "0001", "Débito", 0, 14, 10, 2018));
-//		
-//		tremBao.adicionarProdutoVenda("000000", 1);
-//		System.out.println(tremBao.realizarVenda("704.878.040-15", "0001", "Débito", 0, 14, 10, 2018));
-//		
-//		tremBao.adicionarProdutoVenda("000000", 1);
-//		System.out.println(tremBao.realizarVenda("704.878.040-15", "0001", "Débito", 0, 14, 10, 2018));
-//		
-//		tremBao.adicionarProdutoVenda("000000", 1);
-//		System.out.println(tremBao.realizarVenda("704.878.040-15", "0001", "Débito", 0, 14, 10, 2018));
-//		
-//		tremBao.adicionarProdutoVenda("000000", 1);
-//		System.out.println(tremBao.realizarVenda("704.878.040-15", "0001", "Débito", 0, 14, 10, 2018));
-//		
-//		tremBao.adicionarProdutoVenda("000000", 1);
-//		System.out.println(tremBao.realizarVenda("704.878.040-15", "0001", "Débito", 0, 14, 10, 2018));
-//		
-//		tremBao.adicionarProdutoVenda("000000", 1);
-//		System.out.println(tremBao.realizarVenda("704.878.040-15", "0001", "Débito", 0, 14, 10, 2018));
-//		
-//		tremBao.adicionarProdutoVenda("000000", 1);
-//		System.out.println(tremBao.realizarVenda("704.878.040-15", "0001", "Débito", 0, 14, 10, 2018));
-//		
-//		tremBao.adicionarProdutoVenda("000000", 1);
-//		System.out.println(tremBao.realizarVenda("704.878.040-15", "0001", "Débito", 0, 14, 10, 2018));
-//		
-//		tremBao.adicionarProdutoVenda("000000", 1);
-//		System.out.println(tremBao.realizarVenda("704.878.040-15", "0001", "Débito", 0, 14, 10, 2018));
-//		
-//		tremBao.adicionarProdutoVenda("000000", 1);
-//		System.out.println(tremBao.realizarVenda("704.878.040-15", "0001", "Débito", 0, 14, 10, 2018));
-//		
-//		tremBao.adicionarProdutoVenda("000000", 1);
-//		System.out.println(tremBao.realizarVenda("704.878.040-15", "0001", "Débito", 0, 14, 10, 2018));
-//		
-//		tremBao.adicionarProdutoVenda("000000", 1);
-//		System.out.println(tremBao.realizarVenda("704.878.040-15", "0001", "Débito", 0, 14, 10, 2018));
-//		
-//		tremBao.adicionarProdutoVenda("000000", 1);
-//		System.out.println(tremBao.realizarVenda("704.878.040-15", "0001", "Débito", 0, 14, 10, 2018));
-//		
-//		tremBao.adicionarProdutoVenda("000000", 1);
-//		System.out.println(tremBao.realizarVenda("704.878.040-15", "0001", "Débito", 0, 14, 10, 2018));
-//		
-//		tremBao.adicionarProdutoVenda("000000", 1);
-//		System.out.println(tremBao.realizarVenda("704.878.040-15", "0001", "Débito", 0, 14, 10, 2018));
-//		
-//		tremBao.adicionarProdutoVenda("000000", 1);
-//		System.out.println(tremBao.realizarVenda("704.878.040-15", "0001", "Débito", 0, 15, 10, 2018));
-//		
-//		System.out.println("20 vendas!");
-//		
-//		tremBao.adicionarProdutoVenda("000000", 1);
-//		System.out.println(tremBao.realizarVenda("704.878.040-15", "0001", "Débito", 0, 15, 10, 2018));
-//		
-//		tremBao.adicionarProdutoVenda("000000", 1);
-//		System.out.println(tremBao.realizarVenda("704.878.040-15", "0001", "Débito", 0, 15, 10, 2018));
-//		
-//		tremBao.adicionarProdutoVenda("000000", 1);
-//		System.out.println(tremBao.realizarVenda("704.878.040-15", "0001", "Débito", 0, 15, 10, 2018));
+		tremBao.adicionarProdutoVenda("000000", 5);
+		tremBao.realizarVenda("704.878.040-15", "0001", "Débito", 0, 14, 10, 2018);
 		
-//		tremBao.adicionarProdutoVenda("000000", 1);
-//		tremBao.realizarVenda("36606204089", "0001", "Dinheiro", 0, 15, 10, 2018);
-//		
-//		tremBao.adicionarProdutoVenda("000001", 1);
-//		tremBao.realizarVenda("36606204089", "0001", "Dinheiro", 0, 15, 10, 2018);
+		
+		tremBao.adicionarProdutoVenda("000000", 1);
+		tremBao.realizarVenda("36606204089", "0001", "Dinheiro", 0, 15, 10, 2018);
+		
+		tremBao.adicionarProdutoVenda("000001", 1);
+		tremBao.realizarVenda("36606204089", "0001", "Dinheiro", 0, 15, 10, 2018);
 								
 		TelaPrincipal p = new TelaPrincipal(tremBao);
 		p.main(null);
 	}
 }
+
 
 

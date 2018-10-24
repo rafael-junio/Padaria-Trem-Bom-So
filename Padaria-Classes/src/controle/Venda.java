@@ -375,7 +375,7 @@ public class Venda{
 		System.out.print("\nValor total");
 		
 		if (this.numParcelas > 0)
-			System.out.print(" (Mais acréscimo de 2% sobre as vendas)");
+			System.out.print(" (Com acréscimo de 2% sobre as vendas)");
 				
 		System.out.printf(": %.2fR$.\n\n", this.valorFinalCompra);
 	}
