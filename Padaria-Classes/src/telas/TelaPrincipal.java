@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 
 import controle.Padaria;
 import controle.produto.Produto;
+import pessoa.funcionario.Funcionario;
 import pessoa.funcionario.Padeiro;
 
 import javax.swing.JButton;
@@ -142,7 +143,7 @@ public class TelaPrincipal{
 				if(cpf == null)
 					JOptionPane.showMessageDialog(null, "Operação cancelada");
 				else if(padaria.descadastrarCliente(cpf)){
-					JOptionPane.showMessageDialog(null, "Cliente descadastrado com suecsso");
+					JOptionPane.showMessageDialog(null, "Cliente descadastrado com sucesso");
 				}
 				else {
 					JOptionPane.showMessageDialog(null, "CPF não encontrado no sistema");
@@ -159,7 +160,7 @@ public class TelaPrincipal{
 				if(codigo == null)
 					JOptionPane.showMessageDialog(null, "Operação cancelada");
 				else if(padaria.descadastrarFornecedor(codigo)) {
-					JOptionPane.showMessageDialog(null, "Fornecedor descadastrado com suecsso");
+					JOptionPane.showMessageDialog(null, "Fornecedor descadastrado com sucesso");
 				}
 				else
 					JOptionPane.showMessageDialog(null, "Código não encontrado no sistema");
@@ -175,7 +176,7 @@ public class TelaPrincipal{
 				if(codigo == null)
 					JOptionPane.showMessageDialog(null, "Operação cancelada");
 				else if(padaria.descadastrarFuncionario(codigo)){
-					JOptionPane.showMessageDialog(null, "Funcionario descadastrado com suecsso");
+					JOptionPane.showMessageDialog(null, "Funcionario descadastrado com sucesso");
 				}
 				else {
 					JOptionPane.showMessageDialog(null, "Código não encontrado no sistema");
@@ -194,14 +195,20 @@ public class TelaPrincipal{
 					codigo = JOptionPane.showInputDialog("Digite o código do padeiro (4 dígitos)");
 					try {
 						if(padaria.encontraFuncionario(codigo) != null) {
-							String horasTrabalhadas = JOptionPane.showInputDialog("Digite quantas horas extras o padeiro trabalhou");
-							Padeiro padeiro = (Padeiro) padaria.encontraFuncionario(codigo);
-							if(padeiro.informaHoraNoturnaPadeiro(Integer.parseInt(horasTrabalhadas))) {
-								padeiro.calcularSalarioFinal();
-								JOptionPane.showMessageDialog(null, "Adicional noturno do mês cadastrado com sucesso");
+							Funcionario funcionario = padaria.encontraFuncionario(codigo);
+							if(funcionario instanceof Padeiro) {
+								String horasTrabalhadas = JOptionPane.showInputDialog("Digite quantas horas extras o padeiro trabalhou");
+								Padeiro padeiro = (Padeiro) funcionario;
+								if(padeiro.informaHoraNoturnaPadeiro(Integer.parseInt(horasTrabalhadas))) {
+									padeiro.calcularSalarioFinal();
+									JOptionPane.showMessageDialog(null, "Adicional noturno do mês cadastrado com sucesso");
+								}
+								else
+									JOptionPane.showMessageDialog(null, "O valor deve estar entre 0 e 100");
 							}
-							else
-								JOptionPane.showMessageDialog(null, "Valor inválido!");
+							else {
+								JOptionPane.showMessageDialog(null, "Digite um código de um padeiro!");
+							}
 						}
 						else
 							JOptionPane.showMessageDialog(null, "Código do padeiro inválido!");
@@ -209,10 +216,9 @@ public class TelaPrincipal{
 					catch (Exception exception) {
 						JOptionPane.showMessageDialog(null, "Digite um número de horas válido!");
 					}
-					
 				}
 				catch (Exception NullPointerException) {
-					JOptionPane.showMessageDialog(null, "Número de horas inválido");
+					JOptionPane.showMessageDialog(null, "Digite um código válido");
 				}		
 			}
 		});

@@ -269,7 +269,6 @@ public class TelaVendeProduto {
 						JOptionPane.showMessageDialog(null, "Produto adicionado no carrinho com sucesso");
 						cont++;
 						btnAdicionaCarrinho.setText("Adicionar produto ao carrinho ( "+ String.valueOf(cont) + " )");
-						padaria.getEstoque().alertaEstoque(padaria.getEstoque().procurarProduto(txtCodigo.getText()));
 						txtCodigo.setText(null);
 						txtQuantidade.setText(null);
 					}

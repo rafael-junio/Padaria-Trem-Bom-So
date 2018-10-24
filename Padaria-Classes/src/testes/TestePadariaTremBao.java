@@ -50,14 +50,14 @@ public class TestePadariaTremBao{
 		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Polvilho Azedo Yoki", "000006", tremBao.encontraFornecedor("001"), 7.8f, 11.20f, null, 28);
 		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Polvilho Doce Yoki", "000007", tremBao.encontraFornecedor("001"), 35f, 44.99f, null, 23);
 		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Farinha Láctea Nestlé", "000008", tremBao.encontraFornecedor("001"), 8.1f, 11.19f, null, 17);
-		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Achocolatado", "000009", tremBao.encontraFornecedor("001"), 5.1f, 6.85f, null, 1);
+		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Achocolatado", "000009", tremBao.encontraFornecedor("001"), 5.1f, 6.85f, null, 9);
 		
 		// Produto TESTE para CLIENTE GOLD E PLATINUM
 		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("ZZZ PRODUTO TESTE GOLD/PLATINUM", "999999", tremBao.encontraFornecedor("000"), 50.00f, 100f, null, 30);
 		
 		// Produtos Perecíveis
 		String[] apelidoPao = new String [] {"cacetinho", "pão de sal"};
-		tremBao.getEstoque().cadastrarProdutoPerecivel("Pão de queijo", "000010", tremBao.encontraFornecedor("001"), 2f, 5f, 1, 10, 2018, null, 30);
+		tremBao.getEstoque().cadastrarProdutoPerecivel("Pão de queijo", "000010", tremBao.encontraFornecedor("001"), 2f, 5f, 1, 12, 2018, null, 30);
 		tremBao.getEstoque().cadastrarProdutoPerecivel("Pão francês", "000011", tremBao.encontraFornecedor("001"), 1f, 3f, 5, 11, 2018, apelidoPao, 24);
 		tremBao.getEstoque().cadastrarProdutoPerecivel("Esfiha", "000012", tremBao.encontraFornecedor("001"), 2f, 4f, 5, 12, 2018, null, 16);
 		tremBao.getEstoque().cadastrarProdutoPerecivel("Coca-Cola 2l", "000013", tremBao.encontraFornecedor("001"), 4f, 9.5f, 12, 04, 2019, null, 20);
