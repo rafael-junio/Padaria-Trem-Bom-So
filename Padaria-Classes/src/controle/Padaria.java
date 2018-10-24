@@ -714,7 +714,6 @@ public class Padaria {
 		boolean encontra = false;
 		for (int i = 0; !encontra && i < clientes.length; i++)
 			if (clientes[i] != null && clientes[i].ehIgual(cpf)) {
-				JOptionPane.showMessageDialog(null, "Informação solicitada impressa no console");
 				System.out.println();
 				clientes[i].imprimeInformacoesCliente();
 				encontra = true;
@@ -748,7 +747,6 @@ public class Padaria {
 		boolean encontra = false;
 		for (int i = 0; !encontra && i < fornecedores.length; i++)
 			if (fornecedores[i] != null && fornecedores[i].ehIgual(codigo)) {
-				JOptionPane.showMessageDialog(null, "Informação solicitada impressa no console");
 				System.out.println();
 				fornecedores[i].imprimeInformacoesFornecedor();
 				encontra = true;
@@ -784,7 +782,6 @@ public class Padaria {
 		boolean encontra = false;
 		for (int i = 0; !encontra && i < funcionarios.length; i++)
 			if (funcionarios[i] != null && funcionarios[i].ehIgual(codigo)) {
-				JOptionPane.showMessageDialog(null, "Informação solicitada impressa no console");
 				System.out.println();
 				funcionarios[i].imprimeInformacoesFuncionario();
 				encontra = true;
