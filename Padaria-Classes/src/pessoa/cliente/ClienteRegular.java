@@ -25,7 +25,7 @@ public final class ClienteRegular extends Cliente {
 	 * Pós-condição: retorna o valor do atributo valorCompras após o incremento do valor de valorCompra passado como parâmetro.
 	 */
 	public float atualizaCompraCliente(float valorCompra) {
-		return this.valorCompras = valorCompra;
+		return this.valorCompras += valorCompra;
 	}
 	
 	/**

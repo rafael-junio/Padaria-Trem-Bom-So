@@ -141,11 +141,7 @@ public class TelaVendeProduto {
 		frmVendaDeProdutos.getContentPane().add(btnNewButton);
 		
 		
-		txtParcela.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-			}
-		});
+		
 		txtParcela.setBounds(157, 92, 33, 20);
 		
 		rdbtnVista.addActionListener(new ActionListener() {
@@ -206,9 +202,9 @@ public class TelaVendeProduto {
 					if(cpfValido && cont > 0) {
 						padaria.realizarVenda(CPF, codigoVendedor, pagamento, parcela, dia, mes, ano);
 						JOptionPane.showMessageDialog(null, "Venda concluída!");
-						if(padaria.cadastrarClienteGold(txtCPF.getText()));
+						if(padaria.cadastrarClienteGold(txtCPF.getText()))
 							JOptionPane.showMessageDialog(null, "Cliente de CPF: " + txtCPF.getText() + " agora é ClienteGold!");
-						if(padaria.cadastrarClientePlatinum(txtCPF.getText()));
+						if(padaria.cadastrarClientePlatinum(txtCPF.getText()))
 							JOptionPane.showMessageDialog(null, "Cliente de CPF: " + txtCPF.getText() + " agora é ClientePlatinum!");
 						frmVendaDeProdutos.dispose();
 					}

@@ -84,9 +84,11 @@ public class TestePadariaMetodos{
 //		tremBao.imprimeInfoVendas();
 		
 		
-//		tremBao.adicionarProdutoVenda("000001", 5);
-//		tremBao.adicionarProdutoVenda("000000", 2);
-//		tremBao.realizarVenda("13683902000", "0001", "Dinheiro", 0, 15, 10, 2018);
+//		tremBao.adicionarProdutoVenda("000000", 1);
+//		tremBao.realizarVenda("36606204089", "0001", "Dinheiro", 0, 15, 10, 2018);
+//		
+//		tremBao.adicionarProdutoVenda("000001", 1);
+//		tremBao.realizarVenda("36606204089", "0001", "Dinheiro", 0, 15, 10, 2018);
 		
 		
 //		tremBao.imprimeInfoVendas();

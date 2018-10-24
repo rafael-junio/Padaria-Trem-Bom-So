@@ -46,7 +46,7 @@ public class PadariaTeste {
 		tremBao.getEstoque().cadastrarProdutoPerecivel("DDD", "000003", tremBao.encontraFornecedor("001"), 20f, 30f, 1, 10, 2019, null, 30);
 		
 		tremBao.adicionarProdutoVenda("000000", 1);
-		tremBao.adicionarProdutoVenda("000001", 3);
+		tremBao.adicionarProdutoVenda("000000", 1);
 		tremBao.realizarVenda("444.163.818-32", "0001", "Dinheiro", 0, 15, 10, 2018);
 
 		tremBao.cadastrarClienteGold("444.163.818-32");
