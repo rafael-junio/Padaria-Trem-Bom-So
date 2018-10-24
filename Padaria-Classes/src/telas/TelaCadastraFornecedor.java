@@ -165,7 +165,7 @@ public class TelaCadastraFornecedor {
 					}
 					else if (!checaRecorrente.isSelected() && CNPJ && !jaCadastrado && !codigo){
 						padaria.cadastrarFornecedorOcasional(txtNome.getText(), txtEndereco.getText(), txtCodigo.getText(), txtCNPJ.getText());
-						JOptionPane.showMessageDialog(null, "Fornecedor não recorrente cadastrado!");
+						JOptionPane.showMessageDialog(null, "Fornecedor ocasional cadastrado!");
 						CadastrarFornecedores.setVisible(false);
 					}	
 				}

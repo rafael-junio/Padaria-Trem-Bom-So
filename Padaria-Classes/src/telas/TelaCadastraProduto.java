@@ -230,16 +230,16 @@ public class TelaCadastraProduto {
 						
 					}
 				}
-				if(!data) {
+				if(!data && chckbxPerecvel.isSelected()) {
 					JOptionPane.showMessageDialog(null, "Data inválida!");
 				}
-				else if(data && (txtCodigo.getText().equals("   ") || padaria.encontraFornecedor(txtCodigo.getText()) == null)){
+				else if((data || !chckbxPerecvel.isSelected()) && (txtCodigo.getText().equals("   ") || padaria.encontraFornecedor(txtCodigo.getText()) == null)){
 					JOptionPane.showMessageDialog(null, "Fornecedor inválido");
 				}
-				else if(data && (txtQuantidade.getText().equals("  ") || Integer.parseInt(txtQuantidade.getText()) > 30 || Integer.parseInt(txtQuantidade.getText()) <= 0 )) {
+				else if((data || !chckbxPerecvel.isSelected()) && (txtQuantidade.getText().equals("  ") || Integer.parseInt(txtQuantidade.getText()) > 30 || Integer.parseInt(txtQuantidade.getText()) <= 0 )) {
 					JOptionPane.showMessageDialog(null, "Quantidade para cadastro no estoque inválido");
 				}
-				else if(data && (txtCodigoProduto.getText().equals("      ") || padaria.encontraFornecedor(txtCodigo.getText()) == null)){
+				else if((data || !chckbxPerecvel.isSelected()) && (txtCodigoProduto.getText().equals("      ") || padaria.encontraFornecedor(txtCodigo.getText()) == null)){
 					JOptionPane.showMessageDialog(null, "Código inválido, deve ter 6 dígitos");
 				}
 				else {	

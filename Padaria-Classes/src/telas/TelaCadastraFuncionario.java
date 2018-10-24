@@ -16,6 +16,7 @@ import funcionalidades.ValidaDocumento;
 
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
+import java.awt.Font;
 
 public class TelaCadastraFuncionario {
 	
@@ -88,6 +89,8 @@ public class TelaCadastraFuncionario {
 					rdbtnPadeiro.setSelected(false);
 					rdbtnVendedor.setSelected(true);
 					rdbtnGerente.setSelected(false);
+					txtMeta.setEnabled(true);
+					txtMeta.setText(null);
 				}				
 			}
 		});
@@ -98,7 +101,9 @@ public class TelaCadastraFuncionario {
 				if (rdbtnGerente.isSelected() == true) {
 					rdbtnPadeiro.setSelected(false);
 					rdbtnVendedor.setSelected(false);
-					rdbtnGerente.setSelected(true);	
+					rdbtnGerente.setSelected(true);
+					txtMeta.setEnabled(false);
+					txtMeta.setText(null);
 				}
 			}
 		});
@@ -111,6 +116,7 @@ public class TelaCadastraFuncionario {
 					rdbtnPadeiro.setSelected(true);
 					rdbtnVendedor.setSelected(false);
 					rdbtnGerente.setSelected(false);
+					txtMeta.setEnabled(false);
 				}
 			}
 		});
@@ -161,6 +167,7 @@ public class TelaCadastraFuncionario {
 		frmCadastrarFuncionrios.getContentPane().add(lblNewLabel_1);
 		
 		txtSalario = new JFormattedTextField(createFormatter("####.##"));
+		txtSalario.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		txtSalario.setBounds(267, 146, 46, 20);
 		frmCadastrarFuncionrios.getContentPane().add(txtSalario);
 		txtSalario.setColumns(10);

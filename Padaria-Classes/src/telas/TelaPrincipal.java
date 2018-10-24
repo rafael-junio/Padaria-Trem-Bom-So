@@ -191,18 +191,24 @@ public class TelaPrincipal{
 				String codigo = "";
 				try {
 					codigo = JOptionPane.showInputDialog("Digite o código do padeiro (4 dígitos)");
-					if(padaria.encontraFuncionario(codigo) != null) {
-						String horasTrabalhadas = JOptionPane.showInputDialog("Digite quantas horas extras o padeiro trabalhou");
-						Padeiro padeiro = (Padeiro) padaria.encontraFuncionario(codigo);
-						padeiro.informaHoraNoturnaPadeiro(Integer.parseInt(horasTrabalhadas));
-						padeiro.calcularSalarioFinal();
-						JOptionPane.showMessageDialog(null, "Adicional noturno do mês cadastrado com sucesso");
+					try {
+						if(padaria.encontraFuncionario(codigo) != null) {
+							String horasTrabalhadas = JOptionPane.showInputDialog("Digite quantas horas extras o padeiro trabalhou");
+							Padeiro padeiro = (Padeiro) padaria.encontraFuncionario(codigo);
+							padeiro.informaHoraNoturnaPadeiro(Integer.parseInt(horasTrabalhadas));
+							padeiro.calcularSalarioFinal();
+							JOptionPane.showMessageDialog(null, "Adicional noturno do mês cadastrado com sucesso");
+						}
+						else
+							JOptionPane.showMessageDialog(null, "Código do padeiro inválido!");
 					}
-					else
-						JOptionPane.showMessageDialog(null, "Código do padeiro invalido ou número de horas inválido");
+					catch (Exception exception) {
+						JOptionPane.showMessageDialog(null, "Digite um número de horas válido!");
+					}
+					
 				}
 				catch (Exception NullPointerException) {
-					JOptionPane.showMessageDialog(null, "Código do padeiro invalido ou número de horas inválido");
+					JOptionPane.showMessageDialog(null, "Número de horas inválido");
 				}		
 			}
 		});
@@ -227,16 +233,16 @@ public class TelaPrincipal{
 						try {	
 							Produto produto = padaria.getEstoque().procurarProduto(codigoProduto);
 							
-							int quantidade = Integer.parseInt(JOptionPane.showInputDialog(null, "Insira a quantidade a ser adicionada ao estoque."));
+							int quantidade = Integer.parseInt(JOptionPane.showInputDialog(null, "Quantas unidades serão adicionadas ao estoque?. Estoque atual: " 
+									+ padaria.getEstoque().procurarProduto(codigoProduto).getQuantidade() + " unidades"));
 							if(produto.verificaQuantidadeProduto(quantidade)) {
-								produto.setQuantidade(produto.getQuantidade() + quantidade);
 								JOptionPane.showMessageDialog(null, "Estoque reabastecido!");
 							}
 							else
 								JOptionPane.showMessageDialog(null, "Não foi possível reabastercer o estoque pois a quantidade inserida ultrapassa o limite de 30 unidades por produto.");
 						}
 						catch (Exception exception) {
-							JOptionPane.showMessageDialog(null, "Ocorreu um erro, por favor digite um código e uma quantidade valida!");
+							JOptionPane.showMessageDialog(null, "Insira uma quantidade valida!");
 						}
 					}
 					else

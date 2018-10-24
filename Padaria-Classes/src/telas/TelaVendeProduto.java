@@ -70,7 +70,7 @@ public class TelaVendeProduto {
 		int dia = c.get(Calendar.DAY_OF_MONTH);
 		int mes = c.get(Calendar.MONTH) + 1;
 		int ano = c.get(Calendar.YEAR);
-		
+
 		frmVendaDeProdutos = new JFrame();
 		frmVendaDeProdutos.setTitle("Venda de produtos");
 		frmVendaDeProdutos.setBounds(100, 100, 450, 300);
@@ -206,9 +206,9 @@ public class TelaVendeProduto {
 						padaria.realizarVenda(CPF, codigoVendedor, pagamento, parcela, dia, mes, ano);
 						JOptionPane.showMessageDialog(null, "Venda concluída!");
 						if(padaria.cadastrarClienteGold(txtCPF.getText()))
-							JOptionPane.showMessageDialog(null, "Cliente de CPF: " + txtCPF.getText() + " agora é ClienteGold!");
+							JOptionPane.showMessageDialog(null, "Cliente de CPF: " + txtCPF.getText() + " agora é Cliente Gold!");
 						if(padaria.cadastrarClientePlatinum(txtCPF.getText()))
-							JOptionPane.showMessageDialog(null, "Cliente de CPF: " + txtCPF.getText() + " agora é ClientePlatinum!");
+							JOptionPane.showMessageDialog(null, "Cliente de CPF: " + txtCPF.getText() + " agora é Cliente Platinum!");
 						frmVendaDeProdutos.dispose();
 					}
 					else
