@@ -235,17 +235,13 @@ public class TelaVendeProduto {
 		chckbxFinalizarVenda.setBounds(10, 184, 137, 23);
 		frmVendaDeProdutos.getContentPane().add(chckbxFinalizarVenda);
 		
-		JLabel lblProdutosNoCarrinho = new JLabel("Produtos no carrinho(0)");
-		lblProdutosNoCarrinho.setBounds(280, 135, 184, 14);
-		frmVendaDeProdutos.getContentPane().add(lblProdutosNoCarrinho);
-		
-		JButton btnNewButton_1 = new JButton("Adicionar produto ao carrinho");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton btnAdicionaCarrinho = new JButton("Adicionar produto ao carrinho");
+		btnAdicionaCarrinho.addActionListener(new ActionListener() {
 			@SuppressWarnings("unlikely-arg-type")
 			public void actionPerformed(ActionEvent e) {
 				
 				
-				if(txtCodigo.getText().equals("      ")) {
+				if(txtCodigo.getText().equals("      ") || !padaria.getEstoque().produdoEmEstoque(txtCodigo.getText())) {
 					JOptionPane.showMessageDialog(null, "Código do produto inválido");
 				}
 				else if(txtCodigoVendedor.getText().equals("    ") || padaria.encontraVendedor(txtCodigoVendedor.getText()) == null) {
@@ -259,21 +255,27 @@ public class TelaVendeProduto {
 				else if(txtData.equals("  /  /    "))
 					JOptionPane.showMessageDialog(null, "Data inválida");
 				else if(((rdbtnCrdito.isSelected() && Integer.parseInt(txtParcela.getText()) > 0) || rdbtnVista.isSelected())){	
+					boolean carrinhoSucesso = false;
 					try {
-						padaria.adicionarProdutoVenda(txtCodigo.getText(), Integer.parseInt(txtQuantidade.getText()));
+						carrinhoSucesso = padaria.adicionarProdutoVenda(txtCodigo.getText(), Integer.parseInt(txtQuantidade.getText()));
 					} catch (Exception NumberFormatException) {
 						JOptionPane.showMessageDialog(null, "Ocorreu um erro, por favor preencha todos os campos corretamente.");				
 					}
-					JOptionPane.showMessageDialog(null, "Produto adicionado no carrinho com sucesso");
-					cont++;
-					lblProdutosNoCarrinho.setText(String.valueOf("Produtos no carrinho("+ String.valueOf(cont) + ")"));
+					if(carrinhoSucesso) {
+						JOptionPane.showMessageDialog(null, "Produto adicionado no carrinho com sucesso");
+						cont++;
+						btnAdicionaCarrinho.setText("Adicionar produto ao carrinho ( "+ String.valueOf(cont) + " )");
+					}
+					else {
+						JOptionPane.showMessageDialog(null, "Não foi possível adicionar o produto ao carrinho");
+					}
 				}
 				else
 					JOptionPane.showMessageDialog(null, "Selecione a opção de crédito ou a vista e preencha a quantidade de parcelas caso for crédito");
 			}
 		});
-		btnNewButton_1.setBounds(200, 161, 224, 46);
-		frmVendaDeProdutos.getContentPane().add(btnNewButton_1);
+		btnAdicionaCarrinho.setBounds(157, 171, 267, 36);
+		frmVendaDeProdutos.getContentPane().add(btnAdicionaCarrinho);
 		
 		
 	}
