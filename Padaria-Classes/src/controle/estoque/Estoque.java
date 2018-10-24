@@ -46,6 +46,9 @@ public class Estoque implements AlertaEstoque {
 	public boolean cadastrarProdutoNaoPerecivel(String nome, String codigo, Fornecedor fornecedor, float precoCusto,
 			float precoFinal, String[] apelido, int quantidade) {
 
+		if(fornecedor == null)
+			return false;
+		
 		ProdutoNaoPerecivel novoProduto = new ProdutoNaoPerecivel(nome, codigo, fornecedor, precoCusto, precoFinal,
 				apelido);
 
@@ -69,6 +72,9 @@ public class Estoque implements AlertaEstoque {
 	public boolean cadastrarProdutoPerecivel(String nome, String codigo, Fornecedor fornecedor, float precoCusto,
 			float precoFinal, int dia, int mes, int ano, String[] apelido, int quantidade) {
 
+		if(fornecedor == null)
+			return false;
+		
 		ProdutoPerecivel novoProduto = new ProdutoPerecivel(nome, codigo, fornecedor, precoCusto, precoFinal, dia, mes,
 				ano, apelido);
 

@@ -45,10 +45,11 @@ public abstract class Produto {
 		} else
 			this.precoCusto = precoCusto;
 
-//		if(apelido.length <= 5)
-			this.precoFinal = precoFinal;
+//		if(apelido != null && apelido.length <= 5)
+//			this.apelido = apelido;
 		
 		this.apelido = apelido;
+		this.precoFinal = precoFinal;
 		this.quantidade = 0;
 		this.quantidadeVenda = 0;
 
@@ -311,13 +312,13 @@ public abstract class Produto {
 		String info = String.format("Produto: %s\nCódigo: %s\n", this.nome, this.codigo);
 		String apelidos = "";
 
-		if (hasApelido()) {
-			apelidos += "Apelido(s): \n";
-			for (String i : apelido)
-				if (i != null)
-					apelidos += i + "\n";
-		}
-		info += apelidos;
+//		if (hasApelido()) {
+//			apelidos += "Apelido(s): \n";
+//			for (String i : apelido)
+//				if (i != null)
+//					apelidos += i + "\n";
+//		}
+//		info += apelidos;
 		info += String.format("Unidades compradas: %d.\nPreço de final: %.2f.\n", this.quantidadeVenda, (this.precoFinal * this.quantidadeVenda));
 		return info;
 	}
