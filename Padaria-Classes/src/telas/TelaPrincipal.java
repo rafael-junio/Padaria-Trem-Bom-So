@@ -10,6 +10,7 @@ import controle.produto.Produto;
 import pessoa.funcionario.Padeiro;
 
 import javax.swing.JButton;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
@@ -70,7 +71,7 @@ public class TelaPrincipal{
 				
 			}
 		});
-		btnCadastrarProduto.setBounds(10, 22, 197, 23);
+		btnCadastrarProduto.setBounds(10, 11, 197, 23);
 		frmPadariaTremBo.getContentPane().add(btnCadastrarProduto);
 		
 		JButton btnVenderProduto = new JButton("Vender produto");
@@ -81,7 +82,7 @@ public class TelaPrincipal{
 				p.main(null);
 			}
 		});
-		btnVenderProduto.setBounds(227, 22, 197, 23);
+		btnVenderProduto.setBounds(227, 11, 197, 23);
 		frmPadariaTremBo.getContentPane().add(btnVenderProduto);
 		
 		JButton btnImprimirInformaes = new JButton("Verifique aqui as informa\u00E7\u00F5es que queira mostrar");
@@ -93,7 +94,7 @@ public class TelaPrincipal{
 				p.main(null);
 			}
 		});
-		btnImprimirInformaes.setBounds(25, 221, 383, 29);
+		btnImprimirInformaes.setBounds(25, 216, 383, 34);
 		frmPadariaTremBo.getContentPane().add(btnImprimirInformaes);
 		
 		JButton btnNewButton = new JButton("Cadastrar cliente");
@@ -106,7 +107,7 @@ public class TelaPrincipal{
 				
 			}
 		});
-		btnNewButton.setBounds(10, 56, 197, 23);
+		btnNewButton.setBounds(10, 45, 197, 23);
 		frmPadariaTremBo.getContentPane().add(btnNewButton);
 		
 		JButton btnCadastrarFornecedor = new JButton("Cadastrar Fornecedor");
@@ -118,7 +119,7 @@ public class TelaPrincipal{
 				p.main(null);
 			}
 		});
-		btnCadastrarFornecedor.setBounds(10, 90, 197, 23);
+		btnCadastrarFornecedor.setBounds(10, 79, 197, 23);
 		frmPadariaTremBo.getContentPane().add(btnCadastrarFornecedor);
 		
 		JButton btnCadastrarFuncionrio = new JButton("Cadastrar Funcion\u00E1rio");
@@ -130,7 +131,7 @@ public class TelaPrincipal{
 				
 			}
 		});
-		btnCadastrarFuncionrio.setBounds(10, 124, 197, 23);
+		btnCadastrarFuncionrio.setBounds(10, 113, 197, 23);
 		frmPadariaTremBo.getContentPane().add(btnCadastrarFuncionrio);
 		
 		JButton btnRemoverCliente = new JButton("Remover cliente");
@@ -147,7 +148,7 @@ public class TelaPrincipal{
 				}
 			}
 		});
-		btnRemoverCliente.setBounds(227, 56, 197, 23);
+		btnRemoverCliente.setBounds(227, 45, 197, 23);
 		frmPadariaTremBo.getContentPane().add(btnRemoverCliente);
 		
 		JButton btnRemoverFornecedor = new JButton("Remover Fornecedor");
@@ -163,7 +164,7 @@ public class TelaPrincipal{
 					JOptionPane.showMessageDialog(null, "Código não encontrado no sistema");
 			}
 		});
-		btnRemoverFornecedor.setBounds(227, 90, 197, 23);
+		btnRemoverFornecedor.setBounds(227, 79, 197, 23);
 		frmPadariaTremBo.getContentPane().add(btnRemoverFornecedor);
 		
 		JButton btnRemoverFuncionrio = new JButton("Remover funcion\u00E1rio");
@@ -180,7 +181,7 @@ public class TelaPrincipal{
 				}
 			}
 		});
-		btnRemoverFuncionrio.setBounds(227, 124, 197, 23);
+		btnRemoverFuncionrio.setBounds(227, 113, 197, 23);
 		frmPadariaTremBo.getContentPane().add(btnRemoverFuncionrio);
 		
 		JButton btnHoraExtraPadeiro = new JButton("Adicional noturno (Padeiros)");
@@ -189,7 +190,7 @@ public class TelaPrincipal{
 			public void actionPerformed(ActionEvent arg0) {
 				String codigo = "";
 				try {
-					codigo = JOptionPane.showInputDialog("Digite o código do padeiro");
+					codigo = JOptionPane.showInputDialog("Digite o código do padeiro (4 dígitos)");
 					if(padaria.encontraFuncionario(codigo) != null) {
 						String horasTrabalhadas = JOptionPane.showInputDialog("Digite quantas horas extras o padeiro trabalhou");
 						Padeiro padeiro = (Padeiro) padaria.encontraFuncionario(codigo);
@@ -205,15 +206,15 @@ public class TelaPrincipal{
 				}		
 			}
 		});
-		btnHoraExtraPadeiro.setBounds(10, 158, 197, 23);
+		btnHoraExtraPadeiro.setBounds(10, 147, 197, 23);
 		frmPadariaTremBo.getContentPane().add(btnHoraExtraPadeiro);
 		
 		JSeparator separator = new JSeparator();
-		separator.setBounds(10, 151, 414, 2);
+		separator.setBounds(10, 140, 414, 2);
 		frmPadariaTremBo.getContentPane().add(separator);
 		
 		JSeparator separator_1 = new JSeparator();
-		separator_1.setBounds(10, 187, 414, 2);
+		separator_1.setBounds(10, 210, 414, 2);
 		frmPadariaTremBo.getContentPane().add(separator_1);
 		
 		JButton btnNewButton_1 = new JButton("Abastecer estoque");
@@ -222,7 +223,7 @@ public class TelaPrincipal{
 				
 				try {
 					String codigoProduto = JOptionPane.showInputDialog(null, "Insira o código do produto (6 digítos)");
-					if(padaria.getEstoque().produtoEmEstoque(codigoProduto)) {
+					if(padaria.getEstoque().produdoEmEstoque(codigoProduto)) {
 						try {	
 							Produto produto = padaria.getEstoque().procurarProduto(codigoProduto);
 							
@@ -247,7 +248,25 @@ public class TelaPrincipal{
 				
 			}
 		});
-		btnNewButton_1.setBounds(227, 158, 197, 23);
+		btnNewButton_1.setBounds(227, 147, 197, 23);
 		frmPadariaTremBo.getContentPane().add(btnNewButton_1);
+		
+		JButton btnNewButton_2 = new JButton("Calcular imposto");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null, "O imposto deve ser calculado SOMENTE no final do mês e o adicional noturno do padeiro deve estar cadastrado.");
+				int estado = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja calcular os impostos devidos?", null, 0);
+				
+				if(estado == 0) {
+					JOptionPane.showMessageDialog(null, "Imposto calculado com sucesso!");
+					padaria.calcularImpostos();
+				}
+				else
+					JOptionPane.showMessageDialog(null, "Aguarde o final do mês e/ou faça o adicional noturno do padeiro");
+				
+			}
+		});
+		btnNewButton_2.setBounds(10, 182, 414, 23);
+		frmPadariaTremBo.getContentPane().add(btnNewButton_2);
 	}
 }
