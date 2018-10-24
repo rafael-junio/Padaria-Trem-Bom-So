@@ -17,6 +17,7 @@ import java.awt.event.ActionListener;
 import java.util.Calendar;
 import java.awt.event.ActionEvent;
 import javax.swing.JCheckBox;
+import javax.swing.SwingConstants;
 
 public class TelaVendeProduto {
 
@@ -117,11 +118,13 @@ public class TelaVendeProduto {
 		frmVendaDeProdutos.getContentPane().add(txtQuantidade);
 		txtQuantidade.setColumns(10);
 		
-		JLabel lblDataDaCompra = new JLabel("Data da compra");
+		JLabel lblDataDaCompra = new JLabel("Data de hoje:");
 		lblDataDaCompra.setBounds(10, 123, 94, 14);
 		frmVendaDeProdutos.getContentPane().add(lblDataDaCompra);
 		
 		txtData = new JFormattedTextField(createFormatter(dia + "/" + mes + "/" + ano));
+		txtData.setEditable(false);
+		txtData.setHorizontalAlignment(SwingConstants.CENTER);
 		txtData.setBounds(10, 148, 119, 20);
 		frmVendaDeProdutos.getContentPane().add(txtData);
 		txtData.setColumns(10);

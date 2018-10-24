@@ -254,7 +254,7 @@ public class TelaPrincipal{
 		JButton btnNewButton_2 = new JButton("Calcular imposto");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "O imposto deve ser calculado SOMENTE no final do mês e o adicional noturno do padeiro deve estar cadastrado.");
+				JOptionPane.showMessageDialog(null, "O imposto deve ser calculado SOMENTE no final do mês e o adicional noturno do padeiro deve estar cadastrado caso ele seja diferente de 0.");
 				int estado = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja calcular os impostos devidos?", null, 0);
 				
 				if(estado == 0) {

@@ -227,13 +227,16 @@ public class TelaCadastraProduto {
 						data = ValidaData.isDateValid(Integer.parseInt(txtDia.getText()), Integer.parseInt(txtMes.getText()), Integer.parseInt(txtAno.getText()));
 					}
 					catch (NumberFormatException exception) {
-						JOptionPane.showMessageDialog(null, "Por favor, preencha com uma data válida no formato XX/XX/XXXX");
+						
 					}
 				}
-				if(data && (txtCodigo.getText().equals("   ") || padaria.encontraFornecedor(txtCodigo.getText()) == null)){
+				if(!data) {
+					JOptionPane.showMessageDialog(null, "Data inválida!");
+				}
+				else if(data && (txtCodigo.getText().equals("   ") || padaria.encontraFornecedor(txtCodigo.getText()) == null)){
 					JOptionPane.showMessageDialog(null, "Fornecedor inválido");
 				}
-				else if(data && (txtQuantidade.getText().equals("  ") || Integer.parseInt(txtQuantidade.getText()) > 30 || Integer.parseInt(txtQuantidade.getText()) < 0 )) {
+				else if(data && (txtQuantidade.getText().equals("  ") || Integer.parseInt(txtQuantidade.getText()) > 30 || Integer.parseInt(txtQuantidade.getText()) <= 0 )) {
 					JOptionPane.showMessageDialog(null, "Quantidade para cadastro no estoque inválido");
 				}
 				else if(data && (txtCodigoProduto.getText().equals("      ") || padaria.encontraFornecedor(txtCodigo.getText()) == null)){

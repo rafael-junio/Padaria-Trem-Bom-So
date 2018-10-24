@@ -36,6 +36,7 @@ public class Padaria {
 	private float impostoVendas;
 	private float impostoFuncionarios;	
 	private float impostoTotal;
+	private int contVendas;
 	
 	/**
 	 * Método construtor da classe Padaria.
@@ -55,6 +56,7 @@ public class Padaria {
 		this.impostoTotal = 0;
 		this.impostoVendas = 0f;
 		this.alpha = new Ordenacao();
+		this.contVendas = 0;
 	}
 
 	/**
@@ -606,19 +608,33 @@ public class Padaria {
 				return false;
 			
 			Venda venda = new Venda(clienteVenda, vendedor, formaPagamento, numParcelas, this.comprasRealizadas, dia, mes, ano);
-	
-			for (int i = 0; i < vendas.length; i++)
-				if (vendas[i] == null) {
-					vendas[i] = venda;
-					vendas[i].calcularValorFinalCompra(numParcelas);
-					this.montanteVendasGlobal += vendas[i].getValorFinalCompra();
-					venda = null;
-					this.comprasRealizadas = null;
-					this.comprasRealizadas = new Produto[20];
-					return true;
-				}
+			
+			vendas[contVendas] = venda;
+			vendas[contVendas].calcularValorFinalCompra(numParcelas);
+			this.montanteVendasGlobal += vendas[contVendas].getValorFinalCompra();
 			venda = null;
-			return false;
+			this.comprasRealizadas = null;
+			this.comprasRealizadas = new Produto[20];
+			contVendas++;
+			if(contVendas == 20) {
+				contVendas = 0;
+				return true;
+			}
+			else
+				return true;
+	
+//			for (int i = 0; i < vendas.length; i++)
+//				if (vendas[i] == null) {
+//					vendas[i] = venda;
+//					vendas[i].calcularValorFinalCompra(numParcelas);
+//					this.montanteVendasGlobal += vendas[i].getValorFinalCompra();
+//					venda = null;
+//					this.comprasRealizadas = null;
+//					this.comprasRealizadas = new Produto[20];
+//					return true;
+//				}
+//			venda = null;
+//			return false;
 		}
 		else
 			return false;

@@ -72,20 +72,25 @@ public class TelaImprimeInformacoes {
 		btnProcuraProduto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String info = JOptionPane.showInputDialog("Digite o codigo do produto (6 dígitos)");
-				try {
-					if(info == null || info.equals("")) {
-						JOptionPane.showMessageDialog(null, "Informações impressas no console!");
-						padaria.imprimeInfoEstoque();
-					}
-					else if(padaria.getEstoque().produdoEmEstoque(info)){
-						JOptionPane.showMessageDialog(null, "Informações impressas no console!");
-						padaria.imprimeInfoEstoque(info);
-					}
-					else
-						JOptionPane.showMessageDialog(null, "Código inválido");
+				if(info == null) {
+					JOptionPane.showMessageDialog(null, "Operação cancelada");
 				}
-				catch (Exception exception) {
-					JOptionPane.showMessageDialog(null, "Ocorreu um problema, digite o código número do produto ou deixe o campo vazio!");
+				else {
+					try {
+						if(info.equals("")) {
+							JOptionPane.showMessageDialog(null, "Informações impressas no console!");
+							padaria.imprimeInfoEstoque();
+						}
+						else if(padaria.getEstoque().produdoEmEstoque(info)){
+							JOptionPane.showMessageDialog(null, "Informações impressas no console!");
+							padaria.imprimeInfoEstoque(info);
+						}
+						else
+							JOptionPane.showMessageDialog(null, "Código inválido");
+					}
+					catch (Exception exception) {
+						JOptionPane.showMessageDialog(null, "Ocorreu um problema, digite o código número do produto ou deixe o campo vazio!");
+					}
 				}
 			}
 		});
@@ -96,22 +101,26 @@ public class TelaImprimeInformacoes {
 		btnProcuraCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String info = JOptionPane.showInputDialog("Digite o CPF do cliente");
-				try {
-					if(info == null || info.equals("")) {
-						JOptionPane.showMessageDialog(null, "Informações impressas no console!");
-						padaria.imprimeInfoClientes();
-					}
-					else if(padaria.clienteEstaCadastrado(info)){
-						JOptionPane.showMessageDialog(null, "Informações impressas no console!");
-						padaria.imprimeInfoClientes(info);
-					}
-					else
-						JOptionPane.showMessageDialog(null, "Código inválido");
+				if(info == null) {
+					JOptionPane.showMessageDialog(null, "Operação cancelada");
 				}
-				catch (Exception exception) {
-					JOptionPane.showMessageDialog(null, "Ocorreu um problema, digite o cpf sem pontuação do cliente ou deixe o campo vazio!");
+				else {
+					try {
+						if(info == null || info.equals("")) {
+							JOptionPane.showMessageDialog(null, "Informações impressas no console!");
+							padaria.imprimeInfoClientes();
+						}
+						else if(padaria.clienteEstaCadastrado(info)){
+							JOptionPane.showMessageDialog(null, "Informações impressas no console!");
+							padaria.imprimeInfoClientes(info);
+						}
+						else
+							JOptionPane.showMessageDialog(null, "Código inválido");
+					}
+					catch (Exception exception) {
+						JOptionPane.showMessageDialog(null, "Ocorreu um problema, digite o cpf sem pontuação do cliente ou deixe o campo vazio!");
+					}
 				}
-					
 			}
 		});
 		btnProcuraCliente.setBounds(10, 104, 200, 23);
@@ -120,25 +129,27 @@ public class TelaImprimeInformacoes {
 		JButton btnProcuraFornecedor = new JButton("Fornecedores");
 		btnProcuraFornecedor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
 				String info = JOptionPane.showInputDialog("Digite o código do fornecedor. (3 Digítos)");
-				try {
-					if(info == null || info.equals("")) {
-						JOptionPane.showMessageDialog(null, "Informações impressas no console!");
-						padaria.imprimeInfoFornecedores();
-					}
-					else if(padaria.fornecedorEstaCadastrado(info)){
-						JOptionPane.showMessageDialog(null, "Informações impressas no console!");
-						padaria.imprimeInfoFornecedores(info);
-					}
-					else
-						JOptionPane.showMessageDialog(null, "Código inválido");
+				if(info == null) {
+					JOptionPane.showMessageDialog(null, "Operação cancelada");
 				}
-				catch (Exception exception) {
-					JOptionPane.showMessageDialog(null, "Ocorreu um problema, digite o código númerico do fornecedor ou deixe o campo vazio!");
-				}	
-				
-				
+				else {
+					try {
+						if(info == null || info.equals("")) {
+							JOptionPane.showMessageDialog(null, "Informações impressas no console!");
+							padaria.imprimeInfoFornecedores();
+						}
+						else if(padaria.fornecedorEstaCadastrado(info)){
+							JOptionPane.showMessageDialog(null, "Informações impressas no console!");
+							padaria.imprimeInfoFornecedores(info);
+						}
+						else
+							JOptionPane.showMessageDialog(null, "Código inválido");
+					}
+					catch (Exception exception) {
+						JOptionPane.showMessageDialog(null, "Ocorreu um problema, digite o código númerico do fornecedor ou deixe o campo vazio!");
+					}	
+				}
 			}
 		});
 		btnProcuraFornecedor.setBounds(224, 36, 200, 23);
@@ -147,24 +158,27 @@ public class TelaImprimeInformacoes {
 		JButton btnProcuraFuncionrio = new JButton("Funcion\u00E1rios");
 		btnProcuraFuncionrio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
 				String info = JOptionPane.showInputDialog("Digite o código do funcionário. (4 Digítos)");
-				try {
-					if(info == null || info.equals("")) {
-						JOptionPane.showMessageDialog(null, "Informações impressas no console!");
-						padaria.imprimeInfoFuncionarios();
-					}
-					else if(padaria.funcionarioEstaCadastrado(info)){
-						JOptionPane.showMessageDialog(null, "Informações impressas no console!");
-						padaria.imprimeInfoFuncionarios(info);
-					}
-					else
-						JOptionPane.showMessageDialog(null, "Código inválido");
+				if(info == null) {
+					JOptionPane.showMessageDialog(null, "Operação cancelada");
 				}
-				catch (Exception exception) {
-					JOptionPane.showMessageDialog(null, "Ocorreu um problema, digite o código númerico do funcionário ou deixe o campo vazio!");
+				else {
+					try {
+						if(info == null || info.equals("")) {
+							JOptionPane.showMessageDialog(null, "Informações impressas no console!");
+							padaria.imprimeInfoFuncionarios();
+						}
+						else if(padaria.funcionarioEstaCadastrado(info)){
+							JOptionPane.showMessageDialog(null, "Informações impressas no console!");
+							padaria.imprimeInfoFuncionarios(info);
+						}
+						else
+							JOptionPane.showMessageDialog(null, "Código inválido");
+					}
+					catch (Exception exception) {
+						JOptionPane.showMessageDialog(null, "Ocorreu um problema, digite o código númerico do funcionário ou deixe o campo vazio!");
+					}
 				}
-				
 			}
 		});
 		btnProcuraFuncionrio.setBounds(10, 70, 200, 23);
