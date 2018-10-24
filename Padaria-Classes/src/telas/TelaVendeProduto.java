@@ -206,6 +206,10 @@ public class TelaVendeProduto {
 					if(cpfValido && cont > 0) {
 						padaria.realizarVenda(CPF, codigoVendedor, pagamento, parcela, dia, mes, ano);
 						JOptionPane.showMessageDialog(null, "Venda concluída!");
+						if(padaria.cadastrarClienteGold(txtCPF.getText()));
+							JOptionPane.showMessageDialog(null, "Cliente de CPF: " + txtCPF.getText() + " agora é ClienteGold!");
+						if(padaria.cadastrarClientePlatinum(txtCPF.getText()));
+							JOptionPane.showMessageDialog(null, "Cliente de CPF: " + txtCPF.getText() + " agora é ClientePlatinum!");
 						frmVendaDeProdutos.dispose();
 					}
 					else
@@ -255,7 +259,7 @@ public class TelaVendeProduto {
 					JOptionPane.showMessageDialog(null, "Quantidade para compra inválido");
 				else if(txtData.equals("  /  /    "))
 					JOptionPane.showMessageDialog(null, "Data inválida");
-				else if(((rdbtnCrdito.isSelected() && txtParcela.getText().equals("  ")) || rdbtnVista.isSelected())){	
+				else if(((rdbtnCrdito.isSelected() && Integer.parseInt(txtParcela.getText()) > 0) || rdbtnVista.isSelected())){	
 					try {
 						padaria.adicionarProdutoVenda(txtCodigo.getText(), Integer.parseInt(txtQuantidade.getText()));
 					} catch (Exception NumberFormatException) {
@@ -272,9 +276,6 @@ public class TelaVendeProduto {
 		btnNewButton_1.setBounds(200, 161, 224, 46);
 		frmVendaDeProdutos.getContentPane().add(btnNewButton_1);
 		
-
-		
-
 		
 	}
 	
