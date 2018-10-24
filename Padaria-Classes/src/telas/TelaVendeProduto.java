@@ -209,9 +209,6 @@ public class TelaVendeProduto {
 					if(cpfValido && cont > 0) {
 						padaria.realizarVenda(CPF, codigoVendedor, pagamento, parcela, dia, mes, ano);
 						JOptionPane.showMessageDialog(null, "Venda concluída!");
-						if(padaria.getEstoque().alertaEstoque(padaria.getEstoque().procurarProduto(txtCodigo.getText()))) {
-							JOptionPane.showMessageDialog(null, "ALERTA! PRODUTO ATINGIU QUANTIDADE MENOR DO QUE 1 NO ESTOQUE!");
-						}
 						if(padaria.cadastrarClienteGold(txtCPF.getText()))
 							JOptionPane.showMessageDialog(null, "Cliente de CPF: " + txtCPF.getText() + " agora é Cliente Gold!");
 						if(padaria.cadastrarClientePlatinum(txtCPF.getText()))
@@ -272,6 +269,11 @@ public class TelaVendeProduto {
 						JOptionPane.showMessageDialog(null, "Produto adicionado no carrinho com sucesso");
 						cont++;
 						btnAdicionaCarrinho.setText("Adicionar produto ao carrinho ( "+ String.valueOf(cont) + " )");
+						if(padaria.getEstoque().alertaEstoque(padaria.getEstoque().procurarProduto(txtCodigo.getText()))) {
+							JOptionPane.showMessageDialog(null, "ALERTA! PRODUTO " + padaria.getEstoque().procurarProduto(txtCodigo.getText()).getNome() + " ATINGIU QUANTIDADE MENOR DO QUE 1 NO ESTOQUE!");
+						}
+						txtCodigo.setText(null);
+						txtQuantidade.setText(null);
 					}
 					else {
 						JOptionPane.showMessageDialog(null, "Não foi possível adicionar o produto ao carrinho");

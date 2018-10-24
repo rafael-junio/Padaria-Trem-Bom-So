@@ -198,8 +198,9 @@ public class Estoque implements AlertaEstoque {
 	public boolean alertaEstoque(Object obj1) {
 		Produto produto = (Produto) obj1;
 
-		if (produto.getQuantidade() <= 1)
+		if (produto.getQuantidade() <= 1) {
 			return true;
+		}
 		else
 			return false;
 	}
