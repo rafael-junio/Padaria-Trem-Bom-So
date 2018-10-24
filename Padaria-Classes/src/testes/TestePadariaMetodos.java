@@ -12,22 +12,23 @@ public class TestePadariaMetodos{
 		
 		// Clientes
 		tremBao.cadastrarClienteRegular("Rafael Junio Xavier", "Rua Recife 540", "704.878.040-15", "(31) 3464-7066");
-		tremBao.cadastrarClienteRegular("Carlos Junino Xavier", "Rua Recife 540", "136.839.020-00", "(31) 3464-7066");		
+		tremBao.cadastrarClienteRegular("Carlos Junino Xavier", "Rua Recife 540", "704.878.040-15", "(31) 3464-7066");		
 		tremBao.cadastrarClienteRegular("Gilberto Assis Rosa", "Rua Cordisburgo 685", "853.424.430-83", "(32) 3333-0001");
 
 		
 		// Fornecedores
 		tremBao.cadastrarFornecedorOcasional("Igor Corporation's", "Rua UFMS 01", "000", "24.587.906/0001-12");
-		tremBao.cadastrarFornecedorRecorrente("Nova Safra", "BR-040 KM 688 - Pavilhão A e Pavilhão V", "001", "19.592.641/0001-00", 0.15f);
+		tremBao.cadastrarFornecedorRecorrente("Nova Safra", "BR-040 KM 688 - Pavilhão A e Pavilhão V", "000", "19.592.641/0001-00", 0.15f);
 		
 		
 		// Funcionários
-		tremBao.cadastrarGerente("Murilo Malvino", "Rua Guaicurus 6888", "797.674.120-93", "(67) 3122-0201", "0000", 100f);	
-		tremBao.cadastrarVendedor("Jubileu Vicente", "Rua 5 547", "173.002.900-00", "(11) 3300-0002", "0001", 100f, 50f);
+		tremBao.cadastrarGerente("Murilo Malvino", "Rua Guaicurus 6888", "797.674.120-93", "(67) 3122-0201", "0000", 100f);
+		tremBao.cadastrarGerente("Murilo Malvino", "Rua Guaicurus 6888", "797.674.120-93", "(67) 3122-0201", "0000", 100f);
+		tremBao.cadastrarVendedor("Jubileu Vicente", "Rua 5 547", "173.002.900-00", "(11) 3300-0002", "0002", 100f, 50f);
 		tremBao.cadastrarVendedor("Logaritimo Souza", "Rua 10-1", "067.057.180-64", "(11) 3620-0816", "0002", 100f, 50f);
 		tremBao.cadastrarVendedor("Pitolomeu Hernandes", "Rua 5 547", "456.522.360-00", "(11) 3323-9423", "0003", 100f, 50f);
 		tremBao.cadastrarPadeiro("Arnaldo Pereira", "Rua Filomena", "533.384.960-95", "(16) 3946-2845", "0004", 100f);
-		tremBao.cadastrarPadeiro("Lucas Beneguel", "Rua Filoginia", "923.173.470-90", "(64) 3580-0003", "0005", 100f);
+		tremBao.cadastrarPadeiro("Lucas Beneguel", "Rua Filoginia", "923.173.470-90", "(64) 3580-0003", "0004", 100f);
 		
 		
 		// Produtos NÃO Perecíveis

@@ -167,13 +167,13 @@ public class Estoque implements AlertaEstoque {
 	 * Pré-condição: não recebe nenhum parâmetro.
 	 * Pós-condição: não retorna valor. Imprime produtos contidos em atributo vetor do tipo Produto.
 	 */
-	public void imprimeInformacoesEstoque() {
-		for (int i = 0; i <= Ordenacao.cont; i++) {
-			if (produtos[i] != null) {
-				produtos[i].imprimeInformacoesProduto();
-				System.out.println();
+	public void imprimeInformacoesEstoque() {			
+			for (int i = 0; i <= Ordenacao.cont; i++) {
+				if (produtos[i] != null) {
+					produtos[i].imprimeInformacoesProduto();
+					System.out.println();
+				}
 			}
-		}
 	}
 
 	/**

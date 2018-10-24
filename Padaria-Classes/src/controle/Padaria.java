@@ -294,7 +294,7 @@ public class Padaria {
 	 */
 	public boolean cadastrarClienteRegular(String nome, String endereco, String cpf, String telefone) {
 
-		if(clienteEstaCadastrado(cpf)) {
+		if(!clienteEstaCadastrado(cpf)) {
 			ClienteRegular cliente = new ClienteRegular(nome, endereco, cpf, telefone);
 			for (int i = 0; i < clientes.length; i++)
 				if (clientes[i] == null) {
@@ -396,7 +396,7 @@ public class Padaria {
 	 */
 	public boolean cadastrarFornecedorOcasional(String nome, String endereco, String codigo, String cnpj) {
 
-		if(fornecedorEstaCadastrado(codigo)) {
+		if(!fornecedorEstaCadastrado(codigo)) {
 			FornecedorOcasional fornecedor = new FornecedorOcasional(nome, endereco, codigo, cnpj);			
 			for (int i = 0; i < fornecedores.length; i++)
 				if (fornecedores[i] == null) {
@@ -417,7 +417,7 @@ public class Padaria {
 	public boolean cadastrarFornecedorRecorrente(String nome, String endereco, String codigo, String cnpj,
 			float taxaDesconto) {
 
-		if(fornecedorEstaCadastrado(codigo)) {
+		if(!fornecedorEstaCadastrado(codigo)) {
 			FornecedorRecorrente fornecedor = new FornecedorRecorrente(nome, endereco, codigo, cnpj, taxaDesconto);
 			for (int i = 0; i < fornecedores.length; i++)
 				if (fornecedores[i] == null) {
