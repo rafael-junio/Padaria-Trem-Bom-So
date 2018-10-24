@@ -249,7 +249,7 @@ public abstract class Produto {
 	 * Pós-condição: retorna TRUE, caso quantidade do produto seja válida, e FALSE, caso cotrário.
 	 */
 	public boolean verificaQuantidadeVenda(int quantidade) {
-		if(this.quantidade - quantidade > 0) {
+		if(this.quantidade - quantidade >= 0) {
 			this.quantidade -= quantidade;
 			this.quantidadeVenda = quantidade;
 			return true;
@@ -298,7 +298,8 @@ public abstract class Produto {
 
 		fornecedor.imprimeInformacoesFornecedor();
 		System.out.printf("Preço de custo: %.2fR$. ", this.precoCusto);
-		System.out.printf("\nPreço de final: %.2fR$.\n\n", this.precoFinal);
+		System.out.printf("\nPreço de final: %.2fR$.\n", this.precoFinal);
+		System.out.printf("Quantidade de produto em estoque: %02d.\n", this.quantidade);
 	}
 
 	/**
@@ -311,13 +312,13 @@ public abstract class Produto {
 		String info = String.format("Produto: %s\nCódigo: %s\n", this.nome, this.codigo);
 		String apelidos = "";
 
-//		if (hasApelido()) {
-//			apelidos += "Apelido(s): \n";
-//			for (String i : apelido)
-//				if (i != null)
-//					apelidos += i + "\n";
-//		}
-//		info += apelidos;
+		if (hasApelido()) {
+			apelidos += "Apelido(s): \n";
+			for (String i : apelido)
+				if (i != null)
+					apelidos += i + "\n";
+		}
+		info += apelidos;
 		info += String.format("Unidades compradas: %d.\nPreço de final: %.2f.\n", this.quantidadeVenda, (this.precoFinal * this.quantidadeVenda));
 		return info;
 	}
