@@ -269,9 +269,7 @@ public class TelaVendeProduto {
 						JOptionPane.showMessageDialog(null, "Produto adicionado no carrinho com sucesso");
 						cont++;
 						btnAdicionaCarrinho.setText("Adicionar produto ao carrinho ( "+ String.valueOf(cont) + " )");
-						if(padaria.getEstoque().alertaEstoque(padaria.getEstoque().procurarProduto(txtCodigo.getText()))) {
-							JOptionPane.showMessageDialog(null, "ALERTA! PRODUTO " + padaria.getEstoque().procurarProduto(txtCodigo.getText()).getNome() + " ATINGIU QUANTIDADE MENOR DO QUE 1 NO ESTOQUE!");
-						}
+						padaria.getEstoque().alertaEstoque(padaria.getEstoque().procurarProduto(txtCodigo.getText()));
 						txtCodigo.setText(null);
 						txtQuantidade.setText(null);
 					}

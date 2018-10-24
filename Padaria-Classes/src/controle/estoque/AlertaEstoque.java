@@ -16,5 +16,5 @@ public interface AlertaEstoque {
 	 * Pós-condição: não retorna valor.
 	 * @return 
 	 */
-	public boolean alertaEstoque(Object obj1);
+	public void alertaEstoque(Object obj1);
 }

@@ -16,7 +16,7 @@ public class ValidaData {
      * Método construtor da classe ValidaData.
      * 
      * Pré-condição: recebe três inteiros, dia, mes, ano. 
-     * Pós-condição: 
+     * Pós-condição: Retorna um TRUE caso o LocalDate.of verifique que a data é válida e retorna FALSE caso a data seja inválida.
      */
 	public static boolean isDateValid(int dia, int mes, int ano) {
 		boolean dataValida = true;

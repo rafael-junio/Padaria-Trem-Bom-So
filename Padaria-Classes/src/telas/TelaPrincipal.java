@@ -196,9 +196,12 @@ public class TelaPrincipal{
 						if(padaria.encontraFuncionario(codigo) != null) {
 							String horasTrabalhadas = JOptionPane.showInputDialog("Digite quantas horas extras o padeiro trabalhou");
 							Padeiro padeiro = (Padeiro) padaria.encontraFuncionario(codigo);
-							padeiro.informaHoraNoturnaPadeiro(Integer.parseInt(horasTrabalhadas));
-							padeiro.calcularSalarioFinal();
-							JOptionPane.showMessageDialog(null, "Adicional noturno do mês cadastrado com sucesso");
+							if(padeiro.informaHoraNoturnaPadeiro(Integer.parseInt(horasTrabalhadas))) {
+								padeiro.calcularSalarioFinal();
+								JOptionPane.showMessageDialog(null, "Adicional noturno do mês cadastrado com sucesso");
+							}
+							else
+								JOptionPane.showMessageDialog(null, "Valor inválido!");
 						}
 						else
 							JOptionPane.showMessageDialog(null, "Código do padeiro inválido!");
