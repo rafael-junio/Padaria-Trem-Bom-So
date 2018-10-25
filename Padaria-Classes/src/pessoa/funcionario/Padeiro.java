@@ -99,7 +99,7 @@ public final class Padeiro extends Funcionario{
      * Pós-condição: atribuição do novo valor no atributo horasNoturnas. 
 	 */
 	public boolean informaHoraNoturnaPadeiro(int hora) {
-		if(hora > 1 && hora < 100 ) {
+		if(hora >= 1 && hora < 100 ) {
 			this.horasNoturnas = hora;
 			return true;
 		}

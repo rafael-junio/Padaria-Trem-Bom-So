@@ -199,7 +199,7 @@ public class Estoque implements AlertaEstoque {
 		Produto produto = (Produto) obj1;
 
 		if (produto.getQuantidade() <= 1) {
-			System.err.println("\"ALERTA! PRODUTO ATINGIU QUANTIDADE MENOR DO QUE 1 NO ESTOQUE!\"");
+			System.err.println("ALERTA! PRODUTO ATINGIU QUANTIDADE MENOR DO QUE 1 NO ESTOQUE!");
 		}
 	}
 

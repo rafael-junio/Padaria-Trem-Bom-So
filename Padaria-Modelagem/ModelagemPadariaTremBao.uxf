@@ -1,5 +1,931 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.3.0">
   <help_text/>
-  <zoom_level>10</zoom_level>
+  <zoom_level>1</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>745</x>
+      <y>236</y>
+      <w>99</w>
+      <h>118</h>
+    </coordinates>
+    <panel_attributes>*Padaria*
+--
+-PERCENTUALSOBREVENDAS
+-PERCENTUALSOBRESALARIOFUNCIONARIOS
+-contVendas
+-alpha: Ordenacao
+-fornecedores: Fornecedor[]
+-estoque: Estoque
+-funcionarios: Funcionario[]
+-clientes: Cliente[]
+-vendas: Venda[]
+-comprasRealizadas: Produto[]
+-montanteVendasGlobal: float
+-impostoVendas: float
+-impostoFuncionarios: float
+-impostoTotal: float
+--
+&lt;&lt;construtor&gt;&gt;+Padaria()
++getFornecedores(): Fornecedor[]
++setFornecedores(Fornecedor[] fornecedores): void
++getEstoque(): Estoque
++setEstoque(Estoque estoque): void
++getFuncionarios(): Funcionario[]
++setFuncionarios(Funcionario[] funcionarios): void
++getClientes(): Cliente[]
++setClientes(Cliente[] clientes): void
++getVendas(): Venda[]
++setVendas(Venda[] vendas): void
++getMontanteVendasGlobal(): float
++setMontanteVendasGlobal(float montanteVendasGlobal): void
++getComprasRealizadas(): Produto[]
++setComprasRealizadas(Produto[] comprasRealizadas): void
++getImpostoVendas(): float
++setImpostoVendas(float impostoVendas): void
++getImpostoFuncionarios(): float
++setImpostoFuncionarios(float impostoFuncionarios): void
++getImpostoTotal(): float
++setImpostoTotal(float impostoTotal): void
++getPERCENTUALSOBREVENDAS(): float
++getPERCENTUALSOBRESALARIOFUNCIONARIOS(): float
++cadastrarClienteRegular(String nome, String endereco, String cpf, String telefone): boolean
++cadastrarClienteGold(String cpf): boolean
++cadastrarClientePlatinum(String cpf): boolean
++descadastrarCliente(String cpf): boolean
++encontraCliente(String cpf): Cliente
++clienteEstaCadastrado(String cpf): boolean
++cadastrarFornecedorOcasional(String nome, String endereco, String codigo, String cnpj): boolean
++cadastrarFornecedorRecorrente(String nome, String endereco, String codigo, String cnpj, float taxaDesconto): boolean
++descadastrarFornecedor(String codigo): boolean
++encontraFornecedor(String codigo): Fornecedor
++fornecedorEstaCadastrado(String codigo): boolean
++cadastrarVendedor(String nome, String endereco, String cpf, String telefone, String codigo, float salarioBase, float metaVendas): boolean
++cadastrarGerente(String nome, String endereco, String cpf, String telefone, String codigo, float salarioBase): boolean
++cadastrarPadeiro(String nome, String endereco, String cpf, String telefone, String codigo, float salarioBase): boolean
++descadastrarFuncionario(String codigo): boolean
++encontraFuncionario(String codigo): Funcionario
++encontraVendedor(String codigo): Vendedor
++funcionarioEstaCadastrado(String codigo): boolean
++realizarVenda(String cpfCliente, String codigoVendedor, String formaPagamento, int numParcelas, int dia, int mes, int ano): boolean
++adicionarProdutoVenda(String codigo, int quantidade): boolean
++encontraVenda(String cpfCliente): Venda
++calcularImpostos(): void
++imprimeInfoClientes(): void
++imprimeInfoClientes(String cpf): void
++imprimeInfoFornecedores(): void
++imprimeInfoFornecedores(String codigo): void
++imprimeInfoFuncionarios(): void
++imprimeInfoFuncionarios(String codigo): void
++imprimeInfoEstoque(): void
++imprimeInfoEstoque(String codigo): void
++imprimeInfoVendas(): void
++imprimeInfoVendas(String cpfCliente): void
++imprimeInfoImposto(): void
++imprimeInfoPadaria(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>742</x>
+      <y>365</y>
+      <w>105</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>*Venda*
+--
+-JUROSPRAZO = 0.02f: float
+-produtosVendidos: Produto[]
+-cliente: Cliente
+-vendedor: Vendedor
+-formaPagamento: String
+-numParcelas: int
+-valorFinalCompra: float
+-infoVendedor: String
+-infoCliente: String
+-infoProduto: String
+-dia: int
+-mes: int
+-ano: int
+--
+&lt;&lt;construtor&gt;&gt;+Venda(Cliente cliente, Vendedor vendedor, String formaPagamento, int numParcelas, Produto[] produtosVendidos, int dia, int mes, int ano)
++getProdutosVendidos(): Produto[]
++setProdutosVendidos(Produto[] produtosVendidos): void
++getCliente(): Cliente
++setCliente(Cliente cliente): void
++getVendedor(): Vendedor
++setVendedor(Vendedor vendedor): void
++getFormaPagamento(): String
++setFormaPagamento(String formaPagamento): void
++getNumParcelas(): int
++setNumParcelas(int numParcelas): void
++getValorFinalCompra(): float
++setValorFinalCompra(float valorFinalCompra): void
++getInfoVendedor(): String
++setInfoVendedor(String infoVendedor): void
++getInfoCliente(): String
++setInfoCliente(String infoCliente): void
++getInfoProduto(): String
++setInfoProduto(String infoProduto): void
++getDia(): int
++setDia(int dia): void
++getMes(): int
++setMes(int mes): void
++getAno(): int
++setAno(int ano): void
++getJUROSPRAZO(): float
++calcularValorFinalCompra(int numParcelas): float
++imprimeInformacoesVenda(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>744</x>
+      <y>100</y>
+      <w>90</w>
+      <h>57</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;abstract&gt;&gt;
+*Produto*
+--
+#nome: String
+#codigo: String
+#fornecedor: Fornecedor
+#precoCusto: float
+#precoFinal: float
+#apelido: String[]
+#quantidade: int
+-quantidadeVenda: int
+--
+&lt;&lt;construtor&gt;&gt;+Produto(String nome, String codigo, Fornecedor fornecedor, float precoCusto, float precoFinal, String[] apelido)
++getNome(): String
++setNome(String nome): void
++getCodigo(): String
++setCodigo(String codigo): void
++getFornecedor(): Fornecedor
++setFornecedor(Fornecedor fornecedor): void
++getPrecoCusto(): float
++setPrecoCusto(float precoCusto): void
++getPrecoFinal(): float
++setPrecoFinal(float precoFinal): void
++getApelido(): String[]
++setApelido(String[] apelido): void
++getQuantidade(): int
++setQuantidade(int quantidade): void
++getQuantidadeVenda(): int
++setQuantidadeVenda(int quantidadeVenda): void
++ehIgual(String codigo): boolean
++verificaQuantidadeProduto(int quantidade): boolean
++verificaQuantidadeVenda(int quantidade): boolean
++toString(): String
++hasApelido(): boolean
++imprimeInformacoesProduto(): void
++exibeInfoVendaProdutos(): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>588</x>
+      <y>182</y>
+      <w>80</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>*Padeiro*
+--
+-GRATIFICACAO
+-valorPorHora: float
+-horasPorMes: int
+-horasNoturnas: int
+--
+&lt;&lt;construtor&gt;&gt;+Padeiro(String nome, String endereco, String cpf, String telefone, String codigo, float salarioBase)
++getGRATIFICACAO(): float
++getValorPorHora(): float
++setValorPorHora(float valorPorHora): void
++getHorasPorMes(): int
++setHorasPorMes(int horasPorMes): void
++calcularSalarioFinal(): float
++informaHoraNoturnaPadeiro(int hora): boolean
++imprimeInformacoesFuncionario(): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>490</x>
+      <y>182</y>
+      <w>95</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>*Vendedor*
+--
+-BONIFICACAO
+-montanteVendas: float
+-metaVendas: float
+--
+&lt;&lt;construtor&gt;&gt;+Vendedor(String nome, String endereco, String cpf, String telefone, String codigo, float salarioBase, float metaVendas)
++getBONIFICACAO(): float
++getMontanteVendas(): float
++setMontanteVendas(float montanteVendas): void
++getMetaVendas(): float
++setMetaVendas(float metaVendas): void
++atualizaMontanteVendas(float valorVenda): float
++calcularSalarioFinal(): float
++exibeInfoVendaVendedor(): String
++imprimeInformacoesFuncionario(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>495</x>
+      <y>148</y>
+      <w>83</w>
+      <h>26</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;abstract&gt;&gt;
+*Funcionario*
+--
+#salarioBase: float
+#salarioFinal: float
+#codigo: String
+--
+&lt;&lt;construtor&gt;&gt;+Funcionario(String nome, String endereco, String cpf, String telefone, String codigo, float salarioBase)
++getSalarioBase(): float
++setSalarioBase(float salarioBase): void
++getSalarioFinal(): float
++setSalarioFinal(float salarioFinal): void
++getCodigo(): String
++setCodigo(String codigoFuncionario): void
++calcularSalarioFinal(): float
++ehIgual(String codigo): boolean
++imprimeInformacoesFuncionario(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>882</x>
+      <y>111</y>
+      <w>129</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>*Estoque*
+--
+-produtos: Produto[50]
+--
+&lt;&lt;construtor&gt;&gt;+Estoque()
++getProdutos(): Produto[]
++setProdutos(Produto[] produtos): void
++cadastrarProdutoNaoPerecivel(String nome, String codigo, Fornecedor fornecedor, float precoCusto, float precoFinal, String[] apelido, int quantidade): boolean
++cadastrarProdutoPerecivel(String nome, String codigo, Fornecedor fornecedor, float precoCusto, float precoFinal, int dia, int mes, int ano, String[] apelido, int quantidade): boolean
++atualizarQuantidadeProdutoEstoque(String codigo, int quantidadeNovoProduto): boolean
++venderQuantidadeProduto(String codigo, int quantidade): boolean
++descadastrarProduto(String codigo): boolean
++produdoEmEstoque(String codigo): boolean
++procurarProduto(String codigo): Produto
++imprimeInformacoesEstoque(): void
++alertaEstoque(Object obj1): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>794</x>
+      <y>166</y>
+      <w>114</w>
+      <h>23</h>
+    </coordinates>
+    <panel_attributes>*ProdutoPerecivel*
+--
+-dia: int
+-mes: int
+-ano: int
+--
+&lt;&lt;construtor&gt;&gt;+ProdutoPerecivel(String nome, String codigo, Fornecedor fornecedorProduto, float precoCusto, float precoFinal, int dia, int mes, int ano, String[] apelido)
++getDia(): int
++setDia(int dia): void
++getMes(): int
++setMes(int mes): void
++getAno(): int
++setAno(int ano): void
++imprimeInformacoesProduto(): void
++exibeInfoVendaProdutos(): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>509</x>
+      <y>92</y>
+      <w>60</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;abstract&gt;&gt;
+*Fornecedor*
+--
+#cnpj: String
+#codigo: String
+--
+&lt;&lt;construtor&gt;&gt;+Fornecedor(String nome, String endereco, String codigo, String cnpj)
++setCodigo(String codigo): void
++getCodigo(): String
++getCnpj(): String
++setCnpj(String cnpj): void
++ehIgual(String codigo): boolean
++imprimeInformacoesFornecedor(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>515</x>
+      <y>223</y>
+      <w>52</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;abstract&gt;&gt;
+*Cliente*
+--
+#valorCompras: float
+--
+&lt;&lt;construtor&gt;&gt;+Cliente(String nome, String endereco, String cpf, String telefone)
++getValorCompras(): float
++setValorCompras(float valorCompras): void
++atualizaCompraCliente(float valorCompra): float
++ehIgual(String cpf): boolean
++exibeInfoVendaCliente(): String
++imprimeInformacoesCliente(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>258</x>
+      <y>170</y>
+      <w>38</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;abstract&gt;&gt;
+*Pessoa*
+--
+#nome: String
+#endereco: String
+--
+&lt;&lt;construtor&gt;&gt;+Pessoa(String nome, String endereco)
++getNome(): String
++setNome(String nome): void
++getEndereco(): String
++setEndereco(String endereco): void
++toString(): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>246</x>
+      <y>192</y>
+      <w>61</w>
+      <h>17</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;abstract&gt;&gt;
+*PessoaFisica*
+--
+#cpf: String
+#telefone: String
+--
+&lt;&lt;construtor&gt;&gt;+PessoaFisica(String nome, String endereco, String cpf, String telefone)
++getCpf(): String
++setCpf(String cpf): void
++getTelefone(): String
++setTelefone(String telefone): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>572</x>
+      <y>252</y>
+      <w>70</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>*ClienteGold*
+--
+-DESCONTO = 0.05f: float
+--
+&lt;&lt;construtor&gt;&gt;+ClienteGold(String nome, String endereco, String cpf, String telefone, float valorCompras)
++getDESCONTO(): float
++calculaDesconto(float valorCompra): float
++exibeInfoVendaCliente(): String
++imprimeInformacoesCliente(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>431</x>
+      <y>252</y>
+      <w>77</w>
+      <h>13</h>
+    </coordinates>
+    <panel_attributes>*ClientePlatinum*
+--
+-DESCONTO = 0.1f: float
+--
+&lt;&lt;construtor&gt;&gt;+ClientePlatinum(String nome, String endereco, String cpf, String telefone, float valorCompras)
++getDESCONTO(): float
++calculaDesconto(float valorCompra): float
++exibeInfoVendaCliente(): String
++imprimeInformacoesCliente(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>407</x>
+      <y>182</y>
+      <w>80</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>*Gerente*
+--
+-BONIFICACAO
+--
+&lt;&lt;construtor&gt;&gt;+Gerente(String nome, String endereco, String cpf, String telefone, String codigo, float salarioBase)
++getBONIFICACAO(): float
++calcularSalarioFinal(): float
++imprimeInformacoesFuncionario(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>534</x>
+      <y>118</y>
+      <w>82</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>*FornecedorRecorrente*
+--
+-taxaDesconto: float
+--
+&lt;&lt;construtor&gt;&gt;+FornecedorRecorrente(String nome, String endereco, String codigo, String cnpj, float taxaDesconto)
++getTaxaDesconto(): float
++setTaxaDesconto(float taxaDesconto): void
++imprimeInformacoesFornecedor(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>260</x>
+      <y>153</y>
+      <w>35</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>*ValidaDocumento*
+--
+--
++removeCaracteresEspeciais(String doc): String
++isCNPJ(String cnpj): boolean
+#imprimeCNPJ(String cnpj): String
++isCPF(String cpf): boolean
+#imprimeCPF(String cpf): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>693</x>
+      <y>282</y>
+      <w>38</w>
+      <h>14</h>
+    </coordinates>
+    <panel_attributes>*Ordenacao*
+--
++cont: int
+--
++ordena(Object[] obj): void
+-insertion(Object[] a): int
+-mergeSort(Object[] a, int inicio, int fim): void
+-merge(Object[] a, int inicio, int meio, int fim): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>509</x>
+      <y>252</y>
+      <w>62</w>
+      <h>10</h>
+    </coordinates>
+    <panel_attributes>*ClienteRegular*
+--
+
+--
+&lt;&lt;construtor&gt;&gt;+ClienteRegular(String nome, String endereco, String cpf, String telefone)
++exibeInfoVendaCliente(): String
++imprimeInformacoesCliente(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>525</x>
+      <y>134</y>
+      <w>24</w>
+      <h>10</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+*SalarioFinal*
+--
+
+--
+&lt;&lt;abstract&gt;&gt;+calcularSalarioFinal(): float</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>462</x>
+      <y>118</y>
+      <w>71</w>
+      <h>9</h>
+    </coordinates>
+    <panel_attributes>*FornecedorOcasional*
+--
+
+--
+&lt;&lt;construtor&gt;&gt;+FornecedorOcasional(String nome, String endereco, String codigo, String cnpj)
++imprimeInformacoesFornecedor(): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>930</x>
+      <y>97</y>
+      <w>33</w>
+      <h>9</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+*AlertaEstoque*
+--
+
+--
+&lt;&lt;abstract&gt;&gt;+alertaEstoque(Object obj1): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>688</x>
+      <y>166</y>
+      <w>104</w>
+      <h>7</h>
+    </coordinates>
+    <panel_attributes>*ProdutoNaoPerecivel*
+--
+
+--
+&lt;&lt;construtor&gt;&gt;+ProdutoNaoPerecivel(String nome, String codigo, Fornecedor fornecedorProduto, float precoCusto, float precoFinal, String[] apelido)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>539</x>
+      <y>240</y>
+      <w>3</w>
+      <h>14</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>469</x>
+      <y>236</y>
+      <w>48</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>460.0;10.0;10.0;160.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>566</x>
+      <y>234</y>
+      <w>43</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;410.0;180.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>536</x>
+      <y>173</y>
+      <w>3</w>
+      <h>11</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>577</x>
+      <y>164</y>
+      <w>53</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;510.0;180.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>446</x>
+      <y>163</y>
+      <w>51</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>490.0;10.0;10.0;190.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>536</x>
+      <y>143</y>
+      <w>3</w>
+      <h>7</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>496</x>
+      <y>111</y>
+      <w>15</w>
+      <h>9</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>130.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>568</x>
+      <y>111</y>
+      <w>9</w>
+      <h>9</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;70.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>738</x>
+      <y>156</y>
+      <w>8</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>60.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>833</x>
+      <y>156</y>
+      <w>19</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;170.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>945</x>
+      <y>105</y>
+      <w>3</w>
+      <h>8</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>276</x>
+      <y>164</y>
+      <w>3</w>
+      <h>8</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>275</x>
+      <y>187</y>
+      <w>3</w>
+      <h>7</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>306</x>
+      <y>205</y>
+      <w>211</w>
+      <h>26</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;860.0;10.0;860.0;240.0;2090.0;240.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>306</x>
+      <y>156</y>
+      <w>191</w>
+      <h>47</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;450.0;660.0;450.0;660.0;10.0;1890.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>295</x>
+      <y>100</y>
+      <w>216</w>
+      <h>82</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;800.0;530.0;800.0;530.0;10.0;2140.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>568</x>
+      <y>98</y>
+      <w>178</w>
+      <h>11</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+bg=black</panel_attributes>
+    <additional_attributes>1760.0;90.0;1010.0;90.0;1010.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>833</x>
+      <y>121</y>
+      <w>51</w>
+      <h>3</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+bg=black</panel_attributes>
+    <additional_attributes>10.0;10.0;490.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>568</x>
+      <y>106</y>
+      <w>179</w>
+      <h>141</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+bg=black</panel_attributes>
+    <additional_attributes>1770.0;1390.0;1190.0;1390.0;1190.0;160.0;860.0;160.0;860.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>843</x>
+      <y>135</y>
+      <w>112</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+bg=black</panel_attributes>
+    <additional_attributes>10.0;1180.0;1100.0;1180.0;1100.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>577</x>
+      <y>159</y>
+      <w>170</w>
+      <h>97</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+bg=black</panel_attributes>
+    <additional_attributes>1680.0;950.0;1050.0;950.0;1050.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>566</x>
+      <y>227</y>
+      <w>181</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+bg=black</panel_attributes>
+    <additional_attributes>1790.0;400.0;1010.0;400.0;1010.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>793</x>
+      <y>353</y>
+      <w>3</w>
+      <h>14</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+bg=black</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>833</x>
+      <y>135</y>
+      <w>110</w>
+      <h>107</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+bg=black</panel_attributes>
+    <additional_attributes>110.0;1050.0;1080.0;1050.0;1080.0;180.0;260.0;180.0;260.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>730</x>
+      <y>288</y>
+      <w>17</w>
+      <h>3</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+bg=black</panel_attributes>
+    <additional_attributes>150.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>833</x>
+      <y>146</y>
+      <w>97</w>
+      <h>228</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+bg=black</panel_attributes>
+    <additional_attributes>140.0;2260.0;950.0;2260.0;950.0;160.0;200.0;160.0;200.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>566</x>
+      <y>231</y>
+      <w>178</w>
+      <h>151</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+bg=black</panel_attributes>
+    <additional_attributes>1760.0;1490.0;830.0;1490.0;830.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>532</x>
+      <y>206</y>
+      <w>212</w>
+      <h>166</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+bg=black</panel_attributes>
+    <additional_attributes>2100.0;1640.0;1250.0;1640.0;1250.0;120.0;10.0;120.0;10.0;10.0</additional_attributes>
+  </element>
 </diagram>

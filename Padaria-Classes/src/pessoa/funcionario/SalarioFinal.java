@@ -14,5 +14,5 @@ public interface SalarioFinal {
 	 * Pré-condição: não há.
 	 * Pós-condição: retorna um float com o valor do salário final.
 	 */
-	float calcularSalarioFinal ();
+	public float calcularSalarioFinal ();
 }

@@ -41,7 +41,7 @@ public class TestePadariaTremBao{
 		
 		
 		// Produtos NÃO Perecíveis
-		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Café Bom Jesus", "000000", tremBao.encontraFornecedor("000"), 3.47f, 5.47f, null, 30);
+		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Café Bom Jesus", "000000", tremBao.encontraFornecedor("000"), 3.47f, 5.47f, null, 01);
 		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Mucilon", "000001", tremBao.encontraFornecedor("000"), 2.3f, 5.49f, null, 11);
 		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Sal Grosso Qualitá", "000002", tremBao.encontraFornecedor("000"), 0.78f, 1.08f, null, 24);
 		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Oleo Soja Liza", "000003", tremBao.encontraFornecedor("000"), 3.2f, 5.80f , null, 22);
