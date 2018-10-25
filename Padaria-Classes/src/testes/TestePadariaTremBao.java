@@ -41,7 +41,7 @@ public class TestePadariaTremBao{
 		
 		
 		// Produtos NÃO Perecíveis
-		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Café Bom Jesus", "000000", tremBao.encontraFornecedor("000"), 3.47f, 5.47f, null, 01);
+		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Café Bom Jesus", "000000", tremBao.encontraFornecedor("000"), 3.47f, 5.47f, null, 30);
 		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Mucilon", "000001", tremBao.encontraFornecedor("000"), 2.3f, 5.49f, null, 11);
 		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Sal Grosso Qualitá", "000002", tremBao.encontraFornecedor("000"), 0.78f, 1.08f, null, 24);
 		tremBao.getEstoque().cadastrarProdutoNaoPerecivel("Oleo Soja Liza", "000003", tremBao.encontraFornecedor("000"), 3.2f, 5.80f , null, 22);
@@ -69,15 +69,15 @@ public class TestePadariaTremBao{
 		tremBao.getEstoque().cadastrarProdutoPerecivel("Bolo", "000019", tremBao.encontraFornecedor("000"), 15f, 21f, 14, 12, 2018, null, 5);
 		
 		// Vendas
-//		tremBao.adicionarProdutoVenda("000000", 5);
-//		tremBao.realizarVenda("704.878.040-15", "0001", "Débito", 0, 14, 10, 2018);
-//		
-//		
-//		tremBao.adicionarProdutoVenda("000000", 1);
-//		tremBao.realizarVenda("36606204089", "0001", "Dinheiro", 0, 15, 10, 2018);
-//		
-//		tremBao.adicionarProdutoVenda("000001", 1);
-//		tremBao.realizarVenda("36606204089", "0001", "Dinheiro", 0, 15, 10, 2018);
+		tremBao.adicionarProdutoVenda("000000", 5);
+		tremBao.realizarVenda("704.878.040-15", "0001", "Débito", 0, 14, 10, 2018);
+		
+		
+		tremBao.adicionarProdutoVenda("000000", 1);
+		tremBao.realizarVenda("36606204089", "0001", "Dinheiro", 0, 15, 10, 2018);
+		
+		tremBao.adicionarProdutoVenda("000001", 1);
+		tremBao.realizarVenda("36606204089", "0001", "Dinheiro", 0, 15, 10, 2018);
 								
 		TelaPrincipal p = new TelaPrincipal(tremBao);
 		p.main(null);

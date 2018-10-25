@@ -18,6 +18,7 @@ import java.util.Calendar;
 import java.awt.event.ActionEvent;
 import javax.swing.JCheckBox;
 import javax.swing.SwingConstants;
+import java.awt.Font;
 
 public class TelaVendeProduto {
 
@@ -240,6 +241,7 @@ public class TelaVendeProduto {
 		frmVendaDeProdutos.getContentPane().add(chckbxFinalizarVenda);
 		
 		JButton btnAdicionaCarrinho = new JButton("Adicionar produto ao carrinho");
+		btnAdicionaCarrinho.setFont(new Font("Dialog", Font.BOLD, 11));
 		btnAdicionaCarrinho.addActionListener(new ActionListener() {
 			@SuppressWarnings("unlikely-arg-type")
 			public void actionPerformed(ActionEvent e) {
